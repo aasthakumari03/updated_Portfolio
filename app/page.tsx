@@ -148,23 +148,23 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-[1.03] hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)]">
-                <div className="aspect-video bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-transform duration-700 ease-in-out group-hover:scale-110">
-                  <span className="text-4xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500">Project {i}</span>
-                </div>
-                <div className="p-6 transition-colors duration-500 group-hover:bg-indigo-900/20">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300">Stellar Web App {i}</h3>
-                  <p className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-300">A cutting-edge solution built with Next.js and Tailwind CSS.</p>
-                </div>
-                <div className="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
-                  <div className="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-2xl opacity-0 group-hover:opacity-100">
-                    View Details
+          <div className="relative w-full overflow-hidden py-10">
+            <div className="animate-marquee flex gap-12">
+              {[1, 2, 3, 4].map((i, index) => (
+                <div key={index} className="group relative w-56 h-56 rounded-full overflow-hidden bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)] flex-shrink-0">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-transform duration-700 ease-in-out group-hover:scale-110">
+                    <span className="text-3xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500">Project {i}</span>
+                  </div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 className="text-xl font-bold text-white mb-2 text-indigo-300">Stellar Web App {i}</h3>
+                    <p className="text-slate-300 text-xs leading-tight">A cutting-edge solution built with Next.js and Tailwind CSS.</p>
+                    <div className="mt-4 bg-white text-indigo-600 px-6 py-2 rounded-full text-sm font-bold shadow-2xl">
+                      View Details
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
