@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Aastha Kumari",
 };
 
+import CustomCursor from "@/components/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

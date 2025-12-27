@@ -21,6 +21,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  cursor: none !important;
+}
+
+a,
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: none !important;
 }
 
 /* Nebula Animations */
@@ -185,10 +193,44 @@ body {
   .animate-marquee {
     display: flex;
     width: max-content;
-    animation: marquee 12s linear infinite;
+    animation: marquee 20s linear infinite;
   }
 
   .animate-marquee:hover {
     animation-play-state: paused;
+  }
+
+  /* Firecracker Burst */
+  @keyframes particle-burst {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(calc(-50% + var(--tw-translate-x)), calc(-50% + var(--tw-translate-y))) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .firecracker-particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8), 0 0 20px 4px rgba(255, 255, 0, 0.4);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .group:hover .firecracker-particle {
+    animation: particle-burst 2.5s cubic-bezier(0, 0, 0.2, 1) forwards;
   }
 }

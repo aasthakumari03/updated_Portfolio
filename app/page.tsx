@@ -5,6 +5,7 @@ import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import CloudFog from "@/components/CloudFog";
+import ResumeCard from "@/components/ResumeCard";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
@@ -135,6 +136,10 @@ export default function Home() {
             <p className="mx-auto max-w-2xl text-lg text-slate-700 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed drop-shadow-sm" style={{ animationDelay: '0.6s' }}>
               Explore a galaxy of art and code. Where every project is a <span className="text-slate-900 font-medium">star</span> in my creative sky.
             </p>
+
+            <div className="flex justify-center pt-8">
+              <ResumeCard />
+            </div>
           </div>
         </section>
 
@@ -150,19 +155,68 @@ export default function Home() {
           </div>
           <div className="relative w-full overflow-hidden py-10">
             <div className="animate-marquee flex gap-12">
-              {[1, 2, 3, 4].map((i, index) => (
-                <div key={index} className="group relative w-56 h-56 rounded-full overflow-hidden bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)] flex-shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-transform duration-700 ease-in-out group-hover:scale-110">
-                    <span className="text-3xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500">Project {i}</span>
+              {[
+                {
+                  id: 1,
+                  title: "Personal Portfolio",
+                  desc: "A sleek, responsive portfolio featuring custom animations and a modern galaxy theme.",
+                  link: "https://github.com/aasthakumari03/updated_Portfolio"
+                },
+                {
+                  id: 2,
+                  title: "Stellar App 2",
+                  desc: "A cutting-edge solution built with Next.js and Tailwind CSS.",
+                  link: "#"
+                },
+                {
+                  id: 3,
+                  title: "Stellar App 3",
+                  desc: "A cutting-edge solution built with Next.js and Tailwind CSS.",
+                  link: "#"
+                },
+                {
+                  id: 4,
+                  title: "Stellar App 4",
+                  desc: "A cutting-edge solution built with Next.js and Tailwind CSS.",
+                  link: "#"
+                }
+              ].map((project) => (
+                <a
+                  key={project.id}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-56 h-56 rounded-full overflow-hidden bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)] flex-shrink-0 block"
+                >
+                  {/* Background Text Layer */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110">
+                    <span className="text-3xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500">Project {project.id}</span>
                   </div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <h3 className="text-xl font-bold text-white mb-2 text-indigo-300">Stellar Web App {i}</h3>
-                    <p className="text-slate-300 text-xs leading-tight">A cutting-edge solution built with Next.js and Tailwind CSS.</p>
-                    <div className="mt-4 bg-white text-indigo-600 px-6 py-2 rounded-full text-sm font-bold shadow-2xl">
-                      View Details
+
+                  {/* Firecracker Particles */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    {[...Array(16)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="firecracker-particle"
+                        style={{
+                          '--tw-translate-x': `${Math.cos((i * 22.5) * Math.PI / 180) * 150}px`,
+                          '--tw-translate-y': `${Math.sin((i * 22.5) * Math.PI / 180) * 150}px`,
+                          backgroundColor: ['#ff0055', '#ffea00', '#00ff88', '#00ccff', '#ff8800', '#cc00ff'][i % 6]
+                        } as any}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Project Details (Delayed Animation) */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-[2500ms]">
+                    <h3 className="text-lg font-bold text-indigo-300 mb-1 leading-tight">{project.title}</h3>
+                    <p className="text-slate-300 text-[10px] leading-tight mb-3">{project.desc}</p>
+                    <div className="bg-white text-indigo-600 px-4 py-1.5 rounded-full text-[10px] font-bold shadow-2xl">
+                      View Project
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
