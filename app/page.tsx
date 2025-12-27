@@ -1,14 +1,33 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import CloudFog from "@/components/CloudFog";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // If we scroll past 50 pixels, hide the header
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-sky-400 to-sky-200 text-slate-800 selection:bg-white selection:text-sky-600">
       {/* Navigation / Logo */}
-      <div className="fixed top-8 left-8 z-50 flex items-center gap-6">
+      <div className={`fixed top-8 left-8 z-50 flex items-center gap-6 transition-all duration-700 ${isScrolled ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <Logo className="w-10 h-10 text-white" />
 
         {/* Social Icons */}
@@ -42,7 +61,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="fixed top-8 right-8 z-50">
+      <div className={`fixed top-8 right-8 z-50 transition-all duration-700 ${isScrolled ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <Navbar />
       </div>
 
@@ -75,21 +94,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/10 backdrop-blur-sm mt-20">
-          <h2 className="text-5xl font-black text-white mb-16 tracking-tighter">FEATURED <span className="text-indigo-600">PROJECTS</span></h2>
+          <div className="text-center mb-16">
+            <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
+              Featured <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-pulse">
+                Projects
+              </span>
+            </h2>
+            <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl bg-black/40 border border-white/10 transition-all duration-500 hover:scale-105 hover:border-indigo-500/50 hover:shadow-[0_0_30px_rgba(79,70,229,0.3)]">
-                <div className="aspect-video bg-gradient-to-br from-indigo-900 to-slate-900 flex items-center justify-center text-white/20">
-                  <span className="text-4xl font-bold">Project {i}</span>
+              <div key={i} className="group relative overflow-hidden rounded-2xl bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-[1.03] hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)]">
+                <div className="aspect-video bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-transform duration-700 ease-in-out group-hover:scale-110">
+                  <span className="text-4xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500">Project {i}</span>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Stellar Web App {i}</h3>
-                  <p className="text-slate-400 text-sm">A cutting-edge solution built with Next.js and Tailwind CSS.</p>
+                <div className="p-6 transition-colors duration-500 group-hover:bg-indigo-900/20">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300">Stellar Web App {i}</h3>
+                  <p className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-300">A cutting-edge solution built with Next.js and Tailwind CSS.</p>
                 </div>
-                <div className="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">View Details</button>
+                <div className="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                  <div className="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-2xl opacity-0 group-hover:opacity-100">
+                    View Details
+                  </div>
                 </div>
               </div>
             ))}
@@ -98,24 +126,62 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-900/10 backdrop-blur-sm">
-          <h2 className="text-5xl font-black text-white mb-16 tracking-tighter">TECHNICAL <span className="text-purple-600">ARSENAL</span></h2>
+          <h2 className="text-5xl font-black text-white mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-purple-600">ARSENAL</span></h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
-              <div key={skill} className="flex flex-col items-center gap-4 group">
-                <div className="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-indigo-600 group-hover:border-indigo-400 group-hover:rotate-[360deg] group-hover:scale-110 shadow-lg">
-                  <span className="text-xs font-bold uppercase">{skill}</span>
+              <div key={skill} className="flex flex-col items-center gap-6 group">
+                <div className="w-28 h-28 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover:bg-indigo-600 group-hover:border-indigo-400 group-hover:rotate-[360deg] group-hover:scale-125 shadow-xl group-hover:shadow-[0_0_40px_rgba(79,70,229,0.4)]">
+                  <span className="text-xs font-black uppercase tracking-widest">{skill}</span>
                 </div>
-                <span className="text-sm font-medium text-white/60 group-hover:text-white transition-colors">{skill}</span>
+                <span className="text-sm font-bold text-white/40 group-hover:text-white transition-all duration-500 group-hover:translate-y-2 uppercase tracking-tighter opacity-0 group-hover:opacity-100">
+                  {skill}
+                </span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Footer/Contact Info */}
-        <section id="contact" className="py-24 px-6 text-center">
-          <h2 className="text-5xl font-black text-white mb-8 tracking-tighter">LET'S <span className="text-sky-600">CONNECT</span></h2>
-          <p className="text-slate-400 max-w-xl mx-auto mb-12">I'm always open to new opportunities and creative collaborations. Let's build something amazing together.</p>
-          <a href="mailto:hello@aastha.art" className="inline-block bg-white text-indigo-900 px-12 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">Get In Touch</a>
+        {/* Footer/Contact Info / Connect Page */}
+        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/20 backdrop-blur-md">
+          <div className="max-w-4xl w-full text-center space-y-12">
+            <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+              Let's <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 animate-pulse">
+                Connect
+              </span>
+            </h2>
+
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+              My universe is always expanding, and I'm constantly looking for new stars to collaborate with.
+              Whether you have a project in mind or just want to say hello, my signal is always on.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
+              <div className="flex items-center gap-6">
+                <a
+                  href="mailto:aastha0328kumari@gmail.com"
+                  className="group relative inline-block px-12 py-4 rounded-full bg-white text-indigo-900 font-black text-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] overflow-hidden"
+                >
+                  <span className="relative z-10">Send Message</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+
+                <a
+                  href="mailto:aastha0328kumari@gmail.com"
+                  className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 hover:scale-110 active:scale-95"
+                  title="Email Me"
+                >
+                  <FaEnvelope size={28} />
+                </a>
+              </div>
+
+              <div className="flex items-center gap-6 px-8 py-4 bg-white/5 rounded-full border border-white/10 backdrop-blur-xl">
+                <a href="https://github.com/aasthakumari03" target="_blank" className="text-white/60 hover:text-white transition-colors"><FaGithub size={24} /></a>
+                <a href="https://www.linkedin.com/in/aastha-kumari-2116a837a" target="_blank" className="text-white/60 hover:text-blue-400 transition-colors"><FaLinkedin size={24} /></a>
+                <a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-white/60 hover:text-pink-500 transition-colors"><FaInstagram size={24} /></a>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
