@@ -93,11 +93,11 @@ const UniverseBackground = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-0 overflow-hidden bg-black pointer-events-none">
-            {/* Nebula / Colored Lights */}
-            <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-purple-900/30 rounded-full blur-[100px] animate-float-slow mix-blend-screen" />
-            <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-900/20 rounded-full blur-[120px] animate-float-delayed mix-blend-screen" />
-            <div className="absolute top-[40%] left-[30%] w-[40vw] h-[40vw] bg-pink-900/20 rounded-full blur-[100px] animate-pulse-slow mix-blend-screen" />
+        <div className="fixed inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#050510] via-[#0a0a20] to-[#000000] pointer-events-none">
+            {/* Ethereal Dreamy Nebulae */}
+            <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/10 rounded-full blur-[150px] animate-float-slow mix-blend-screen" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[80vw] h-[80vw] bg-purple-900/10 rounded-full blur-[180px] animate-float-delayed mix-blend-screen" />
+            <div className="absolute top-[30%] left-[20%] w-[50vw] h-[50vw] bg-blue-900/5 rounded-full blur-[160px] animate-pulse-slow mix-blend-screen" />
 
             {/* Star Grid Overlay (Static subtle grid for "sci-fi" feel - optional, keeping it simple first) */}
 

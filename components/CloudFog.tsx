@@ -21,7 +21,7 @@ const CloudFog = () => {
             stitchTiles='stitch' />
           <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0" />
         </filter>
-        <rect width='100%' height='100%' filter='url(#noiseFilter)' opacity='0.8'/>
+        <rect width='100%' height='100%' filter='url(#noiseFilter)' opacity='0.4'/>
       </svg>
     `;
     // Encode to base64
@@ -44,18 +44,14 @@ const CloudFog = () => {
           className="cloud-layer absolute inset-0 bg-repeat bg-center opacity-0"
           style={{
             backgroundImage: `url("${noiseUrl}")`,
-            animation: `fog-fly 20s linear infinite`,
-            animationDelay: `${i * 4}s`,
-            // Tinting the smoke slightly bluish/grey can look nice, but let's stick to white smoke first
-            // We use a mask to fade edges if we want a 'tunnel' feel, but fullscreen scale is also fine.
-            // Let's add a radial gradient mask to simulate the "tunnel" hole in center if desired?
-            // "Coming towards" usually means passing THROUGH the clouds.
-            // So the center should be clearer? Or the clouds start small in center and grow?
-            // fog-fly does scale(1) -> scale(3), so they grow TOWARDS user.
+            animation: `fog-fly 30s linear infinite`,
+            animationDelay: `${i * 6}s`,
+            filter: `hue-rotate(${i * 20}deg) brightness(1.2)`, // Slight color variation
+            opacity: 0.1
           }}
         >
-          {/* Gradient overlay for depth/tint */}
-          <div className="absolute inset-0" style={{ background: "radial-gradient(circle, transparent 0%, transparent 40%, rgba(0,0,0,0.8) 100%)" }}></div>
+          {/* Dreamy Gradient Tint */}
+          <div className="absolute inset-0" style={{ background: "radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 60%, rgba(0,0,0,0.4) 100%)" }}></div>
         </div>
       ))}
 
