@@ -14,6 +14,15 @@ export default function Navbar() {
             <div className="h-4 w-[1px] bg-white/10" />
 
             <a
+                href="#skills"
+                className="text-sm font-medium tracking-widest text-white/60 transition-all duration-300 hover:text-[var(--neon-purple)] hover:scale-110 active:scale-95 px-2 uppercase"
+            >
+                Skills
+            </a>
+
+            <div className="h-4 w-[1px] bg-white/10" />
+
+            <a
                 href="#contact"
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-[var(--neon-purple)] hover:text-white hover:scale-105 active:scale-95 border border-white/10 shadow-lg shadow-black/20"
             >

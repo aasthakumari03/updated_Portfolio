@@ -6,6 +6,7 @@
   --neon-pink: #ff00ff;
   --neon-blue: #00ffff;
   --neon-purple: #bf00ff;
+  scroll-behavior: smooth;
 }
 
 @theme inline {
