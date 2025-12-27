@@ -9,6 +9,30 @@ import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
+
+  useEffect(() => {
+    // Stage 1: "Hello" (2s)
+    const helloTimer = setTimeout(() => {
+      setLoadingPhase('namaste');
+    }, 2000);
+
+    // Stage 2: "Namaste" (2s)
+    const namasteTimer = setTimeout(() => {
+      setLoadingPhase('fading');
+    }, 4000);
+
+    // Stage 3: Fade out (1s)
+    const doneTimer = setTimeout(() => {
+      setLoadingPhase('done');
+    }, 5000);
+
+    return () => {
+      clearTimeout(helloTimer);
+      clearTimeout(namasteTimer);
+      clearTimeout(doneTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +50,28 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-sky-400 to-sky-200 text-slate-800 selection:bg-white selection:text-sky-600">
+      {/* Welcome Sequence Screen */}
+      {loadingPhase !== 'done' && (
+        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-opacity duration-1000 ${loadingPhase === 'fading' ? 'opacity-0' : 'opacity-100'}`}>
+          <div className="relative text-center overflow-hidden h-32 w-full max-w-2xl flex items-center justify-center">
+            <h1
+              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 ease-in-out ${loadingPhase === 'hello' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-90 blur-xl'
+                }`}
+            >
+              Hello
+            </h1>
+            <h1
+              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 ease-in-out ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-90 blur-xl'
+                }`}
+            >
+              Namaste
+            </h1>
+          </div>
+        </div>
+      )}
+
       {/* Navigation / Logo */}
-      <div className={`fixed top-8 left-8 z-50 flex items-center gap-6 transition-all duration-700 ${isScrolled ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+      <div className={`fixed top-8 left-8 z-50 flex items-center gap-6 transition-all duration-700 ${isScrolled || loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <Logo className="w-10 h-10 text-white" />
 
         {/* Social Icons */}
@@ -61,7 +105,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={`fixed top-8 right-8 z-50 transition-all duration-700 ${isScrolled ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+      <div className={`fixed top-8 right-8 z-50 transition-all duration-700 ${isScrolled || loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <Navbar />
       </div>
 
@@ -69,7 +113,7 @@ export default function Home() {
       <CloudFog />
 
       {/* Main Content */}
-      <div className="relative z-20">
+      <div className={`relative z-20 transition-all duration-1000 ${loadingPhase === 'done' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 overflow-hidden'}`}>
         {/* Hero Section */}
         <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center select-none">
           <div className="max-w-5xl space-y-12">
