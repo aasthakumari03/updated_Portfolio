@@ -30,7 +30,7 @@ export default function Home() {
             <FaLinkedin size={20} />
           </a>
           <a
-            href="https://www.instagram.com/the_nytheris/#"
+            href="https://www.instagram.com/the_nytheris/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative text-white/80 hover:text-white transition-colors duration-300 hover:scale-110"
@@ -62,13 +62,13 @@ export default function Home() {
 
           {/* Eyebrow Text */}
           <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-            <span className="inline-block rounded-full bg-white/30 px-4 py-1.5 text-xs font-semibold tracking-[0.3em] uppercase text-blue-900 border border-white/40 shadow-sm backdrop-blur-sm">
-              AASTHA's Portfolio
+            <span className="text-8xl font-extrabold drop-shadow-lg font-serif" style={{ fontFamily: "'Playfair Display', 'Georgia', serif", color: '#B36A6A' }}>
+              Aastha Kumari
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="animate-fade-in opacity-0 text-7xl font-black tracking-tighter sm:text-8xl md:text-9xl text-white drop-shadow-lg" style={{ animationDelay: '0.4s' }}>
+          <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-lg" style={{ animationDelay: '0.4s' }}>
             CRAFTING MY <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-pulse">
               UNIVERSE
@@ -79,13 +79,7 @@ export default function Home() {
             Explore a galaxy of art and code. Where every project is a <span className="text-slate-900 font-medium">star</span> in my creative sky.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '0.8s' }}>
-            <button className="group relative px-8 py-4 bg-slate-900 text-white font-bold tracking-widest uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20">
-              <span className="relative z-10">Launch Project</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></div>
-            </button>
-          </div>
+
 
         </div>
       </main>

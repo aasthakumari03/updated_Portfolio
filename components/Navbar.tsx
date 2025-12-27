@@ -8,7 +8,7 @@ export default function Navbar() {
                 href="#projects"
                 className="text-sm font-medium tracking-widest text-white/60 transition-all duration-300 hover:text-[var(--neon-blue)] hover:scale-110 active:scale-95 px-2 uppercase"
             >
-                Projecs
+                Projects
             </a>
 
             <div className="h-4 w-[1px] bg-white/10" />
