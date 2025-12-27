@@ -1,43 +1,91 @@
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
+import UniverseBackground from "@/components/UniverseBackground";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-black text-white selection:bg-white selection:text-black">
       {/* Navigation / Logo */}
-      <div className="absolute top-8 left-8 z-30">
+      <div className="absolute top-8 left-8 z-30 flex items-center gap-6">
         <Logo className="w-10 h-10" />
+
+        {/* Social Icons */}
+        <div className="flex items-center gap-4 pl-4 border-l border-white/10">
+          <a
+            href="https://github.com/aasthakumari03"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors duration-300 hover:scale-110"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/aastha-kumari-2116a837a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-[#0077b5] transition-colors duration-300 hover:scale-110"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/the_nytheris/#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative text-white/70 hover:text-white transition-colors duration-300 hover:scale-110"
+          >
+            {/* Instagram Gradient Hover Effect via background clip or just color change. 
+                    Simple color change to a 'pink' is easier, but gradienttext is requested?
+                    "original logo... should shine when hovered" - Logo should shine.
+                    "create the original logo of ... beside 'AK' logo"
+                    I'll stick to a nice hover color or gradient. Instagram is gradient.
+                    I can use a wrapper or just a simplistic hover color like pink for now to match 'original' vibe which usually means the colorful icon.
+                */}
+            <div className="relative overflow-hidden rounded-md group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
+              <FaInstagram size={20} />
+            </div>
+          </a>
+        </div>
       </div>
 
       <div className="absolute top-8 right-8 z-30">
         <Navbar />
       </div>
-      {/* Background Image Container */}
-      <div
-        className="absolute inset-0 z-0 opacity-60"
-        style={{
-          backgroundImage: "url('/background-waterfall.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
 
-      {/* Gradient Overlay for Depth */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-transparent to-black" />
+      {/* Universe Background */}
+      <UniverseBackground />
 
       {/* Main Content */}
-      <main className="relative z-20 flex min-h-screen flex-col items-center justify-center px-6 text-center">
-        <div className="max-w-4xl space-y-8">
-          <h1 className="animate-fade-in text-5xl font-extrabold tracking-tighter sm:text-7xl md:text-8xl">
-            Elegance in <span className="text-zinc-500">Motion</span>
+      <main className="relative z-20 flex min-h-screen flex-col items-center justify-center px-6 text-center select-none">
+        <div className="max-w-5xl space-y-12">
+
+          {/* Eyebrow Text */}
+          <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+            <span className="inline-block rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-[0.3em] uppercase text-[var(--neon-blue)] border border-white/10 shadow-[0_0_10px_rgba(0,255,255,0.2)]">
+              AASTHA's Portfolio
+            </span>
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="animate-fade-in opacity-0 text-7xl font-black tracking-tighter sm:text-8xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 filter drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" style={{ animationDelay: '0.4s' }}>
+            CRAFTING MY <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--neon-purple)] via-[var(--neon-pink)] to-[var(--neon-blue)] animate-pulse">
+              UNIVERSE
+            </span>
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-zinc-400 sm:text-xl">
-            Welcome to my professional portfolio. A space where minimalist design
-            meets powerful functionality.
+          <p className="mx-auto max-w-2xl text-lg text-zinc-400 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed" style={{ animationDelay: '0.6s' }}>
+            Explore a galaxy of art and code. Where every project is a <span className="text-white font-medium">star</span> in my creative sky.
           </p>
+
+          {/* CTA Buttons */}
+          <div className="flex items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '0.8s' }}>
+            <button className="group relative px-8 py-4 bg-white text-black font-bold tracking-widest uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]">
+              <span className="relative z-10">Launch Project</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></div>
+            </button>
+          </div>
 
         </div>
       </main>

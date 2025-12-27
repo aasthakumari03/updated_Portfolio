@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 
 interface LogoProps {
     className?: string;
@@ -7,33 +7,53 @@ interface LogoProps {
 }
 
 export default function Logo({ className = "w-10 h-10", variant = "AK" }: LogoProps) {
+    const [isHovered, setIsHovered] = useState(false);
+    const [displayText, setDisplayText] = useState("AK");
+
+    React.useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+        const fullName = "AASTHA KUMARI";
+
+        if (isHovered) {
+            let currentIndex = 0;
+            // Clear "AK" and start typing "A..."
+            setDisplayText("");
+
+            const typeNextChar = () => {
+                if (currentIndex < fullName.length) {
+                    setDisplayText(fullName.slice(0, currentIndex + 1));
+                    currentIndex++;
+                    timeoutId = setTimeout(typeNextChar, 100); // Speed of typing
+                }
+            };
+
+            // Small delay start or immediate? Immediate feels snappier but let's clear first.
+            typeNextChar();
+
+        } else {
+            // Reset immediately on hover out
+            setDisplayText("AK");
+        }
+
+        return () => clearTimeout(timeoutId);
+    }, [isHovered]);
+
     return (
-        <div className="group relative flex items-center bg-black/60 backdrop-blur-xl p-3 rounded-2xl transition-all duration-500 hover:pr-8 shadow-2xl shadow-white/5 overflow-hidden max-w-fit border border-white/20 hover:border-white/40 decoration-none no-underline cursor-pointer">
+        <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`group relative flex items-center bg-black/40 backdrop-blur-xl p-3 rounded-full transition-all duration-500 border border-white/10 hover:border-white/40 cursor-pointer shadow-[0_0_25px_rgba(191,0,255,0.3)] hover:shadow-[0_0_40px_rgba(0,255,255,0.5)] ${isHovered ? 'pr-8' : ''}`}
+        >
             {/* Dynamic Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-purple)] to-[var(--neon-blue)] opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
 
-            <div className="flex items-center gap-4">
-                <div className="flex items-center">
-                    <svg
-                        viewBox="0 0 400 200"
-                        className={`${className} relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
-                        fill="white"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        {/* Letter A (Slanted) */}
-                        <path d="M40 160L140 40L240 160H190L165 125H115L90 160H40Z" />
-                        <path d="M140 90L152 75H128L140 90Z" fill="black" opacity="0.1" />
-                        {/* Letter K (Slanted) */}
-                        <path d="M245 40L205 160H255L295 40H245Z" />
-                        <path d="M285 40L385 40L315 105L285 40Z" />
-                        <path d="M305 115L385 160H335L270 115L305 115Z" />
-                    </svg>
+            {/* Shine Effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:animate-[shine_1s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent z-0 pointer-events-none" />
 
-                    {/* Typing Text Effect */}
-                    <span className="logo-typing-text whitespace-nowrap overflow-hidden border-r-2 border-transparent text-white font-bold tracking-widest text-lg uppercase">
-                        AASTHA KUMARI
-                    </span>
-                </div>
+            <div className="flex items-center justify-center relative z-10">
+                <span className={`font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--neon-blue)] whitespace-nowrap transition-all duration-500 ease-in-out ${isHovered ? 'text-lg' : 'text-xl'}`}>
+                    {displayText}
+                </span>
             </div>
         </div>
     );
