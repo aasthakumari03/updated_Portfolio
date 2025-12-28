@@ -137,13 +137,13 @@ export default function Home() {
               Explore a galaxy of art and code. Where every project is a <span className="text-indigo-400 font-medium">star</span> in my creative sky.
             </p>
 
-            <div className="flex justify-center pt-8">
+            <div className="flex justify-center pt-8 -translate-x-10">
               <ResumeCard />
             </div>
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/10 backdrop-blur-sm mt-20">
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/20 backdrop-blur-sm mt-20">
           <div className="text-center mb-16">
             <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
@@ -153,8 +153,8 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full"></div>
           </div>
-          <div className="relative w-full overflow-hidden py-10">
-            <div className="animate-marquee flex gap-12">
+          <div className="relative w-full py-10 overflow-x-auto custom-scrollbar">
+            <div className="flex flex-nowrap justify-start md:justify-center gap-6 max-w-7xl mx-auto px-10 pb-10">
               {[
                 {
                   id: 1,
@@ -186,35 +186,40 @@ export default function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative w-72 h-72 rounded-full overflow-hidden bg-black/40 border border-white/10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:border-indigo-500/50 hover:shadow-[0_0_50px_rgba(79,70,229,0.2)] flex-shrink-0 block"
+                  className="group relative w-72 h-72 overflow-visible transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-105 hover:-translate-y-6 flex-shrink-0 block"
                 >
-                  {/* Background Text Layer */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center text-white/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110 p-6 text-center">
-                    <span className="text-2xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500 uppercase tracking-tighter">{project.title}</span>
-                  </div>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-br from-[#0a0a25]/80 via-indigo-950/60 to-black/80 border-white/5 backdrop-blur-sm transition-all duration-500 group-hover:from-indigo-600/30 group-hover:to-purple-600/30 group-hover:drop-shadow-[0_0_30px_rgba(129,140,248,0.6)]"
+                    style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}
+                  >
+                    {/* Background Text Layer */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-800/20 via-[#0a0a25]/40 to-black/40 flex items-center justify-center text-white/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110 p-12 text-center">
+                      <span className="text-xl font-bold text-white/30 group-hover:text-white/50 transition-colors duration-500 uppercase tracking-tighter">{project.title}</span>
+                    </div>
 
-                  {/* Firecracker Particles */}
-                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    {[...Array(32)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="firecracker-particle"
-                        style={{
-                          '--tw-translate-x': `${Math.cos((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
-                          '--tw-translate-y': `${Math.sin((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
-                          backgroundColor: ['#ff0055', '#ffea00', '#00ff88', '#00ccff', '#ff8800', '#cc00ff', '#ffffff'][i % 7],
-                          animationDelay: `${Math.random() * 0.2}s`
-                        } as any}
-                      />
-                    ))}
-                  </div>
+                    {/* Firecracker Particles */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                      {[...Array(32)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="firecracker-particle"
+                          style={{
+                            '--tw-translate-x': `${Math.cos((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
+                            '--tw-translate-y': `${Math.sin((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
+                            backgroundColor: ['#ff0055', '#ffea00', '#00ff88', '#00ccff', '#ff8800', '#cc00ff', '#ffffff'][i % 7],
+                            animationDelay: `${Math.random() * 0.2}s`
+                          } as any}
+                        />
+                      ))}
+                    </div>
 
-                  {/* Project Details (Delayed Animation) */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-10 text-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-[500ms]">
-                    <h3 className="text-xl font-bold text-indigo-300 mb-2 leading-tight">{project.title}</h3>
-                    <p className="text-slate-300 text-xs leading-tight mb-4">{project.desc}</p>
-                    <div className="bg-white text-indigo-600 px-6 py-2 rounded-full text-xs font-bold shadow-2xl">
-                      View Project
+                    {/* Project Details (Delayed Animation) */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center bg-indigo-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-[500ms]">
+                      <h3 className="text-lg font-bold text-indigo-300 mb-2 leading-tight">{project.title}</h3>
+                      <p className="text-slate-300 text-[10px] leading-tight mb-4">{project.desc}</p>
+                      <div className="bg-white text-indigo-600 px-5 py-1.5 rounded-full text-[10px] font-bold shadow-2xl">
+                        View Project
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -224,7 +229,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-900/10 backdrop-blur-sm">
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-950/20 backdrop-blur-sm">
           <h2 className="text-5xl font-black text-white mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-purple-600">ARSENAL</span></h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (

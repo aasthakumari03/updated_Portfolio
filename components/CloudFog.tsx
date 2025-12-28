@@ -46,8 +46,8 @@ const CloudFog = () => {
             backgroundImage: `url("${noiseUrl}")`,
             animation: `fog-fly 30s linear infinite`,
             animationDelay: `${i * 6}s`,
-            filter: `hue-rotate(${i * 20}deg) brightness(1.2)`, // Slight color variation
-            opacity: 0.1
+            filter: `hue-rotate(${i * 20}deg) brightness(1.5)`, // Slight color variation
+            opacity: 0.18
           }}
         >
           {/* Dreamy Gradient Tint */}
