@@ -23,6 +23,9 @@ export const metadata: Metadata = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
+import BackgroundDepth from "@/components/BackgroundDepth";
+import CloudFog from "@/components/CloudFog";
+import RainParticles from "@/components/RainParticles";
 
 export default function RootLayout({
   children,
@@ -34,6 +37,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <BackgroundDepth />
+        <CloudFog />
+        <RainParticles />
         <CustomCursor />
         {children}
       </body>

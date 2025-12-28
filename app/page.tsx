@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
-import CloudFog from "@/components/CloudFog";
 import ResumeCard from "@/components/ResumeCard";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
@@ -110,9 +109,6 @@ export default function Home() {
         <Navbar />
       </div>
 
-      {/* Cloud Fog Animation */}
-      <CloudFog />
-
       {/* Main Content */}
       <div className={`relative z-20 transition-all duration-1000 ${loadingPhase === 'done' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 overflow-hidden'}`}>
         {/* Hero Section */}
@@ -188,6 +184,20 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="group relative w-72 h-72 overflow-visible transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-105 hover:-translate-y-6 flex-shrink-0 block"
                 >
+                  {/* Star Border Overlay */}
+                  <svg
+                    className="absolute inset-0 w-full h-full pointer-events-none z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_15px_rgba(129,140,248,0.6)] transition-all duration-500"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                  >
+                    <polygon
+                      points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35"
+                      fill="none"
+                      className="stroke-white/20 group-hover:stroke-indigo-400 transition-all duration-500"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+
                   <div
                     className="absolute inset-0 bg-gradient-to-br from-[#0a0a25]/80 via-indigo-950/60 to-black/80 border-white/5 backdrop-blur-sm transition-all duration-500 group-hover:from-indigo-600/30 group-hover:to-purple-600/30 group-hover:drop-shadow-[0_0_30px_rgba(129,140,248,0.6)]"
                     style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}
