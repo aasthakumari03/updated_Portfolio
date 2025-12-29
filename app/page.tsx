@@ -139,6 +139,23 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Me Section */}
+        <section id="about" className="min-h-[50vh] flex flex-col items-center justify-center py-24 px-6 bg-white/5 backdrop-blur-sm mt-10">
+          <div className="max-w-4xl text-center space-y-8">
+            <h2 className="text-6xl md:text-8xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Me</span>
+            </h2>
+            <p className="text-xl md:text-2xl text-slate-200 font-semibold leading-relaxed max-w-3xl mx-auto">
+              I am a <span className="text-indigo-400">Creative Developer</span> and <span className="text-purple-400">Designer</span> passionate about building immersive digital experiences.
+              My journey through the vast universe of code has led me to specialize in React, Next.js, and modern web aesthetics.
+            </p>
+            <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
+              I believe that every line of code is a brushstroke on the canvas of the web.
+              When I'm not crafting my digital universe, you can find me exploring new stars in the open-source galaxy or refining my technical arsenal.
+            </p>
+          </div>
+        </section>
+
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/20 backdrop-blur-sm mt-20">
           <div className="text-center mb-16">
             <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
@@ -258,14 +275,14 @@ export default function Home() {
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/60 backdrop-blur-xl">
           <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-7xl md:text-9xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 animate-pulse">
                 Connect
               </span>
             </h2>
 
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-semibold">
               My universe is always expanding, and I'm constantly looking for new stars to collaborate with.
               Whether you have a project in mind or just want to say hello, my signal is always on.
             </p>

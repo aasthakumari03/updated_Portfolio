@@ -5,13 +5,20 @@ export default function Navbar() {
     return (
         <nav className="flex items-center gap-4 bg-black/20 backdrop-blur-2xl px-6 py-3 rounded-full border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all hover:border-[var(--neon-blue)] hover:shadow-[0_0_30px_rgba(0,255,255,0.2)]">
             <a
+                href="#about"
+                className="text-sm font-medium tracking-widest text-white/60 transition-all duration-300 hover:text-[var(--neon-blue)] hover:scale-110 active:scale-95 px-2 uppercase"
+            >
+                About
+            </a>
+
+            <div className="h-4 w-[1px] bg-white/10" />
+
+            <a
                 href="#projects"
                 className="text-sm font-medium tracking-widest text-white/60 transition-all duration-300 hover:text-[var(--neon-blue)] hover:scale-110 active:scale-95 px-2 uppercase"
             >
                 Projects
             </a>
-
-            <div className="h-4 w-[1px] bg-white/10" />
 
             <a
                 href="#skills"

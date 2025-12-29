@@ -54,14 +54,14 @@ const BackgroundDepth = () => {
             <div
                 className="absolute inset-0 opacity-10"
                 style={{
-                    backgroundImage: "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+                    backgroundImage: "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px)",
                     backgroundSize: "100px 100px",
                     transform: "translateZ(-100px) scale(2)",
                 }}
             />
 
             {/* Subtle Grid / Texture for Depth */}
-            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
+            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle, #fff 1.5px, transparent 1.5px)", backgroundSize: "50px 50px" }} />
         </div>
     );
 };
