@@ -51,12 +51,12 @@ const CloudFog = () => {
           }}
         >
           {/* Dreamy Gradient Tint */}
-          <div className="absolute inset-0" style={{ background: "radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 60%, rgba(0,0,0,0.4) 100%)" }}></div>
+          <div className="absolute inset-0" style={{ background: "radial-gradient(circle, rgba(224, 242, 254, 0.2) 0%, transparent 60%, rgba(0,0,0,0.3) 100%)" }}></div>
         </div>
       ))}
 
       {/* Global vignette to focus center */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle, transparent 20%, #000 100%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle, transparent 20%, #080916 100%)" }} />
     </div>
   );
 };

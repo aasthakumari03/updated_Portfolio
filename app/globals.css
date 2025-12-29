@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
+  --background: #080916;
   --foreground: #ffffff;
   --neon-pink: #ff00ff;
-  --neon-blue: #00ffff;
-  --neon-purple: #bf00ff;
+  --neon-blue: #bae6fd;
+  --neon-purple: #818cf8;
   scroll-behavior: smooth;
 }
 

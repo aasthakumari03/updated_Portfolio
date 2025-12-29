@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-transparent text-white selection:bg-white selection:text-indigo-600">
+    <div className="relative min-h-screen bg-transparent text-white selection:bg-indigo-300/30 selection:text-white">
       {/* Welcome Sequence Screen */}
       {loadingPhase !== 'done' && (
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-opacity duration-1000 ${loadingPhase === 'fading' ? 'opacity-0' : 'opacity-100'}`}>
@@ -116,7 +116,7 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl font-extrabold drop-shadow-lg font-serif" style={{ fontFamily: "'Playfair Display', 'Georgia', serif", color: '#B36A6A' }}>
+              <span className="text-8xl font-extrabold drop-shadow-lg font-serif" style={{ fontFamily: "'Playfair Display', 'Georgia', serif", color: '#E0E7FF' }}>
                 Aastha Kumari
               </span>
             </div>
@@ -129,7 +129,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed drop-shadow-sm" style={{ animationDelay: '0.6s' }}>
+            <p className="mx-auto max-w-2xl text-lg text-indigo-100/90 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed drop-shadow-sm" style={{ animationDelay: '0.6s' }}>
               {"Explore a galaxy of art and code. Where every project is a star in my creative sky.".split(" ").map((word, i) => (
                 <span key={i} className="hover-word">{word}{" "}</span>
               ))}
@@ -142,12 +142,12 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/5 backdrop-blur-sm">
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/10 backdrop-blur-sm">
           <div className="max-w-6xl text-center space-y-8">
             <h2 className="text-6xl md:text-8xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Me</span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-200 font-semibold leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-indigo-100/90 font-semibold leading-relaxed max-w-3xl mx-auto">
               {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
                 <span key={i} className="hover-word">{word}{" "}</span>
               ))}
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/20 backdrop-blur-sm mt-20">
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-[#080916]/40 backdrop-blur-sm mt-20">
           <div className="text-center mb-16">
             <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
@@ -255,7 +255,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-950/20 backdrop-blur-sm">
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-900/10 backdrop-blur-sm">
           <h2 className="text-5xl font-black text-white mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-purple-600">ARSENAL</span></h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
@@ -272,7 +272,7 @@ export default function Home() {
         </section>
 
         {/* Footer/Contact Info / Connect Page */}
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-black/60 backdrop-blur-xl">
+        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-[#080916]/80 backdrop-blur-xl">
           <div className="max-w-4xl w-full text-center space-y-12">
             <h2 className="text-7xl md:text-9xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
