@@ -142,8 +142,8 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-[50vh] flex flex-col items-center justify-center py-24 px-6 bg-white/5 backdrop-blur-sm mt-10">
-          <div className="max-w-4xl text-center space-y-8">
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/5 backdrop-blur-sm">
+          <div className="max-w-6xl text-center space-y-8">
             <h2 className="text-6xl md:text-8xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Me</span>
             </h2>
