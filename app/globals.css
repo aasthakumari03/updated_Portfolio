@@ -267,4 +267,23 @@ button,
     pointer-events: none;
     will-change: transform, opacity;
   }
+
+  /* Word Lift and Shine Effect */
+  .hover-word {
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    white-space: pre;
+  }
+
+  .hover-word:hover {
+    transform: translateY(-8px) scale(1.05);
+    color: #fff;
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(129, 140, 248, 0.4);
+    filter: brightness(1.3);
+  }
 }
+
+```

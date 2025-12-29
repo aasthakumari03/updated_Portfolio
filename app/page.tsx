@@ -130,7 +130,9 @@ export default function Home() {
             </h1>
 
             <p className="mx-auto max-w-2xl text-lg text-slate-300 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed drop-shadow-sm" style={{ animationDelay: '0.6s' }}>
-              Explore a galaxy of art and code. Where every project is a <span className="text-indigo-400 font-medium">star</span> in my creative sky.
+              {"Explore a galaxy of art and code. Where every project is a star in my creative sky.".split(" ").map((word, i) => (
+                <span key={i} className="hover-word">{word}{" "}</span>
+              ))}
             </p>
 
             <div className="flex justify-center pt-8 -translate-x-10">
@@ -146,12 +148,9 @@ export default function Home() {
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Me</span>
             </h2>
             <p className="text-xl md:text-2xl text-slate-200 font-semibold leading-relaxed max-w-3xl mx-auto">
-              I am a <span className="text-indigo-400">Creative Developer</span> and <span className="text-purple-400">Designer</span> passionate about building immersive digital experiences.
-              My journey through the vast universe of code has led me to specialize in React, Next.js, and modern web aesthetics.
-            </p>
-            <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
-              I believe that every line of code is a brushstroke on the canvas of the web.
-              When I'm not crafting my digital universe, you can find me exploring new stars in the open-source galaxy or refining my technical arsenal.
+              {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
+                <span key={i} className="hover-word">{word}{" "}</span>
+              ))}
             </p>
           </div>
         </section>
