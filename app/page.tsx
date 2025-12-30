@@ -12,17 +12,17 @@ export default function Home() {
   const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
 
   useEffect(() => {
-    // Stage 1: "Hello" (2s)
+    // Stage 1: "Hello" (1.5s)
     const helloTimer = setTimeout(() => {
       setLoadingPhase('namaste');
-    }, 2000);
+    }, 1500);
 
     // Stage 2: "Namaste" (2s)
     const namasteTimer = setTimeout(() => {
       setLoadingPhase('fading');
-    }, 4000);
+    }, 3500);
 
-    // Stage 3: Fade out (1s)
+    // Stage 3: Fade out / Vapour Effect (1.5s)
     const doneTimer = setTimeout(() => {
       setLoadingPhase('done');
     }, 5000);
@@ -52,16 +52,26 @@ export default function Home() {
     <div className="relative min-h-screen bg-transparent text-white selection:bg-indigo-300/30 selection:text-white">
       {/* Welcome Sequence Screen */}
       {loadingPhase !== 'done' && (
-        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-opacity duration-1000 ${loadingPhase === 'fading' ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="relative text-center overflow-hidden h-32 w-full max-w-2xl flex items-center justify-center">
+        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
+          <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
             <h1
-              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 ease-in-out ${loadingPhase === 'hello' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-90 blur-xl'
-                }`}
+              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] flex`}
             >
-              Hello
+              {"Hello".split("").map((letter, i) => (
+                <span
+                  key={i}
+                  className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
+                    ? 'opacity-100 scale-110 blur-0 translate-y-0'
+                    : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
+                    }`}
+                  style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
+                >
+                  {letter}
+                </span>
+              ))}
             </h1>
             <h1
-              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 ease-in-out ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-90 blur-xl'
+              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
                 }`}
             >
               Namaste
@@ -274,16 +284,17 @@ export default function Home() {
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-pulse">
                 Connect
               </span>
             </h2>
 
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-semibold">
-              My universe is always expanding, and I'm constantly looking for new stars to collaborate with.
-              Whether you have a project in mind or just want to say hello, my signal is always on.
+            <p className="text-xl md:text-2xl text-indigo-100/90 max-w-2xl mx-auto leading-relaxed font-semibold">
+              {"My universe is always expanding, and I'm constantly looking for new stars to collaborate with. Whether you have a project in mind or just want to say hello, my signal is always on.".split(" ").map((word, i) => (
+                <span key={i} className="hover-word">{word}{" "}</span>
+              ))}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
