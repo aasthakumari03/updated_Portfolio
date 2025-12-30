@@ -142,7 +142,7 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-white/10 backdrop-blur-sm">
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-6xl text-center space-y-8">
             <h2 className="text-6xl md:text-8xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Me</span>
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-[#080916]/40 backdrop-blur-sm mt-20">
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent mt-20">
           <div className="text-center mb-16">
             <h2 className="text-7xl md:text-9xl font-black text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
@@ -255,7 +255,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-indigo-900/10 backdrop-blur-sm">
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <h2 className="text-5xl font-black text-white mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-purple-600">ARSENAL</span></h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
@@ -272,7 +272,7 @@ export default function Home() {
         </section>
 
         {/* Footer/Contact Info / Connect Page */}
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-[#080916]/80 backdrop-blur-xl">
+        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
             <h2 className="text-7xl md:text-9xl font-semibold text-white tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
