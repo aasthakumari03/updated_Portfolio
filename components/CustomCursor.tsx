@@ -40,7 +40,7 @@ const CustomCursor = () => {
 
         const animate = () => {
             // Lerp factor
-            const dotLerp = 0.25;
+            const dotLerp = 0.35;
 
             // Calculate new positions
             cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * dotLerp;
@@ -49,7 +49,7 @@ const CustomCursor = () => {
             // Apply styles directly to DOM for maximum performance
             if (dotRef.current) {
                 const isHovering = isHoveringRef.current;
-                const size = 8;
+                const size = 12;
                 const scale = isHovering ? 2.5 : 1;
 
                 // Use translate3d for GPU acceleration
@@ -74,7 +74,7 @@ const CustomCursor = () => {
     return (
         <div
             ref={dotRef}
-            className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999] border border-white/50 shadow-[0_0_10px_rgba(255,255,255,0.3)] opacity-0"
+            className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999] border border-white/50 shadow-[0_0_10px_rgba(255,255,255,0.3)] opacity-0"
             style={{
                 willChange: 'transform, opacity',
                 transition: 'opacity 0.3s ease-out'
