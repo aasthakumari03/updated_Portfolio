@@ -38,8 +38,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         <GrainyGradientBackground />
-        <BackgroundDepth />
-        <UniverseBackground />
         <CustomCursor />
         {children}
       </body>
