@@ -89,8 +89,6 @@ const UniverseBackground = () => {
 
                 if (this.opacity <= 0 || this.x < 0 || this.y > height) {
                     this.reset();
-                    // Don't restart immediately, hide it for a while
-                    this.opacity = -Math.random() * 10;
                 }
             }
 
@@ -109,7 +107,7 @@ const UniverseBackground = () => {
             stars.push(new Star());
         }
 
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 4; i++) {
             shootingStars.push(new ShootingStar());
         }
 
@@ -150,9 +148,35 @@ const UniverseBackground = () => {
             {/* Background Glow Transition (Black to Blue) */}
             <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#05112e]" />
 
-            {/* Moon-like appearance */}
-            <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-white/5 blur-[80px] animate-pulse-slow" />
-            <div className="absolute top-20 right-20 w-16 h-16 rounded-full bg-white/20 blur-md" />
+            {/* Hard, Grainy, Dotted Moon */}
+            <div className="absolute top-16 right-16 w-32 h-32 rounded-full bg-[#0a0a0a] shadow-[inset_-15px_-15px_30px_rgba(0,0,0,1),0_0_60px_rgba(255,255,255,0.03)] overflow-hidden border border-white/5 animate-float-slow">
+                {/* Moon Surface Texture */}
+                <div className="absolute inset-0 opacity-40 mix-blend-overlay">
+                    <svg width="100%" height="100%">
+                        <filter id="moonGrain">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+                            <feColorMatrix type="saturate" values="0" />
+                        </filter>
+                        <rect width="100%" height="100%" filter="url(#moonGrain)" />
+                    </svg>
+                </div>
+                {/* Dotted Craters (Hard, Black, Dotted Appearance) */}
+                <div className="absolute inset-0">
+                    <div className="absolute top-6 left-8 w-6 h-6 rounded-full bg-black/60 shadow-inner blur-[0.5px]" />
+                    <div className="absolute top-16 left-16 w-8 h-8 rounded-full bg-black/50 shadow-inner blur-[0.5px]" />
+                    <div className="absolute top-22 left-6 w-4 h-4 rounded-full bg-black/70 shadow-inner blur-[0.5px]" />
+                    <div className="absolute top-4 left-20 w-3 h-3 rounded-full bg-black/40 shadow-inner blur-[0.5px]" />
+                    <div className="absolute top-24 left-18 w-5 h-5 rounded-full bg-black/60 shadow-inner blur-[0.5px]" />
+                    {/* Small Dotted Details */}
+                    <div className="absolute top-10 left-10 w-1 h-1 rounded-full bg-black opacity-80" />
+                    <div className="absolute top-14 left-24 w-1.5 h-1.5 rounded-full bg-black opacity-80" />
+                    <div className="absolute top-20 left-12 w-1 h-1 rounded-full bg-black opacity-80" />
+                </div>
+                {/* Moon Lighting / Crescent Fade */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-white/5 opacity-50" />
+            </div>
+
+            <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-white/5 blur-[100px] pointer-events-none" />
 
             {/* Ethereal Nebulae/Glows */}
             <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />

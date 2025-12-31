@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #020617;
-  --overlay-bg: rgba(255, 255, 255, 0.9);
-  --blob-opacity: 0.15;
-  --text-muted: rgba(2, 6, 23, 0.7);
-  --section-divider: rgba(2, 6, 23, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --card-border: rgba(2, 6, 23, 0.05);
-  --noise-opacity: 0.2;
-  --noise-blend: multiply;
-  --button-bg: #0f172a;
-  --button-text: #ffffff;
-  --button-gradient-from: #1e293b;
-  --button-gradient-to: #0f172a;
+  --background: #000000;
+  --foreground: #f8fafc;
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --blob-opacity: 0.2;
+  --text-muted: rgba(248, 250, 252, 0.7);
+  --section-divider: rgba(248, 250, 252, 0.1);
+  --card-bg: rgba(15, 23, 42, 0.8);
+  --card-border: rgba(248, 250, 252, 0.1);
+  --noise-opacity: 0.3;
+  --noise-blend: soft-light;
+  --button-bg: #f8fafc;
+  --button-text: #020617;
+  --button-gradient-from: #f8fafc;
+  --button-gradient-to: #e2e8f0;
 
   --neon-pink: #ff00ff;
   --neon-blue: #bae6fd;
