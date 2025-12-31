@@ -1,19 +1,47 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const GrainyGradientBackground = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!containerRef.current) return;
+            const { clientX, clientY } = e;
+            const xPos = (clientX / window.innerWidth - 0.5) * 40;
+            const yPos = (clientY / window.innerHeight - 0.5) * 40;
+
+            containerRef.current.style.setProperty('--mouse-x', `${xPos}px`);
+            containerRef.current.style.setProperty('--mouse-y', `${yPos}px`);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
-        <div className="fixed inset-0 z-[-1] overflow-hidden bg-black pointer-events-none">
-            {/* Moving Blurred Blobs (Big Light Particles) */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/25 rounded-full blur-[120px] animate-blob-float mix-blend-screen" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-purple-700/20 rounded-full blur-[150px] animate-blob-float-reverse mix-blend-screen" />
-            <div className="absolute top-[30%] left-[20%] w-[45vw] h-[45vw] bg-blue-800/15 rounded-full blur-[120px] animate-blob-pulse mix-blend-screen" />
-            <div className="absolute bottom-[20%] left-[10%] w-[40vw] h-[40vw] bg-indigo-900/15 rounded-full blur-[130px] animate-float-slow mix-blend-screen" />
-            <div className="absolute top-[10%] right-[15%] w-[35vw] h-[35vw] bg-purple-800/15 rounded-full blur-[110px] animate-float-delayed mix-blend-screen" />
+        <div ref={containerRef} className="fixed inset-0 z-[-1] overflow-hidden bg-black pointer-events-none">
+            {/* Bunched Moving Blurred Blobs (Big Light Particles) */}
+            <div
+                className="absolute top-[30%] left-[30%] w-[55vw] h-[55vw] bg-indigo-600/25 rounded-full blur-[130px] animate-blob-float mix-blend-screen transition-transform duration-700 ease-out"
+                style={{ transform: 'translate(var(--mouse-x, 0), var(--mouse-y, 0))' }}
+            />
+            <div
+                className="absolute top-[35%] left-[35%] w-[65vw] h-[65vw] bg-purple-700/20 rounded-full blur-[160px] animate-blob-float-reverse mix-blend-screen transition-transform duration-1000 ease-out"
+                style={{ transform: 'translate(calc(var(--mouse-x, 0) * -1.2), calc(var(--mouse-y, 0) * -1.2))' }}
+            />
+            <div
+                className="absolute top-[40%] left-[25%] w-[50vw] h-[50vw] bg-blue-800/15 rounded-full blur-[140px] animate-blob-pulse mix-blend-screen transition-transform duration-500 ease-out"
+                style={{ transform: 'translate(calc(var(--mouse-x, 0) * 0.8), calc(var(--mouse-y, 0) * 0.8))' }}
+            />
+            <div
+                className="absolute top-[45%] left-[40%] w-[45vw] h-[45vw] bg-indigo-900/15 rounded-full blur-[150px] animate-float-slow mix-blend-screen transition-transform duration-1200 ease-out"
+                style={{ transform: 'translate(calc(var(--mouse-x, 0) * -0.5), calc(var(--mouse-y, 0) * -0.5))' }}
+            />
 
             {/* Noise Overlay Filter (Grainy Texture) */}
-            <svg className="absolute inset-0 w-full h-full opacity-[0.35] pointer-events-none mix-blend-overlay">
+            <svg className="absolute inset-0 w-full h-full opacity-[0.4] pointer-events-none mix-blend-overlay">
                 <filter id="noiseFilter">
                     <feTurbulence
                         type="fractalNoise"
