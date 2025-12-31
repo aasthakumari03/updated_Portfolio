@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-gray-100 to-slate-400 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
+            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-500 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
               CRAFTING MY <br />
               UNIVERSE
             </h1>
@@ -229,9 +229,9 @@ export default function Home() {
                     {/* Background Text Layer */}
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/40 via-white/40 to-slate-100/40 flex items-center justify-center text-indigo-900/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110 p-12 text-center">
                       <span className={`text-xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text ${project.id === 1 ? 'bg-gradient-to-r from-blue-600 to-cyan-500' :
-                          project.id === 2 ? 'bg-gradient-to-r from-emerald-600 to-teal-500' :
-                            project.id === 3 ? 'bg-gradient-to-r from-purple-600 to-pink-500' :
-                              'bg-gradient-to-r from-rose-600 to-orange-500'
+                        project.id === 2 ? 'bg-gradient-to-r from-emerald-600 to-teal-500' :
+                          project.id === 3 ? 'bg-gradient-to-r from-purple-600 to-pink-500' :
+                            'bg-gradient-to-r from-rose-600 to-orange-500'
                         }`}>
                         {project.title}
                       </span>
@@ -288,7 +288,7 @@ export default function Home() {
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
               Connect
             </h2>
