@@ -5,11 +5,13 @@ import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import TerminalDisplay from "@/components/TerminalDisplay";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop } from "react-icons/fa";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
+  const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
     // Stage 1: "Hello" (1.5s)
@@ -322,6 +324,20 @@ export default function Home() {
                 <a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-white/60 hover:text-pink-500 transition-colors"><FaInstagram size={24} /></a>
               </div>
             </div>
+
+            <div className="flex flex-col items-center gap-6 pt-16">
+              <button
+                onClick={() => setShowTerminal(true)}
+                className="group flex flex-col items-center gap-2 cursor-none"
+              >
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-white animate-pulse transition-all duration-300 group-hover:scale-110">
+                  <FaDesktop size={20} className="text-white group-hover:text-black transition-colors" />
+                </div>
+                <span className="text-xs font-mono tracking-[0.2em] text-white/40 group-hover:text-white uppercase">Click here</span>
+              </button>
+            </div>
+
+            <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
           </div>
         </section>
       </div>
