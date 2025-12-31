@@ -128,7 +128,7 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] animate-pulse-slow text-transparent bg-clip-text bg-gradient-to-br from-white via-indigo-200 to-blue-500" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] animate-pulse-slow text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-blue-500 to-purple-600" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Aastha Kumari
               </span>
             </div>
