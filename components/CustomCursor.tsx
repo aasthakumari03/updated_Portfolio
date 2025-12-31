@@ -49,8 +49,8 @@ const CustomCursor = () => {
             // Apply styles directly to DOM for maximum performance
             if (dotRef.current) {
                 const isHovering = isHoveringRef.current;
-                const size = 12;
-                const scale = isHovering ? 2.5 : 1;
+                const size = 20;
+                const scale = isHovering ? 3 : 1;
 
                 // Use translate3d for GPU acceleration
                 dotRef.current.style.transform = `translate3d(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px, 0) scale(${scale})`;
@@ -74,7 +74,7 @@ const CustomCursor = () => {
     return (
         <div
             ref={dotRef}
-            className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999] border border-white/50 shadow-[0_0_10px_rgba(255,255,255,0.3)] opacity-0"
+            className="fixed top-0 left-0 w-5 h-5 bg-white rounded-full pointer-events-none z-[9999] border-2 border-white/70 shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] opacity-0"
             style={{
                 willChange: 'transform, opacity',
                 transition: 'opacity 0.3s ease-out'
