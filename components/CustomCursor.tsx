@@ -6,7 +6,6 @@ const CustomCursor = () => {
     const dotRef = useRef<HTMLDivElement>(null);
     const mousePos = useRef({ x: 0, y: 0 });
     const cursorPos = useRef({ x: 0, y: 0 });
-    const isHoveringRef = useRef(false);
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -16,23 +15,10 @@ const CustomCursor = () => {
             if (!isVisible) setIsVisible(true);
         };
 
-        const handleMouseOver = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            const isClickable =
-                target.tagName === 'A' ||
-                target.tagName === 'BUTTON' ||
-                target.closest('a') ||
-                target.closest('button') ||
-                target.classList.contains('cursor-pointer');
-
-            isHoveringRef.current = !!isClickable;
-        };
-
         const handleMouseEnter = () => setIsVisible(true);
         const handleMouseLeave = () => setIsVisible(false);
 
         window.addEventListener('mousemove', mouseMove);
-        window.addEventListener('mouseover', handleMouseOver);
         document.addEventListener('mouseenter', handleMouseEnter);
         document.addEventListener('mouseleave', handleMouseLeave);
 
@@ -48,12 +34,10 @@ const CustomCursor = () => {
 
             // Apply styles directly to DOM for maximum performance
             if (dotRef.current) {
-                const isHovering = isHoveringRef.current;
                 const size = 20;
-                const scale = isHovering ? 3 : 1;
 
                 // Use translate3d for GPU acceleration
-                dotRef.current.style.transform = `translate3d(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px, 0) scale(${scale})`;
+                dotRef.current.style.transform = `translate3d(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px, 0)`;
                 dotRef.current.style.opacity = isVisible ? "1" : "0";
             }
 
@@ -64,7 +48,6 @@ const CustomCursor = () => {
 
         return () => {
             window.removeEventListener('mousemove', mouseMove);
-            window.removeEventListener('mouseover', handleMouseOver);
             document.removeEventListener('mouseenter', handleMouseEnter);
             document.removeEventListener('mouseleave', handleMouseLeave);
             cancelAnimationFrame(rafId);
@@ -74,7 +57,7 @@ const CustomCursor = () => {
     return (
         <div
             ref={dotRef}
-            className="fixed top-0 left-0 w-5 h-5 bg-white rounded-full pointer-events-none z-[9999] border-2 border-white/70 shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.3)] opacity-0"
+            className="fixed top-0 left-0 w-5 h-5 bg-[#020617] rounded-full pointer-events-none z-[9999] border-2 border-white/20 shadow-[0_0_15px_rgba(2,6,23,0.4),0_0_30px_rgba(30,41,59,0.2)] opacity-0"
             style={{
                 willChange: 'transform, opacity',
                 transition: 'opacity 0.3s ease-out'

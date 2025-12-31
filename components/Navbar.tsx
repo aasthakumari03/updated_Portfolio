@@ -3,31 +3,31 @@ import React from 'react';
 
 export default function Navbar() {
     return (
-        <nav className="flex items-center gap-4 bg-white/60 backdrop-blur-3xl px-6 py-3 rounded-full border border-indigo-100 shadow-[0_8px_32px_rgba(79,70,229,0.1)] transition-all hover:border-indigo-300 hover:shadow-[0_12px_42px_rgba(79,70,229,0.15)]">
+        <nav className="flex items-center gap-4 bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] transition-all hover:border-indigo-300 hover:shadow-[0_12px_42px_rgba(79,70,229,0.15)]">
             <a
                 href="#about"
-                className="text-sm font-bold tracking-widest text-indigo-900/60 transition-all duration-300 hover:text-blue-600 hover:scale-110 active:scale-95 px-2 uppercase"
+                className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-blue-600 hover:scale-110 active:scale-95 px-2 uppercase"
             >
                 About
             </a>
 
-            <div className="h-4 w-[1px] bg-indigo-100" />
+            <div className="h-4 w-[1px] bg-[var(--section-divider)]" />
 
             <a
                 href="#projects"
-                className="text-sm font-bold tracking-widest text-indigo-900/60 transition-all duration-300 hover:text-indigo-600 hover:scale-110 active:scale-95 px-2 uppercase"
+                className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-indigo-600 hover:scale-110 active:scale-95 px-2 uppercase"
             >
                 Projects
             </a>
 
             <a
                 href="#skills"
-                className="text-sm font-bold tracking-widest text-indigo-900/60 transition-all duration-300 hover:text-purple-600 hover:scale-110 active:scale-95 px-2 uppercase"
+                className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-purple-600 hover:scale-110 active:scale-95 px-2 uppercase"
             >
                 Skills
             </a>
 
-            <div className="h-4 w-[1px] bg-indigo-100" />
+            <div className="h-4 w-[1px] bg-[var(--section-divider)]" />
 
             <a
                 href="#contact"
