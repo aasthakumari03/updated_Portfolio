@@ -57,7 +57,7 @@ export default function Home() {
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
           <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
             <h1
-              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] flex`}
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
             >
               {"Hello".split("").map((letter, i) => (
                 <span
@@ -73,7 +73,7 @@ export default function Home() {
               ))}
             </h1>
             <h1
-              className={`absolute text-7xl md:text-9xl font-black text-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
                 }`}
             >
               Namaste
@@ -128,13 +128,13 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl font-extrabold drop-shadow-sm font-serif title-gradient" style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}>
+              <span className="text-8xl font-extrabold drop-shadow-md font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600" style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}>
                 Aastha Kumari
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl title-gradient drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
+            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-gray-100 to-slate-400 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
               CRAFTING MY <br />
               UNIVERSE
             </h1>
@@ -154,7 +154,7 @@ export default function Home() {
         {/* About Me Section */}
         <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-6xl text-center space-y-8">
-            <h2 className="text-6xl md:text-8xl font-semibold title-gradient tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-6xl md:text-8xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               About Me
             </h2>
             <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-3xl mx-auto">
@@ -167,7 +167,7 @@ export default function Home() {
 
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent mt-20">
           <div className="text-center mb-16">
-            <h2 className="text-7xl md:text-9xl font-black title-gradient tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
+            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
               Projects
             </h2>
@@ -228,7 +228,13 @@ export default function Home() {
                   >
                     {/* Background Text Layer */}
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/40 via-white/40 to-slate-100/40 flex items-center justify-center text-indigo-900/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110 p-12 text-center">
-                      <span className="text-xl font-bold text-indigo-900/30 group-hover:text-white/50 transition-colors duration-500 uppercase tracking-tighter">{project.title}</span>
+                      <span className={`text-xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text ${project.id === 1 ? 'bg-gradient-to-r from-blue-600 to-cyan-500' :
+                          project.id === 2 ? 'bg-gradient-to-r from-emerald-600 to-teal-500' :
+                            project.id === 3 ? 'bg-gradient-to-r from-purple-600 to-pink-500' :
+                              'bg-gradient-to-r from-rose-600 to-orange-500'
+                        }`}>
+                        {project.title}
+                      </span>
                     </div>
 
                     {/* Firecracker Particles */}
@@ -264,7 +270,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-5xl font-black title-gradient mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
+          <h2 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
               <div key={skill} className="flex flex-col items-center gap-6 group">
@@ -282,7 +288,7 @@ export default function Home() {
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-black title-gradient tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
               Connect
             </h2>
