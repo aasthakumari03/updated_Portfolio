@@ -55,6 +55,31 @@ const WhiteTransparentBackground = () => {
                 }}
             />
 
+            {/* Funky Revolving Blobs */}
+            <div
+                className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[var(--funky-cyan)]/30 rounded-full blur-[120px] animate-revolve"
+                style={{ opacity: 'var(--blob-opacity)' }}
+            />
+            <div
+                className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-[var(--funky-magenta)]/25 rounded-full blur-[140px] animate-revolve-reverse"
+                style={{ opacity: 'var(--blob-opacity)' }}
+            />
+            <div
+                className="absolute top-[10%] right-[5%] w-[45vw] h-[45vw] bg-[var(--funky-lime)]/20 rounded-full blur-[130px] animate-float-slow"
+                style={{ opacity: 'var(--blob-opacity)' }}
+            />
+            <div
+                className="absolute bottom-[20%] left-[5%] w-[55vw] h-[55vw] bg-[var(--funky-orange)]/25 rounded-full blur-[150px] animate-blob-float"
+                style={{ opacity: 'var(--blob-opacity)' }}
+            />
+            <div
+                className="absolute top-1/2 left-1/2 -content-center w-[40vw] h-[40vw] bg-[var(--funky-yellow)]/20 rounded-full blur-[160px] animate-pulse-slow"
+                style={{
+                    opacity: 'var(--blob-opacity)',
+                    transform: 'translate(-50%, -50%)'
+                }}
+            />
+
             {/* Grainy Texture Overlay */}
             <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"

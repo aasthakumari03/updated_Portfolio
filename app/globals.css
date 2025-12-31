@@ -19,6 +19,11 @@
   --neon-pink: #ff00ff;
   --neon-blue: #bae6fd;
   --neon-purple: #818cf8;
+  --funky-cyan: #06b6d4;
+  --funky-magenta: #d946ef;
+  --funky-lime: #84cc16;
+  --funky-orange: #fb923c;
+  --funky-yellow: #facc15;
   scroll-behavior: smooth;
 }
 
@@ -38,6 +43,12 @@
     --button-text: #020617;
     --button-gradient-from: #f8fafc;
     --button-gradient-to: #e2e8f0;
+
+    --funky-cyan: #22d3ee;
+    --funky-magenta: #e879f9;
+    --funky-lime: #a3e635;
+    --funky-orange: #fdba74;
+    --funky-yellow: #fde047;
   }
 }
 
@@ -176,6 +187,34 @@ button,
 
 .animate-blob-pulse {
   animation: blob-pulse 20s ease-in-out infinite;
+}
+
+@keyframes revolve {
+  0% {
+    transform: rotate(0deg) translate(100px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translate(200px) rotate(-360deg);
+  }
+}
+
+@keyframes revolve-reverse {
+  0% {
+    transform: rotate(360deg) translate(150px) rotate(-360deg);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(250px) rotate(0deg);
+  }
+}
+
+.animate-revolve {
+  animation: revolve 30s linear infinite;
+}
+
+.animate-revolve-reverse {
+  animation: revolve-reverse 40s linear infinite;
 }
 
 @layer utilities {
