@@ -325,19 +325,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-6 pt-16">
-              <button
-                onClick={() => setShowTerminal(true)}
-                className="group flex flex-col items-center gap-2 cursor-none"
-              >
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-white animate-pulse transition-all duration-300 group-hover:scale-110">
-                  <FaDesktop size={20} className="text-white group-hover:text-black transition-colors" />
-                </div>
-                <span className="text-xs font-mono tracking-[0.2em] text-white/40 group-hover:text-white uppercase">Click here</span>
-              </button>
-            </div>
-
             <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
+          </div>
+
+          {/* Lower bottom trigger - positioned relative to section bottom */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <button
+              onClick={() => setShowTerminal(true)}
+              className="group flex flex-col items-center gap-3 cursor-none"
+            >
+              <div className="w-4 h-4 rounded-full border border-white/40 bg-white/10 animate-pulse group-hover:bg-white group-hover:scale-125 transition-all duration-300 shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+              <span className="text-[10px] font-mono tracking-[0.4em] text-white/30 group-hover:text-white uppercase transition-colors">Click here</span>
+            </button>
           </div>
         </section>
       </div>
