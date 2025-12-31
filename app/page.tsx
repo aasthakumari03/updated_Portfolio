@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-500 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
+            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-indigo-400 to-blue-500 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
               CRAFTING MY <br />
               UNIVERSE
             </h1>
