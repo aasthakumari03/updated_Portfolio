@@ -128,7 +128,7 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl font-extrabold drop-shadow-sm font-serif" style={{ fontFamily: "'Playfair Display', 'Georgia', serif", color: '#1E1B4B' }}>
+              <span className="text-8xl font-extrabold drop-shadow-sm font-serif text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-700" style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}>
                 Aastha Kumari
               </span>
             </div>
@@ -136,7 +136,7 @@ export default function Home() {
             {/* Main Headline */}
             <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-indigo-950 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
               CRAFTING MY <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600 animate-pulse">
                 UNIVERSE
               </span>
             </h1>
@@ -157,7 +157,7 @@ export default function Home() {
         <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-6xl text-center space-y-8">
             <h2 className="text-6xl md:text-8xl font-semibold text-indigo-950 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-800">Me</span>
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600">Me</span>
             </h2>
             <p className="text-xl md:text-2xl text-indigo-900/80 font-semibold leading-relaxed max-w-3xl mx-auto">
               {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
@@ -171,11 +171,11 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-7xl md:text-9xl font-black text-indigo-950 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600 animate-pulse">
                 Projects
               </span>
             </h2>
-            <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full"></div>
           </div>
           <div className="relative w-full py-10 overflow-x-auto custom-scrollbar">
             <div className="flex flex-nowrap justify-start md:justify-center gap-6 max-w-7xl mx-auto px-10 pb-10">
@@ -268,7 +268,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-5xl font-black text-indigo-950 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-indigo-600">ARSENAL</span></h2>
+          <h2 className="text-5xl font-black text-indigo-950 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600">ARSENAL</span></h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
               <div key={skill} className="flex flex-col items-center gap-6 group">
@@ -288,7 +288,7 @@ export default function Home() {
           <div className="max-w-4xl w-full text-center space-y-12">
             <h2 className="text-7xl md:text-9xl font-black text-indigo-950 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
               Let's <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600 animate-pulse">
                 Connect
               </span>
             </h2>
