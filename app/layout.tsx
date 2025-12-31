@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundDepth from "@/components/BackgroundDepth";
-import CloudFog from "@/components/CloudFog";
+import UniverseBackground from "@/components/UniverseBackground";
 import GrainyGradientBackground from "@/components/GrainyGradientBackground";
 
 export default function RootLayout({
@@ -38,6 +38,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         <GrainyGradientBackground />
+        <BackgroundDepth />
+        <UniverseBackground />
         <CustomCursor />
         {children}
       </body>
