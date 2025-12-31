@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
 import TerminalDisplay from "@/components/TerminalDisplay";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop } from "react-icons/fa";
+import WaterDrops from "@/components/WaterDrops";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -123,6 +124,7 @@ export default function Home() {
 
       {/* Main Content */}
       <div className={`relative z-20 transition-all duration-1000 ${loadingPhase === 'done' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 overflow-hidden'}`}>
+        <WaterDrops />
         {/* Hero Section */}
         <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center select-none">
           <div className="max-w-5xl space-y-12">
@@ -270,7 +272,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
+          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
               <div key={skill} className="flex flex-col items-center gap-6 group">

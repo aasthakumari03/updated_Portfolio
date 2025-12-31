@@ -19,7 +19,8 @@ const UniverseBackground = () => {
         canvas.height = height;
 
         const stars: Star[] = [];
-        const numStars = 200;
+        const shootingStars: ShootingStar[] = [];
+        const numStars = 250;
 
         class Star {
             x: number;
@@ -32,21 +33,19 @@ const UniverseBackground = () => {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 2;
-                this.speed = Math.random() * 0.05;
+                this.size = Math.random() * 1.5;
+                this.speed = Math.random() * 0.03;
                 this.opacity = Math.random();
-                this.fadeSpeed = Math.random() * 0.01 + 0.002;
+                this.fadeSpeed = Math.random() * 0.005 + 0.002;
             }
 
             update() {
                 this.y -= this.speed;
-                // Wrap around
                 if (this.y < 0) {
                     this.y = height;
                     this.x = Math.random() * width;
                 }
 
-                // Twinkle
                 this.opacity += this.fadeSpeed;
                 if (this.opacity > 1 || this.opacity < 0.2) {
                     this.fadeSpeed = -this.fadeSpeed;
@@ -62,17 +61,71 @@ const UniverseBackground = () => {
             }
         }
 
-        // Initialize stars
+        class ShootingStar {
+            x!: number;
+            y!: number;
+            len!: number;
+            speed!: number;
+            size!: number;
+            opacity!: number;
+
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = 0;
+                this.len = Math.random() * 80 + 10;
+                this.speed = Math.random() * 10 + 6;
+                this.size = Math.random() * 1 + 0.5;
+                this.opacity = 1;
+            }
+
+            update() {
+                this.x -= this.speed;
+                this.y += this.speed;
+                this.opacity -= 0.01;
+
+                if (this.opacity <= 0 || this.x < 0 || this.y > height) {
+                    this.reset();
+                    // Don't restart immediately, hide it for a while
+                    this.opacity = -Math.random() * 10;
+                }
+            }
+
+            draw() {
+                if (!ctx || this.opacity <= 0) return;
+                ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.lineWidth = this.size;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + this.len, this.y - this.len);
+                ctx.stroke();
+            }
+        }
+
         for (let i = 0; i < numStars; i++) {
             stars.push(new Star());
         }
 
+        for (let i = 0; i < 2; i++) {
+            shootingStars.push(new ShootingStar());
+        }
+
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
+
             stars.forEach((star) => {
                 star.update();
                 star.draw();
             });
+
+            shootingStars.forEach((sStar) => {
+                sStar.update();
+                sStar.draw();
+            });
+
             requestAnimationFrame(animate);
         };
 
@@ -93,19 +146,23 @@ const UniverseBackground = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#000000] via-[#020210] to-[#000000] pointer-events-none">
-            {/* Ethereal Dreamy Nebulae */}
-            <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/25 rounded-full blur-[150px] animate-float-slow mix-blend-screen" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[80vw] h-[80vw] bg-purple-900/20 rounded-full blur-[180px] animate-float-delayed mix-blend-screen" />
-            <div className="absolute top-[30%] left-[20%] w-[50vw] h-[50vw] bg-blue-900/12 rounded-full blur-[160px] animate-pulse-slow mix-blend-screen" />
+        <div className="fixed inset-0 z-0 overflow-hidden bg-black pointer-events-none">
+            {/* Background Glow Transition (Black to Blue) */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#05112e]" />
 
-            {/* Star Grid Overlay (Static subtle grid for "sci-fi" feel - optional, keeping it simple first) */}
+            {/* Moon-like appearance */}
+            <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-white/5 blur-[80px] animate-pulse-slow" />
+            <div className="absolute top-20 right-20 w-16 h-16 rounded-full bg-white/20 blur-md" />
+
+            {/* Ethereal Nebulae/Glows */}
+            <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />
+            <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[100vw] h-[60vh] bg-blue-600/20 rounded-full blur-[180px] mix-blend-screen" />
 
             {/* Canvas Stars */}
             <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full" />
 
-            {/* Vignette */}
-            <div className="absolute inset-0 bg-radial-gradient from-transparent to-black" />
+            {/* Vignette for depth */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_90%)] opacity-60" />
         </div>
     );
 };
