@@ -293,7 +293,7 @@ export default function Home() {
               Connect
             </h2>
 
-            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 max-w-2xl mx-auto leading-relaxed font-semibold">
+            <p className="text-lg md:text-xl text-[var(--foreground)]/80 max-w-2xl mx-auto leading-relaxed font-semibold">
               {"My universe is always expanding, and I'm constantly looking for new stars to collaborate with. Whether you have a project in mind or just want to say hello, my signal is always on.".split(" ").map((word, i) => (
                 <span key={i} className="hover-word">{word}{" "}</span>
               ))}

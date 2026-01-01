@@ -57,7 +57,7 @@ const CustomCursor = () => {
     return (
         <div
             ref={dotRef}
-            className="fixed top-0 left-0 w-5 h-5 bg-[#020617] rounded-full pointer-events-none z-[9999] border-2 border-white/20 shadow-[0_0_15px_rgba(2,6,23,0.4),0_0_30px_rgba(30,41,59,0.2)] opacity-0"
+            className="fixed top-0 left-0 w-5 h-5 bg-[#e2e8f0] rounded-full pointer-events-none z-[9999] border-2 border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.4),0_0_30px_rgba(148,163,184,0.2)] opacity-0"
             style={{
                 willChange: 'transform, opacity',
                 transition: 'opacity 0.3s ease-out'

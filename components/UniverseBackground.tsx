@@ -34,7 +34,7 @@ const UniverseBackground = () => {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
                 this.size = Math.random() * 1.5;
-                this.speed = Math.random() * 0.03;
+                this.speed = Math.random() * 0.01;
                 this.opacity = Math.random();
                 this.fadeSpeed = Math.random() * 0.005 + 0.002;
             }
@@ -77,7 +77,7 @@ const UniverseBackground = () => {
                 this.x = Math.random() * width;
                 this.y = 0;
                 this.len = Math.random() * 80 + 10;
-                this.speed = Math.random() * 10 + 6;
+                this.speed = Math.random() * 5 + 3;
                 this.size = Math.random() * 1 + 0.5;
                 this.opacity = 1;
             }
