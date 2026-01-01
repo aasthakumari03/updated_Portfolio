@@ -162,95 +162,128 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-[120vh] flex flex-col items-start justify-center py-48 px-12 md:px-24 bg-transparent">
-          <div className="max-w-7xl text-left space-y-16">
-            <div className="space-y-8">
-              <div className="flex items-center gap-5 group">
-                <div className="w-1.5 h-10 md:h-12 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-500" />
-                <h2 className="text-3xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter font-[family-name:var(--font-playfair)]">
-                  just an intro
-                </h2>
-              </div>
-              <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-none">
-                {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
-                  <span key={i} className="hover-word">{word}{" "}</span>
-                ))}
-              </p>
+        <section id="about" className="min-h-[120vh] flex flex-col items-center justify-center py-48 px-12 md:px-24 bg-transparent">
+          <div className="max-w-7xl w-full flex flex-col md:flex-row items-start gap-12 md:gap-24">
+            {/* Header Side */}
+            <div className="flex items-center gap-4 shrink-0 pt-2">
+              <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
+              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white/90">
+                just an intro
+              </h2>
             </div>
 
-            {/* Removed "what drives me" section as requested */}
+            {/* Content Side */}
+            <div className="flex-1">
+              <p className="text-3xl md:text-5xl font-medium leading-[1.15] tracking-tight transition-all duration-700">
+                <span className="text-white/40">I'm a </span>
+                <span className="text-white font-bold">first-year AI & ML student</span>
+                <span className="text-white/40"> passionate about </span>
+                <span className="text-white font-bold">coding and debugging</span>
+                <span className="text-white/40">. Whether it’s code or real life, I believe most </span>
+                <span className="text-white font-bold">problems just need patience and logic</span>
+                <span className="text-white/40">.</span>
+              </p>
+            </div>
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent mt-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-300 to-emerald-400 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-black">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-300 to-emerald-400 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-6">
               Featured <br />
               Projects
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)]"></div>
           </div>
 
-          <div className="relative w-full max-w-4xl mx-auto space-y-12">
+          <div className="relative w-full max-w-7xl mx-auto space-y-24">
             {[
               {
                 id: 1,
-                title: "Portfolio Website",
-                desc: "A sleek, responsive portfolio featuring custom animations and a modern galaxy theme.",
+                title: "A celestial portfolio universe that showcases art and code through dynamic animations.",
+                type: "CURRENT WORK",
+                desc: "The very portfolio you are browsing, built with Next.js, Tailwind CSS, and Framer Motion.",
                 link: "https://github.com/aasthakumari03/updated_Portfolio",
-                color: "from-blue-600 to-cyan-500",
-                icon: <FaDesktop size={40} />
+                color: "bg-[#D1E5FF]",
+                textColor: "text-[#002D62]",
+                images: [
+                  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
+                  "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80"
+                ]
               },
               {
                 id: 2,
-                title: "Fit-Tracker",
+                title: "A smart alarm app that helps users wake up on time by charging them a set amount every time they hit snooze.",
+                type: "CONCEPTUAL PROJECT",
                 desc: "A comprehensive fitness tracking application with workout logs and progress analytics.",
                 link: "https://github.com/aasthakumari03/fitlife-tracker",
-                color: "from-emerald-600 to-teal-500",
-                icon: <FaRunning size={40} />
-              },
-              {
-                id: 3,
-                title: "Coming Soon",
-                desc: "A new celestial project is being crafted in my creative workshop. Stay tuned.",
-                link: "#",
-                color: "from-purple-600 to-pink-500",
-                icon: <FaRocket size={40} />
-              },
-              {
-                id: 4,
-                title: "Coming Soon",
-                desc: "Another star is about to be born in this galaxy of code and art.",
-                link: "#",
-                color: "from-rose-600 to-orange-500",
-                icon: <FaCode size={40} />
+                color: "bg-[#FFFFFF]",
+                textColor: "text-[#111111]",
+                images: [
+                  "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=400&q=80",
+                  "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=400&q=80"
+                ]
               }
             ].map((project, index) => (
-              <a
+              <div
                 key={project.id}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-full bg-[var(--card-bg)]/40 backdrop-blur-xl border border-[var(--card-border)] rounded-2xl p-8 hover:border-indigo-500/50 transition-all duration-500 animate-wavy-entry shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-indigo-500/20"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`group relative w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[600px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.2)]`}
               >
-                <div className="flex flex-col md:flex-row items-center gap-8 group-hover:animate-jitter">
-                  <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white shadow-lg`}>
-                    {project.icon}
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className={`text-2xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${project.color}`}>
+                {/* Content Side */}
+                <div className="flex-1 p-12 md:p-20 flex flex-col justify-center items-start space-y-8 z-10">
+                  <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60">
+                    {project.type}
+                  </span>
+                  <div className="space-y-4">
+                    <h3 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight max-w-lg">
                       {project.title}
                     </h3>
-                    <p className="text-[var(--foreground)]/60 text-lg mt-2 font-light">
+                    <p className="text-lg opacity-80 max-w-sm font-medium">
                       {project.desc}
                     </p>
                   </div>
-                  <div className="bg-indigo-600 text-white px-8 py-3 rounded-full text-sm font-bold shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform duration-300 shadow-xl mt-4"
+                  >
                     View Project
-                  </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-              </a>
+
+                {/* Mockup Side */}
+                <div className="flex-1 relative min-h-[400px] md:min-h-full overflow-hidden">
+                  {/* Phone Frames Mockup */}
+                  <div className="absolute inset-0 flex items-center justify-center translate-x-12 md:translate-x-24">
+                    <div className="relative w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl border-[8px] border-slate-800 overflow-hidden transform rotate-[-5deg] z-20">
+                      <Image
+                        src={project.images[0]}
+                        alt="Mobile UI 1"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="relative w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl border-[8px] border-slate-800 overflow-hidden transform translate-x-[-120px] translate-y-20 z-10 scale-95 opacity-90">
+                      <Image
+                        src={project.images[1]}
+                        alt="Mobile UI 2"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
