@@ -154,10 +154,13 @@ export default function Home() {
         {/* About Me Section */}
         <section id="about" className="min-h-screen flex flex-col items-start justify-center py-24 px-12 md:px-24 bg-transparent">
           <div className="max-w-6xl text-left space-y-8">
-            <h2 className="text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
-              just an intro
-            </h2>
-            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-3xl">
+            <div className="flex items-center gap-5 group">
+              <div className="w-1.5 h-10 md:h-12 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-500" />
+              <h2 className="text-3xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter font-[family-name:var(--font-playfair)]">
+                just an intro
+              </h2>
+            </div>
+            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-5xl">
               {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
                 <span key={i} className="hover-word">{word}{" "}</span>
               ))}
@@ -167,14 +170,14 @@ export default function Home() {
 
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent mt-20">
           <div className="text-center mb-16">
-            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
+            <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-300 to-emerald-400 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
               Projects
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full"></div>
           </div>
           <div className="relative w-full py-10 overflow-x-auto custom-scrollbar">
-            <div className="flex flex-nowrap justify-start md:justify-center gap-6 max-w-7xl mx-auto px-10 pb-10">
+            <div className="flex flex-nowrap justify-start md:justify-center gap-6 max-w-[1600px] mx-auto px-6 pb-10">
               {[
                 {
                   id: 1,
