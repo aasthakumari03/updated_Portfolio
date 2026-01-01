@@ -208,6 +208,14 @@ export default function Home() {
                 link: "https://github.com/aasthakumari03/fitlife-tracker",
                 color: "from-emerald-600 to-teal-500",
                 icon: <FaRunning size={40} />
+              },
+              {
+                id: 3,
+                title: "Coming Soon",
+                desc: "A new celestial project is being crafted in my creative workshop. Stay tuned.",
+                link: "#",
+                color: "from-purple-600 to-pink-500",
+                icon: <FaRocket size={40} />
               }
             ].map((project, index) => (
               <a
