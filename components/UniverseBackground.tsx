@@ -88,7 +88,7 @@ const UniverseBackground = () => {
             update() {
                 this.x += this.speed; // Move right
                 this.y += this.speed; // Move down
-                this.opacity -= 0.01;
+                this.opacity -= 0.005; // Slower decay for longer visibility
 
                 if (this.opacity <= 0 || this.x > width || this.y > height) {
                     this.reset();
@@ -98,7 +98,7 @@ const UniverseBackground = () => {
             draw() {
                 if (!ctx || this.opacity <= 0) return;
                 ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.lineWidth = this.size;
+                ctx.lineWidth = this.size * 2; // Thicker trail for better visibility
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
                 // Tail extends back towards top-left
@@ -111,7 +111,7 @@ const UniverseBackground = () => {
             stars.push(new Star());
         }
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 8; i++) {
             shootingStars.push(new ShootingStar());
         }
 

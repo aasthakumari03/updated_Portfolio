@@ -190,98 +190,43 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full"></div>
           </div>
-          <div className="relative w-full py-10 overflow-x-auto custom-scrollbar">
-            <div className="flex flex-nowrap justify-start md:justify-center gap-6 max-w-[1600px] mx-auto px-6 pb-10">
-              {[
-                {
-                  id: 1,
-                  title: "Portfolio Website",
-                  desc: "A sleek, responsive portfolio featuring custom animations and a modern galaxy theme.",
-                  link: "https://github.com/aasthakumari03/updated_Portfolio"
-                },
-                {
-                  id: 2,
-                  title: "Fit-Tracker",
-                  desc: "A comprehensive fitness tracking application with workout logs and progress analytics.",
-                  link: "https://github.com/aasthakumari03/fitlife-tracker"
-                },
-                {
-                  id: 3,
-                  title: "Coming Soon",
-                  desc: "A new celestial project is being crafted in my creative workshop. Stay tuned.",
-                  link: "#"
-                },
-                {
-                  id: 4,
-                  title: "Coming Soon",
-                  desc: "Another star is about to be born in this galaxy of code and art.",
-                  link: "#"
-                }
-              ].map((project) => (
-                <a
-                  key={project.id}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative w-72 h-72 overflow-visible transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-105 hover:-translate-y-6 flex-shrink-0 block"
-                >
-                  {/* Star Border Overlay */}
-                  <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.05)] group-hover:drop-shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-500"
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="none"
-                  >
-                    <polygon
-                      points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35"
-                      fill="none"
-                      className="stroke-indigo-900/10 group-hover:stroke-indigo-500 transition-all duration-500"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
 
-                  <div
-                    className="absolute inset-0 bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-sm transition-all duration-500 group-hover:from-indigo-500/90 group-hover:to-purple-500/90 group-hover:drop-shadow-[0_0_30px_rgba(129,140,248,0.4)]"
-                    style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}
-                  >
-                    {/* Background Text Layer */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/40 via-white/40 to-slate-100/40 flex items-center justify-center text-indigo-900/20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110 p-12 text-center">
-                      <span className={`text-xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text ${project.id === 1 ? 'bg-gradient-to-r from-blue-600 to-cyan-500' :
-                        project.id === 2 ? 'bg-gradient-to-r from-emerald-600 to-teal-500' :
-                          project.id === 3 ? 'bg-gradient-to-r from-purple-600 to-pink-500' :
-                            'bg-gradient-to-r from-rose-600 to-orange-500'
-                        }`}>
-                        {project.title}
-                      </span>
-                    </div>
-
-                    {/* Firecracker Particles */}
-                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                      {[...Array(32)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="firecracker-particle"
-                          style={{
-                            '--tw-translate-x': `${Math.cos((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
-                            '--tw-translate-y': `${Math.sin((i * 11.25) * Math.PI / 180) * (150 + Math.random() * 100)}px`,
-                            backgroundColor: ['#ff0055', '#ffea00', '#00ff88', '#00ccff', '#ff8800', '#cc00ff', '#ffffff'][i % 7],
-                            animationDelay: `${Math.random() * 0.2}s`
-                          } as any}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Project Details (Delayed Animation) */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center bg-indigo-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-[500ms]">
-                      <h3 className="text-lg font-bold text-indigo-100 mb-2 leading-tight">{project.title}</h3>
-                      <p className="text-indigo-200 text-[10px] leading-tight mb-4">{project.desc}</p>
-                      <div className="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-[10px] font-bold shadow-2xl">
-                        View Project
-                      </div>
-                    </div>
+          <div className="relative w-full max-w-4xl mx-auto space-y-12">
+            {[
+              {
+                id: 1,
+                title: "Portfolio Website",
+                desc: "A sleek, responsive portfolio featuring custom animations and a modern galaxy theme.",
+                link: "https://github.com/aasthakumari03/updated_Portfolio",
+                color: "from-blue-600 to-cyan-500"
+              }
+            ].map((project, index) => (
+              <a
+                key={project.id}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-full bg-[var(--card-bg)]/40 backdrop-blur-xl border border-[var(--card-border)] rounded-2xl p-8 hover:border-indigo-500/50 transition-all duration-500 animate-wavy-entry shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-indigo-500/20"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="flex flex-col md:flex-row items-center gap-8 group-hover:animate-jitter">
+                  <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white shadow-lg`}>
+                    <FaDesktop size={40} />
                   </div>
-                </a>
-              ))}
-            </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className={`text-2xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${project.color}`}>
+                      {project.title}
+                    </h3>
+                    <p className="text-[var(--foreground)]/60 text-lg mt-2 font-light">
+                      {project.desc}
+                    </p>
+                  </div>
+                  <div className="bg-indigo-600 text-white px-8 py-3 rounded-full text-sm font-bold shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    View Project
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 
