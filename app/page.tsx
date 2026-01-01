@@ -198,7 +198,16 @@ export default function Home() {
                 title: "Portfolio Website",
                 desc: "A sleek, responsive portfolio featuring custom animations and a modern galaxy theme.",
                 link: "https://github.com/aasthakumari03/updated_Portfolio",
-                color: "from-blue-600 to-cyan-500"
+                color: "from-blue-600 to-cyan-500",
+                icon: <FaDesktop size={40} />
+              },
+              {
+                id: 2,
+                title: "Fit-Tracker",
+                desc: "A comprehensive fitness tracking application with workout logs and progress analytics.",
+                link: "https://github.com/aasthakumari03/fitlife-tracker",
+                color: "from-emerald-600 to-teal-500",
+                icon: <FaRunning size={40} />
               }
             ].map((project, index) => (
               <a
@@ -211,7 +220,7 @@ export default function Home() {
               >
                 <div className="flex flex-col md:flex-row items-center gap-8 group-hover:animate-jitter">
                   <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white shadow-lg`}>
-                    <FaDesktop size={40} />
+                    {project.icon}
                   </div>
                   <div className="flex-1 text-center md:text-left">
                     <h3 className={`text-2xl font-bold transition-colors duration-500 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${project.color}`}>
