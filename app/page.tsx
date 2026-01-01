@@ -92,7 +92,7 @@ export default function Home() {
             href="https://github.com/aasthakumari03"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-colors duration-300 hover:scale-110"
+            className="text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             <FaGithub size={20} />
           </a>
@@ -100,7 +100,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/aastha-kumari-2116a837a"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--foreground)]/70 hover:text-blue-600 transition-colors duration-300 hover:scale-110"
+            className="text-[var(--foreground)]/70 hover:text-blue-600 transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.5)]"
           >
             <FaLinkedin size={20} />
           </a>
@@ -108,7 +108,7 @@ export default function Home() {
             href="https://www.instagram.com/the_nytheris/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-colors duration-300 hover:scale-110"
+            className="group relative text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(219,39,119,0.5)]"
           >
             <div className="relative overflow-hidden rounded-md group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
               <FaInstagram size={20} />
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] animate-pulse-slow text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-blue-500 to-purple-600" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_60px_rgba(244,114,182,0.4)] animate-pulse-slow text-transparent bg-clip-text bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500 hover:scale-105 transition-transform duration-500 cursor-default" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Aastha Kumari
               </span>
             </div>
@@ -167,7 +167,7 @@ export default function Home() {
 
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent mt-20">
           <div className="text-center mb-16">
-            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
+            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-4">
               Featured <br />
               Projects
             </h2>
@@ -270,7 +270,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
+          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-indigo-500 to-purple-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
               <div key={skill} className="flex flex-col items-center gap-6 group">
