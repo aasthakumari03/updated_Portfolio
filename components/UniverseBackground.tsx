@@ -40,9 +40,9 @@ const UniverseBackground = () => {
             }
 
             update() {
-                this.y -= this.speed;
-                if (this.y < 0) {
-                    this.y = height;
+                this.y += this.speed;
+                if (this.y > height) {
+                    this.y = 0;
                     this.x = Math.random() * width;
                 }
 
@@ -145,8 +145,23 @@ const UniverseBackground = () => {
 
     return (
         <div className="fixed inset-0 z-0 overflow-hidden bg-black pointer-events-none">
-            {/* Background Glow Transition (Black to Blue) */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#05112e]" />
+            {/* Pure Matte Black Base */}
+            <div className="absolute inset-0 bg-[#000105]" />
+
+            {/* Intensified Central Blue Aura (High Contrast) */}
+            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110vw] h-[80vh] bg-blue-600/25 rounded-full blur-[180px] mix-blend-screen" />
+
+            {/* Darker Deep Blue Layer for Atmosphere */}
+            <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130vw] h-[90vh] bg-indigo-900/10 rounded-full blur-[200px] mix-blend-screen" />
+
+            {/* Intense Bottom Bluish-Cyan Aura (Refined to match image) */}
+            <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120vw] h-[60vh] bg-[#001242]/40 rounded-full blur-[150px] mix-blend-screen" />
+
+            {/* Vibrant Cyan Core Highlight */}
+            <div className="absolute bottom-[0%] left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-cyan-500/30 rounded-full blur-[120px] mix-blend-screen" />
+
+            {/* Supplemental Dark Blue Glow */}
+            <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[100vw] h-[50vh] bg-blue-700/20 rounded-full blur-[160px] mix-blend-screen" />
 
             {/* Hard, Grainy, Dotted Moon */}
             <div className="absolute top-16 right-16 w-32 h-32 rounded-full bg-[#0a0a0a] shadow-[inset_-15px_-15px_30px_rgba(0,0,0,1),0_0_60px_rgba(255,255,255,0.03)] overflow-hidden border border-white/5 animate-float-slow">
@@ -160,33 +175,21 @@ const UniverseBackground = () => {
                         <rect width="100%" height="100%" filter="url(#moonGrain)" />
                     </svg>
                 </div>
-                {/* Dotted Craters (Hard, Black, Dotted Appearance) */}
+                {/* Dotted Craters */}
                 <div className="absolute inset-0">
                     <div className="absolute top-6 left-8 w-6 h-6 rounded-full bg-black/60 shadow-inner blur-[0.5px]" />
                     <div className="absolute top-16 left-16 w-8 h-8 rounded-full bg-black/50 shadow-inner blur-[0.5px]" />
                     <div className="absolute top-22 left-6 w-4 h-4 rounded-full bg-black/70 shadow-inner blur-[0.5px]" />
-                    <div className="absolute top-4 left-20 w-3 h-3 rounded-full bg-black/40 shadow-inner blur-[0.5px]" />
-                    <div className="absolute top-24 left-18 w-5 h-5 rounded-full bg-black/60 shadow-inner blur-[0.5px]" />
-                    {/* Small Dotted Details */}
-                    <div className="absolute top-10 left-10 w-1 h-1 rounded-full bg-black opacity-80" />
-                    <div className="absolute top-14 left-24 w-1.5 h-1.5 rounded-full bg-black opacity-80" />
-                    <div className="absolute top-20 left-12 w-1 h-1 rounded-full bg-black opacity-80" />
                 </div>
-                {/* Moon Lighting / Crescent Fade */}
+                {/* Moon Lighting */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-white/5 opacity-50" />
             </div>
 
-            <div className="absolute top-10 right-10 w-48 h-48 rounded-full bg-white/5 blur-[100px] pointer-events-none" />
-
-            {/* Ethereal Nebulae/Glows */}
-            <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />
-            <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[100vw] h-[60vh] bg-blue-600/20 rounded-full blur-[180px] mix-blend-screen" />
-
             {/* Canvas Stars */}
-            <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full" />
+            <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full opacity-80" />
 
-            {/* Vignette for depth */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_90%)] opacity-60" />
+            {/* Subtle Vignette for depth */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_95%)] opacity-40" />
         </div>
     );
 };
