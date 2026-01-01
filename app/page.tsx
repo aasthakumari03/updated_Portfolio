@@ -82,44 +82,54 @@ export default function Home() {
         </div>
       )}
 
-      {/* Navigation / Logo */}
-      <div className={`fixed top-8 left-8 z-50 flex items-center gap-6 transition-all duration-700 ${isScrolled || loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
-        <Logo className="w-10 h-10 text-indigo-950" />
+      {/* Unified Navigation Header */}
+      <header className={`fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-4rem)] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+        <div className={`mx-auto flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled
+          ? 'max-w-fit bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-2 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-8'
+          : 'max-w-full justify-between gap-0'
+          }`}>
 
-        {/* Social Icons */}
-        <div className="flex items-center gap-4 pl-4 border-l border-indigo-200">
-          <a
-            href="https://github.com/aasthakumari03"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
-          >
-            <FaGithub size={20} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/aastha-kumari-2116a837a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--foreground)]/70 hover:text-blue-600 transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.5)]"
-          >
-            <FaLinkedin size={20} />
-          </a>
-          <a
-            href="https://www.instagram.com/the_nytheris/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(219,39,119,0.5)]"
-          >
-            <div className="relative overflow-hidden rounded-md group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
-              <FaInstagram size={20} />
+          {/* Logo & Socials Group */}
+          <div className="flex items-center gap-6">
+            <Logo className="w-10 h-10 text-indigo-950" />
+
+            {/* Social Icons - Hidden on scroll to keep it clean, or kept if preferred */}
+            <div className={`flex items-center gap-4 pl-4 border-l border-indigo-200 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -ml-4 pointer-events-none' : 'opacity-100 w-auto'}`}>
+              <a
+                href="https://github.com/aasthakumari03"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125"
+              >
+                <FaGithub size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aastha-kumari-2116a837a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--foreground)]/70 hover:text-blue-600 transition-all duration-300 hover:scale-125"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/the_nytheris/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125"
+              >
+                <div className="relative overflow-hidden rounded-md group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
+                  <FaInstagram size={20} />
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-      </div>
+          </div>
 
-      <div className={`fixed top-8 right-8 z-50 transition-all duration-700 ${isScrolled || loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
-        <Navbar />
-      </div>
+          {/* Navigation Links */}
+          <div className="flex items-center">
+            <Navbar isMinimal={isScrolled} />
+          </div>
+        </div>
+      </header>
 
       {/* Main Content */}
       <div className={`relative z-20 transition-all duration-1000 ${loadingPhase === 'done' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 overflow-hidden'}`}>
@@ -152,19 +162,23 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-screen flex flex-col items-start justify-center py-24 px-12 md:px-24 bg-transparent">
-          <div className="max-w-6xl text-left space-y-8">
-            <div className="flex items-center gap-5 group">
-              <div className="w-1.5 h-10 md:h-12 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-500" />
-              <h2 className="text-3xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter font-[family-name:var(--font-playfair)]">
-                just an intro
-              </h2>
+        <section id="about" className="min-h-[120vh] flex flex-col items-start justify-center py-48 px-12 md:px-24 bg-transparent">
+          <div className="max-w-7xl text-left space-y-16">
+            <div className="space-y-8">
+              <div className="flex items-center gap-5 group">
+                <div className="w-1.5 h-10 md:h-12 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-500" />
+                <h2 className="text-3xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter font-[family-name:var(--font-playfair)]">
+                  just an intro
+                </h2>
+              </div>
+              <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-none">
+                {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
+                  <span key={i} className="hover-word">{word}{" "}</span>
+                ))}
+              </p>
             </div>
-            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-5xl">
-              {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
-                <span key={i} className="hover-word">{word}{" "}</span>
-              ))}
-            </p>
+
+            {/* Removed "what drives me" section as requested */}
           </div>
         </section>
 

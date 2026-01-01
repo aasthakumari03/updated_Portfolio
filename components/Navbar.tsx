@@ -1,9 +1,12 @@
 "use client";
 import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
     return (
-        <nav className="flex items-center gap-4 bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] transition-all duration-500 hover:scale-105 hover:border-indigo-400 hover:shadow-[0_20px_60px_rgba(79,70,229,0.25)]">
+        <nav className={`flex items-center gap-4 transition-all duration-500 ${isMinimal
+            ? 'bg-transparent border-none shadow-none px-0 py-0'
+            : 'bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] hover:scale-105 hover:border-indigo-400 hover:shadow-[0_20px_60px_rgba(79,70,229,0.25)]'
+            }`}>
             <a
                 href="#about"
                 className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-blue-600 hover:scale-110 active:scale-95 px-2 uppercase"

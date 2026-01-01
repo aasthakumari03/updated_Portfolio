@@ -41,9 +41,11 @@ const UniverseBackground = () => {
 
             update() {
                 this.y += this.speed;
-                if (this.y > height) {
-                    this.y = 0;
-                    this.x = Math.random() * width;
+                this.x += this.speed * 0.3; // Subtle drift from left
+
+                if (this.y > height || this.x > width) {
+                    this.y = Math.random() * -100;
+                    this.x = Math.random() * width - (width * 0.2);
                 }
 
                 this.opacity += this.fadeSpeed;
@@ -74,8 +76,9 @@ const UniverseBackground = () => {
             }
 
             reset() {
-                this.x = Math.random() * width;
-                this.y = 0;
+                // Favor the left/top-left for starting positions
+                this.x = Math.random() * (width * 0.6) - (width * 0.1);
+                this.y = Math.random() * (height * 0.4) - (height * 0.2);
                 this.len = Math.random() * 80 + 10;
                 this.speed = Math.random() * 5 + 3;
                 this.size = Math.random() * 1 + 0.5;
@@ -83,11 +86,11 @@ const UniverseBackground = () => {
             }
 
             update() {
-                this.x -= this.speed;
-                this.y += this.speed;
+                this.x += this.speed; // Move right
+                this.y += this.speed; // Move down
                 this.opacity -= 0.01;
 
-                if (this.opacity <= 0 || this.x < 0 || this.y > height) {
+                if (this.opacity <= 0 || this.x > width || this.y > height) {
                     this.reset();
                 }
             }
@@ -98,7 +101,8 @@ const UniverseBackground = () => {
                 ctx.lineWidth = this.size;
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
-                ctx.lineTo(this.x + this.len, this.y - this.len);
+                // Tail extends back towards top-left
+                ctx.lineTo(this.x - this.len, this.y - this.len);
                 ctx.stroke();
             }
         }
@@ -145,14 +149,17 @@ const UniverseBackground = () => {
 
     return (
         <div className="fixed inset-0 z-0 overflow-hidden bg-black pointer-events-none">
-            {/* Pure Matte Black Base */}
-            <div className="absolute inset-0 bg-[#000105]" />
+            {/* Absolute Matte Black Base */}
+            <div className="absolute inset-0 bg-[#000000]" />
 
-            {/* Intensified Central Blue Aura (High Contrast) */}
-            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110vw] h-[80vh] bg-blue-600/25 rounded-full blur-[180px] mix-blend-screen" />
+            {/* Top Darkness Overlay (Ensures top is solid black) */}
+            <div className="absolute top-0 left-0 w-full h-[40vh] bg-gradient-to-b from-black via-black/80 to-transparent z-[1]" />
 
-            {/* Darker Deep Blue Layer for Atmosphere */}
-            <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130vw] h-[90vh] bg-indigo-900/10 rounded-full blur-[200px] mix-blend-screen" />
+            {/* Intensified Central Blue Aura (High Contrast) - Lowered and reduced height */}
+            <div className="absolute top-[68%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110vw] h-[70vh] bg-blue-600/25 rounded-full blur-[180px] mix-blend-screen" />
+
+            {/* Darker Deep Blue Layer for Atmosphere - Lowered and reduced height */}
+            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130vw] h-[80vh] bg-indigo-900/10 rounded-full blur-[200px] mix-blend-screen" />
 
             {/* Intense Bottom Bluish-Cyan Aura (Refined to match image) */}
             <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120vw] h-[60vh] bg-[#001242]/40 rounded-full blur-[150px] mix-blend-screen" />
