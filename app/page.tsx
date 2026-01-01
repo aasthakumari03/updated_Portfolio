@@ -152,12 +152,12 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <div className="max-w-6xl text-center space-y-8">
-            <h2 className="text-6xl md:text-8xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
-              About Me
+        <section id="about" className="min-h-screen flex flex-col items-start justify-center py-24 px-12 md:px-24 bg-transparent">
+          <div className="max-w-6xl text-left space-y-8">
+            <h2 className="text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+              just an intro
             </h2>
-            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 font-semibold leading-relaxed max-w-3xl">
               {"First-year AI & ML student passionate about coding and debugging. Whether it’s code or real life, I believe most problems just need patience and logic.".split(" ").map((word, i) => (
                 <span key={i} className="hover-word">{word}{" "}</span>
               ))}
