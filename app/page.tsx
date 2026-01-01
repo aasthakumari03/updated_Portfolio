@@ -6,7 +6,7 @@ import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
 import TerminalDisplay from "@/components/TerminalDisplay";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode } from "react-icons/fa";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -216,6 +216,14 @@ export default function Home() {
                 link: "#",
                 color: "from-purple-600 to-pink-500",
                 icon: <FaRocket size={40} />
+              },
+              {
+                id: 4,
+                title: "Coming Soon",
+                desc: "Another star is about to be born in this galaxy of code and art.",
+                link: "#",
+                color: "from-rose-600 to-orange-500",
+                icon: <FaCode size={40} />
               }
             ].map((project, index) => (
               <a
