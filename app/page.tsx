@@ -143,18 +143,6 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="animate-fade-in opacity-0 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-indigo-400 to-blue-500 drop-shadow-sm" style={{ animationDelay: '0.4s' }}>
-              CRAFTING MY <br />
-              UNIVERSE
-            </h1>
-
-            <p className="mx-auto max-w-2xl text-lg text-[var(--foreground)]/80 sm:text-xl font-light tracking-wide animate-fade-in opacity-0 leading-relaxed drop-shadow-sm" style={{ animationDelay: '0.6s' }}>
-              {"Explore a galaxy of art and code. Where every project is a star in my creative sky.".split(" ").map((word, i) => (
-                <span key={i} className="hover-word">{word}{" "}</span>
-              ))}
-            </p>
-
             <div className="flex justify-center pt-8 -translate-x-10">
               <ResumeCard />
             </div>
