@@ -345,6 +345,10 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="pt-16 pb-8 text-[10px] md:text-xs font-bold tracking-[0.4em] text-white/20 uppercase">
+              All Rights Reserved | AASTHA KUMARI | 2025
+            </div>
+
             <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
           </div>
 
