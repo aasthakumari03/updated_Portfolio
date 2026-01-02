@@ -143,7 +143,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="flex justify-center pt-8 -translate-x-10">
+            <div className="flex justify-start pt-8">
               <ResumeCard />
             </div>
           </div>
