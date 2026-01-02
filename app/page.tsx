@@ -130,6 +130,7 @@ export default function Home() {
               <Navbar isMinimal={isScrolled} />
             </div>
           </div>
+        </div>
       </header>
 
       {/* Main Content */}
