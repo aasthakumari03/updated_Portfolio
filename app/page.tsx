@@ -94,7 +94,7 @@ export default function Home() {
             <Logo className="w-10 h-10 text-indigo-950" />
 
             {/* Social Icons - Hidden on scroll to keep it clean, or kept if preferred */}
-            <div className={`flex items-center gap-4 pl-4 border-l border-indigo-200 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -ml-4 pointer-events-none' : 'opacity-100 w-auto'}`}>
+            <div className={`flex items-center gap-4 pl-4 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -ml-4 pointer-events-none' : 'opacity-100 w-auto text-white/40'}`}>
               <a
                 href="https://github.com/aasthakumari03"
                 target="_blank"
