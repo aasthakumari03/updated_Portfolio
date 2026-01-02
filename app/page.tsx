@@ -5,6 +5,7 @@ import Image from "next/image";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
+import WorkCard from '@/components/WorkCard';
 import TerminalDisplay from "@/components/TerminalDisplay";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode } from "react-icons/fa";
 
@@ -143,8 +144,9 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="flex justify-start pt-8">
+            <div className="flex justify-center gap-6 pt-8">
               <ResumeCard />
+              <WorkCard />
             </div>
           </div>
         </section>
