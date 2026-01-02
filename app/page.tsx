@@ -196,7 +196,7 @@ export default function Home() {
             <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)]"></div>
           </div>
 
-          <div className="relative w-full max-w-7xl mx-auto space-y-24">
+          <div className="relative w-full max-w-5xl mx-auto space-y-24">
             {[
               {
                 id: 1,
@@ -213,9 +213,9 @@ export default function Home() {
               },
               {
                 id: 2,
-                title: "A smart alarm app that helps users wake up on time by charging them a set amount every time they hit snooze.",
-                type: "CONCEPTUAL PROJECT",
-                desc: "A comprehensive fitness tracking application with workout logs and progress analytics.",
+                title: "Fitlife-Tracker: A comprehensive health and fitness companion.",
+                type: "FEATURED PROJECT",
+                desc: "Track workouts, monitor nutrition, and visualize your progress with a sleek, data-driven interface.",
                 link: "https://github.com/aasthakumari03/fitlife-tracker",
                 color: "bg-[#FFFFFF]",
                 textColor: "text-[#111111]",
