@@ -345,11 +345,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pt-16 pb-8 text-[10px] md:text-xs font-bold tracking-[0.4em] text-white/20 uppercase">
-              All Rights Reserved | AASTHA KUMARI | 2025
-            </div>
-
             <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
+          </div>
+
+          {/* Copyright Line at the absolute bottom */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] md:text-xs font-bold tracking-[0.4em] text-white/20 uppercase w-full text-center">
+            All Rights Reserved | AASTHA KUMARI | 2025
           </div>
 
           {/* Lower bottom trigger - positioned relative to section bottom */}
