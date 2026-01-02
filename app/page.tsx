@@ -84,10 +84,10 @@ export default function Home() {
       )}
 
       {/* Unified Navigation Header */}
-      <header className={`fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-4rem)] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+      <header className={`fixed top-0 left-0 z-50 w-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <div className={`mx-auto flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled
-          ? 'max-w-fit bg-[var(--card-bg)]/60 backdrop-blur-3xl px-8 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-10'
-          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none py-6'
+          ? 'max-w-fit mt-4 bg-[var(--card-bg)]/60 backdrop-blur-3xl px-8 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-10'
+          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none py-6 px-12 md:px-24'
           }`}>
 
           <div className="flex items-center gap-6">
