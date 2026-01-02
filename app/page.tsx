@@ -86,50 +86,50 @@ export default function Home() {
       {/* Unified Navigation Header */}
       <header className={`fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-4rem)] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <div className={`mx-auto flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled
-          ? 'max-w-fit bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-2 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-8'
-          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none'
+          ? 'max-w-fit bg-[var(--card-bg)]/60 backdrop-blur-3xl px-8 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-10'
+          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none py-6'
           }`}>
 
-          {/* Logo & Socials Group */}
           <div className="flex items-center gap-6">
-            <Logo className="w-10 h-10 text-indigo-950" />
+            <Logo className="w-12 h-12 text-indigo-950" />
+          </div>
 
-            {/* Social Icons - Hidden on scroll to keep it clean, or kept if preferred */}
-            <div className={`flex items-center gap-4 pl-4 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -ml-4 pointer-events-none' : 'opacity-100 w-auto text-white/40'}`}>
-              <a
-                href="https://github.com/aasthakumari03"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125"
-              >
-                <FaGithub size={20} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/aastha-kumari-2116a837a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--foreground)]/70 hover:text-blue-600 transition-all duration-300 hover:scale-125"
-              >
-                <FaLinkedin size={20} />
-              </a>
-              <a
-                href="https://www.instagram.com/the_nytheris/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-all duration-300 hover:scale-125"
-              >
-                <div className="relative overflow-hidden rounded-md group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
-                  <FaInstagram size={20} />
-                </div>
-              </a>
+          <div className="flex items-center gap-8">
+            {/* Social Icons - Now on the right */}
+            <div className={`flex items-center gap-6 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -mr-6 pointer-events-none' : 'opacity-100 w-auto text-white/40'}`}>
+              {[
+                { icon: FaGithub, href: "https://github.com/aasthakumari03", color: "hover:text-[var(--foreground)]" },
+                { icon: FaLinkedin, href: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "hover:text-blue-600" },
+                {
+                  icon: FaInstagram, href: "https://www.instagram.com/the_nytheris/", isInstagram: true
+                }
+              ].map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative p-2 ${social.isInstagram ? 'hover:text-[var(--foreground)]' : social.color} transition-all duration-300 hover:scale-125 overflow-hidden rounded-lg`}
+                >
+                  {/* Shine Overlay */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shine_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
+
+                  {social.isInstagram ? (
+                    <div className="relative overflow-hidden group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
+                      <social.icon size={22} />
+                    </div>
+                  ) : (
+                    <social.icon size={22} className="relative z-0" />
+                  )}
+                </a>
+              ))}
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex items-center">
+              <Navbar isMinimal={isScrolled} />
             </div>
           </div>
-
-          {/* Navigation Links */}
-          <div className="flex items-center">
-            <Navbar isMinimal={isScrolled} />
-          </div>
-        </div>
       </header>
 
       {/* Main Content */}
@@ -186,7 +186,7 @@ export default function Home() {
             <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)] group-hover/projects-header:w-48 transition-all duration-700"></div>
           </div>
 
-          <div className="relative w-full max-w-5xl mx-auto space-y-24">
+          <div className="relative w-full max-w-4xl mx-auto space-y-12">
             {[
               {
                 id: 1,
@@ -217,10 +217,10 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={project.id}
-                className={`group relative w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[600px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.2)]`}
+                className={`group relative w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[400px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.2)]`}
               >
                 {/* Content Side */}
-                <div className="flex-1 p-12 md:p-20 flex flex-col justify-center items-start space-y-8 z-10">
+                <div className="flex-1 p-10 md:p-16 flex flex-col justify-center items-start space-y-6 z-10">
                   <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60">
                     {project.type}
                   </span>
@@ -250,7 +250,7 @@ export default function Home() {
                 <div className="flex-1 relative min-h-[400px] md:min-h-full overflow-hidden">
                   {/* Phone Frames Mockup */}
                   <div className="absolute inset-0 flex items-center justify-center translate-x-12 md:translate-x-24">
-                    <div className="relative w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl border-[8px] border-slate-800 overflow-hidden transform rotate-[-5deg] z-20">
+                    <div className="relative w-[220px] h-[450px] bg-white rounded-[32px] shadow-2xl border-[6px] border-slate-800 overflow-hidden transform rotate-[-5deg] z-20">
                       <Image
                         src={project.images[0]}
                         alt="Mobile UI 1"
@@ -259,7 +259,7 @@ export default function Home() {
                         unoptimized
                       />
                     </div>
-                    <div className="relative w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl border-[8px] border-slate-800 overflow-hidden transform translate-x-[-120px] translate-y-20 z-10 scale-95 opacity-90">
+                    <div className="relative w-[220px] h-[450px] bg-white rounded-[32px] shadow-2xl border-[6px] border-slate-800 overflow-hidden transform translate-x-[-100px] translate-y-16 z-10 scale-95 opacity-90">
                       <Image
                         src={project.images[1]}
                         alt="Mobile UI 2"
