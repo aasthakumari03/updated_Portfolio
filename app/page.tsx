@@ -87,7 +87,7 @@ export default function Home() {
       <header className={`fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-4rem)] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <div className={`mx-auto flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled
           ? 'max-w-fit bg-[var(--card-bg)]/60 backdrop-blur-3xl px-6 py-2 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-8'
-          : 'max-w-full justify-between gap-0'
+          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none'
           }`}>
 
           {/* Logo & Socials Group */}

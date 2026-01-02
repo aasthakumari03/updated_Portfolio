@@ -14,8 +14,6 @@ export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
                 About
             </a>
 
-            <div className="h-4 w-[1px] bg-[var(--section-divider)]" />
-
             <a
                 href="#projects"
                 className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-indigo-600 hover:scale-110 active:scale-95 px-2 uppercase"
@@ -29,8 +27,6 @@ export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
             >
                 Skills
             </a>
-
-            <div className="h-4 w-[1px] bg-[var(--section-divider)]" />
 
             <a
                 href="#contact"
