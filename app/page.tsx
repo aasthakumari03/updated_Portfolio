@@ -155,35 +155,35 @@ export default function Home() {
         <section id="about" className="min-h-[120vh] flex flex-col items-center justify-center py-48 px-12 md:px-24 bg-transparent">
           <div className="max-w-7xl w-full flex flex-col md:flex-row items-start gap-12 md:gap-24">
             {/* Header Side */}
-            <div className="flex items-center gap-4 shrink-0 pt-2">
-              <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
-              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white/90">
+            <div className="flex items-center gap-4 shrink-0 pt-2 group/header">
+              <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
+              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#bae6fd,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-110 transition-transform duration-500">
                 just an intro
               </h2>
             </div>
 
             {/* Content Side */}
-            <div className="flex-1">
-              <p className="text-3xl md:text-5xl font-medium leading-[1.15] tracking-tight transition-all duration-700">
-                <span className="text-white/40">I'm a </span>
-                <span className="text-white font-bold">first-year AI & ML student</span>
-                <span className="text-white/40"> passionate about </span>
-                <span className="text-white font-bold">coding and debugging</span>
-                <span className="text-white/40">. Whether it’s code or real life, I believe most </span>
-                <span className="text-white font-bold">problems just need patience and logic</span>
-                <span className="text-white/40">.</span>
+            <div className="flex-1 group/content">
+              <p className="text-3xl md:text-5xl font-medium leading-[1.15] tracking-tight transition-all duration-700 group-hover/content:drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">I'm a </span>
+                <span className="text-white font-bold group-hover/content:text-blue-200 transition-colors duration-500">first-year AI & ML student</span>
+                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500"> passionate about </span>
+                <span className="text-white font-bold group-hover/content:text-indigo-200 transition-colors duration-500">coding and debugging</span>
+                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">. Whether it’s code or real life, I believe most </span>
+                <span className="text-white font-bold group-hover/content:text-sky-200 transition-colors duration-500">problems just need patience and logic</span>
+                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">.</span>
               </p>
             </div>
           </div>
         </section>
 
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-black">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-300 to-emerald-400 tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-6">
+          <div className="text-center mb-24 group/projects-header">
+            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#bae6fd,45%,#ffffff,55%,#bae6fd)] bg-[length:200%_100%] animate-shimmer tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-6 group-hover/projects-header:scale-105 transition-transform duration-700">
               Featured <br />
               Projects
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)]"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)] group-hover/projects-header:w-48 transition-all duration-700"></div>
           </div>
 
           <div className="relative w-full max-w-5xl mx-auto space-y-24">
@@ -280,7 +280,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-indigo-500 to-purple-600 mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em]">TECHNICAL ARSENAL</h2>
+          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em] hover:scale-105 transition-transform duration-700">TECHNICAL ARSENAL</h2>
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
             {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
               <div key={skill} className="flex flex-col items-center gap-6 group">
