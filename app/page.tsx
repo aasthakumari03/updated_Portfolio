@@ -58,7 +58,7 @@ export default function Home() {
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
           <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
             <h1
-              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
             >
               {"Hello".split("").map((letter, i) => (
                 <span
@@ -74,7 +74,7 @@ export default function Home() {
               ))}
             </h1>
             <h1
-              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase font-[family-name:var(--font-playfair)] transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
                 }`}
             >
               Namaste
@@ -140,7 +140,7 @@ export default function Home() {
           <div className="max-w-5xl space-y-12">
             {/* Eyebrow Text */}
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_50px_rgba(255,255,255,0.3)] animate-shimmer text-transparent bg-clip-text bg-[linear-gradient(110deg,#f8fafc,45%,#bae6fd,55%,#f8fafc)] bg-[length:200%_100%] transition-transform duration-500 cursor-default select-none inline-block -translate-y-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <span className="text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_50px_rgba(255,255,255,0.3)] animate-shimmer text-transparent bg-clip-text bg-[linear-gradient(110deg,#f8fafc,45%,#bae6fd,55%,#f8fafc)] bg-[length:200%_100%] transition-transform duration-500 cursor-default select-none inline-block -translate-y-4">
                 Aastha Kumari
               </span>
             </div>
@@ -158,7 +158,7 @@ export default function Home() {
             {/* Header Side */}
             <div className="flex items-center gap-4 shrink-0 pt-2 group/header">
               <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
-              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#bae6fd,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-110 transition-transform duration-500">
+              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#60a5fa,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-110 transition-transform duration-500">
                 just an intro
               </h2>
             </div>
@@ -178,9 +178,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-black">
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-transparent">
           <div className="text-center mb-24 group/projects-header">
-            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#bae6fd,45%,#ffffff,55%,#bae6fd)] bg-[length:200%_100%] animate-shimmer tracking-tighter uppercase font-[family-name:var(--font-playfair)] mb-6 group-hover/projects-header:scale-105 transition-transform duration-700">
+            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#fb7185,45%,#3b82f6,55%,#fb7185)] bg-[length:200%_100%] animate-shimmer tracking-tighter uppercase font-mono mb-6 group-hover/projects-header:scale-105 transition-transform duration-700">
               Featured <br />
               Projects
             </h2>
@@ -195,8 +195,8 @@ export default function Home() {
                 type: "CURRENT WORK",
                 desc: "The very portfolio you are browsing, built with Next.js, Tailwind CSS, and Framer Motion.",
                 link: "https://github.com/aasthakumari03/updated_Portfolio",
-                color: "bg-[#D1E5FF]",
-                textColor: "text-[#002D62]",
+                color: "bg-[#DCFCE7]",
+                textColor: "text-[#064E3B]",
                 images: [
                   "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
                   "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80"
@@ -208,8 +208,8 @@ export default function Home() {
                 type: "FEATURED PROJECT",
                 desc: "Track workouts, monitor nutrition, and visualize your progress with a sleek, data-driven interface.",
                 link: "https://github.com/aasthakumari03/fitlife-tracker",
-                color: "bg-[#FFFFFF]",
-                textColor: "text-[#111111]",
+                color: "bg-[#FCE7F3]",
+                textColor: "text-[#500724]",
                 images: [
                   "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=400&q=80",
                   "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=400&q=80"
@@ -282,7 +282,7 @@ export default function Home() {
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 tracking-tighter uppercase font-[family-name:var(--font-playfair)]">
+            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 tracking-tighter uppercase">
               Let's <br />
               Connect
             </h2>
