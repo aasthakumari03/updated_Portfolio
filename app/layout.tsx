@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Alex_Brush } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Alex_Brush, Pacifico } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,6 +23,12 @@ const alexBrush = Alex_Brush({
   weight: "400",
 });
 
+const pacifico = Pacifico({
+  variable: "--font-pacifico",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Aastha's Portfolio Website",
   description: "Personal portfolio of Aastha Kumari",
@@ -41,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${alexBrush.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${alexBrush.variable} ${pacifico.variable} antialiased`}
       >
         <BackgroundDepth />
         <UniverseBackground />
