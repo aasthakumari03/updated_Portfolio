@@ -7,7 +7,8 @@ import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
 import WorkCard from '@/components/WorkCard';
 import TerminalDisplay from "@/components/TerminalDisplay";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode, FaChevronDown } from "react-icons/fa";
+import TechnicalArsenal from "@/components/TechnicalArsenal";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -149,6 +150,14 @@ export default function Home() {
               <ResumeCard />
               <WorkCard />
             </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40 hover:opacity-100 transition-opacity">
+              <a href="#about" className="flex flex-col items-center gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Discover</span>
+                <FaChevronDown size={14} />
+              </a>
+            </div>
           </div>
         </section>
 
@@ -178,6 +187,8 @@ export default function Home() {
           </div>
         </section>
 
+        <TechnicalArsenal />
+
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-transparent">
           <div className="text-center mb-24 group/projects-header">
             <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#fb7185,45%,#3b82f6,55%,#fb7185)] bg-[length:200%_100%] animate-shimmer tracking-tighter uppercase font-mono mb-6 group-hover/projects-header:scale-105 transition-transform duration-700">
@@ -197,6 +208,7 @@ export default function Home() {
                 link: "https://github.com/aasthakumari03/updated_Portfolio",
                 color: "bg-[#DCFCE7]",
                 textColor: "text-[#064E3B]",
+                tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
                 images: [
                   "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
                   "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80"
@@ -210,6 +222,7 @@ export default function Home() {
                 link: "https://github.com/aasthakumari03/fitlife-tracker",
                 color: "bg-[#FCE7F3]",
                 textColor: "text-[#500724]",
+                tech: ["React", "JavaScript", "Firebase", "CSS Modules"],
                 images: [
                   "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=400&q=80",
                   "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=400&q=80"
@@ -232,6 +245,13 @@ export default function Home() {
                     <p className="text-lg opacity-80 max-w-sm font-medium">
                       {project.desc}
                     </p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="px-3 py-1 bg-black/10 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <a
                     href={project.link}
@@ -320,6 +340,30 @@ export default function Home() {
             </div>
 
             <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
+          </div>
+
+          <div className="w-full max-w-4xl mt-24 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col items-center md:items-start space-y-4">
+              <Logo className="w-10 h-10 text-indigo-400 opacity-60" />
+              <p className="text-white/40 text-xs tracking-widest uppercase font-bold">Aastha Kumari &copy; 2025</p>
+            </div>
+
+            <nav className="flex items-center gap-8">
+              {[
+                { name: "About", href: "#about" },
+                { name: "Arsenal", href: "#arsenal" },
+                { name: "Projects", href: "#projects" },
+                { name: "Contact", href: "#contact" }
+              ].map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className="text-[10px] uppercase tracking-[0.3em] font-black text-white/30 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
           </div>
 
           {/* Copyright Line at the absolute bottom */}
