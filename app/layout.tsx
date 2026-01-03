@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Alex_Brush, Pacifico } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Alex_Brush, Pacifico, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,6 +29,12 @@ const pacifico = Pacifico({
   weight: "400",
 });
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   title: "Aastha's Portfolio Website",
   description: "Personal portfolio of Aastha Kumari",
@@ -47,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${alexBrush.variable} ${pacifico.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${alexBrush.variable} ${pacifico.variable} ${plusJakartaSans.variable} antialiased`}
       >
         <BackgroundDepth />
         <UniverseBackground />
