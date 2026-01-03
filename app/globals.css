@@ -404,6 +404,21 @@ button,
   .title-gradient {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600;
   }
+
+  .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
 }
 
 /* Project Card Animations */
