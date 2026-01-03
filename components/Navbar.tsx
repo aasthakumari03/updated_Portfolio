@@ -22,13 +22,6 @@ export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
             </a>
 
             <a
-                href="#skills"
-                className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-300 hover:text-purple-600 hover:scale-110 active:scale-95 px-2 uppercase"
-            >
-                Skills
-            </a>
-
-            <a
                 href="#contact"
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-indigo-600 px-8 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-indigo-700 hover:scale-105 active:scale-95 shadow-lg shadow-indigo-200"
             >

@@ -279,23 +279,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer mb-16 tracking-tighter uppercase font-[family-name:var(--font-playfair)] tracking-[0.2em] hover:scale-105 transition-transform duration-700">TECHNICAL ARSENAL</h2>
-          <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
-            {['React', 'Next.js', 'Typescript', 'Tailwind', 'Node.js', 'Python', 'Figma', 'GraphQL'].map((skill) => (
-              <div key={skill} className="flex flex-col items-center gap-6 group">
-                <div className="w-28 h-28 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center text-[var(--foreground)] transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover:bg-indigo-600 group-hover:border-indigo-400 group-hover:text-white group-hover:rotate-[360deg] group-hover:scale-125 shadow-lg group-hover:shadow-[0_0_40px_rgba(79,70,229,0.3)]">
-                  <span className="text-xs font-black uppercase tracking-widest">{skill}</span>
-                </div>
-                <span className="text-sm font-bold text-[var(--foreground)]/40 group-hover:text-[var(--foreground)] transition-all duration-500 group-hover:translate-y-2 uppercase tracking-tighter opacity-0 group-hover:opacity-100">
-                  {skill}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
           <div className="max-w-4xl w-full text-center space-y-12">
