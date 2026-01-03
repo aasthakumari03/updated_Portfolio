@@ -55,7 +55,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-transparent text-[var(--foreground)] selection:bg-indigo-100/30 selection:text-indigo-900">
       {/* Welcome Sequence Screen */}
       {loadingPhase !== 'done' && (
-        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
+        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
           <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
             <h1
               className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
