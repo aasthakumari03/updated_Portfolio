@@ -12,6 +12,7 @@ import TechnicalArsenal from "@/components/TechnicalArsenal";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
   const [showTerminal, setShowTerminal] = useState(false);
 
@@ -40,12 +41,17 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If we scroll past 50 pixels, hide the header
+      // Update header state
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // Update scroll progress
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const currentProgress = (window.scrollY / totalScroll) * 100;
+      setScrollProgress(currentProgress);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -54,6 +60,11 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-transparent text-[var(--foreground)] selection:bg-indigo-100/30 selection:text-indigo-900">
+      {/* Scroll Progress Bar */}
+      <div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[100] transition-all duration-300 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
       {/* Welcome Sequence Screen */}
       {loadingPhase !== 'done' && (
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
@@ -366,10 +377,7 @@ export default function Home() {
             </nav>
           </div>
 
-          {/* Copyright Line at the absolute bottom */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] md:text-xs font-bold tracking-[0.4em] text-white/20 uppercase w-full text-center">
-            All Rights Reserved | AASTHA KUMARI | 2025
-          </div>
+          {/* Copyright Line at the absolute bottom - Removed redundant line */}
 
           {/* Lower bottom trigger - positioned relative to section bottom */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
