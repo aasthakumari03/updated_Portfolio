@@ -44,6 +44,7 @@ import CustomCursor from "@/components/CustomCursor";
 import BackgroundDepth from "@/components/BackgroundDepth";
 import UniverseBackground from "@/components/UniverseBackground";
 import WhiteTransparentBackground from "@/components/WhiteTransparentBackground";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
   children,
@@ -55,10 +56,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${alexBrush.variable} ${pacifico.variable} ${plusJakartaSans.variable} antialiased`}
       >
-        <BackgroundDepth />
-        <UniverseBackground />
-        <CustomCursor />
-        {children}
+        <SmoothScroll>
+          <BackgroundDepth />
+          <UniverseBackground />
+          <CustomCursor />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
