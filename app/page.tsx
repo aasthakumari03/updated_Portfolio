@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import ResumeCard from "@/components/ResumeCard";
 import WorkCard from '@/components/WorkCard';
 import TerminalDisplay from "@/components/TerminalDisplay";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode, FaChevronDown } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode, FaChevronDown, FaHome } from "react-icons/fa";
 import TechnicalArsenal from "@/components/TechnicalArsenal";
 
 export default function Home() {
@@ -344,6 +344,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center gap-6 px-8 py-4 bg-[var(--card-bg)] rounded-full border border-[var(--card-border)] shadow-sm backdrop-blur-xl">
+                <a href="#home" className="text-[var(--foreground)]/60 hover:text-blue-400 transition-all hover:scale-110" title="Back to Home"><FaHome size={24} /></a>
                 <a href="https://github.com/aasthakumari03" target="_blank" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors"><FaGithub size={24} /></a>
                 <a href="https://www.linkedin.com/in/aastha-kumari-2116a837a" target="_blank" className="text-[var(--foreground)]/60 hover:text-blue-600 transition-colors"><FaLinkedin size={24} /></a>
                 <a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-[var(--foreground)]/60 hover:text-pink-600 transition-colors"><FaInstagram size={24} /></a>
