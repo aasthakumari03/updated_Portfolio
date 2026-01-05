@@ -41,7 +41,14 @@ const TechnicalArsenal = () => {
                     {skillCategories.map((category, idx) => (
                         <div
                             key={idx}
-                            className="glass-card p-12 rounded-[40px] group hover:scale-[1.03] transition-all duration-700 relative overflow-hidden"
+                            onMouseMove={(e) => {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                const x = e.clientX - rect.left;
+                                const y = e.clientY - rect.top;
+                                e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+                                e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+                            }}
+                            className="glass-card spotlight-card p-12 rounded-[40px] group hover:scale-[1.03] transition-all duration-700 relative overflow-hidden active:scale-[0.98]"
                         >
                             {/* Decorative background glow */}
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 blur-3xl rounded-full group-hover:bg-white/10 transition-all duration-700"></div>
@@ -58,7 +65,7 @@ const TechnicalArsenal = () => {
                                 {category.skills.map((skill, sIdx) => (
                                     <span
                                         key={sIdx}
-                                        className="px-5 py-2.5 bg-white/5 border border-white/5 rounded-full text-base font-bold text-white/50 group-hover:text-white group-hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+                                        className="px-5 py-2.5 bg-white/5 border border-white/5 rounded-full text-base font-bold text-white/50 group-hover:text-white group-hover:border-white/20 transition-all duration-300 hover:bg-white/10 hover:scale-110"
                                     >
                                         {skill}
                                     </span>

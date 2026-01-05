@@ -9,6 +9,7 @@ import WorkCard from '@/components/WorkCard';
 import TerminalDisplay from "@/components/TerminalDisplay";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode, FaChevronDown, FaHome } from "react-icons/fa";
 import TechnicalArsenal from "@/components/TechnicalArsenal";
+import Magnetic from "@/components/Magnetic";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -116,24 +117,25 @@ export default function Home() {
                   icon: FaInstagram, href: "https://www.instagram.com/the_nytheris/", isInstagram: true
                 }
               ].map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group relative p-2 ${social.isInstagram ? 'hover:text-[var(--foreground)]' : social.color} transition-all duration-300 hover:scale-125 overflow-hidden rounded-lg`}
-                >
-                  {/* Shine Overlay */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shine_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
+                <Magnetic key={idx} strength={0.3}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group relative p-2 ${social.isInstagram ? 'hover:text-[var(--foreground)]' : social.color} transition-all duration-300 hover:scale-125 overflow-hidden rounded-lg`}
+                  >
+                    {/* Shine Overlay */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shine_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
 
-                  {social.isInstagram ? (
-                    <div className="relative overflow-hidden group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
-                      <social.icon size={22} />
-                    </div>
-                  ) : (
-                    <social.icon size={22} className="relative z-0" />
-                  )}
-                </a>
+                    {social.isInstagram ? (
+                      <div className="relative overflow-hidden group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
+                        <social.icon size={22} />
+                      </div>
+                    ) : (
+                      <social.icon size={22} className="relative z-0" />
+                    )}
+                  </a>
+                </Magnetic>
               ))}
             </div>
 
@@ -242,7 +244,14 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={project.id}
-                className={`group relative w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[400px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.2)]`}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+                  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+                }}
+                className={`group relative spotlight-card w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[400px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.03] hover:shadow-[0_40px_100px_rgba(0,0,0,0.3)] shadow-[0_40px_100px_rgba(0,0,0,0.1)] active:scale-[0.99] hover-lift`}
               >
                 {/* Content Side */}
                 <div className="flex-1 p-10 md:p-16 flex flex-col justify-center items-start space-y-6 z-10">
@@ -326,13 +335,15 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
               <div className="flex items-center gap-6">
-                <a
-                  href="mailto:aastha0328kumari@gmail.com"
-                  className="group relative inline-block px-12 py-4 rounded-full bg-[var(--button-bg)] text-[var(--button-text)] font-black text-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_50px_rgba(79,70,229,0.3)] overflow-hidden"
-                >
-                  <span className="relative z-10">Send Message</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[var(--button-gradient-from)] to-[var(--button-gradient-to)] border-[var(--card-border)] shadow-lg shadow-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </a>
+                <Magnetic strength={0.2}>
+                  <a
+                    href="mailto:aastha0328kumari@gmail.com"
+                    className="group relative inline-block px-12 py-4 rounded-full bg-[var(--button-bg)] text-[var(--button-text)] font-black text-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_50px_rgba(79,70,229,0.3)] overflow-hidden"
+                  >
+                    <span className="relative z-10">Send Message</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--button-gradient-from)] to-[var(--button-gradient-to)] border-[var(--card-border)] shadow-lg shadow-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </a>
+                </Magnetic>
 
                 <a
                   href="mailto:aastha0328kumari@gmail.com"
@@ -344,10 +355,10 @@ export default function Home() {
               </div>
 
               <div className="flex items-center gap-6 px-8 py-4 bg-[var(--card-bg)] rounded-full border border-[var(--card-border)] shadow-sm backdrop-blur-xl">
-                <a href="#home" className="text-[var(--foreground)]/60 hover:text-blue-400 transition-all hover:scale-110" title="Back to Home"><FaHome size={24} /></a>
-                <a href="https://github.com/aasthakumari03" target="_blank" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors"><FaGithub size={24} /></a>
-                <a href="https://www.linkedin.com/in/aastha-kumari-2116a837a" target="_blank" className="text-[var(--foreground)]/60 hover:text-blue-600 transition-colors"><FaLinkedin size={24} /></a>
-                <a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-[var(--foreground)]/60 hover:text-pink-600 transition-colors"><FaInstagram size={24} /></a>
+                <Magnetic strength={0.4}><a href="#home" className="text-[var(--foreground)]/60 hover:text-blue-400 transition-all hover:scale-110" title="Back to Home"><FaHome size={24} /></a></Magnetic>
+                <Magnetic strength={0.4}><a href="https://github.com/aasthakumari03" target="_blank" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors"><FaGithub size={24} /></a></Magnetic>
+                <Magnetic strength={0.4}><a href="https://www.linkedin.com/in/aastha-kumari-2116a837a" target="_blank" className="text-[var(--foreground)]/60 hover:text-blue-600 transition-colors"><FaLinkedin size={24} /></a></Magnetic>
+                <Magnetic strength={0.4}><a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-[var(--foreground)]/60 hover:text-pink-600 transition-colors"><FaInstagram size={24} /></a></Magnetic>
               </div>
             </div>
 
