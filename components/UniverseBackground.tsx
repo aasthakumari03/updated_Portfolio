@@ -20,7 +20,7 @@ const UniverseBackground = () => {
 
         const stars: Star[] = [];
         const shootingStars: ShootingStar[] = [];
-        const numStars = 250;
+        const numStars = 150;
 
         class Star {
             x: number;
@@ -111,7 +111,7 @@ const UniverseBackground = () => {
             stars.push(new Star());
         }
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 3; i++) {
             shootingStars.push(new ShootingStar());
         }
 
