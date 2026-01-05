@@ -17,14 +17,23 @@ const CustomCursor = () => {
             if (!isVisible) setIsVisible(true);
         };
 
+        // Re-evaluate hover element on scroll
+        const handleScroll = () => {
+            const el = document.elementFromPoint(mousePos.current.x, mousePos.current.y);
+            if (el) {
+                const isOverInteractive = el.closest('a, button, [role="button"], .cursor-pointer, .hover-word, span[class*="skill"]');
+                setIsHovering(!!isOverInteractive);
+            }
+        };
+
         const handleInteractiveEnter = () => setIsHovering(true);
         const handleInteractiveLeave = () => setIsHovering(false);
 
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         document.addEventListener('mouseenter', () => setIsVisible(true));
         document.addEventListener('mouseleave', () => setIsVisible(false));
 
-        // Broadened interactive elements, including skill tags and hover-words
         const attachListeners = () => {
             const interactives = document.querySelectorAll(
                 'a, button, [role="button"], .cursor-pointer, .hover-word, span[class*="skill"]'
@@ -42,15 +51,12 @@ const CustomCursor = () => {
         let rafId: number;
 
         const animate = () => {
-            // Highly fluid lerp factors
             const moveLerp = 0.12;
             const scaleLerp = 0.15;
 
-            // Fluid movement calculation
             cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * moveLerp;
             cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * moveLerp;
 
-            // Fluid scale calculation
             const targetScale = isHovering ? 1.5 : 1;
             cursorScale.current += (targetScale - cursorScale.current) * scaleLerp;
 
@@ -67,6 +73,7 @@ const CustomCursor = () => {
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('scroll', handleScroll);
             observer.disconnect();
             cancelAnimationFrame(rafId);
         };
