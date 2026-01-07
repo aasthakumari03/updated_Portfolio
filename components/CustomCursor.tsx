@@ -4,9 +4,17 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const CustomCursor = () => {
     const dotRef = useRef<HTMLDivElement>(null);
-    const mousePos = useRef({ x: 0, y: 0 }); // Target mouse coordinates
-    const cursorPos = useRef({ x: 0, y: 0 });   // Lerped cursor coordinates
-    const cursorScale = useRef(1); // Lerped scale factor
+    const ringRef = useRef<HTMLDivElement>(null);
+
+    // Position tracking
+    const mousePos = useRef({ x: 0, y: 0 }); // Target
+    const dotPos = useRef({ x: 0, y: 0 });   // Inner dot lerped
+    const ringPos = useRef({ x: 0, y: 0 });  // Outer ring lerped (slower)
+
+    // Scale & Momentum tracking
+    const dotScale = useRef(1);
+    const ringScale = useRef(1);
+    const ringOpacity = useRef(0.4);
 
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -17,7 +25,6 @@ const CustomCursor = () => {
             if (!isVisible) setIsVisible(true);
         };
 
-        // Re-evaluate hover element on scroll
         const handleScroll = () => {
             const el = document.elementFromPoint(mousePos.current.x, mousePos.current.y);
             if (el) {
@@ -51,19 +58,38 @@ const CustomCursor = () => {
         let rafId: number;
 
         const animate = () => {
-            const moveLerp = 0.12;
+            // Tiered lerp factors for "smooth scrolling" momentum
+            const dotLerp = 0.25;  // Responsive inner dot
+            const ringLerp = 0.08; // High-momentum outer ring (slower)
             const scaleLerp = 0.15;
 
-            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * moveLerp;
-            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * moveLerp;
+            // Fluid movement calculations
+            dotPos.current.x += (mousePos.current.x - dotPos.current.x) * dotLerp;
+            dotPos.current.y += (mousePos.current.y - dotPos.current.y) * dotLerp;
 
-            const targetScale = isHovering ? 1.5 : 1;
-            cursorScale.current += (targetScale - cursorScale.current) * scaleLerp;
+            ringPos.current.x += (mousePos.current.x - ringPos.current.x) * ringLerp;
+            ringPos.current.y += (mousePos.current.y - ringPos.current.y) * ringLerp;
 
-            if (dotRef.current) {
-                const size = 20;
-                dotRef.current.style.transform = `translate3d(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px, 0) scale(${cursorScale.current})`;
+            // Interactive scaling logic
+            const targetDotScale = isHovering ? 0.5 : 1;
+            const targetRingScale = isHovering ? 2.5 : 1;
+            const targetRingOpacity = isHovering ? 0.8 : 0.4;
+
+            dotScale.current += (targetDotScale - dotScale.current) * scaleLerp;
+            ringScale.current += (targetRingScale - ringScale.current) * scaleLerp;
+            ringOpacity.current += (targetRingOpacity - ringOpacity.current) * scaleLerp;
+
+            if (dotRef.current && ringRef.current) {
+                const dotSize = 8;
+                const ringSize = 35;
+
+                // Position Dot
+                dotRef.current.style.transform = `translate3d(${dotPos.current.x - dotSize / 2}px, ${dotPos.current.y - dotSize / 2}px, 0) scale(${dotScale.current})`;
                 dotRef.current.style.opacity = isVisible ? "1" : "0";
+
+                // Position Ring
+                ringRef.current.style.transform = `translate3d(${ringPos.current.x - ringSize / 2}px, ${ringPos.current.y - ringSize / 2}px, 0) scale(${ringScale.current})`;
+                ringRef.current.style.opacity = isVisible ? `${ringOpacity.current}` : "0";
             }
 
             rafId = requestAnimationFrame(animate);
@@ -80,11 +106,20 @@ const CustomCursor = () => {
     }, [isVisible, isHovering]);
 
     return (
-        <div
-            ref={dotRef}
-            className="fixed top-0 left-0 w-5 h-5 bg-[#e2e8f0] rounded-full pointer-events-none z-[10000] border-2 border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.4),0_0_30px_rgba(148,163,184,0.2)] opacity-0"
-            style={{ willChange: 'transform, opacity' }}
-        />
+        <>
+            {/* Inner Dot */}
+            <div
+                ref={dotRef}
+                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10001] shadow-[0_0_10px_rgba(255,255,255,1)]"
+                style={{ opacity: 0, willChange: 'transform, opacity' }}
+            />
+            {/* Trailing Outer Ring */}
+            <div
+                ref={ringRef}
+                className="fixed top-0 left-0 w-[35px] h-[35px] border border-white/40 rounded-full pointer-events-none z-[10000] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                style={{ opacity: 0, scale: 1, willChange: 'transform, opacity' }}
+            />
+        </>
     );
 };
 
