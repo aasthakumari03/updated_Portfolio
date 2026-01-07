@@ -17,15 +17,26 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
         const { clientX, clientY } = e;
         const { left, top, width, height } = ref.current.getBoundingClientRect();
 
-        const x = clientX - (left + width / 2);
-        const y = clientY - (top + height / 2);
+        const centerX = left + width / 2;
+        const centerY = top + height / 2;
+
+        const x = clientX - centerX;
+        const y = clientY - centerY;
 
         // Check if mouse is within a reasonable range for magnetism
         const distance = Math.sqrt(x * x + y * y);
         const triggerRange = width * 1.5;
 
         if (distance < triggerRange) {
-            setPosition({ x: x * strength, y: y * strength });
+            // Soft dampening/falloff as distance increases
+            const dampening = 1 - (distance / triggerRange);
+            // Use a power function for smoother falloff (less 'snappy')
+            const smoothDampening = Math.pow(dampening, 1.25);
+
+            setPosition({
+                x: x * strength * smoothDampening,
+                y: y * strength * smoothDampening
+            });
         } else {
             setPosition({ x: 0, y: 0 });
         }
@@ -46,7 +57,9 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
             onMouseLeave={handleMouseLeave}
             style={{
                 transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-                transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
+                transition: position.x === 0 && position.y === 0
+                    ? 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)' // Smoother return
+                    : 'transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)',
                 display: 'inline-block'
             }}
         >
