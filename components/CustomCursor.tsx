@@ -68,7 +68,7 @@ const CustomCursor = () => {
             dotScale.current += (targetDotScale - dotScale.current) * scaleLerp;
 
             if (dotRef.current) {
-                const dotSize = 8;
+                const dotSize = 24;
 
                 // Position Dot
                 dotRef.current.style.transform = `translate3d(${dotPos.current.x - dotSize / 2}px, ${dotPos.current.y - dotSize / 2}px, 0) scale(${dotScale.current})`;
@@ -93,7 +93,7 @@ const CustomCursor = () => {
     return (
         <div
             ref={dotRef}
-            className="fixed top-0 left-0 w-3 h-3 bg-[#e2e8f0] border border-white/40 rounded-full pointer-events-none z-[10001] shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_25px_rgba(148,163,184,0.3)]"
+            className="fixed top-0 left-0 w-6 h-6 bg-[#e2e8f0] border border-white/40 rounded-full pointer-events-none z-[10001] shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_25px_rgba(148,163,184,0.3)]"
             style={{ opacity: 0, willChange: 'transform, opacity' }}
         />
     );
