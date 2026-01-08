@@ -109,16 +109,16 @@ const CustomCursor = () => {
 
     return (
         <>
-            {/* Inner Dot */}
+            {/* Inner Dot - Restored to Greyish White/Filled/Shining */}
             <div
                 ref={dotRef}
-                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10001] shadow-[0_0_10px_rgba(255,255,255,1)]"
+                className="fixed top-0 left-0 w-3 h-3 bg-[#e2e8f0] border border-white/40 rounded-full pointer-events-none z-[10001] shadow-[0_0_15px_rgba(255,255,255,0.6),0_0_25px_rgba(148,163,184,0.3)]"
                 style={{ opacity: 0, willChange: 'transform, opacity' }}
             />
-            {/* Trailing Outer Ring */}
+            {/* Trailing Outer Ring - Subtle Aura */}
             <div
                 ref={ringRef}
-                className="fixed top-0 left-0 w-[35px] h-[35px] border border-white/40 rounded-full pointer-events-none z-[10000] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                className="fixed top-0 left-0 w-[40px] h-[40px] border border-white/20 rounded-full pointer-events-none z-[10000] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                 style={{ opacity: 0, scale: 1, willChange: 'transform, opacity' }}
             />
         </>
