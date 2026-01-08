@@ -62,8 +62,8 @@ const CustomCursor = () => {
             dotPos.current.x += (mousePos.current.x - dotPos.current.x) * dotLerp;
             dotPos.current.y += (mousePos.current.y - dotPos.current.y) * dotLerp;
 
-            // Interactive scaling logic - significantly larger on hover as there is no ring
-            const targetDotScale = isHovering ? 2.5 : 1;
+            // Interactive scaling logic - disabled as per user request
+            const targetDotScale = 1;
 
             dotScale.current += (targetDotScale - dotScale.current) * scaleLerp;
 
