@@ -59,9 +59,9 @@ const CustomCursor = () => {
 
         const animate = () => {
             // Tiered lerp factors for "smooth scrolling" momentum
-            const dotLerp = 0.25;  // Responsive inner dot
-            const ringLerp = 0.08; // High-momentum outer ring (slower)
-            const scaleLerp = 0.15;
+            const dotLerp = 0.35;  // More responsive inner dot
+            const ringLerp = 0.12; // Smoother trailing ring
+            const scaleLerp = 0.12;
 
             // Fluid movement calculations
             dotPos.current.x += (mousePos.current.x - dotPos.current.x) * dotLerp;
@@ -70,10 +70,10 @@ const CustomCursor = () => {
             ringPos.current.x += (mousePos.current.x - ringPos.current.x) * ringLerp;
             ringPos.current.y += (mousePos.current.y - ringPos.current.y) * ringLerp;
 
-            // Interactive scaling logic
-            const targetDotScale = isHovering ? 0.5 : 1;
-            const targetRingScale = isHovering ? 2.5 : 1;
-            const targetRingOpacity = isHovering ? 0.8 : 0.4;
+            // Interactive scaling logic - slightly more subtle and organic
+            const targetDotScale = isHovering ? 0.4 : 1;
+            const targetRingScale = isHovering ? 2.2 : 1;
+            const targetRingOpacity = isHovering ? 0.9 : 0.4;
 
             dotScale.current += (targetDotScale - dotScale.current) * scaleLerp;
             ringScale.current += (targetRingScale - ringScale.current) * scaleLerp;
@@ -100,6 +100,8 @@ const CustomCursor = () => {
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('mouseenter', () => setIsVisible(true));
+            document.removeEventListener('mouseleave', () => setIsVisible(false));
             observer.disconnect();
             cancelAnimationFrame(rafId);
         };
