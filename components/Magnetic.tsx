@@ -27,11 +27,12 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
             const y = clientY - centerY;
 
             const distance = Math.sqrt(x * x + y * y);
-            const triggerRange = width * 1.5;
+            const triggerRange = width * 5.0; // Significantly increased area
 
             if (distance < triggerRange) {
+                // Adjust dampening to be softer over a larger area
                 const dampening = 1 - (distance / triggerRange);
-                const smoothDampening = Math.pow(dampening, 1.25);
+                const smoothDampening = Math.pow(dampening, 1.5);
                 targetPos.current = {
                     x: x * strength * smoothDampening,
                     y: y * strength * smoothDampening
