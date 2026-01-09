@@ -12,6 +12,10 @@ const CustomCursor = () => {
     // Scale tracking
     const dotScale = useRef(1);
 
+    // Speed/Velocity tracking
+    const scrollPos = useRef(0);
+    const scrollVelocity = useRef(0);
+
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
 
@@ -22,6 +26,10 @@ const CustomCursor = () => {
         };
 
         const handleScroll = () => {
+            const currentScroll = window.scrollY;
+            scrollVelocity.current = currentScroll - scrollPos.current;
+            scrollPos.current = currentScroll;
+
             const el = document.elementFromPoint(mousePos.current.x, mousePos.current.y);
             if (el) {
                 const isOverInteractive = el.closest('a, button, [role="button"], .cursor-pointer, .hover-word, span[class*="skill"]');
@@ -57,21 +65,29 @@ const CustomCursor = () => {
             // Tiered lerp factors for "smooth scrolling" momentum
             const dotLerp = 0.25;  // Smoother movement for a single dot
             const scaleLerp = 0.15;
+            const velocityLerp = 0.1;
 
             // Fluid movement calculations
             dotPos.current.x += (mousePos.current.x - dotPos.current.x) * dotLerp;
             dotPos.current.y += (mousePos.current.y - dotPos.current.y) * dotLerp;
 
+            // Decay scroll velocity for a smoother "tail"
+            scrollVelocity.current *= 0.9;
+
             // Interactive scaling logic - disabled as per user request
             const targetDotScale = 1;
-
             dotScale.current += (targetDotScale - dotScale.current) * scaleLerp;
+
+            // Calculate stretch based on velocity
+            const stretchAmount = Math.min(Math.abs(scrollVelocity.current) * 0.05, 1.2);
+            const scaleX = 1 - (stretchAmount * 0.3);
+            const scaleY = 1 + stretchAmount;
 
             if (dotRef.current) {
                 const dotSize = 24;
 
                 // Position Dot
-                dotRef.current.style.transform = `translate3d(${dotPos.current.x - dotSize / 2}px, ${dotPos.current.y - dotSize / 2}px, 0) scale(${dotScale.current})`;
+                dotRef.current.style.transform = `translate3d(${dotPos.current.x - dotSize / 2}px, ${dotPos.current.y - dotSize / 2}px, 0) scale(${scaleX}, ${scaleY})`;
                 dotRef.current.style.opacity = isVisible ? "1" : "0";
             }
 
