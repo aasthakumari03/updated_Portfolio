@@ -18,6 +18,7 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
             if (!ref.current) return;
 
             const { clientX, clientY } = e;
+            mousePos.current = { x: clientX, y: clientY };
             const { left, top, width, height } = ref.current.getBoundingClientRect();
 
             const centerX = left + width / 2;
@@ -42,11 +43,20 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
             }
         };
 
-        const handleMouseLeave = () => {
-            targetPos.current = { x: 0, y: 0 };
+        const handleScroll = () => {
+            // Re-trigger with last known mouse position
+            if (mousePos.current.x !== 0 || mousePos.current.y !== 0) {
+                const event = {
+                    clientX: mousePos.current.x,
+                    clientY: mousePos.current.y
+                } as MouseEvent;
+                handleMouseMove(event);
+            }
         };
 
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('wheel', handleScroll, { passive: true });
 
         let rafId: number;
         const animate = () => {
@@ -66,6 +76,8 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('wheel', handleScroll);
             cancelAnimationFrame(rafId);
         };
     }, [strength]);
