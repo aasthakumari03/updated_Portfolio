@@ -11,18 +11,20 @@ export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
             <Magnetic strength={0.12}>
                 <a
                     href="#about"
-                    className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-500 hover:text-blue-400 hover:scale-115 hover:drop-shadow-[0_0_15px_rgba(96,165,250,0.5)] active:scale-95 px-2 uppercase"
+                    className="group relative text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-500 hover:text-white px-2 uppercase"
                 >
                     About
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-blue-400 transition-all duration-500 group-hover:w-full" />
                 </a>
             </Magnetic>
 
             <Magnetic strength={0.12}>
                 <a
                     href="#projects"
-                    className="text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-500 hover:text-indigo-400 hover:scale-115 hover:drop-shadow-[0_0_15px_rgba(129,140,248,0.5)] active:scale-95 px-2 uppercase"
+                    className="group relative text-sm font-bold tracking-widest text-[var(--foreground)]/60 transition-all duration-500 hover:text-white px-2 uppercase"
                 >
                     Projects
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-indigo-400 transition-all duration-500 group-hover:w-full" />
                 </a>
             </Magnetic>
 
