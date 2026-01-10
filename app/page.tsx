@@ -15,26 +15,39 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
+  const [borderActive, setBorderActive] = useState(false);
   const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
-    // Stage 1: "Hello" (1.5s)
+    // Stage 1: "Hello" (3s total)
+    // 0s: Hello appears
+    // 1.5s: Border starts shimmering
+    const borderTimer1 = setTimeout(() => setBorderActive(true), 1500);
+
     const helloTimer = setTimeout(() => {
       setLoadingPhase('namaste');
-    }, 1500);
+      setBorderActive(false);
+    }, 3000);
 
-    // Stage 2: "Namaste" (2s)
+    // Stage 2: "Namaste" (3s total)
+    // 3s: Namaste appears (reset timer)
+    // 4.5s (3s + 1.5s): Border starts shimmering again
+    const borderTimer2 = setTimeout(() => setBorderActive(true), 4500);
+
     const namasteTimer = setTimeout(() => {
       setLoadingPhase('fading');
-    }, 3500);
+      setBorderActive(false);
+    }, 6000);
 
     // Stage 3: Fade out / Vapour Effect (1.5s)
     const doneTimer = setTimeout(() => {
       setLoadingPhase('done');
-    }, 5000);
+    }, 7500);
 
     return () => {
+      clearTimeout(borderTimer1);
       clearTimeout(helloTimer);
+      clearTimeout(borderTimer2);
       clearTimeout(namasteTimer);
       clearTimeout(doneTimer);
     };
@@ -70,28 +83,32 @@ export default function Home() {
       {loadingPhase !== 'done' && (
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
           <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
-            <h1
-              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
-            >
-              {"Hello".split("").map((letter, i) => (
-                <span
-                  key={i}
-                  className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
-                    ? 'opacity-100 scale-110 blur-0 translate-y-0'
-                    : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
-                    }`}
-                  style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
-                >
-                  {letter}
-                </span>
-              ))}
-            </h1>
-            <h1
-              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
-                }`}
-            >
-              Namaste
-            </h1>
+            {/* Shimmer Border Container */}
+            <div className={`px-20 py-10 transition-all duration-1000 ${borderActive ? 'shimmer-border rounded-[40px] bg-white/5 backdrop-blur-sm' : ''}`}>
+              <h1
+                className={`absolute inset-0 flex items-center justify-center text-7xl md:text-9xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600 transition-all duration-1000 ${loadingPhase === 'hello' ? 'opacity-100 scale-110' : 'opacity-0 scale-50'}`}
+              >
+                {"Hello".split("").map((letter, i) => (
+                  <span
+                    key={i}
+                    className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
+                      ? 'opacity-100 scale-100 blur-0 translate-y-0'
+                      : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
+                      }`}
+                    style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </h1>
+
+              <h1
+                className={`absolute inset-0 flex items-center justify-center text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
+                  }`}
+              >
+                Namaste
+              </h1>
+            </div>
           </div>
         </div>
       )}
