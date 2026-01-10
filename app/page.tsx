@@ -152,23 +152,8 @@ export default function Home() {
         {/* Hero Section */}
         <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center select-none">
           <div className="max-w-5xl space-y-12">
-            {/* Eyebrow Text & Status Badge */}
-            <div className="flex flex-col items-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <div className="group/status relative flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all duration-500 cursor-default">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-emerald-400 group-hover/status:text-emerald-300 transition-colors">
-                  Available for Work
-                </span>
-                {/* Status Tooltip */}
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-500 text-black text-[10px] font-bold rounded opacity-0 group-hover/status:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  Looking for collaboration!
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-x-4 border-x-transparent border-t-4 border-t-emerald-500" />
-                </div>
-              </div>
-
+            {/* Eyebrow Text */}
+            <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
               <span className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight tracking-tighter drop-shadow-[0_0_50px_rgba(255,255,255,0.3)] animate-shimmer text-transparent bg-clip-text bg-[linear-gradient(110deg,#f8fafc,45%,#bae6fd,55%,#f8fafc)] bg-[length:200%_100%] transition-transform duration-500 cursor-default select-none inline-block whitespace-nowrap font-[family-name:var(--font-plus-jakarta-sans)]">
                 Aastha Kumari
               </span>
