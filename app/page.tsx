@@ -204,11 +204,11 @@ export default function Home() {
 
         <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-transparent">
           <div className="text-center mb-24 group/projects-header">
-            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#fb7185,45%,#3b82f6,55%,#fb7185)] bg-[length:200%_100%] animate-shimmer tracking-tighter uppercase font-mono mb-6 group-hover/projects-header:scale-105 transition-transform duration-700">
+            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#fb7185,45%,#3b82f6,55%,#fb7185)] bg-[length:200%_100%] tracking-tighter uppercase font-mono mb-6">
               Featured <br />
               Projects
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)] group-hover/projects-header:w-48 transition-all duration-700"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)]"></div>
           </div>
 
           <div className="relative w-full max-w-4xl mx-auto space-y-12">
