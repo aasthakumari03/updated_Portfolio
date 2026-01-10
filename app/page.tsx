@@ -15,39 +15,26 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
-  const [showShimmer, setShowShimmer] = useState(false);
   const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
-    // Stage 1: "Hello" (3s total)
-    // 0s: Hello appears
-    // 1.5s: Shimmer sweeps
-    const shimmerTimer1 = setTimeout(() => setShowShimmer(true), 1500);
-
+    // Stage 1: "Hello" (1.5s)
     const helloTimer = setTimeout(() => {
       setLoadingPhase('namaste');
-      setShowShimmer(false);
-    }, 3000);
+    }, 1500);
 
-    // Stage 2: "Namaste" (3s total)
-    // 3s: Namaste appears
-    // 4.5s: Shimmer sweeps
-    const shimmerTimer2 = setTimeout(() => setShowShimmer(true), 4500);
-
+    // Stage 2: "Namaste" (2s)
     const namasteTimer = setTimeout(() => {
       setLoadingPhase('fading');
-      setShowShimmer(false);
-    }, 6000);
+    }, 3500);
 
     // Stage 3: Fade out / Vapour Effect (1.5s)
     const doneTimer = setTimeout(() => {
       setLoadingPhase('done');
-    }, 7500);
+    }, 5000);
 
     return () => {
-      clearTimeout(shimmerTimer1);
       clearTimeout(helloTimer);
-      clearTimeout(shimmerTimer2);
       clearTimeout(namasteTimer);
       clearTimeout(doneTimer);
     };
@@ -83,40 +70,28 @@ export default function Home() {
       {loadingPhase !== 'done' && (
         <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
           <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
-            <div className="relative">
-              {/* Shimmer Overlay */}
-              {showShimmer && (
-                <div className="absolute inset-x-0 top-0 h-full w-full pointer-events-none z-50 animate-text-shine" style={{ mixBlendMode: 'plus-lighter' }}>
-                  <div className="w-full h-full text-7xl md:text-9xl font-black tracking-tighter uppercase text-white opacity-20">
-                    {loadingPhase === 'hello' ? "Hello" : "Namaste"}
-                  </div>
-                </div>
-              )}
-
-              <h1
-                className={`absolute inset-0 text-7xl md:text-9xl font-black tracking-tighter uppercase flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600 transition-opacity duration-500 ${loadingPhase === 'hello' ? 'opacity-100' : 'opacity-0'}`}
-              >
-                {"Hello".split("").map((letter, i) => (
-                  <span
-                    key={i}
-                    className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
-                      ? 'opacity-100 scale-110 blur-0 translate-y-0'
-                      : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
-                      }`}
-                    style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </h1>
-
-              <h1
-                className={`absolute inset-0 text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
-                  }`}
-              >
-                Namaste
-              </h1>
-            </div>
+            <h1
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase flex text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600`}
+            >
+              {"Hello".split("").map((letter, i) => (
+                <span
+                  key={i}
+                  className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
+                    ? 'opacity-100 scale-110 blur-0 translate-y-0'
+                    : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
+                    }`}
+                  style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </h1>
+            <h1
+              className={`absolute text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
+                }`}
+            >
+              Namaste
+            </h1>
           </div>
         </div>
       )}
