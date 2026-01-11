@@ -19,30 +19,30 @@ export default function Home() {
   const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
-    // Stage 1: "Hello" (3s total)
+    // Stage 1: "Hello" (4s total)
     // 0s: Hello appears
-    // 1.5s: Border starts shimmering
-    const borderTimer1 = setTimeout(() => setBorderActive(true), 1500);
+    // 2s: Border starts shimmering
+    const borderTimer1 = setTimeout(() => setBorderActive(true), 2000);
 
     const helloTimer = setTimeout(() => {
       setLoadingPhase('namaste');
       setBorderActive(false);
-    }, 3000);
+    }, 4000);
 
-    // Stage 2: "Namaste" (3s total)
-    // 3s: Namaste appears (reset timer)
-    // 4.5s (3s + 1.5s): Border starts shimmering again
-    const borderTimer2 = setTimeout(() => setBorderActive(true), 4500);
+    // Stage 2: "Namaste" (4s total)
+    // 4s: Namaste appears (reset timer)
+    // 6s (4s + 2s): Border starts shimmering again
+    const borderTimer2 = setTimeout(() => setBorderActive(true), 6000);
 
     const namasteTimer = setTimeout(() => {
       setLoadingPhase('fading');
       setBorderActive(false);
-    }, 6000);
+    }, 8000);
 
     // Stage 3: Fade out / Vapour Effect (1.5s)
     const doneTimer = setTimeout(() => {
       setLoadingPhase('done');
-    }, 7500);
+    }, 9500);
 
     return () => {
       clearTimeout(borderTimer1);
