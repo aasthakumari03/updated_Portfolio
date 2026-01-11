@@ -176,6 +176,12 @@ export default function Home() {
               </span>
             </div>
 
+            <div className="animate-fade-in opacity-0 max-w-2xl mx-auto" style={{ animationDelay: '0.4s' }}>
+              <p className="text-lg md:text-xl text-white/60 font-medium leading-relaxed tracking-tight">
+                Curious first-year B.Tech CSE (AI & ML) student who loves breaking code to fix it better. Learning fast, collaborating openly, chasing opportunities—and having fun while doing it.
+              </p>
+            </div>
+
             <div className="flex justify-center gap-6 pt-8">
               <ResumeCard />
               <WorkCard />
