@@ -524,7 +524,7 @@ button,
   }
 
   .shimmer-surface:hover::after {
-    animation: shimmer-sweep 1.5s ease-in-out;
+    animation: shimmer-sweep 1.5s ease-in-out infinite;
   }
 }
 
