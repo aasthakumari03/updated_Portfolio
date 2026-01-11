@@ -203,7 +203,7 @@ export default function Home() {
             {/* Header Side */}
             <div className="flex items-center gap-4 shrink-0 pt-2 group/header">
               <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
-              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#60a5fa,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-110 transition-transform duration-500">
+              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#60a5fa,55%,#ffffff)] bg-[length:200%_100%] transition-transform duration-500">
                 just an intro
               </h2>
             </div>
@@ -351,7 +351,7 @@ export default function Home() {
                 <div className="w-1.5 h-6 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
                 <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/40">Get in touch</span>
               </div>
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#22d3ee,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-105 transition-transform duration-500">
+              <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#22d3ee,55%,#ffffff)] bg-[length:200%_100%] transition-transform duration-500">
                 Let's Connect
               </h2>
             </div>

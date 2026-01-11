@@ -33,7 +33,7 @@ const TechnicalArsenal = () => {
                         <div className="w-1.5 h-6 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
                         <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/40">The tools powering my universe</span>
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-105 transition-transform duration-500">
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%] transition-transform duration-500">
                         Technical Arsenal
                     </h2>
                 </div>
