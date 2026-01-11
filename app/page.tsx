@@ -176,8 +176,8 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="animate-fade-in opacity-0 max-w-2xl mx-auto" style={{ animationDelay: '0.4s' }}>
-              <p className="text-lg md:text-xl text-white/60 font-medium leading-relaxed tracking-tight">
+            <div className="animate-fade-in opacity-0 max-w-2xl mx-auto mt-8" style={{ animationDelay: '0.4s' }}>
+              <p className="text-lg md:text-xl text-white/50 font-medium leading-relaxed tracking-tight px-4">
                 Curious first-year B.Tech CSE (AI & ML) student who loves breaking code to fix it better. Learning fast, collaborating openly, chasing opportunities—and having fun while doing it.
               </p>
             </div>
@@ -300,10 +300,11 @@ export default function Home() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 bg-black text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform duration-300 shadow-xl mt-4"
+                    className="group/btn relative flex items-center gap-4 px-8 py-4 rounded-full font-bold transition-all duration-300 overflow-hidden mt-8 border border-white/10 hover:border-white/30"
                   >
-                    View Project
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10 text-white/90 group-hover/btn:text-white">View Project</span>
+                    <svg className="relative z-10 text-white/70 group-hover/btn:text-white transition-colors duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
@@ -344,11 +345,16 @@ export default function Home() {
 
         {/* Footer/Contact Info / Connect Page */}
         <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <div className="max-w-4xl w-full text-center space-y-12">
-            <h2 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 tracking-tighter uppercase font-mono">
-              Let's <br />
-              Connect
-            </h2>
+          <div className="max-w-4xl w-full text-center space-y-12 group/header">
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-6 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
+                <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/40">Get in touch</span>
+              </div>
+              <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#22d3ee,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-105 transition-transform duration-500">
+                Let's Connect
+              </h2>
+            </div>
 
             <p className="text-lg md:text-xl text-[var(--foreground)]/80 max-w-2xl mx-auto leading-relaxed font-semibold">
               {"My universe is always expanding, and I'm constantly looking for new stars to collaborate with. Whether you have a project in mind or just want to say hello, my signal is always on.".split(" ").map((word, i) => (
