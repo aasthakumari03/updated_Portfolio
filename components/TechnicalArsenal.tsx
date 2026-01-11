@@ -28,13 +28,14 @@ const TechnicalArsenal = () => {
     return (
         <section id="arsenal" className="py-32 px-6 relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-24">
-                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-6 inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-700 hover:scale-[1.02]">
+                <div className="flex flex-col items-center gap-4 mb-24 group/header">
+                    <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-6 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
+                        <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/40">The tools powering my universe</span>
+                    </div>
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%] animate-shimmer group-hover/header:scale-105 transition-transform duration-500">
                         Technical Arsenal
                     </h2>
-                    <p className="text-white/40 font-bold tracking-[0.4em] uppercase text-sm md:text-base">
-                        The tools powering my universe
-                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10">

@@ -4,9 +4,9 @@ import Magnetic from './Magnetic';
 
 export default function Navbar({ isMinimal = false }: { isMinimal?: boolean }) {
     return (
-        <nav className={`flex items-center gap-4 transition-all duration-500 ${isMinimal
-            ? 'bg-transparent border-none shadow-none px-0 py-0'
-            : 'bg-transparent px-2 py-0 border-none shadow-none'
+        <nav className={`flex items-center gap-4 transition-all duration-500 rounded-full ${isMinimal
+            ? 'bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-2 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'
+            : 'bg-transparent px-2 py-0 border-transparent shadow-none'
             }`}>
             <Magnetic strength={0.12}>
                 <a
