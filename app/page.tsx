@@ -75,37 +75,51 @@ export default function Home() {
         {/* Simplified About Section */}
         <section id="about" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">About</h2>
-            <p className="text-2xl md:text-4xl text-white/60 leading-tight tracking-tight">
-              Whether it&apos;s code or real life, I believe most
-              <span className="text-white"> problems just need patience and logic</span>.
-              Currently exploring the depths of AI and Machine Learning.
+            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter opacity-20">About</h2>
+            <p className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tighter">
+              <span className="text-white/40">Whether it&apos;s code or real life, I believe most </span>
+              <span className="text-white">problems just need patience and logic</span>.
+              <span className="text-white/40"> Currently exploring the depths of </span>
+              <span className="text-purple-400">AI and Machine Learning</span>.
             </p>
           </div>
         </section>
 
         {/* Simplified Projects Section */}
         <section id="projects" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
-          <div className="space-y-16">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">Portfolio</h2>
+          <div className="space-y-24">
+            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter opacity-20">Portfolio</h2>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-32">
               {[
                 {
                   title: "Fitlife Tracker",
-                  desc: "A comprehensive health and fitness companion.",
-                  tech: "React, JavaScript, Firebase"
+                  desc: "A comprehensive health and fitness companion with a data-driven interface.",
+                  tech: "React • JavaScript • Firebase",
+                  year: "2024"
                 },
                 {
                   title: "Celestial Portfolio",
-                  desc: "A universe that showcases art and code.",
-                  tech: "Next.js, Tailwind, Framer Motion"
+                  desc: "A futuristic universe showcasing the intersection of art and code.",
+                  tech: "Next.js • Tailwind • Framer Motion",
+                  year: "2025"
                 }
               ].map((project, i) => (
-                <div key={i} className="group space-y-4 border-b border-white/10 pb-12 hover:border-white/30 transition-colors">
-                  <h3 className="text-3xl font-bold tracking-tight">{project.title}</h3>
-                  <p className="text-white/50 text-lg leading-relaxed">{project.desc}</p>
-                  <p className="text-xs font-mono text-white/30 uppercase tracking-widest">{project.tech}</p>
+                <div key={i} className="group relative space-y-8 cursor-pointer">
+                  <div className="flex justify-between items-end border-b border-white/10 pb-4 group-hover:border-white/30 transition-all duration-500">
+                    <span className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter">
+                      {project.title}
+                    </span>
+                    <span className="text-xl md:text-2xl font-bold text-white/20 pb-2">{project.year}</span>
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                    <p className="text-xl md:text-2xl text-white/50 max-w-2xl leading-relaxed font-medium">
+                      {project.desc}
+                    </p>
+                    <span className="px-6 py-2 bg-white/5 rounded-full text-sm font-bold tracking-widest text-white/40 uppercase">
+                      {project.tech}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
