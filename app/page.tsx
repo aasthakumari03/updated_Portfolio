@@ -38,18 +38,35 @@ export default function Home() {
             </p>
 
             {/* Tech Stack / Companies Section */}
-            <div className="pt-12 space-y-4">
-              <p className="text-xs font-bold tracking-[0.2em] text-white/30 uppercase">
-                TECHNICAL ARSENAL
+            <div className="pt-20 space-y-6">
+              <p className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/20 uppercase">
+                COMPANIES & PROJECTS I&apos;VE WORKED WITH
               </p>
-              <div className="flex flex-wrap gap-12 items-center opacity-30 grayscale hover:opacity-60 transition-opacity duration-500">
-                <SiPython size={40} />
-                <SiJavascript size={40} />
-                <SiTypescript size={40} />
-                <FaReact size={40} />
-                <SiNextdotjs size={40} />
-                <SiTailwindcss size={40} />
-                <FaBrain size={40} />
+              <div className="flex flex-wrap gap-x-16 gap-y-8 items-center opacity-20 grayscale hover:opacity-40 transition-all duration-700 ease-in-out cursor-default">
+                <div className="flex items-center gap-3">
+                  <SiPython size={28} />
+                  <span className="text-lg font-bold tracking-tighter">Python</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiJavascript size={28} />
+                  <span className="text-lg font-bold tracking-tighter">JavaScript</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FaReact size={28} />
+                  <span className="text-lg font-bold tracking-tighter">React</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiNextdotjs size={28} />
+                  <span className="text-lg font-bold tracking-tighter">Next.js</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiTailwindcss size={28} />
+                  <span className="text-lg font-bold tracking-tighter">Tailwind</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FaBrain size={28} />
+                  <span className="text-lg font-bold tracking-tighter">AI/ML</span>
+                </div>
               </div>
             </div>
           </div>
