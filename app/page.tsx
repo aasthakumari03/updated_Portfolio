@@ -2,436 +2,117 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Logo from "@/components/Logo";
-import Navbar from "@/components/Navbar";
-import ResumeCard from "@/components/ResumeCard";
-import WorkCard from '@/components/WorkCard';
-import TerminalDisplay from "@/components/TerminalDisplay";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaDesktop, FaRunning, FaRocket, FaCode, FaChevronDown, FaHome } from "react-icons/fa";
-import TechnicalArsenal from "@/components/TechnicalArsenal";
-import Magnetic from "@/components/Magnetic";
+import Dock from "@/components/Dock";
+import { FaCode, FaRobot, FaBrain, FaDatabase, FaReact } from "react-icons/fa";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython } from "react-icons/si";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [loadingPhase, setLoadingPhase] = useState<'hello' | 'namaste' | 'fading' | 'done'>('hello');
-  const [borderActive, setBorderActive] = useState(false);
-  const [showTerminal, setShowTerminal] = useState(false);
-
-  useEffect(() => {
-    // Stage 1: "Hello" (4s total)
-    // 0s: Hello appears
-    // 2s: Border starts shimmering
-    const borderTimer1 = setTimeout(() => setBorderActive(true), 2000);
-
-    const helloTimer = setTimeout(() => {
-      setLoadingPhase('namaste');
-      setBorderActive(false);
-    }, 4000);
-
-    // Stage 2: "Namaste" (4s total)
-    // 4s: Namaste appears (reset timer)
-    // 6s (4s + 2s): Border starts shimmering again
-    const borderTimer2 = setTimeout(() => setBorderActive(true), 6000);
-
-    const namasteTimer = setTimeout(() => {
-      setLoadingPhase('fading');
-      setBorderActive(false);
-    }, 8000);
-
-    // Stage 3: Fade out / Vapour Effect (1.5s)
-    const doneTimer = setTimeout(() => {
-      setLoadingPhase('done');
-    }, 9500);
-
-    return () => {
-      clearTimeout(borderTimer1);
-      clearTimeout(helloTimer);
-      clearTimeout(borderTimer2);
-      clearTimeout(namasteTimer);
-      clearTimeout(doneTimer);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Update header state
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
-      // Update scroll progress
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = (window.scrollY / totalScroll) * 100;
-      setScrollProgress(currentProgress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div className="relative min-h-screen bg-transparent text-[var(--foreground)] selection:bg-indigo-100/30 selection:text-indigo-900">
-      {/* Scroll Progress Bar */}
-      <div
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[100] transition-all duration-300 ease-out"
-        style={{ width: `${scrollProgress}%` }}
-      />
-      {/* Welcome Sequence Screen */}
-      {loadingPhase !== 'done' && (
-        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none transition-all duration-1500 ease-out ${loadingPhase === 'fading' ? 'opacity-0 scale-[1.5] blur-3xl' : 'opacity-100 scale-100'}`}>
-          <div className="relative text-center overflow-hidden h-48 w-full max-w-4xl flex items-center justify-center">
-            {/* Shimmer Border Container */}
-            <div className={`px-20 py-10 transition-all duration-1000 ${borderActive ? 'shimmer-border rounded-[40px] bg-white/5 backdrop-blur-sm' : ''}`}>
-              <h1
-                className={`absolute inset-0 flex items-center justify-center text-7xl md:text-9xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-600 transition-all duration-1000 ${loadingPhase === 'hello' ? 'opacity-100 scale-110' : 'opacity-0 scale-50'}`}
-              >
-                {"Hello".split("").map((letter, i) => (
-                  <span
-                    key={i}
-                    className={`inline-block transition-all duration-[1200ms] ${loadingPhase === 'hello'
-                      ? 'opacity-100 scale-100 blur-0 translate-y-0'
-                      : 'opacity-0 scale-[4] blur-[120px] -translate-y-20 rotate-12'
-                      }`}
-                    style={{ transitionDelay: `${i * 50}ms`, transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </h1>
+    <div className="relative min-h-screen bg-black text-white selection:bg-purple-900/30 font-sans">
+      {/* Central Glow Background Effect */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-950/20 rounded-full blur-[120px] opacity-60" />
+      </div>
 
-              <h1
-                className={`absolute inset-0 flex items-center justify-center text-7xl md:text-9xl font-black tracking-tighter uppercase transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 ${loadingPhase === 'namaste' ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-[3] blur-[120px]'
-                  }`}
-              >
-                Namaste
-              </h1>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Unified Navigation Header */}
-      <header className={`fixed top-0 left-0 z-50 w-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${loadingPhase !== 'done' ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
-        <div className={`mx-auto flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled
-          ? 'max-w-fit mt-4 bg-[var(--card-bg)]/60 backdrop-blur-3xl px-8 py-3 rounded-full border border-[var(--card-border)] shadow-[0_8px_32px_rgba(79,70,229,0.1)] gap-10'
-          : 'max-w-full justify-between gap-0 bg-transparent border-none shadow-none py-6 px-12 md:px-24'
-          }`}>
-
-          <div className="flex items-center gap-6">
-            <Logo className="w-12 h-12 text-indigo-950" />
-          </div>
-
-          <div className="flex items-center gap-8">
-            {/* Social Icons - Now on the right */}
-            <div className={`flex items-center gap-6 transition-all duration-500 ${isScrolled ? 'opacity-0 w-0 -mr-6 pointer-events-none' : 'opacity-100 w-auto text-white/40'}`}>
-              {[
-                { icon: FaGithub, href: "https://github.com/aasthakumari03", color: "hover:text-[var(--foreground)]" },
-                { icon: FaLinkedin, href: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "hover:text-blue-600" },
-                {
-                  icon: FaInstagram, href: "https://www.instagram.com/the_nytheris/", isInstagram: true
-                }
-              ].map((social, idx) => (
-                <Magnetic key={idx} strength={0.3}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative p-2 ${social.isInstagram ? 'hover:text-[var(--foreground)]' : social.color} transition-all duration-300 hover:scale-125 overflow-hidden rounded-lg`}
-                  >
-                    {/* Shine Overlay */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shine_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
-
-                    {social.isInstagram ? (
-                      <div className="relative overflow-hidden group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-[#f09433] group-hover:via-[#dc2743] group-hover:to-[#bc1888]">
-                        <social.icon size={22} />
-                      </div>
-                    ) : (
-                      <social.icon size={22} className="relative z-0" />
-                    )}
-                  </a>
-                </Magnetic>
-              ))}
-            </div>
-
-            {/* Navigation Links */}
-            <div className="flex items-center">
-              <Navbar isMinimal={isScrolled} />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <div className={`relative z-20 transition-all duration-1000 ${loadingPhase === 'done' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 overflow-hidden'}`}>
+      <main className="relative z-10">
         {/* Hero Section */}
-        <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center select-none">
-          <div className="max-w-5xl space-y-12">
-            {/* Eyebrow Text */}
-            <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              <span className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight tracking-tighter drop-shadow-[0_0_50px_rgba(255,255,255,0.3)] text-transparent bg-clip-text bg-[linear-gradient(110deg,#f8fafc,45%,#bae6fd,55%,#f8fafc)] bg-[length:200%_100%] transition-transform duration-500 cursor-default select-none inline-block whitespace-nowrap font-[family-name:var(--font-plus-jakarta-sans)]">
-                Aastha Kumari
+        <section id="home" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
+          <div className="space-y-8 animate-fade-in">
+            {/* Greed Eyebrow Tag */}
+            <div className="inline-block px-0 py-1 border-none bg-transparent">
+              <span className="text-[#A3E635] text-sm md:text-base font-bold tracking-tight">
+                AI & ML Student
               </span>
             </div>
 
-            <div className="animate-fade-in opacity-0 max-w-2xl mx-auto mt-8" style={{ animationDelay: '0.4s' }}>
-              <p className="text-lg md:text-xl text-white/50 font-medium leading-relaxed tracking-tight px-4">
-                Curious first-year B.Tech CSE (AI & ML) student who loves breaking code to fix it better. Learning fast, collaborating openly, chasing opportunities—and having fun while doing it.
+            {/* Main Heading */}
+            <h1 className="text-6xl md:text-8xl lg:text-[120px] font-extrabold leading-[0.9] tracking-tighter">
+              Hi,<br />
+              I m <span className="text-white">Aastha Kumari</span>
+            </h1>
+
+            {/* Description Subtext */}
+            <p className="text-xl md:text-2xl text-white/50 max-w-3xl leading-relaxed font-medium">
+              A curious first-year B.Tech CSE (AI & ML) student who loves breaking code to fix it better.
+              Learning fast, collaborating openly, chasing opportunities—and having fun while doing it.
+            </p>
+
+            {/* Tech Stack / Companies Section */}
+            <div className="pt-12 space-y-4">
+              <p className="text-xs font-bold tracking-[0.2em] text-white/30 uppercase">
+                TECHNICAL ARSENAL
               </p>
+              <div className="flex flex-wrap gap-12 items-center opacity-30 grayscale hover:opacity-60 transition-opacity duration-500">
+                <SiPython size={40} />
+                <SiJavascript size={40} />
+                <SiTypescript size={40} />
+                <FaReact size={40} />
+                <SiNextdotjs size={40} />
+                <SiTailwindcss size={40} />
+                <FaBrain size={40} />
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div className="flex justify-center gap-6 pt-8">
-              <ResumeCard />
-              <WorkCard />
+        {/* Simplified About Section */}
+        <section id="about" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
+          <div className="space-y-12">
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">About</h2>
+            <p className="text-2xl md:text-4xl text-white/60 leading-tight tracking-tight">
+              Whether it&apos;s code or real life, I believe most
+              <span className="text-white"> problems just need patience and logic</span>.
+              Currently exploring the depths of AI and Machine Learning.
+            </p>
+          </div>
+        </section>
+
+        {/* Simplified Projects Section */}
+        <section id="projects" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
+          <div className="space-y-16">
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">Portfolio</h2>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {[
+                {
+                  title: "Fitlife Tracker",
+                  desc: "A comprehensive health and fitness companion.",
+                  tech: "React, JavaScript, Firebase"
+                },
+                {
+                  title: "Celestial Portfolio",
+                  desc: "A universe that showcases art and code.",
+                  tech: "Next.js, Tailwind, Framer Motion"
+                }
+              ].map((project, i) => (
+                <div key={i} className="group space-y-4 border-b border-white/10 pb-12 hover:border-white/30 transition-colors">
+                  <h3 className="text-3xl font-bold tracking-tight">{project.title}</h3>
+                  <p className="text-white/50 text-lg leading-relaxed">{project.desc}</p>
+                  <p className="text-xs font-mono text-white/30 uppercase tracking-widest">{project.tech}</p>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40 hover:opacity-100 transition-opacity">
-              <a href="#about" className="flex flex-col items-center gap-2">
-                <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Discover</span>
-                <FaChevronDown size={14} />
+        {/* Simplified Contact Section */}
+        <section id="contact" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
+          <div className="space-y-12">
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">Let&apos;s Connect</h2>
+            <p className="text-2xl md:text-4xl text-white/60 leading-tight tracking-tight max-w-4xl">
+              My universe is always expanding. Whether you have a project in mind or just want to say hello,
+              <span className="text-white"> my signal is always on</span>.
+            </p>
+            <div className="flex gap-8 pt-8">
+              <a href="mailto:aastha0328kumari@gmail.com" className="text-xl md:text-2xl font-bold border-b-2 border-white pb-1 hover:text-white/60 hover:border-white/30 transition-all">
+                aastha0328kumari@gmail.com
               </a>
             </div>
           </div>
         </section>
+      </main>
 
-        {/* About Me Section */}
-        <section id="about" className="min-h-[120vh] flex flex-col items-center justify-center py-48 px-12 md:px-24 bg-transparent">
-          <div className="max-w-7xl w-full flex flex-col md:flex-row items-start gap-12 md:gap-24">
-            {/* Header Side */}
-            <div className="flex items-center gap-4 shrink-0 pt-2 group/header">
-              <div className="w-1.5 h-6 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
-              <h2 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#60a5fa,55%,#ffffff)] bg-[length:200%_100%] transition-transform duration-500">
-                just an intro
-              </h2>
-            </div>
-
-            {/* Content Side */}
-            <div className="flex-1 group/content">
-              <p className="text-3xl md:text-5xl font-medium leading-[1.15] tracking-tight transition-all duration-700 group-hover/content:drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] text-professional">
-                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">I'm a </span>
-                <span className="text-white font-bold group-hover/content:text-blue-200 transition-colors duration-500">first-year AI & ML student</span>
-                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500"> passionate about </span>
-                <span className="text-white font-bold group-hover/content:text-indigo-200 transition-colors duration-500">coding and debugging</span>
-                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">. Whether it’s code or real life, I believe most </span>
-                <span className="text-white font-bold group-hover/content:text-sky-200 transition-colors duration-500">problems just need patience and logic</span>
-                <span className="text-white/40 group-hover/content:text-white/60 transition-colors duration-500">.</span>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <TechnicalArsenal />
-
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 px-6 bg-transparent">
-          <div className="text-center mb-24 group/projects-header">
-            <h2 className="text-4xl md:text-8xl font-black text-transparent bg-clip-text bg-[linear-gradient(110deg,#fb7185,45%,#3b82f6,55%,#fb7185)] bg-[length:200%_100%] tracking-tighter uppercase font-mono mb-6">
-              Featured <br />
-              Projects
-            </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-rose-500 to-blue-500 mx-auto rounded-full shadow-[0_0_20px_rgba(244,63,94,0.3)]"></div>
-          </div>
-
-          <div className="relative w-full max-w-4xl mx-auto space-y-12">
-            {[
-              {
-                id: 1,
-                title: "A celestial portfolio universe that showcases art and code through dynamic animations.",
-                type: "CURRENT WORK",
-                desc: "The very portfolio you are browsing, built with Next.js, Tailwind CSS, and Framer Motion.",
-                link: "https://github.com/aasthakumari03/updated_Portfolio",
-                color: "bg-[#DCFCE7]",
-                textColor: "text-[#064E3B]",
-                tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-                images: [
-                  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
-                  "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80"
-                ]
-              },
-              {
-                id: 2,
-                title: "Fitlife-Tracker: A comprehensive health and fitness companion.",
-                type: "FEATURED PROJECT",
-                desc: "Track workouts, monitor nutrition, and visualize your progress with a sleek, data-driven interface.",
-                link: "https://github.com/aasthakumari03/fitlife-tracker",
-                color: "bg-[#FCE7F3]",
-                textColor: "text-[#500724]",
-                tech: ["React", "JavaScript", "Firebase", "CSS Modules"],
-                images: [
-                  "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=400&q=80",
-                  "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=400&q=80"
-                ]
-              }
-            ].map((project, index) => (
-              <div
-                key={project.id}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
-                  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
-                }}
-                className={`group relative spotlight-card w-full ${project.color} ${project.textColor} rounded-[48px] overflow-hidden min-h-[400px] flex flex-col md:flex-row transition-all duration-700 hover:scale-[1.01] hover:shadow-[0_40px_120px_-20px_rgba(0,0,0,0.4)] shadow-[0_40px_100px_rgba(0,0,0,0.1)] active:scale-[0.99] border border-black/5 hover:border-black/10`}
-              >
-                {/* Content Side */}
-                <div className="flex-1 p-10 md:p-16 flex flex-col justify-center items-start space-y-6 z-10">
-                  <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60">
-                    {project.type}
-                  </span>
-                  <div className="space-y-4">
-                    <h3 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight max-w-lg">
-                      {project.title}
-                    </h3>
-                    <p className="text-lg opacity-80 max-w-sm font-medium">
-                      {project.desc}
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tech.map((t, i) => (
-                        <span key={i} className="px-3 py-1 bg-black/10 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn relative flex items-center gap-4 px-8 py-4 rounded-full font-bold transition-all duration-300 overflow-hidden mt-8 border border-white/10 hover:border-white/30"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                    <span className="relative z-10 text-white/90 group-hover/btn:text-white">View Project</span>
-                    <svg className="relative z-10 text-white/70 group-hover/btn:text-white transition-colors duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                </div>
-
-                {/* Mockup Side */}
-                <div className="flex-1 relative min-h-[400px] md:min-h-full overflow-hidden">
-                  {/* Phone Frames Mockup */}
-                  <div className="absolute inset-0 flex items-center justify-center translate-x-12 md:translate-x-24 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2">
-                    <div className="relative w-[220px] h-[450px] bg-white rounded-[32px] shadow-2xl border-[6px] border-slate-800 overflow-hidden transform rotate-[-5deg] z-20 transition-transform duration-700 group-hover:rotate-[-2deg]">
-                      <Image
-                        src={project.images[0]}
-                        alt="Mobile UI 1"
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
-                    </div>
-                    <div className="relative w-[220px] h-[450px] bg-white rounded-[32px] shadow-2xl border-[6px] border-slate-800 overflow-hidden transform translate-x-[-100px] translate-y-16 z-10 scale-95 opacity-90 transition-transform duration-700 group-hover:translate-x-[-80px] group-hover:translate-y-8">
-                      <Image
-                        src={project.images[1]}
-                        alt="Mobile UI 2"
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
-                    </div>
-                  </div>
-
-                  {/* Decorative Elements */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Footer/Contact Info / Connect Page */}
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-transparent">
-          <div className="max-w-4xl w-full text-center space-y-12 group/header">
-            <div className="flex flex-col items-center gap-4 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-6 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] group-hover/header:scale-y-150 transition-transform duration-500" />
-                <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/40">Get in touch</span>
-              </div>
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#22d3ee,55%,#ffffff)] bg-[length:200%_100%] transition-transform duration-500">
-                Let's Connect
-              </h2>
-            </div>
-
-            <p className="text-lg md:text-xl text-[var(--foreground)]/80 max-w-2xl mx-auto leading-relaxed font-semibold">
-              {"My universe is always expanding, and I'm constantly looking for new stars to collaborate with. Whether you have a project in mind or just want to say hello, my signal is always on.".split(" ").map((word, i) => (
-                <span key={i} className="hover-word">{word}{" "}</span>
-              ))}
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
-              <div className="flex items-center gap-6">
-                <Magnetic strength={0.2}>
-                  <a
-                    href="mailto:aastha0328kumari@gmail.com"
-                    className="group relative inline-block px-12 py-4 rounded-full bg-[var(--button-bg)] text-[var(--button-text)] font-black text-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_50px_rgba(79,70,229,0.3)] overflow-hidden"
-                  >
-                    <span className="relative z-10">Send Message</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--button-gradient-from)] to-[var(--button-gradient-to)] border-[var(--card-border)] shadow-lg shadow-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </a>
-                </Magnetic>
-
-                <a
-                  href="mailto:aastha0328kumari@gmail.com"
-                  className="w-16 h-16 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] hover:bg-indigo-100 transition-all duration-300 hover:scale-110 active:scale-95"
-                  title="Email Me"
-                >
-                  <FaEnvelope size={28} />
-                </a>
-              </div>
-
-              <div className="flex items-center gap-6 px-8 py-4 bg-[var(--card-bg)] rounded-full border border-[var(--card-border)] shadow-sm backdrop-blur-xl">
-                <Magnetic strength={0.4}><a href="#home" className="text-[var(--foreground)]/60 hover:text-blue-400 transition-all hover:scale-110" title="Back to Home"><FaHome size={24} /></a></Magnetic>
-                <Magnetic strength={0.4}><a href="https://github.com/aasthakumari03" target="_blank" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors"><FaGithub size={24} /></a></Magnetic>
-                <Magnetic strength={0.4}><a href="https://www.linkedin.com/in/aastha-kumari-2116a837a" target="_blank" className="text-[var(--foreground)]/60 hover:text-blue-600 transition-colors"><FaLinkedin size={24} /></a></Magnetic>
-                <Magnetic strength={0.4}><a href="https://www.instagram.com/the_nytheris/" target="_blank" className="text-[var(--foreground)]/60 hover:text-pink-600 transition-colors"><FaInstagram size={24} /></a></Magnetic>
-              </div>
-            </div>
-
-            <TerminalDisplay isVisible={showTerminal} onClose={() => setShowTerminal(false)} />
-          </div>
-
-          <div className="w-full max-w-4xl mt-24 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col items-center md:items-start space-y-4">
-              <Logo className="w-10 h-10 text-indigo-400 opacity-60" />
-              <p className="text-white/40 text-xs tracking-widest uppercase font-bold">Aastha Kumari &copy; 2025</p>
-            </div>
-
-            <nav className="flex items-center gap-8">
-              {[
-                { name: "About", href: "#about" },
-                { name: "Arsenal", href: "#arsenal" },
-                { name: "Projects", href: "#projects" },
-                { name: "Contact", href: "#contact" }
-              ].map((link, i) => (
-                <a
-                  key={i}
-                  href={link.href}
-                  className="text-[10px] uppercase tracking-[0.3em] font-black text-white/30 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Copyright Line at the absolute bottom - Removed redundant line */}
-
-          {/* Lower bottom trigger - positioned relative to section bottom */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-            <button
-              onClick={() => setShowTerminal(true)}
-              className="group flex flex-col items-center gap-3 cursor-none"
-            >
-              <div className="w-4 h-4 rounded-full border border-[var(--section-divider)] bg-[var(--card-bg)] animate-pulse group-hover:bg-indigo-600 group-hover:scale-125 transition-all duration-300 shadow-[0_0_10px_rgba(79,70,229,0.2)]" />
-              <span className="text-[10px] font-mono tracking-[0.4em] text-[var(--foreground)]/30 group-hover:text-[var(--foreground)] uppercase transition-colors">Click here</span>
-            </button>
-          </div>
-        </section>
-      </div>
+      <Dock />
     </div>
   );
 }
