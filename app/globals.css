@@ -2,64 +2,18 @@
 
 :root {
   --background: #000000;
-  --foreground: #f8fafc;
-  --overlay-bg: rgba(0, 0, 0, 0.85);
-  --blob-opacity: 0.2;
-  --text-muted: rgba(248, 250, 252, 0.7);
-  --section-divider: rgba(248, 250, 252, 0.1);
-  --card-bg: rgba(15, 23, 42, 0.8);
-  --card-border: rgba(248, 250, 252, 0.1);
-  --noise-opacity: 0.3;
-  --noise-blend: soft-light;
-  --button-bg: #f8fafc;
-  --button-text: #ffffff;
-  --button-gradient-from: #4f46e5;
-  --button-gradient-to: #7c3aed;
-
-  /* Smooth Transition Refinements */
-  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-
-  --neon-pink: #ff00ff;
-  --neon-blue: #bae6fd;
-  --neon-purple: #818cf8;
-  --funky-cyan: #06b6d4;
-  --funky-magenta: #d946ef;
-  --funky-lime: #84cc16;
-  --funky-orange: #fb923c;
-  --funky-yellow: #facc15;
+  --foreground: #ffffff;
+  --glow-color: rgba(121, 40, 202, 0.15);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
   scroll-behavior: smooth;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #080916;
-    --foreground: #f8fafc;
-    --overlay-bg: rgba(8, 9, 22, 0.85);
-    --blob-opacity: 0.25;
-    --text-muted: rgba(248, 250, 252, 0.7);
-    --section-divider: rgba(248, 250, 252, 0.1);
-    --card-bg: rgba(15, 23, 42, 0.9);
-    --card-border: rgba(248, 250, 252, 0.1);
-    --noise-opacity: 0.4;
-    --noise-blend: soft-light;
-    --button-bg: #f8fafc;
-    --button-text: #020617;
-    --button-gradient-from: #f8fafc;
-    --button-gradient-to: #e2e8f0;
-
-    --funky-cyan: #22d3ee;
-    --funky-magenta: #e879f9;
-    --funky-lime: #a3e635;
-    --funky-orange: #fdba74;
-    --funky-yellow: #fde047;
-  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Inter', 'SF Pro Display', 'Apple SD Gothic Neo', system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 body {
