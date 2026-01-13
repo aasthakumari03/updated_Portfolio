@@ -1,149 +1,81 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Dock from "@/components/Dock";
-import { FaCode, FaRobot, FaBrain, FaDatabase, FaReact } from "react-icons/fa";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython } from "react-icons/si";
+import React from "react";
+import NavHeader from "@/components/NavHeader";
+import Background from "@/components/Background";
+import Marquee from "@/components/Marquee";
+import { FaArrowRight } from "react-icons/fa";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiFigma, SiReact } from "react-icons/si";
 
 export default function Home() {
+  const companies = [
+    { name: "ENGINEERS BUILT", icon: SiNextdotjs },
+    { name: "MASTERS' UNION", icon: SiReact },
+    { name: "whatfix", icon: SiJavascript },
+    { name: "ENGINEERS BUILT", icon: SiPython },
+    { name: "MASTERS' UNION", icon: SiTailwindcss },
+    { name: "whatfix", icon: SiTypescript },
+  ];
+
   return (
-    <div className="relative min-h-screen bg-black text-white selection:bg-purple-900/30 font-sans">
-      {/* Central Glow Background Effect */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-950/20 rounded-full blur-[120px] opacity-60" />
-      </div>
+    <div className="relative min-h-screen text-white font-sans selection:bg-teal-500/30">
+      <Background />
+      <NavHeader />
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
-          <div className="space-y-8 animate-fade-in">
-            {/* Greed Eyebrow Tag */}
-            <div className="inline-block px-0 py-1 border-none bg-transparent">
-              <span className="text-[#A3E635] text-sm md:text-base font-bold tracking-tight">
-                AI & ML Student
+        <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center">
+          <div className="max-w-4xl mx-auto space-y-10">
+            {/* Avaiblity Tag */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
               </span>
+              Available for opportunities
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-6xl md:text-8xl lg:text-[120px] font-extrabold leading-[0.9] tracking-tighter">
-              Hi,<br />
-              I m <span className="text-white">Aastha Kumari</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
+              Welcome to <br />
+              my humble digital abode!
             </h1>
 
-            {/* Description Subtext */}
-            <p className="text-xl md:text-2xl text-white/50 max-w-3xl leading-relaxed font-medium">
-              A curious first-year B.Tech CSE (AI & ML) student who loves breaking code to fix it better.
-              Learning fast, collaborating openly, chasing opportunities—and having fun while doing it.
+            {/* Subtext */}
+            <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
+              Hi I am Aastha, a passionate first-year AI & ML student. <br />
+              My interest lies in brand experience, and user experience.
             </p>
 
-            {/* Tech Stack / Companies Section */}
-            <div className="pt-20 space-y-6">
-              <p className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/20 uppercase">
-                COMPANIES & PROJECTS I&apos;VE WORKED WITH
-              </p>
-              <div className="flex flex-wrap gap-x-16 gap-y-8 items-center opacity-20 grayscale hover:opacity-40 transition-all duration-700 ease-in-out cursor-default">
-                <div className="flex items-center gap-3">
-                  <SiPython size={28} />
-                  <span className="text-lg font-bold tracking-tighter">Python</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <SiJavascript size={28} />
-                  <span className="text-lg font-bold tracking-tighter">JavaScript</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaReact size={28} />
-                  <span className="text-lg font-bold tracking-tighter">React</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <SiNextdotjs size={28} />
-                  <span className="text-lg font-bold tracking-tighter">Next.js</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <SiTailwindcss size={28} />
-                  <span className="text-lg font-bold tracking-tighter">Tailwind</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaBrain size={28} />
-                  <span className="text-lg font-bold tracking-tighter">AI/ML</span>
-                </div>
-              </div>
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in [animation-delay:600ms]">
+              <button className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-white/90 transition-all flex items-center gap-2">
+                👋 Let's talk
+              </button>
+              <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2">
+                My resume <FaArrowRight className="-rotate-45" />
+              </button>
             </div>
           </div>
-        </section>
 
-        {/* Simplified About Section */}
-        <section id="about" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
-          <div className="space-y-12">
-            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter opacity-20">About</h2>
-            <p className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tighter">
-              <span className="text-white/40">Whether it&apos;s code or real life, I believe most </span>
-              <span className="text-white">problems just need patience and logic</span>.
-              <span className="text-white/40"> Currently exploring the depths of </span>
-              <span className="text-purple-400">AI and Machine Learning</span>.
-            </p>
-          </div>
-        </section>
-
-        {/* Simplified Projects Section */}
-        <section id="projects" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
-          <div className="space-y-24">
-            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter opacity-20">Portfolio</h2>
-
-            <div className="space-y-32">
-              {[
-                {
-                  title: "Fitlife Tracker",
-                  desc: "A comprehensive health and fitness companion with a data-driven interface.",
-                  tech: "React • JavaScript • Firebase",
-                  year: "2024"
-                },
-                {
-                  title: "Celestial Portfolio",
-                  desc: "A futuristic universe showcasing the intersection of art and code.",
-                  tech: "Next.js • Tailwind • Framer Motion",
-                  year: "2025"
-                }
-              ].map((project, i) => (
-                <div key={i} className="group relative space-y-8 cursor-pointer">
-                  <div className="flex justify-between items-end border-b border-white/10 pb-4 group-hover:border-white/30 transition-all duration-500">
-                    <span className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter">
-                      {project.title}
-                    </span>
-                    <span className="text-xl md:text-2xl font-bold text-white/20 pb-2">{project.year}</span>
-                  </div>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                    <p className="text-xl md:text-2xl text-white/50 max-w-2xl leading-relaxed font-medium">
-                      {project.desc}
-                    </p>
-                    <span className="px-6 py-2 bg-white/5 rounded-full text-sm font-bold tracking-widest text-white/40 uppercase">
-                      {project.tech}
-                    </span>
-                  </div>
+          {/* Social Proof Marquee */}
+          <div className="mt-32 w-full max-w-5xl animate-fade-in [animation-delay:800ms]">
+            <Marquee speed={30}>
+              {companies.map((company, i) => (
+                <div key={i} className="flex items-center gap-3 opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+                  <company.icon size={24} />
+                  <span className="text-xl font-bold tracking-tighter whitespace-nowrap">{company.name}</span>
                 </div>
               ))}
-            </div>
+            </Marquee>
           </div>
         </section>
 
-        {/* Simplified Contact Section */}
-        <section id="contact" className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 max-w-6xl">
-          <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter">Let&apos;s Connect</h2>
-            <p className="text-2xl md:text-4xl text-white/60 leading-tight tracking-tight max-w-4xl">
-              My universe is always expanding. Whether you have a project in mind or just want to say hello,
-              <span className="text-white"> my signal is always on</span>.
-            </p>
-            <div className="flex gap-8 pt-8">
-              <a href="mailto:aastha0328kumari@gmail.com" className="text-xl md:text-2xl font-bold border-b-2 border-white pb-1 hover:text-white/60 hover:border-white/30 transition-all">
-                aastha0328kumari@gmail.com
-              </a>
-            </div>
-          </div>
+        {/* Existing Sections Placeholder - Will refine below common areas */}
+        <section id="projects" className="py-20 px-6">
+          {/* Rest of the content following same theme... */}
         </section>
       </main>
-
-      <Dock />
     </div>
   );
 }
