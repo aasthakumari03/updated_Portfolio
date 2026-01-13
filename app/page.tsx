@@ -4,8 +4,9 @@ import React from "react";
 import NavHeader from "@/components/NavHeader";
 import Background from "@/components/Background";
 import Marquee from "@/components/Marquee";
+import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiFigma, SiReact } from "react-icons/si";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiReact } from "react-icons/si";
 
 export default function Home() {
   const companies = [
@@ -26,6 +27,17 @@ export default function Home() {
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center">
           <div className="max-w-4xl mx-auto space-y-10">
+            {/* Avatar */}
+            <div className="relative w-32 h-32 mx-auto animate-fade-in">
+              <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
+              <Image
+                src="/avatar.png"
+                alt="Aastha Kumari"
+                width={128}
+                height={128}
+                className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl"
+              />
+            </div>
             {/* Avaiblity Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in">
               <span className="relative flex h-2 w-2">
@@ -71,10 +83,68 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Existing Sections Placeholder - Will refine below common areas */}
-        <section id="projects" className="py-20 px-6">
-          {/* Rest of the content following same theme... */}
+        {/* Projects Preview */}
+        <section id="projects" className="py-32 px-6 max-w-6xl mx-auto">
+          <div className="space-y-20">
+            <div className="text-center space-y-4">
+              <h2 className="text-4xl md:text-6xl font-serif tracking-tight">Selected Works</h2>
+              <p className="text-white/40 text-lg">A collection of projects where code meets creativity.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Fitlife Tracker",
+                  desc: "Health and fitness companion with a data-driven interface.",
+                  tech: "React • Firebase",
+                },
+                {
+                  title: "Celestial Portfolio",
+                  desc: "Futuristic universe showcasing art and code.",
+                  tech: "Next.js • Framer Motion",
+                }
+              ].map((project, i) => (
+                <div key={i} className="group glass-card p-10 rounded-3xl space-y-8 hover:border-teal-500/30 transition-all duration-500 cursor-pointer">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold tracking-tight group-hover:text-teal-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/50 leading-relaxed font-medium">
+                      {project.desc}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span className="text-xs font-bold tracking-widest text-white/30 uppercase">{project.tech}</span>
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <FaArrowRight className="-rotate-45" size={14} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
+
+        {/* Simplified Footer / Contact */}
+        <footer id="contact" className="py-32 px-6 text-center border-t border-white/5 bg-white/[0.02]">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <h2 className="text-4xl md:text-6xl font-serif tracking-tight">Let's build something <br /> extraordinary together.</h2>
+            <p className="text-xl text-white/50">My signal is always on. Reach out for collaborations or just a chat.</p>
+            <div className="pt-8">
+              <a href="mailto:aastha0328kumari@gmail.com" className="inline-block px-10 py-5 bg-teal-500 text-white rounded-full font-bold text-xl hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20">
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </footer>
+
+        {/* Made with Badge */}
+        <div className="fixed bottom-8 right-8 z-[100] animate-fade-in [animation-delay:1s]">
+          <div className="px-4 py-2 bg-white text-black text-[10px] font-bold rounded-lg shadow-xl uppercase tracking-widest flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse"></span>
+            Made with ❤️
+          </div>
+        </div>
       </main>
     </div>
   );
