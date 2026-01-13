@@ -4,6 +4,7 @@ import React from "react";
 import NavHeader from "@/components/NavHeader";
 import Background from "@/components/Background";
 import Marquee from "@/components/Marquee";
+import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiReact } from "react-icons/si";
@@ -19,13 +20,15 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen text-white font-sans selection:bg-teal-500/30">
+    <div className="relative min-h-screen text-white font-sans selection:bg-teal-500/30 overflow-hidden flex">
       <Background />
-      <NavHeader />
+      <Sidebar />
 
-      <main className="relative z-10">
+      <main className="flex-grow ml-80 relative z-10 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar">
+        <NavHeader />
+
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center">
+        <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center relative">
           <div className="max-w-4xl mx-auto space-y-10">
             {/* Avatar */}
             <div className="relative w-32 h-32 mx-auto animate-fade-in">
