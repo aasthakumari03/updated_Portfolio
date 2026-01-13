@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { FaBookmark, FaEnvelope, FaTwitter, FaLinkedin, FaGithub, FaCheckCircle, FaBriefcase } from "react-icons/fa";
 
-const Sidebar = () => {
+const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) => {
     return (
         <aside className="w-80 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 flex flex-col p-8 z-50 overflow-y-auto">
             {/* Header Info */}
@@ -39,13 +39,19 @@ const Sidebar = () => {
 
             {/* Navigation Buttons */}
             <div className="mt-12 space-y-3 flex-grow">
-                <button className="w-full flex items-center gap-3 px-6 py-4 rounded-xl bg-gray-50 text-gray-400 font-bold transition-all hover:bg-gray-100">
-                    <FaCheckCircle className="text-gray-300" />
+                <button
+                    onClick={() => setActiveTab('profile')}
+                    className={`w-full flex items-center gap-3 px-6 py-4 rounded-xl font-bold transition-all ${activeTab === 'profile' ? 'bg-gray-900 text-white shadow-lg shadow-gray-200' : 'bg-gray-50 text-gray-400 hover:bg-gray-100'}`}
+                >
+                    <FaCheckCircle className={activeTab === 'profile' ? 'text-white/50' : 'text-gray-300'} />
                     <span>Profile</span>
                 </button>
-                <button className="w-full flex items-center gap-3 px-6 py-4 rounded-xl bg-gray-900 text-white font-bold transition-all shadow-lg shadow-gray-200">
-                    <div className="w-5 h-3 border-2 border-white/30 rounded-sm relative">
-                        <div className="absolute left-1/2 -ml-[1px] top-0 bottom-0 w-[2px] bg-white/30"></div>
+                <button
+                    onClick={() => setActiveTab('portfolio')}
+                    className={`w-full flex items-center gap-3 px-6 py-4 rounded-xl font-bold transition-all ${activeTab === 'portfolio' ? 'bg-gray-900 text-white shadow-lg shadow-gray-200' : 'bg-gray-50 text-gray-400 hover:bg-gray-100'}`}
+                >
+                    <div className={`w-5 h-3 border-2 rounded-sm relative ${activeTab === 'portfolio' ? 'border-white/30' : 'border-gray-200'}`}>
+                        <div className={`absolute left-1/2 -ml-[1px] top-0 bottom-0 w-[2px] ${activeTab === 'portfolio' ? 'bg-white/30' : 'bg-gray-200'}`}></div>
                     </div>
                     <span>Portfolio</span>
                 </button>
