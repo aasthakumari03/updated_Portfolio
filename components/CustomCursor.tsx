@@ -44,12 +44,12 @@ const CustomCursor = () => {
             {/* Main Dot */}
             <div
                 ref={cursorRef}
-                className="fixed top-0 left-0 w-2 h-2 bg-[#D1D5DB] rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
             />
             {/* Secondary Outer Circle */}
             <div
                 ref={secondaryCursorRef}
-                className="fixed top-0 left-0 w-8 h-8 border border-[#D1D5DB]/30 rounded-full -translate-x-1/2 -translate-y-1/2"
+                className="fixed top-0 left-0 w-8 h-8 border border-teal-400/30 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_rgba(45,212,191,0.2)]"
             />
         </div>
     );
