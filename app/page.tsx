@@ -5,6 +5,8 @@ import NavHeader from "@/components/NavHeader";
 import Background from "@/components/Background";
 import Marquee from "@/components/Marquee";
 import Sidebar from "@/components/Sidebar";
+import ProjectCard from "@/components/ProjectCard";
+import ConnectSection from "@/components/ConnectSection";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiReact } from "react-icons/si";
@@ -36,34 +38,33 @@ export default function Home() {
               <div className="max-w-4xl mx-auto space-y-10">
                 {/* Avatar */}
                 <div className="relative w-32 h-32 mx-auto animate-fade-in">
-                  <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
+                  <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
                   <Image
                     src="/avatar.png"
-                    alt="Aastha Kumari"
+                    alt="Arnab Debnath"
                     width={128}
                     height={128}
                     className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl"
                   />
                 </div>
                 {/* Availability Tag */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold animate-fade-in">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                   </span>
                   Available for opportunities
                 </div>
 
                 {/* Main Heading */}
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
-                  Welcome to <br />
-                  my humble digital abode!
+                  Let's Connect
                 </h1>
 
                 {/* Subtext */}
                 <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
-                  Hi I am Aastha, a passionate first-year AI & ML student. <br />
-                  My interest lies in brand experience, and user experience.
+                  Have a project, a question, or just want to chat about design? <br />
+                  Drop me a message!
                 </p>
 
                 {/* Actions */}
@@ -97,38 +98,40 @@ export default function Home() {
                 <p className="text-white/40 text-lg">A collection of projects where code meets creativity.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+              <div className="flex flex-col gap-16">
                 {[
                   {
-                    title: "Fitlife Tracker",
-                    desc: "Health and fitness companion with a data-driven interface.",
-                    tech: "React • Firebase",
+                    category: "APP DESIGN",
+                    year: "2024",
+                    title: "Curating AI experiences while travelling with DestGo",
+                    features: [
+                      "Making travel planning a less tedious process",
+                      "Get AI generated custom itineraries",
+                      "Discover the undiscovered",
+                    ],
+                    image: "/projects/destgo.png",
+                    mockupType: "mobile" as const,
                   },
                   {
-                    title: "Celestial Portfolio",
-                    desc: "Futuristic universe showcasing art and code.",
-                    tech: "Next.js • Framer Motion",
+                    category: "WEBSITE UI DESIGN",
+                    year: "2023",
+                    title: "Building an attractive and responsive dashboard",
+                    features: [
+                      "Renno is a platform for any sort of home renovation",
+                      "Seamless contractor management system",
+                      "Interactive project gallery and tracking",
+                    ],
+                    image: "/projects/renno.png",
+                    mockupType: "desktop" as const,
                   }
                 ].map((project, i) => (
-                  <div key={i} className="group glass-card p-10 rounded-3xl space-y-8 hover:border-teal-500/30 transition-all duration-500 cursor-pointer">
-                    <div className="space-y-4">
-                      <h3 className="text-3xl font-bold tracking-tight group-hover:text-teal-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/50 leading-relaxed font-medium">
-                        {project.desc}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                      <span className="text-xs font-bold tracking-widest text-white/30 uppercase">{project.tech}</span>
-                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                        <FaArrowRight className="-rotate-45" size={14} />
-                      </div>
-                    </div>
-                  </div>
+                  <ProjectCard key={i} {...project} />
                 ))}
               </div>
             </section>
+
+            {/* New Connect Section */}
+            <ConnectSection />
           </div>
         ) : (
           <div className="animate-fade-in py-32 px-12 max-w-4xl mx-auto space-y-16">
@@ -138,13 +141,13 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12">
               <div className="space-y-4">
-                <h3 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Skills</h3>
+                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Skills</h3>
                 <div className="flex flex-wrap gap-2 text-white/60">
                   <span>UX Design</span> • <span>UI Design</span> • <span>Interaction Design</span> • <span>Design Thinking</span> • <span>User Research</span> • <span>Prototyping</span>
                 </div>
               </div>
               <div className="space-y-4">
-                <h3 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Education</h3>
+                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Education</h3>
                 <p className="text-white/60">B.Tech CSE (AI & ML) - 1st Year</p>
               </div>
             </div>
@@ -153,21 +156,10 @@ export default function Home() {
                 I blend technical logic with visual storytelling to create intuitive and engaging interfaces. My passion lies in designing meaningful products that solve real problems through empathy and creativity.
               </p>
             </div>
+            {/* New Connect Section also in About tab if desired, or keep as is */}
+            <ConnectSection />
           </div>
         )}
-
-        {/* Simplified Footer / Contact */}
-        <footer id="contact" className="py-32 px-6 text-center border-t border-white/5 bg-white/[0.02]">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-4xl md:text-6xl font-serif tracking-tight">Let's build something <br /> extraordinary together.</h2>
-            <p className="text-xl text-white/50">My signal is always on. Reach out for collaborations or just a chat.</p>
-            <div className="pt-8">
-              <a href="mailto:aastha0328kumari@gmail.com" className="inline-block px-10 py-5 bg-teal-500 text-white rounded-full font-bold text-xl hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20">
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </footer>
 
         {/* Made with Badge */}
         <div className="fixed bottom-8 right-8 z-[100] animate-fade-in [animation-delay:1s]">
