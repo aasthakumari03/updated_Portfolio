@@ -5,25 +5,37 @@ import Magnetic from "./Magnetic";
 
 const NavHeader = () => {
     const items = [
-        { label: "Home", href: "#home" },
-        { label: "Works", href: "#projects" },
+        { label: "Work", href: "#projects" },
         { label: "About", href: "#about" },
-        { label: "FAQ", href: "#contact" },
+        { label: "Resume", href: "/resume.pdf" },
     ];
 
     return (
-        <nav className="fixed top-8 left-[calc(50%+160px)] -translate-x-1/2 z-[100]">
-            <div className="flex items-center gap-1 px-2 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-                {items.map((item, idx) => (
-                    <Magnetic key={idx} strength={0.1}>
-                        <a
-                            href={item.href}
-                            className="px-6 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors rounded-full hover:bg-white/10"
-                        >
-                            {item.label}
-                        </a>
-                    </Magnetic>
-                ))}
+        <nav className="fixed top-8 left-[calc(50%+160px)] -translate-x-1/2 z-[100] w-full max-w-2xl">
+            <div className="flex items-center justify-between px-6 py-3 bg-[#0a192f]/80 backdrop-blur-xl border border-white/5 rounded-2xl shadow-2xl">
+                {/* Logo */}
+                <div className="flex items-center gap-1.5 group cursor-pointer">
+                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                        A
+                    </div>
+                    <span className="text-white font-bold text-xl tracking-tight relative overflow-hidden">
+                        rnab
+                    </span>
+                </div>
+
+                {/* Links */}
+                <div className="flex items-center gap-8">
+                    {items.map((item, idx) => (
+                        <Magnetic key={idx} strength={0.1}>
+                            <a
+                                href={item.href}
+                                className="text-sm font-bold text-white/70 hover:text-white transition-colors"
+                            >
+                                {item.label}
+                            </a>
+                        </Magnetic>
+                    ))}
+                </div>
             </div>
         </nav>
     );
