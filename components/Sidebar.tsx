@@ -12,27 +12,29 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
                 <div className="relative w-24 h-24">
                     <Image
                         src="/avatar.png"
-                        alt="Aastha Kumari"
+                        alt="Arnab Debnath"
                         fill
                         className="rounded-full object-cover border-4 border-gray-50 shadow-sm"
                     />
                 </div>
                 <div className="space-y-1">
-                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Aastha Kumari</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Arnab Debnath</h1>
                     <div className="flex items-center gap-2 text-gray-500 text-sm font-medium">
-                        <span>@aastha</span>
-                        <span>•</span>
+                        <span>@arnabdebnath</span>
+                        <span>-</span>
                         <span className="flex items-center gap-1">📍 India</span>
                     </div>
-                    <p className="text-gray-600 font-semibold text-sm pt-1">AI & ML Student</p>
+                    <p className="text-gray-600 font-semibold text-sm pt-1">Product designer</p>
                 </div>
 
                 <div className="pt-2">
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
-                        1 Year Experience Includes:
+                        3 Years Experience Includes:
                     </p>
-                    <div className="mt-3 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600">
-                        <FaBriefcase size={20} />
+                    <div className="mt-3 w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
+                        <div className="w-6 h-6 rounded-full border-4 border-blue-500 flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,7 +61,7 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
 
             {/* Footer / Bookmark */}
             <div className="pt-8 mt-auto">
-                <button className="w-full flex items-center justify-center gap-2 px-6 py-4 border border-gray-100 rounded-2xl text-gray-600 font-bold hover:bg-gray-50 transition-all">
+                <button className="w-full h-12 flex items-center justify-center gap-2 px-6 border border-gray-100 rounded-full text-gray-600 font-bold hover:bg-gray-50 transition-all">
                     <FaBookmark size={14} className="text-gray-400" />
                     <span>Bookmark</span>
                 </button>
