@@ -7,6 +7,8 @@ import Marquee from "@/components/Marquee";
 import Sidebar from "@/components/Sidebar";
 import ProjectCard from "@/components/ProjectCard";
 import ConnectSection from "@/components/ConnectSection";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import ScrollProgress from "@/components/ScrollProgress";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiReact } from "react-icons/si";
@@ -27,6 +29,7 @@ export default function Home() {
     <div className="relative min-h-screen text-white font-sans selection:bg-teal-500/30 overflow-hidden flex">
       <Background />
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <ScrollProgress />
 
       <main className="flex-grow ml-80 relative z-10 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar">
         <NavHeader />
@@ -35,7 +38,7 @@ export default function Home() {
           <div className="animate-fade-in shadow-2xl">
             {/* Hero Section */}
             <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center relative">
-              <div className="max-w-4xl mx-auto space-y-10">
+              <div className="max-w-4xl mx-auto space-y-12">
                 {/* Avatar */}
                 <div className="relative w-32 h-32 mx-auto animate-fade-in">
                   <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
@@ -57,22 +60,22 @@ export default function Home() {
                 </div>
 
                 {/* Main Heading */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
+                <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
                   Let's Connect
                 </h1>
 
                 {/* Subtext */}
-                <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
-                  Have a project, a question, or just want to chat about design? <br />
-                  Drop me a message!
+                <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
+                  Creating impactful digital experiences <br />
+                  at the intersection of design and technology.
                 </p>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in [animation-delay:600ms]">
-                  <button className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-white/90 transition-all flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in [animation-delay:600ms]">
+                  <button className="group px-10 py-5 bg-white text-black rounded-full font-bold text-lg hover:bg-white/90 transition-all flex items-center gap-2 shadow-2xl shadow-white/5">
                     👋 Let's talk
                   </button>
-                  <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2">
+                  <button className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2 backdrop-blur-sm">
                     My resume <FaArrowRight className="-rotate-45" />
                   </button>
                 </div>
@@ -82,7 +85,7 @@ export default function Home() {
               <div className="mt-32 w-full max-w-5xl animate-fade-in [animation-delay:800ms]">
                 <Marquee speed={30}>
                   {companies.map((company, i) => (
-                    <div key={i} className="flex items-center gap-3 opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+                    <div key={i} className="flex items-center gap-3 opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default mx-8">
                       <company.icon size={24} />
                       <span className="text-xl font-bold tracking-tighter whitespace-nowrap">{company.name}</span>
                     </div>
@@ -92,18 +95,19 @@ export default function Home() {
             </section>
 
             {/* Projects Preview */}
-            <section id="projects" className="py-32 px-6 max-w-6xl mx-auto text-center space-y-20">
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-6xl font-serif tracking-tight">Selected Works</h2>
-                <p className="text-white/40 text-lg">A collection of projects where code meets creativity.</p>
+            <section id="projects" className="py-32 px-6 max-w-6xl mx-auto text-center space-y-24">
+              <div className="space-y-6">
+                <h2 className="text-5xl md:text-7xl font-serif tracking-tight">Selected Works</h2>
+                <p className="text-white/40 text-xl max-w-lg mx-auto leading-relaxed">A collection of projects where code meets creativity and user-centric design.</p>
               </div>
 
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-24">
                 {[
                   {
                     category: "APP DESIGN",
                     year: "2024",
                     title: "Curating AI experiences while travelling with DestGo",
+                    tags: ["React Native", "Figma", "Node.js", "OpenAI"],
                     features: [
                       "Making travel planning a less tedious process",
                       "Get AI generated custom itineraries",
@@ -116,6 +120,7 @@ export default function Home() {
                     category: "WEBSITE UI DESIGN",
                     year: "2023",
                     title: "Building an attractive and responsive dashboard",
+                    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Prisma"],
                     features: [
                       "Renno is a platform for any sort of home renovation",
                       "Seamless contractor management system",
@@ -123,6 +128,7 @@ export default function Home() {
                     ],
                     image: "/projects/renno.png",
                     mockupType: "desktop" as const,
+                    reversed: true
                   }
                 ].map((project, i) => (
                   <ProjectCard key={i} {...project} />
@@ -134,29 +140,39 @@ export default function Home() {
             <ConnectSection />
           </div>
         ) : (
-          <div className="animate-fade-in py-32 px-12 max-w-4xl mx-auto space-y-16">
-            <h1 className="text-6xl font-serif">About Me</h1>
-            <p className="text-2xl text-white/70 leading-relaxed font-serif italic">
-              A curiosity-driven first-year student exploring the fascinating intersection of human creativity and artificial intelligence.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12">
-              <div className="space-y-4">
-                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Skills</h3>
-                <div className="flex flex-wrap gap-2 text-white/60">
-                  <span>UX Design</span> • <span>UI Design</span> • <span>Interaction Design</span> • <span>Design Thinking</span> • <span>User Research</span> • <span>Prototyping</span>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Education</h3>
-                <p className="text-white/60">B.Tech CSE (AI & ML) - 1st Year</p>
-              </div>
-            </div>
-            <div className="pt-12 border-t border-white/10">
-              <p className="text-white/50 leading-relaxed text-lg">
-                I blend technical logic with visual storytelling to create intuitive and engaging interfaces. My passion lies in designing meaningful products that solve real problems through empathy and creativity.
+          <div className="animate-fade-in py-32 px-12 max-w-4xl mx-auto space-y-24">
+            <div className="space-y-8">
+              <h1 className="text-7xl md:text-8xl font-serif tracking-tight">About Me</h1>
+              <p className="text-2xl md:text-3xl text-white/70 leading-relaxed font-serif italic">
+                A curiosity-driven product designer exploring the intersection of human creativity and artificial intelligence.
               </p>
             </div>
-            {/* New Connect Section also in About tab if desired, or keep as is */}
+
+            <div className="space-y-12">
+              <h2 className="text-2xl font-bold uppercase tracking-[0.2em] text-blue-400">Career Journey</h2>
+              <ExperienceTimeline />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-12 border-t border-white/5">
+              <div className="space-y-6">
+                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Technical Arsenal</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["UX Design", "UI Design", "Interaction", "Design Thinking", "React", "Next.js", "Tailwind"].map((skill) => (
+                    <span key={skill} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white/50">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-6">
+                <h3 className="text-blue-400 font-bold uppercase tracking-widest text-sm">Education</h3>
+                <div className="space-y-1">
+                  <p className="text-white font-bold text-lg">B.Tech CSE (AI & ML)</p>
+                  <p className="text-white/60">First Year • 2024 - 2028</p>
+                </div>
+              </div>
+            </div>
+
             <ConnectSection />
           </div>
         )}

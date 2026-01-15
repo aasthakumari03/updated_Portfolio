@@ -7,6 +7,8 @@
   --text-muted: rgba(255, 255, 255, 0.6);
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
+  --project-card-green: #1a2e2a;
+  --project-card-green-dark: #0d1a18;
   scroll-behavior: smooth;
 }
 
@@ -523,6 +525,27 @@ body {
 
   .shimmer-surface:hover::after {
     animation: shimmer-sweep 1.5s ease-in-out infinite;
+  }
+
+  .grainy-overlay {
+    position: relative;
+  }
+
+  .grainy-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(100%);
+    z-index: 1;
+  }
+
+  .project-card-gradient {
+    background: radial-gradient(circle at 70% 30%, var(--project-card-green) 0%, var(--project-card-green-dark) 100%);
   }
 }
 
