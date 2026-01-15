@@ -12,15 +12,15 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
                 <div className="relative w-32 h-32 mx-auto">
                     <Image
                         src="/avatar.png"
-                        alt="Shriya Rai"
+                        alt="Aastha Kumari"
                         fill
                         className="rounded-full object-cover border-4 border-gray-50 shadow-sm"
                     />
                 </div>
                 <div className="space-y-1 text-center">
-                    <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Shriya Rai</h1>
+                    <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Aastha Kumari</h1>
                     <div className="flex items-center justify-center gap-2 text-gray-500 text-sm font-medium">
-                        <span>@shriyarai</span>
+                        <span>@aastha</span>
                         <span>-</span>
                         <span className="flex items-center gap-1">📍 India</span>
                     </div>

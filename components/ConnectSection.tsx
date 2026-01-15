@@ -99,7 +99,7 @@ const ConnectSection = () => {
             {/* Footer Text */}
             <div className="text-center text-white/30 text-sm font-medium tracking-wide space-y-2">
                 <p className="flex items-center justify-center gap-2">
-                    <span>© 2025 Arnab</span>
+                    <span>© 2025 Aastha</span>
                     <span className="w-1 h-1 rounded-full bg-blue-500"></span>
                     <span>All rights reserved</span>
                     <span className="w-1 h-1 rounded-full bg-blue-500"></span>

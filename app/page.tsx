@@ -61,7 +61,7 @@ export default function Home() {
 
                 {/* Main Heading */}
                 <h1 className="text-7xl md:text-9xl lg:text-[10rem] font-serif leading-[0.9] tracking-tighter animate-fade-in [animation-delay:200ms]">
-                  Hey <br /> Shriya Rai
+                  Hey <br /> Aastha Kumari
                 </h1>
 
                 {/* Subtext */}
@@ -144,7 +144,7 @@ export default function Home() {
             <div className="space-y-10">
               <h1 className="text-8xl md:text-9xl font-serif tracking-tighter">Profile</h1>
               <p className="text-2xl md:text-3xl text-white/50 leading-relaxed font-serif italic">
-                Shriya Rai is a UI/UX Designer based in India with over 1 year of experience crafting user-centered digital experiences.
+                Aastha Kumari is a UI/UX Designer based in India with over 1 year of experience crafting user-centered digital experiences.
               </p>
             </div>
 
