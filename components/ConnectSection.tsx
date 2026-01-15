@@ -6,6 +6,14 @@ import { FaXTwitter } from "react-icons/fa6";
 import Magnetic from "./Magnetic";
 
 const ConnectSection = () => {
+    const [copied, setCopied] = React.useState(false);
+
+    const copyEmail = () => {
+        navigator.clipboard.writeText("aastha0328kumari@gmail.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     const socials = [
         { icon: FaLinkedinIn, color: "bg-[#0077b5]", href: "#" },
         { icon: FaXTwitter, color: "bg-black border border-white/20", href: "#" },
@@ -44,6 +52,24 @@ const ConnectSection = () => {
                     <p className="text-xl text-white/50 max-w-lg mx-auto mb-16 leading-relaxed">
                         Have a project, a question, or just want to chat about design? Drop me a message!
                     </p>
+
+                    {/* Email Copy Button */}
+                    <div className="mb-16 relative">
+                        <button
+                            onClick={copyEmail}
+                            className="px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-all group/btn"
+                        >
+                            <span>aastha0328kumari@gmail.com</span>
+                            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center group-hover/btn:scale-110 transition-transform text-[10px]">
+                                COPY
+                            </div>
+                        </button>
+                        {copied && (
+                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg animate-fade-in">
+                                Email Copied!
+                            </div>
+                        )}
+                    </div>
 
                     {/* Socials */}
                     <div className="flex flex-wrap justify-center gap-6">
