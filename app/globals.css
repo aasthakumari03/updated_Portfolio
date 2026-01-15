@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
+  --background: #020202;
   --foreground: #ffffff;
-  --glow-teal: rgba(45, 212, 191, 0.15);
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --project-card-green: #1a2e2a;
-  --project-card-green-dark: #0d1a18;
+  --glow-blue: rgba(37, 99, 235, 0.15);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.05);
   scroll-behavior: smooth;
 }
 
