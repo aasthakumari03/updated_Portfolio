@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     year,
     title,
     features,
-    tags,
+    tags = [],
     image,
     mockupType = "mobile",
     reversed = false,
