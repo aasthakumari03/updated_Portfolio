@@ -108,7 +108,7 @@ export default function Home() {
 
 
           {/* Main Heading */}
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:100ms] text-white">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:100ms] text-white whitespace-nowrap">
             <span className="bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent">
               Aastha Kumari
             </span>
