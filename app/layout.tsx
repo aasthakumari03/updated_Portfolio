@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description: "AI & ML Student & Developer",
 };
 
+import Sidebar from "@/components/Sidebar";
+import Background from "@/components/Background";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,12 +37,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} antialiased bg-black`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} antialiased bg-black text-white relative flex overflow-hidden`}
       >
         <CustomCursor />
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <Background />
+        <Sidebar />
+
+        <main className="flex-grow ml-80 relative z-10 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar selection:bg-teal-500/30">
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </main>
       </body>
     </html>
   );
