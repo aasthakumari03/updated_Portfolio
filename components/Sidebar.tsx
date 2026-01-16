@@ -1,21 +1,54 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { FaBookmark, FaEnvelope, FaTwitter, FaLinkedin, FaGithub, FaCheckCircle, FaBriefcase, FaUser, FaProjectDiagram, FaCode, FaHeadset } from "react-icons/fa";
+import { FaBookmark, FaUser, FaCheckCircle, FaProjectDiagram, FaCode, FaHeadset, FaBriefcase } from "react-icons/fa";
 
 const Sidebar = () => {
-    const pathname = usePathname();
+    const [activeSection, setActiveSection] = useState("home");
 
     const navItems = [
-        { label: "Profile", href: "/", icon: FaUser },
-        { label: "About", href: "/about", icon: FaCheckCircle },
-        { label: "Projects", href: "/projects", icon: FaProjectDiagram },
-        { label: "Skills", href: "/skills", icon: FaCode },
-        { label: "Connect", href: "/connect", icon: FaHeadset },
+        { label: "Profile", href: "#home", id: "home", icon: FaUser },
+        { label: "About", href: "#about", id: "about", icon: FaCheckCircle },
+        { label: "Projects", href: "#projects", id: "projects", icon: FaProjectDiagram },
+        { label: "Skills", href: "#skills", id: "skills", icon: FaCode },
+        { label: "Connect", href: "#connect", id: "connect", icon: FaHeadset },
     ];
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        navItems.forEach((item) => {
+            const element = document.getElementById(item.id);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+        const elem = document.getElementById(targetId);
+        elem?.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(targetId);
+        window.history.pushState(null, '', href);
+    };
 
     return (
         <aside className="w-80 h-screen fixed left-0 top-0 bg-black/40 backdrop-blur-3xl border-r border-white/5 flex flex-col p-8 z-50 overflow-y-auto">
@@ -54,16 +87,17 @@ const Sidebar = () => {
             {/* Navigation Buttons */}
             <div className="mt-12 space-y-3 flex-grow">
                 {navItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    const isActive = activeSection === item.id;
                     return (
-                        <Link
+                        <a
                             key={item.href}
                             href={item.href}
+                            onClick={(e) => handleLinkClick(e, item.href)}
                             className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${isActive ? 'bg-white text-black shadow-2xl shadow-white/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
                         >
                             <item.icon className={isActive ? 'text-black/60' : 'text-white/20'} />
                             <span>{item.label}</span>
-                        </Link>
+                        </a>
                     );
                 })}
             </div>
