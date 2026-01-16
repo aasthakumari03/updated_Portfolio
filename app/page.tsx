@@ -106,14 +106,7 @@ export default function Home() {
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-12">
 
-          {/* Availability Tag */}
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in text-sky-400 backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-            </span>
-            Available for opportunities
-          </div>
+
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">
