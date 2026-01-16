@@ -63,13 +63,13 @@ const Sidebar = () => {
                     />
                 </div>
                 <div className="space-y-1 text-center">
-                    <h1 className="text-3xl font-bold text-white tracking-tight">Aastha Kumari</h1>
-                    <div className="flex items-center justify-center gap-2 text-white/50 text-sm font-medium">
+                    <h1 className="text-2xl font-bold text-white tracking-tight">Aastha Kumari</h1>
+                    <div className="flex items-center justify-center gap-2 text-white/50 text-xs font-medium">
                         <span>@aastha</span>
                         <span>-</span>
                         <span className="flex items-center gap-1">📍 India</span>
                     </div>
-                    <p className="text-teal-400/80 font-semibold text-sm pt-1 uppercase tracking-tight">CSE 1st Year (AI & ML)</p>
+                    <p className="text-teal-400/80 font-semibold text-xs pt-1 uppercase tracking-tight">CSE 1st Year (AI & ML)</p>
                 </div>
 
                 <div className="pt-4 text-center">
@@ -77,8 +77,8 @@ const Sidebar = () => {
                         1 Year Experience Includes:
                     </p>
                     <div className="mt-4 flex justify-center">
-                        <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-teal-400 shadow-sm">
-                            <FaBriefcase size={22} />
+                        <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-teal-400 shadow-sm">
+                            <FaBriefcase size={18} />
                         </div>
                     </div>
                 </div>
@@ -93,10 +93,10 @@ const Sidebar = () => {
                             key={item.href}
                             href={item.href}
                             onClick={(e) => handleLinkClick(e, item.href)}
-                            className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${isActive ? 'bg-white text-black shadow-2xl shadow-white/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
+                            className={`w-full flex items-center gap-4 px-6 py-3 rounded-xl font-bold transition-all ${isActive ? 'bg-white text-black shadow-2xl shadow-white/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
                         >
-                            <item.icon className={isActive ? 'text-black/60' : 'text-white/20'} />
-                            <span>{item.label}</span>
+                            <item.icon className={isActive ? 'text-black/60' : 'text-white/20'} size={18} />
+                            <span className="text-sm">{item.label}</span>
                         </a>
                     );
                 })}
@@ -104,8 +104,8 @@ const Sidebar = () => {
 
             {/* Footer / Bookmark */}
             <div className="pt-8 mt-auto">
-                <button className="w-full h-14 flex items-center justify-center gap-3 px-8 border border-white/10 rounded-full text-white/70 font-bold hover:bg-white/5 transition-all shadow-sm">
-                    <FaBookmark size={16} className="text-white/30" />
+                <button className="w-full h-12 flex items-center justify-center gap-3 px-6 border border-white/10 rounded-full text-white/70 font-bold hover:bg-white/5 transition-all shadow-sm text-sm">
+                    <FaBookmark size={14} className="text-white/30" />
                     <span>Bookmark</span>
                 </button>
             </div>

@@ -1,4 +1,21 @@
 "use client";
+import NavHeader from "@/components/NavHeader";
+import Image from "next/image";
+import Marquee from "@/components/Marquee";
+
+
+import {
+  FaArrowRight,
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+  FaExternalLinkAlt,
+  FaPaperPlane,
+  FaEnvelope,
+} from "react-icons/fa";
+
+
 import {
   SiJavascript,
   SiTypescript,
@@ -7,14 +24,10 @@ import {
   SiPython,
   SiReact,
   SiTensorflow,
-  SiFigma
+  SiFigma,
+  SiGithub,
 } from "react-icons/si";
 
-import React from "react";
-import NavHeader from "@/components/NavHeader";
-import Marquee from "@/components/Marquee";
-import Image from "next/image";
-import { FaArrowRight, FaGithub, FaExternalLinkAlt, FaPaperPlane, FaTwitter, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
   const companies = [
@@ -113,23 +126,23 @@ export default function Home() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">
             Welcome to <br />
             my humble <span className="italic text-teal-400">digital abode!</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
+          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
             Hi I am Aastha, a passionate first-year AI & ML student. <br />
             My interest lies in brand experience, and user experience.
           </p>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in [animation-delay:600ms]">
-            <a href="#connect" className="group px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-2 shadow-xl shadow-white/5">
+            <a href="#connect" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-2 shadow-xl shadow-white/5">
               👋 Let's talk
             </a>
-            <button className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-xl hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm">
+            <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm">
               My resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
@@ -139,9 +152,9 @@ export default function Home() {
         <div className="mt-48 w-full max-w-6xl animate-fade-in [animation-delay:800ms] opacity-60 hover:opacity-100 transition-opacity duration-1000">
           <Marquee speed={40}>
             {companies.map((company, i) => (
-              <div key={i} className="flex items-center gap-4 mx-8 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
-                <company.icon size={32} className="text-white/30 group-hover:text-teal-400 transition-colors" />
-                <span className="text-2xl font-bold tracking-tighter whitespace-nowrap text-white/20 group-hover:text-white transition-colors">{company.name}</span>
+              <div key={i} className="flex items-center gap-3 mx-6 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
+                <company.icon size={24} className="text-white/30 group-hover:text-teal-400 transition-colors" />
+                <span className="text-xl font-bold tracking-tighter whitespace-nowrap text-white/20 group-hover:text-white transition-colors">{company.name}</span>
               </div>
             ))}
           </Marquee>
@@ -151,19 +164,19 @@ export default function Home() {
       {/* Section 2: About Me */}
       <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-10">
-          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">About Me</h2>
-          <p className="text-3xl md:text-5xl text-white/70 leading-tight font-serif italic border-l-4 border-teal-500/50 pl-12">
+          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">About Me</h2>
+          <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-l-4 border-teal-500/50 pl-12">
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
         </div>
 
         <div className="prose prose-invert prose-2xl max-w-none space-y-20">
           <div className="space-y-8">
-            <h3 className="text-4xl font-serif text-teal-400 tracking-tight">My Journey</h3>
-            <p className="text-white/50 leading-relaxed text-2xl font-medium">
+            <h3 className="text-3xl font-serif text-teal-400 tracking-tight">My Journey</h3>
+            <p className="text-white/50 leading-relaxed text-xl font-medium">
               As a first-year Computer Science student specializing in <span className="text-white">Artificial Intelligence</span> and <span className="text-white">Machine Learning</span>, I find myself at the exciting intersection of logic and creativity.
             </p>
-            <p className="text-white/50 leading-relaxed text-2xl font-medium">
+            <p className="text-white/50 leading-relaxed text-xl font-medium">
               I am dedicated to mastering the art of building intelligent systems while ensuring they remain deeply human-centric.
             </p>
           </div>
@@ -171,13 +184,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 border-y border-white/5">
             <div className="space-y-6">
               <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Philosophy</h4>
-              <p className="text-white/40 text-xl leading-relaxed">
+              <p className="text-white/40 text-lg leading-relaxed">
                 I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose and evoke a sense of calm.
               </p>
             </div>
             <div className="space-y-6">
               <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Ambition</h4>
-              <p className="text-white/40 text-xl leading-relaxed">
+              <p className="text-white/40 text-lg leading-relaxed">
                 I aim to leverage AI to create adaptive interfaces that learn from users, creating more personal and intuitive digital worlds.
               </p>
             </div>
@@ -188,18 +201,18 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section id="projects" className="py-64 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Technical Arsenal</h2>
-          <p className="text-2xl text-white/40 leading-relaxed">
+          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Technical Arsenal</h2>
+          <p className="text-xl text-white/40 leading-relaxed">
             A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {projects.map((project, i) => (
-            <div key={i} className="group glass-card p-12 rounded-[3rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-500/20 transition-all duration-1000 space-y-10 cursor-default translate-y-0 hover:-translate-y-4 shadow-2xl hover:shadow-teal-500/5">
+            <div key={i} className="group glass-card p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-500/20 transition-all duration-1000 space-y-8 cursor-default translate-y-0 hover:-translate-y-4 shadow-2xl hover:shadow-teal-500/5">
               <div className="space-y-6">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-5xl font-serif tracking-tight group-hover:text-teal-400 transition-colors duration-700">
+                  <h3 className="text-4xl font-serif tracking-tight group-hover:text-teal-400 transition-colors duration-700">
                     {project.title}
                   </h3>
                   <div className="flex gap-6">
@@ -207,7 +220,7 @@ export default function Home() {
                     <FaExternalLinkAlt className="text-white/20 hover:text-white cursor-pointer transition-colors duration-500" size={20} />
                   </div>
                 </div>
-                <p className="text-white/40 text-xl leading-relaxed font-medium line-clamp-3 group-hover:text-white/60 transition-colors duration-700">
+                <p className="text-white/40 text-lg leading-relaxed font-medium line-clamp-3 group-hover:text-white/60 transition-colors duration-700">
                   {project.desc}
                 </p>
               </div>
@@ -234,8 +247,8 @@ export default function Home() {
       {/* Section 4: Skills */}
       <section id="skills" className="py-64 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
         <div className="space-y-8 max-w-3xl">
-          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Skills & Tools</h2>
-          <p className="text-3xl text-white/40 font-serif italic border-l-4 border-teal-500/50 pl-12 leading-snug">
+          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
+          <p className="text-2xl text-white/40 font-serif italic border-l-4 border-teal-500/50 pl-12 leading-snug">
             Blending the logic of computer science with the emotional resonance of <span className="text-white">high-end design.</span>
           </p>
         </div>
@@ -249,11 +262,11 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {category.tools.map((tool, idx) => (
-                  <div key={idx} className="flex items-center gap-6 p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:bg-white/[0.04] hover:border-teal-500/20 transition-all duration-700 cursor-default group/tool">
-                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover/tool:text-teal-400 transition-colors duration-500 group-hover/tool:scale-110">
-                      <tool.icon size={28} />
+                  <div key={idx} className="flex items-center gap-6 p-6 bg-white/[0.01] border border-white/5 rounded-3xl hover:bg-white/[0.04] hover:border-teal-500/20 transition-all duration-700 cursor-default group/tool">
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover/tool:text-teal-400 transition-colors duration-500 group-hover/tool:scale-110">
+                      <tool.icon size={24} />
                     </div>
-                    <span className="text-xl font-bold text-white/40 group-hover/tool:text-white transition-colors duration-500 tracking-tight">{tool.name}</span>
+                    <span className="text-lg font-bold text-white/40 group-hover/tool:text-white transition-colors duration-500 tracking-tight">{tool.name}</span>
                   </div>
                 ))}
               </div>
@@ -265,8 +278,8 @@ export default function Home() {
       {/* Section 5: Connect */}
       <section id="connect" className="py-64 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
         <div className="space-y-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Let's Connect</h2>
-          <p className="text-3xl text-white/40 font-medium leading-tight">
+          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Let's Connect</h2>
+          <p className="text-2xl text-white/40 font-medium leading-tight">
             Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
           </p>
         </div>
@@ -276,19 +289,19 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-3">
                 <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Full Name</label>
-                <input type="text" placeholder="Jan Doe" className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium placeholder:text-white/10" />
+                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
               </div>
               <div className="space-y-3">
                 <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Email Address</label>
-                <input type="email" placeholder="jan@example.com" className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium placeholder:text-white/10" />
+                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
               </div>
               <div className="space-y-3">
                 <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Message</label>
-                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium resize-none placeholder:text-white/10" />
+                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium resize-none placeholder:text-white/10" />
               </div>
             </div>
-            <button className="w-full py-8 bg-white text-black rounded-full font-bold text-2xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-white/5">
-              Send Message <FaPaperPlane size={24} />
+            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-white/5">
+              Send Message <FaPaperPlane size={22} />
             </button>
           </div>
 
@@ -303,12 +316,12 @@ export default function Home() {
                   { name: "Instagram", icon: FaInstagram, link: "#" },
                   { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
                 ].map((social, i) => (
-                  <a key={i} href={social.link} className="flex items-center justify-between p-8 bg-white/[0.01] border border-white/5 rounded-[2.5rem] transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
+                  <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.01] border border-white/5 rounded-[2rem] transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
                     <div className="flex items-center gap-6">
-                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
-                        <social.icon size={26} />
+                      <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
+                        <social.icon size={22} />
                       </div>
-                      <span className="text-2xl font-bold tracking-tighter text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
+                      <span className="text-xl font-bold tracking-tighter text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
                     </div>
                     <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110">
                       <FaArrowRight className="-rotate-45" size={20} />
@@ -325,7 +338,7 @@ export default function Home() {
       <div className="fixed bottom-8 right-8 z-[100] animate-fade-in [animation-delay:1s]">
         <div className="px-4 py-2 bg-white text-black text-[10px] font-bold rounded-lg shadow-xl uppercase tracking-widest flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse"></span>
-          Made with ❤️
+          Made with ❤️ By Aastha
         </div>
       </div>
     </div>

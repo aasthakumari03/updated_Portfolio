@@ -22,18 +22,18 @@ const NavHeader = () => {
     };
 
     return (
-        <nav className="fixed top-12 left-[calc(50%+160px)] -translate-x-1/2 z-[100] w-full max-w-2xl px-8">
-            <div className="flex items-center justify-between px-10 py-5 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[2rem] shadow-2xl shadow-black/50">
+        <nav className="fixed top-12 left-[calc(50%+160px)] -translate-x-1/2 z-[100] w-full max-w-xl px-8">
+            <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[1.5rem] shadow-2xl shadow-black/50">
                 {/* Logo */}
-                <div className="flex items-center gap-3 group cursor-pointer" onClick={(e) => {
+                <div className="flex items-center gap-2 group cursor-pointer" onClick={(e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     window.history.pushState(null, '', '#home');
                 }}>
-                    <div className="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12 duration-500">
+                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg transition-transform group-hover:rotate-12 duration-500">
                         A
                     </div>
-                    <span className="text-white font-bold text-2xl tracking-tighter relative overflow-hidden hidden sm:block">
+                    <span className="text-white font-bold text-xl tracking-tighter relative overflow-hidden hidden sm:block">
                         astha
                     </span>
                 </div>
@@ -45,7 +45,7 @@ const NavHeader = () => {
                             <a
                                 href={item.href}
                                 onClick={(e) => handleLinkClick(e, item.href)}
-                                className="text-sm font-bold text-white/40 hover:text-white transition-all duration-500 uppercase tracking-widest"
+                                className="text-xs font-bold text-white/40 hover:text-white transition-all duration-500 uppercase tracking-widest"
                             >
                                 {item.label}
                             </a>
