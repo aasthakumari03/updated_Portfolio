@@ -105,17 +105,7 @@ export default function Home() {
       {/* Section 1: Hero */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-12">
-          {/* Avatar */}
-          <div className="relative w-40 h-40 mx-auto animate-fade-in group">
-            <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-3xl animate-pulse-slow group-hover:bg-teal-500/40 transition-all duration-1000"></div>
-            <Image
-              src="/avatar.png"
-              alt="Aastha Kumari"
-              width={160}
-              height={160}
-              className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl hover:scale-105 transition-transform duration-700"
-            />
-          </div>
+
           {/* Availability Tag */}
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in text-sky-400 backdrop-blur-md">
             <span className="relative flex h-2 w-2">

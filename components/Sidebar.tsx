@@ -54,14 +54,7 @@ const Sidebar = () => {
         <aside className="w-80 h-screen fixed left-0 top-0 bg-black/40 backdrop-blur-3xl border-r border-white/5 flex flex-col p-8 z-50 overflow-y-auto">
             {/* Header Info */}
             <div className="space-y-6">
-                <div className="relative w-32 h-32 mx-auto">
-                    <Image
-                        src="/avatar.png"
-                        alt="Aastha Kumari"
-                        fill
-                        className="rounded-full object-cover border-4 border-white/10 shadow-2xl"
-                    />
-                </div>
+
                 <div className="space-y-1 text-center">
                     <h1 className="text-2xl font-bold text-white tracking-tight">Aastha Kumari</h1>
                     <div className="flex items-center justify-center gap-2 text-white/50 text-xs font-medium">
