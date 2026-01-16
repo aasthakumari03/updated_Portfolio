@@ -107,19 +107,21 @@ export default function Home() {
         <div className="max-w-4xl mx-auto space-y-12">
 
 
-          {/* Professional Title */}
-          <div className="animate-fade-in [animation-delay:100ms] mb-8">
-            <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-[0.4em]">
-              Aspiring Software Developer
-            </span>
-          </div>
-
           {/* Main Heading */}
-          <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:200ms] text-white">
+          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:100ms] text-white">
             <span className="bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent">
-              Aastha <br className="sm:hidden" /> Kumari
+              Aastha Kumari
             </span>
           </h1>
+
+          {/* Professional Title Shining Card */}
+          <div className="animate-fade-in [animation-delay:300ms] flex justify-center pt-4">
+            <div className="shimmer-border shimmer-surface px-8 py-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md group cursor-default">
+              <span className="text-xs md:text-sm font-bold text-teal-400 uppercase tracking-[0.5em] drop-shadow-[0_0_10px_rgba(45,212,191,0.3)]">
+                Aspiring Software Developer
+              </span>
+            </div>
+          </div>
 
           {/* Subtext */}
           <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
