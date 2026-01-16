@@ -37,13 +37,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} antialiased bg-black text-white relative flex overflow-hidden`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} antialiased bg-black text-white relative flex selection:bg-teal-500/30`}
       >
         <CustomCursor />
         <Background />
         <Sidebar />
 
-        <main className="flex-grow ml-80 relative z-10 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar selection:bg-teal-500/30">
+        <main className="flex-grow ml-80 relative z-10 min-h-screen">
           <SmoothScroll>
             {children}
           </SmoothScroll>
