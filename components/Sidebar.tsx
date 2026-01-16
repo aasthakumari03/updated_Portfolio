@@ -2,11 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
-import { FaBookmark, FaEnvelope, FaTwitter, FaLinkedin, FaGithub, FaCheckCircle, FaBriefcase } from "react-icons/fa";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaBookmark, FaEnvelope, FaTwitter, FaLinkedin, FaGithub, FaCheckCircle, FaBriefcase, FaUser, FaProjectDiagram, FaCode, FaHeadset } from "react-icons/fa";
 
-const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) => {
+const Sidebar = () => {
+    const pathname = usePathname();
+
+    const navItems = [
+        { label: "Profile", href: "/", icon: FaUser },
+        { label: "About", href: "/about", icon: FaCheckCircle },
+        { label: "Projects", href: "/projects", icon: FaProjectDiagram },
+        { label: "Skills", href: "/skills", icon: FaCode },
+        { label: "Connect", href: "/connect", icon: FaHeadset },
+    ];
+
     return (
-        <aside className="w-80 h-screen fixed left-0 top-0 bg-[#ffffff] border-r border-gray-100 flex flex-col p-8 z-50 overflow-y-auto">
+        <aside className="w-80 h-screen fixed left-0 top-0 bg-black/40 backdrop-blur-3xl border-r border-white/5 flex flex-col p-8 z-50 overflow-y-auto">
             {/* Header Info */}
             <div className="space-y-6">
                 <div className="relative w-32 h-32 mx-auto">
@@ -14,25 +26,25 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
                         src="/avatar.png"
                         alt="Aastha Kumari"
                         fill
-                        className="rounded-full object-cover border-4 border-gray-50 shadow-sm"
+                        className="rounded-full object-cover border-4 border-white/10 shadow-2xl"
                     />
                 </div>
                 <div className="space-y-1 text-center">
-                    <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Aastha Kumari</h1>
-                    <div className="flex items-center justify-center gap-2 text-gray-500 text-sm font-medium">
+                    <h1 className="text-3xl font-bold text-white tracking-tight">Aastha Kumari</h1>
+                    <div className="flex items-center justify-center gap-2 text-white/50 text-sm font-medium">
                         <span>@aastha</span>
                         <span>-</span>
                         <span className="flex items-center gap-1">📍 India</span>
                     </div>
-                    <p className="text-gray-600 font-semibold text-sm pt-1">UI/UX Designer</p>
+                    <p className="text-teal-400/80 font-semibold text-sm pt-1 uppercase tracking-tight">CSE 1st Year (AI & ML)</p>
                 </div>
 
                 <div className="pt-4 text-center">
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest leading-relaxed">
+                    <p className="text-xs font-bold text-white/30 uppercase tracking-widest leading-relaxed">
                         1 Year Experience Includes:
                     </p>
                     <div className="mt-4 flex justify-center">
-                        <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 shadow-sm">
+                        <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-teal-400 shadow-sm">
                             <FaBriefcase size={22} />
                         </div>
                     </div>
@@ -40,29 +52,26 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
             </div>
 
             {/* Navigation Buttons */}
-            <div className="mt-12 space-y-4 flex-grow">
-                <button
-                    onClick={() => setActiveTab('profile')}
-                    className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${activeTab === 'profile' ? 'bg-gray-900 text-white shadow-xl shadow-gray-200' : 'bg-gray-50 text-gray-400 hover:bg-gray-100'}`}
-                >
-                    <FaCheckCircle className={activeTab === 'profile' ? 'text-white/40' : 'text-gray-300'} />
-                    <span>Profile</span>
-                </button>
-                <button
-                    onClick={() => setActiveTab('portfolio')}
-                    className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${activeTab === 'portfolio' ? 'bg-gray-900 text-white shadow-xl shadow-gray-200' : 'bg-gray-50 text-gray-400 hover:bg-gray-100'}`}
-                >
-                    <div className={`w-5 h-3 border-2 rounded-sm relative ${activeTab === 'portfolio' ? 'border-white/30' : 'border-gray-200'}`}>
-                        <div className={`absolute left-1/2 -ml-[1px] top-0 bottom-0 w-[2px] ${activeTab === 'portfolio' ? 'bg-white/30' : 'bg-gray-200'}`}></div>
-                    </div>
-                    <span>Portfolio</span>
-                </button>
+            <div className="mt-12 space-y-3 flex-grow">
+                {navItems.map((item) => {
+                    const isActive = pathname === item.href;
+                    return (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${isActive ? 'bg-white text-black shadow-2xl shadow-white/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
+                        >
+                            <item.icon className={isActive ? 'text-black/60' : 'text-white/20'} />
+                            <span>{item.label}</span>
+                        </Link>
+                    );
+                })}
             </div>
 
             {/* Footer / Bookmark */}
             <div className="pt-8 mt-auto">
-                <button className="w-full h-14 flex items-center justify-center gap-3 px-8 border border-gray-200 rounded-full text-gray-700 font-bold hover:bg-gray-50 transition-all shadow-sm">
-                    <FaBookmark size={16} className="text-gray-400" />
+                <button className="w-full h-14 flex items-center justify-center gap-3 px-8 border border-white/10 rounded-full text-white/70 font-bold hover:bg-white/5 transition-all shadow-sm">
+                    <FaBookmark size={16} className="text-white/30" />
                     <span>Bookmark</span>
                 </button>
             </div>
