@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One } from "next/font/google";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
+});
+
+const pirata = Pirata_One({
+  variable: "--font-gothic",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 import React from "react";
 import "./globals.css";
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} antialiased bg-black text-white relative flex selection:bg-teal-500/30`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} antialiased bg-black text-white relative flex selection:bg-teal-500/30`}
       >
         <CustomCursor />
         <Background />

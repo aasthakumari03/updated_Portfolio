@@ -35,6 +35,7 @@ html.lenis body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-gothic: var(--font-gothic);
 }
 
 @keyframes ring-pulse {

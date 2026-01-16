@@ -115,9 +115,10 @@ export default function Home() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">
-            Welcome to <br />
-            my humble <span className="italic text-teal-400">digital abode!</span>
+          <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:200ms] text-white">
+            <span className="bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent">
+              Aastha <br className="sm:hidden" /> Kumari
+            </span>
           </h1>
 
           {/* Subtext */}
