@@ -1,11 +1,20 @@
 "use client";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiPython,
+  SiReact,
+  SiTensorflow,
+  SiFigma
+} from "react-icons/si";
 
 import React from "react";
 import NavHeader from "@/components/NavHeader";
 import Marquee from "@/components/Marquee";
 import Image from "next/image";
 import { FaArrowRight, FaGithub, FaExternalLinkAlt, FaPaperPlane, FaTwitter, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiPython, SiReact, SiTensorflow, SiFigma } from "react-icons/si";
 
 export default function Home() {
   const companies = [
@@ -81,21 +90,21 @@ export default function Home() {
       <NavHeader />
 
       {/* Section 1: Hero */}
-      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-12 pb-20 text-center relative">
-        <div className="max-w-4xl mx-auto space-y-10">
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto space-y-12">
           {/* Avatar */}
-          <div className="relative w-32 h-32 mx-auto animate-fade-in">
-            <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
+          <div className="relative w-40 h-40 mx-auto animate-fade-in group">
+            <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-3xl animate-pulse-slow group-hover:bg-teal-500/40 transition-all duration-1000"></div>
             <Image
               src="/avatar.png"
               alt="Aastha Kumari"
-              width={128}
-              height={128}
-              className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl"
+              width={160}
+              height={160}
+              className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl hover:scale-105 transition-transform duration-700"
             />
           </div>
           {/* Availability Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in text-sky-400">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in text-sky-400 backdrop-blur-md">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
@@ -104,35 +113,35 @@ export default function Home() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">
             Welcome to <br />
-            my humble digital abode!
+            my humble <span className="italic text-teal-400">digital abode!</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
+          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
             Hi I am Aastha, a passionate first-year AI & ML student. <br />
             My interest lies in brand experience, and user experience.
           </p>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in [animation-delay:600ms]">
-            <a href="#connect" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-white/90 transition-all flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in [animation-delay:600ms]">
+            <a href="#connect" className="group px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-2 shadow-xl shadow-white/5">
               👋 Let's talk
             </a>
-            <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2">
-              My resume <FaArrowRight className="-rotate-45" />
+            <button className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-xl hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm">
+              My resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
         </div>
 
         {/* Social Proof Marquee */}
-        <div className="mt-32 w-full max-w-5xl animate-fade-in [animation-delay:800ms]">
-          <Marquee speed={30}>
+        <div className="mt-48 w-full max-w-6xl animate-fade-in [animation-delay:800ms] opacity-60 hover:opacity-100 transition-opacity duration-1000">
+          <Marquee speed={40}>
             {companies.map((company, i) => (
-              <div key={i} className="flex items-center gap-3 opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-                <company.icon size={24} />
-                <span className="text-xl font-bold tracking-tighter whitespace-nowrap">{company.name}</span>
+              <div key={i} className="flex items-center gap-4 mx-8 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
+                <company.icon size={32} className="text-white/30 group-hover:text-teal-400 transition-colors" />
+                <span className="text-2xl font-bold tracking-tighter whitespace-nowrap text-white/20 group-hover:text-white transition-colors">{company.name}</span>
               </div>
             ))}
           </Marquee>
@@ -140,36 +149,36 @@ export default function Home() {
       </section>
 
       {/* Section 2: About Me */}
-      <section id="about" className="py-32 px-12 max-w-4xl mx-auto space-y-16 min-h-screen flex flex-col justify-center">
-        <div className="space-y-8">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tight">About Me</h2>
-          <p className="text-2xl md:text-3xl text-white/70 leading-relaxed font-serif italic">
+      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
+        <div className="space-y-10">
+          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">About Me</h2>
+          <p className="text-3xl md:text-5xl text-white/70 leading-tight font-serif italic border-l-4 border-teal-500/50 pl-12">
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
         </div>
 
-        <div className="prose prose-invert prose-lg max-w-none space-y-12">
-          <div className="space-y-6">
-            <h3 className="text-3xl font-serif text-teal-400">My Journey</h3>
-            <p className="text-white/60 leading-relaxed text-xl">
-              As a first-year Computer Science student specializing in Artificial Intelligence and Machine Learning, I find myself at the exciting intersection of logic and creativity.
+        <div className="prose prose-invert prose-2xl max-w-none space-y-20">
+          <div className="space-y-8">
+            <h3 className="text-4xl font-serif text-teal-400 tracking-tight">My Journey</h3>
+            <p className="text-white/50 leading-relaxed text-2xl font-medium">
+              As a first-year Computer Science student specializing in <span className="text-white">Artificial Intelligence</span> and <span className="text-white">Machine Learning</span>, I find myself at the exciting intersection of logic and creativity.
             </p>
-            <p className="text-white/60 leading-relaxed text-xl">
+            <p className="text-white/50 leading-relaxed text-2xl font-medium">
               I am dedicated to mastering the art of building intelligent systems while ensuring they remain deeply human-centric.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 py-12 border-y border-white/10">
-            <div className="space-y-4">
-              <h4 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Philosophy</h4>
-              <p className="text-white/50 text-lg">
-                I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 border-y border-white/5">
+            <div className="space-y-6">
+              <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Philosophy</h4>
+              <p className="text-white/40 text-xl leading-relaxed">
+                I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose and evoke a sense of calm.
               </p>
             </div>
-            <div className="space-y-4">
-              <h4 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Ambition</h4>
-              <p className="text-white/50 text-lg">
-                I aim to leverage AI to create adaptive interfaces that learn from users.
+            <div className="space-y-6">
+              <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Ambition</h4>
+              <p className="text-white/40 text-xl leading-relaxed">
+                I aim to leverage AI to create adaptive interfaces that learn from users, creating more personal and intuitive digital worlds.
               </p>
             </div>
           </div>
@@ -177,44 +186,44 @@ export default function Home() {
       </section>
 
       {/* Section 3: Projects */}
-      <section id="projects" className="py-32 px-12 max-w-6xl mx-auto space-y-20 min-h-screen flex flex-col justify-center">
-        <div className="space-y-6 text-center">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Technical Arsenal</h2>
-          <p className="text-xl text-white/40 max-w-2xl mx-auto">
-            A showcase of my projects where I merge my technical skills in AI & ML with refined UI/UX design.
+      <section id="projects" className="py-64 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
+        <div className="space-y-8 text-center max-w-3xl mx-auto">
+          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Technical Arsenal</h2>
+          <p className="text-2xl text-white/40 leading-relaxed">
+            A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {projects.map((project, i) => (
-            <div key={i} className="group glass-card p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-teal-500/30 transition-all duration-700 space-y-8 cursor-default translate-y-0 hover:-translate-y-2">
-              <div className="space-y-4">
+            <div key={i} className="group glass-card p-12 rounded-[3rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-500/20 transition-all duration-1000 space-y-10 cursor-default translate-y-0 hover:-translate-y-4 shadow-2xl hover:shadow-teal-500/5">
+              <div className="space-y-6">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-4xl font-serif tracking-tight group-hover:text-teal-400 transition-colors">
+                  <h3 className="text-5xl font-serif tracking-tight group-hover:text-teal-400 transition-colors duration-700">
                     {project.title}
                   </h3>
-                  <div className="flex gap-4">
-                    <FaGithub className="text-white/20 hover:text-white cursor-pointer transition-colors" size={20} />
-                    <FaExternalLinkAlt className="text-white/20 hover:text-white cursor-pointer transition-colors" size={18} />
+                  <div className="flex gap-6">
+                    <FaGithub className="text-white/20 hover:text-white cursor-pointer transition-colors duration-500" size={24} />
+                    <FaExternalLinkAlt className="text-white/20 hover:text-white cursor-pointer transition-colors duration-500" size={20} />
                   </div>
                 </div>
-                <p className="text-white/50 text-lg leading-relaxed font-medium">
+                <p className="text-white/40 text-xl leading-relaxed font-medium line-clamp-3 group-hover:text-white/60 transition-colors duration-700">
                   {project.desc}
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {project.tech.map((t, idx) => (
-                  <span key={idx} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/40 uppercase tracking-widest">
+                  <span key={idx} className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/30 uppercase tracking-[0.2em] group-hover:border-teal-500/20 group-hover:text-teal-400/60 transition-all duration-700">
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs font-bold text-teal-500/50 uppercase tracking-[0.2em]">Featured Project</span>
-                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                  <FaArrowRight className="-rotate-45" size={16} />
+              <div className="pt-8 border-t border-white/5 flex items-center justify-between">
+                <span className="text-xs font-bold text-teal-500/30 uppercase tracking-[0.3em] group-hover:text-teal-400 transition-colors duration-700">Featured Project</span>
+                <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-700 group-hover:scale-110">
+                  <FaArrowRight className="-rotate-45" size={20} />
                 </div>
               </div>
             </div>
@@ -223,28 +232,28 @@ export default function Home() {
       </section>
 
       {/* Section 4: Skills */}
-      <section id="skills" className="py-32 px-12 max-w-6xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
-        <div className="space-y-6">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Skills & Tools</h2>
-          <p className="text-2xl text-white/40 max-w-2xl font-serif italic">
-            Blending the logic of computer science with the emotional resonance of high-end design.
+      <section id="skills" className="py-64 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
+        <div className="space-y-8 max-w-3xl">
+          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Skills & Tools</h2>
+          <p className="text-3xl text-white/40 font-serif italic border-l-4 border-teal-500/50 pl-12 leading-snug">
+            Blending the logic of computer science with the emotional resonance of <span className="text-white">high-end design.</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 text-left">
           {skills.map((category, i) => (
-            <div key={i} className="space-y-10 group">
-              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.3em] flex items-center gap-4">
-                <span className="w-10 h-[1px] bg-teal-400"></span>
+            <div key={i} className="space-y-12 group">
+              <h3 className="text-sm font-bold text-teal-400 uppercase tracking-[0.4em] flex items-center gap-6">
+                <span className="w-16 h-[2px] bg-teal-400/50"></span>
                 {category.name}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {category.tools.map((tool, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.05] hover:border-white/10 transition-all cursor-default">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover:text-teal-400 transition-colors">
-                      <tool.icon size={20} />
+                  <div key={idx} className="flex items-center gap-6 p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:bg-white/[0.04] hover:border-teal-500/20 transition-all duration-700 cursor-default group/tool">
+                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover/tool:text-teal-400 transition-colors duration-500 group-hover/tool:scale-110">
+                      <tool.icon size={28} />
                     </div>
-                    <span className="text-lg font-medium text-white/60">{tool.name}</span>
+                    <span className="text-xl font-bold text-white/40 group-hover/tool:text-white transition-colors duration-500 tracking-tight">{tool.name}</span>
                   </div>
                 ))}
               </div>
@@ -254,39 +263,39 @@ export default function Home() {
       </section>
 
       {/* Section 5: Connect */}
-      <section id="connect" className="py-32 px-12 max-w-4xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
-        <div className="space-y-8 text-center">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Let's Connect</h2>
-          <p className="text-2xl text-white/50 max-w-xl mx-auto font-medium">
-            Have a project in mind? Or just want to say hi? My inbox is always open.
+      <section id="connect" className="py-64 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
+        <div className="space-y-10 text-center max-w-3xl mx-auto">
+          <h2 className="text-7xl md:text-9xl font-serif tracking-tighter text-white">Let's Connect</h2>
+          <p className="text-3xl text-white/40 font-medium leading-tight">
+            Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          <div className="space-y-10">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-white/30 uppercase tracking-widest pl-4">Full Name</label>
-                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/5 border border-white/10 rounded-3xl outline-none focus:border-teal-500/50 transition-all text-lg" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
+          <div className="space-y-12">
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Full Name</label>
+                <input type="text" placeholder="Jan Doe" className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium placeholder:text-white/10" />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-white/30 uppercase tracking-widest pl-4">Email Address</label>
-                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/5 border border-white/10 rounded-3xl outline-none focus:border-teal-500/50 transition-all text-lg" />
+              <div className="space-y-3">
+                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Email Address</label>
+                <input type="email" placeholder="jan@example.com" className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium placeholder:text-white/10" />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-white/30 uppercase tracking-widest pl-4">Message</label>
-                <textarea rows={5} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/5 border border-white/10 rounded-3xl outline-none focus:border-teal-500/50 transition-all text-lg resize-none" />
+              <div className="space-y-3">
+                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Message</label>
+                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-10 py-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-xl font-medium resize-none placeholder:text-white/10" />
               </div>
             </div>
-            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-white/90 transition-all active:scale-[0.98]">
-              Send Message <FaPaperPlane size={18} />
+            <button className="w-full py-8 bg-white text-black rounded-full font-bold text-2xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-white/5">
+              Send Message <FaPaperPlane size={24} />
             </button>
           </div>
 
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-widest">Connect with me</h3>
-              <div className="grid grid-cols-1 gap-4 text-left">
+          <div className="space-y-16">
+            <div className="space-y-8">
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic pl-2">Social Channels</h3>
+              <div className="grid grid-cols-1 gap-6 text-left">
                 {[
                   { name: "LinkedIn", icon: FaLinkedin, link: "#" },
                   { name: "GitHub", icon: FaGithub, link: "#" },
@@ -294,13 +303,15 @@ export default function Home() {
                   { name: "Instagram", icon: FaInstagram, link: "#" },
                   { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
                 ].map((social, i) => (
-                  <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.02] border border-white/5 rounded-3xl transition-all hover:bg-white/[0.05] group">
-                    <div className="flex items-center gap-4">
-                      <social.icon size={22} className="text-white/20 group-hover:text-teal-400 transition-colors" />
-                      <span className="text-xl font-bold tracking-tight">{social.name}</span>
+                  <a key={i} href={social.link} className="flex items-center justify-between p-8 bg-white/[0.01] border border-white/5 rounded-[2.5rem] transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
+                    <div className="flex items-center gap-6">
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
+                        <social.icon size={26} />
+                      </div>
+                      <span className="text-2xl font-bold tracking-tighter text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
                     </div>
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                      <FaArrowRight className="-rotate-45" size={14} />
+                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110">
+                      <FaArrowRight className="-rotate-45" size={20} />
                     </div>
                   </a>
                 ))}
