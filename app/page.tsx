@@ -83,6 +83,7 @@ export default function Home() {
       {/* Section 1: Hero */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-12 pb-20 text-center relative">
         <div className="max-w-4xl mx-auto space-y-10">
+          {/* Avatar */}
           <div className="relative w-32 h-32 mx-auto animate-fade-in">
             <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
             <Image
@@ -93,6 +94,7 @@ export default function Home() {
               className="relative z-10 rounded-full border-2 border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl"
             />
           </div>
+          {/* Availability Tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm font-semibold animate-fade-in text-sky-400">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
@@ -100,14 +102,20 @@ export default function Home() {
             </span>
             Available for opportunities
           </div>
+
+          {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.1] tracking-tight animate-fade-in [animation-delay:200ms]">
             Welcome to <br />
             my humble digital abode!
           </h1>
+
+          {/* Subtext */}
           <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:400ms]">
             Hi I am Aastha, a passionate first-year AI & ML student. <br />
             My interest lies in brand experience, and user experience.
           </p>
+
+          {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in [animation-delay:600ms]">
             <a href="#connect" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-white/90 transition-all flex items-center gap-2">
               👋 Let's talk
@@ -117,6 +125,8 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        {/* Social Proof Marquee */}
         <div className="mt-32 w-full max-w-5xl animate-fade-in [animation-delay:800ms]">
           <Marquee speed={30}>
             {companies.map((company, i) => (
@@ -137,24 +147,30 @@ export default function Home() {
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
         </div>
+
         <div className="prose prose-invert prose-lg max-w-none space-y-12">
           <div className="space-y-6">
             <h3 className="text-3xl font-serif text-teal-400">My Journey</h3>
             <p className="text-white/60 leading-relaxed text-xl">
-              As a first-year Computer Science student specializing in AI & ML, I find myself at the exciting intersection of logic and creativity.
+              As a first-year Computer Science student specializing in Artificial Intelligence and Machine Learning, I find myself at the exciting intersection of logic and creativity.
             </p>
             <p className="text-white/60 leading-relaxed text-xl">
               I am dedicated to mastering the art of building intelligent systems while ensuring they remain deeply human-centric.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 py-12 border-y border-white/10">
             <div className="space-y-4">
               <h4 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Philosophy</h4>
-              <p className="text-white/50 text-lg">I believe in the power of simplicity.</p>
+              <p className="text-white/50 text-lg">
+                I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose.
+              </p>
             </div>
             <div className="space-y-4">
               <h4 className="text-teal-400 font-bold uppercase tracking-widest text-sm">Ambition</h4>
-              <p className="text-white/50 text-lg">I aim to leverage AI to create adaptive interfaces.</p>
+              <p className="text-white/50 text-lg">
+                I aim to leverage AI to create adaptive interfaces that learn from users.
+              </p>
             </div>
           </div>
         </div>
@@ -165,9 +181,10 @@ export default function Home() {
         <div className="space-y-6 text-center">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Technical Arsenal</h2>
           <p className="text-xl text-white/40 max-w-2xl mx-auto">
-            A showcase of my projects where I merge my technical skills with refined UI/UX design.
+            A showcase of my projects where I merge my technical skills in AI & ML with refined UI/UX design.
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, i) => (
             <div key={i} className="group glass-card p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-teal-500/30 transition-all duration-700 space-y-8 cursor-default translate-y-0 hover:-translate-y-2">
@@ -185,6 +202,7 @@ export default function Home() {
                   {project.desc}
                 </p>
               </div>
+
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t, idx) => (
                   <span key={idx} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/40 uppercase tracking-widest">
@@ -192,6 +210,7 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
               <div className="pt-6 border-t border-white/5 flex items-center justify-between">
                 <span className="text-xs font-bold text-teal-500/50 uppercase tracking-[0.2em]">Featured Project</span>
                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
@@ -204,14 +223,15 @@ export default function Home() {
       </section>
 
       {/* Section 4: Skills */}
-      <section id="skills" className="py-32 px-12 max-w-6xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-left">
+      <section id="skills" className="py-32 px-12 max-w-6xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-6">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Skills & Tools</h2>
           <p className="text-2xl text-white/40 max-w-2xl font-serif italic">
-            Blending the logic of computer science with the emotional resonance of design.
+            Blending the logic of computer science with the emotional resonance of high-end design.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-left">
           {skills.map((category, i) => (
             <div key={i} className="space-y-10 group">
               <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.3em] flex items-center gap-4">
@@ -238,9 +258,10 @@ export default function Home() {
         <div className="space-y-8 text-center">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tight">Let's Connect</h2>
           <p className="text-2xl text-white/50 max-w-xl mx-auto font-medium">
-            Have a project in mind? Or just want to say hi?
+            Have a project in mind? Or just want to say hi? My inbox is always open.
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           <div className="space-y-10">
             <div className="space-y-6">
@@ -257,27 +278,33 @@ export default function Home() {
                 <textarea rows={5} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/5 border border-white/10 rounded-3xl outline-none focus:border-teal-500/50 transition-all text-lg resize-none" />
               </div>
             </div>
-            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-white/90 transition-all">
+            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-white/90 transition-all active:scale-[0.98]">
               Send Message <FaPaperPlane size={18} />
             </button>
           </div>
+
           <div className="space-y-12">
-            <h3 className="text-xs font-bold text-teal-400 uppercase tracking-widest">Socials</h3>
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                { name: "LinkedIn", icon: FaLinkedin, link: "#" },
-                { name: "GitHub", icon: FaGithub, link: "#" },
-                { name: "Twitter", icon: FaTwitter, link: "#" },
-                { name: "Instagram", icon: FaInstagram, link: "#" },
-              ].map((social, i) => (
-                <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.02] border border-white/5 rounded-3xl transition-all hover:bg-white/[0.05] group">
-                  <div className="flex items-center gap-4">
-                    <social.icon size={22} className="text-white/20 group-hover:text-teal-400 transition-colors" />
-                    <span className="text-xl font-bold tracking-tight">{social.name}</span>
-                  </div>
-                  <FaArrowRight className="-rotate-45 text-white/20 group-hover:text-white" size={14} />
-                </a>
-              ))}
+            <div className="space-y-6">
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-widest">Connect with me</h3>
+              <div className="grid grid-cols-1 gap-4 text-left">
+                {[
+                  { name: "LinkedIn", icon: FaLinkedin, link: "#" },
+                  { name: "GitHub", icon: FaGithub, link: "#" },
+                  { name: "Twitter", icon: FaTwitter, link: "#" },
+                  { name: "Instagram", icon: FaInstagram, link: "#" },
+                  { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
+                ].map((social, i) => (
+                  <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.02] border border-white/5 rounded-3xl transition-all hover:bg-white/[0.05] group">
+                    <div className="flex items-center gap-4">
+                      <social.icon size={22} className="text-white/20 group-hover:text-teal-400 transition-colors" />
+                      <span className="text-xl font-bold tracking-tight">{social.name}</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <FaArrowRight className="-rotate-45" size={14} />
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
