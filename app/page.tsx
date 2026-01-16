@@ -107,6 +107,12 @@ export default function Home() {
         <div className="max-w-4xl mx-auto space-y-12">
 
 
+          {/* Professional Title */}
+          <div className="animate-fade-in [animation-delay:100ms] mb-8">
+            <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-[0.4em]">
+              Aspiring Software Developer
+            </span>
+          </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tighter animate-fade-in [animation-delay:200ms] text-white">

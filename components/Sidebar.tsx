@@ -57,6 +57,7 @@ const Sidebar = () => {
 
                 <div className="space-y-1 text-center">
                     <h1 className="text-2xl font-bold text-white tracking-tight">Aastha Kumari</h1>
+                    <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em] pb-1">Aspiring Software Developer</p>
                     <div className="flex items-center justify-center gap-2 text-white/50 text-xs font-medium">
                         <span>@aastha</span>
                         <span>-</span>
