@@ -25,16 +25,16 @@ const NavHeader = () => {
         <nav className="fixed top-12 left-[calc(50%+160px)] -translate-x-1/2 z-[100] w-full max-w-xl px-8">
             <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[1.5rem] shadow-2xl shadow-black/50">
                 {/* Logo */}
-                <div className="flex items-center gap-0 group cursor-pointer" onClick={(e) => {
+                <div className="flex items-center group cursor-pointer" onClick={(e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     window.history.pushState(null, '', '#home');
                 }}>
-                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 z-10">
+                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 z-10 shrink-0">
                         AK
                     </div>
-                    <div className="overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-1000 ease-in-out">
-                        <span className="text-white font-bold text-lg tracking-tighter whitespace-nowrap pl-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="logo-typing-text overflow-hidden whitespace-nowrap">
+                        <span className="text-white font-bold text-lg tracking-tighter pl-3">
                             Aastha Kumari
                         </span>
                     </div>
