@@ -295,19 +295,19 @@ export default function Home() {
           <div className="space-y-12">
             <div className="space-y-8">
               <div className="space-y-3">
-                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Full Name</label>
-                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Full Name</label>
+                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Email Address</label>
-                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Email Address</label>
+                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-bold text-white/20 uppercase tracking-[0.3em] pl-6 italic">Message</label>
-                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/[0.01] border border-white/5 rounded-[2rem] outline-none focus:border-teal-500/30 transition-all duration-700 text-lg font-medium resize-none placeholder:text-white/10" />
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Message</label>
+                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium resize-none placeholder:text-white/10" />
               </div>
             </div>
-            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-white/5">
+            <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-teal-500/10">
               Send Message <FaPaperPlane size={22} />
             </button>
           </div>
@@ -343,8 +343,8 @@ export default function Home() {
 
       {/* Made with Badge */}
       <div className="fixed bottom-8 right-8 z-[100] animate-fade-in [animation-delay:1s]">
-        <div className="px-4 py-2 bg-white text-black text-[10px] font-bold rounded-lg shadow-xl uppercase tracking-widest flex items-center gap-2">
-          <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse"></span>
+        <div className="px-5 py-2.5 bg-zinc-900/80 backdrop-blur-xl border border-white/10 text-white/50 text-[10px] font-bold rounded-2xl shadow-2xl uppercase tracking-[0.2em] flex items-center gap-3 hover:text-white transition-all duration-500 group cursor-default">
+          <span className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(45,212,191,0.5)]"></span>
           Made with ❤️ By Aastha
         </div>
       </div>
