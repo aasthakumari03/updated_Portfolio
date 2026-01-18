@@ -246,27 +246,34 @@ export default function Home() {
 
       {/* Section 4: Skills */}
       <section id="skills" className="py-64 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
-        <div className="space-y-8 max-w-3xl">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
-          <p className="text-2xl text-white/40 font-serif italic border-l-4 border-teal-500/50 pl-12 leading-snug">
-            Blending the logic of computer science with the emotional resonance of <span className="text-white">high-end design.</span>
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12">
+          <div className="space-y-8 max-w-2xl">
+            <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
+            <p className="text-xl text-white/40 leading-relaxed border-l-4 border-teal-500/50 pl-12">
+              Building at the intersection of <span className="text-white">Intelligent Systems</span> and <span className="text-white">Human-Centric Design</span>. My toolkit is constantly evolving.
+            </p>
+          </div>
+          <div className="animate-pulse-slow">
+            <div className="w-24 h-24 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center backdrop-blur-3xl">
+              <SiTensorflow size={40} className="text-teal-400/50" />
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((category, i) => (
-            <div key={i} className="space-y-12 group">
-              <h3 className="text-sm font-bold text-teal-400 uppercase tracking-[0.4em] flex items-center gap-6">
-                <span className="w-16 h-[2px] bg-teal-400/50"></span>
+            <div key={i} className="group p-8 bg-zinc-900/40 border border-white/5 rounded-[2rem] hover:border-teal-400/20 transition-all duration-700 hover:-translate-y-2">
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] mb-10 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-teal-400/30"></span>
                 {category.name}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="space-y-4">
                 {category.tools.map((tool, idx) => (
-                  <div key={idx} className="flex items-center gap-6 p-6 bg-white/[0.01] border border-white/5 rounded-3xl hover:bg-white/[0.04] hover:border-teal-500/20 transition-all duration-700 cursor-default group/tool">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover/tool:text-teal-400 transition-colors duration-500 group-hover/tool:scale-110">
-                      <tool.icon size={24} />
+                  <div key={idx} className="flex items-center gap-4 group/item">
+                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover/item:text-teal-400 group-hover/item:bg-teal-400/10 transition-all duration-500">
+                      <tool.icon size={20} />
                     </div>
-                    <span className="text-lg font-bold text-white/40 group-hover/tool:text-white transition-colors duration-500 tracking-tight">{tool.name}</span>
+                    <span className="text-sm font-bold text-white/40 group-hover/item:text-white transition-colors duration-500 uppercase tracking-wider">{tool.name}</span>
                   </div>
                 ))}
               </div>
