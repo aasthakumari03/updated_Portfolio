@@ -215,6 +215,19 @@ export default function Home() {
 
         <div className="flex flex-col gap-12">
           <ProjectCard
+            title="Celestial Portfolio"
+            category="Creative Dev"
+            year="2024"
+            tags={["Next.js", "Framer Motion", "Tailwind CSS"]}
+            features={[
+              "Modern universe-themed aesthetic",
+              "Smooth GSAP & Lenis scrolling",
+              "Interactive spotlight components"
+            ]}
+            image="#"
+            mockupType="desktop"
+          />
+          <ProjectCard
             title="Fitlife Tracker"
             category="Health & Fitness"
             year="2025"
@@ -226,20 +239,20 @@ export default function Home() {
             ]}
             image="#"
             mockupType="mobile"
+            reversed
           />
           <ProjectCard
-            title="Celestial Portfolio"
-            category="Creative Dev"
-            year="2024"
-            tags={["Next.js", "Framer Motion", "Three.js"]}
+            title="Next Big Idea"
+            category="Coming Soon"
+            year="2026"
+            tags={["Innovation", "AI", "Design"]}
             features={[
-              "Immersive 3D galaxy environment",
-              "Smooth page transitions",
-              "Dynamic atmospheric lighting"
+              "Exploring new frontiers in AI",
+              "Minimalist design philosophy",
+              "Launching very soon"
             ]}
             image="#"
             mockupType="desktop"
-            reversed
           />
         </div>
       </section>
