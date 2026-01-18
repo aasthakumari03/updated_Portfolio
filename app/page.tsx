@@ -135,8 +135,8 @@ export default function Home() {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in [animation-delay:600ms]">
-            <a href="#connect" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-2 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
-              👋 Let's talk
+            <a href="#projects" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-3 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
+              📂 My work
             </a>
             <button className="group px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm hover:border-teal-400/30">
               My resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
