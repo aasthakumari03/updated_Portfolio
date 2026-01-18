@@ -254,6 +254,20 @@ export default function Home() {
             image="#"
             mockupType="desktop"
           />
+          <ProjectCard
+            title="Future Vision"
+            category="Coming Soon"
+            year="2026"
+            tags={["Web3", "Spatial", "UI"]}
+            features={[
+              "Pioneering spatial experiences",
+              "Seamless web integration",
+              "Stay tuned for updates"
+            ]}
+            image="#"
+            mockupType="mobile"
+            reversed
+          />
         </div>
       </section>
 
