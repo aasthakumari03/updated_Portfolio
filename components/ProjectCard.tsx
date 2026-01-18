@@ -26,23 +26,38 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     mockupType = "mobile",
     reversed = false,
 }) => {
+    const cardRef = React.useRef<HTMLDivElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+        cardRef.current.style.setProperty("--mouse-y", `${y}px`);
+    };
+
     return (
-        <div className={`group relative w-full overflow-hidden rounded-[2.5rem] project-card-gradient grainy-overlay mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''}`}>
+        <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-zinc-900/50 border border-white/5 spotlight-card mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} hover:border-teal-400/20 transition-all duration-700`}
+        >
             {/* Content Section */}
             <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center space-y-8 z-10">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-xs">
+                        <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">
                             {category} • {year}
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight group-hover:text-teal-400 transition-colors duration-700">
                         {title}
                     </h2>
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 pt-2">
                         {tags.map((tag, index) => (
-                            <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/50 uppercase tracking-widest">
+                            <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-widest group-hover:border-teal-400/20 transition-all">
                                 {tag}
                             </span>
                         ))}
@@ -51,48 +66,60 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
                 <ul className="space-y-4">
                     {features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-3 text-white/60 text-lg">
-                            <FaCheckCircle className="text-blue-500/30 shrink-0" size={18} />
+                        <li key={index} className="flex items-center gap-3 text-white/50 text-base md:text-lg group-hover:text-white/70 transition-colors">
+                            <FaCheckCircle className="text-teal-500/30 shrink-0" size={18} />
                             <span>{feature}</span>
                         </li>
                     ))}
                 </ul>
 
                 <div className="pt-4">
-                    <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-black rounded-full font-bold text-sm hover:bg-white/90 transition-all">
-                        View Case Study <FaArrowRight className="-rotate-45" size={12} />
+                    <button className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-teal-400 transition-all duration-500 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
+                        Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
                     </button>
                 </div>
             </div>
 
             {/* Image Section */}
-            <div className="flex-1 relative min-h-[400px] md:min-h-auto flex items-center justify-center p-8 md:p-12">
-                <div className="relative w-full h-full flex items-center justify-center">
+            <div className="flex-1 relative min-h-[400px] md:min-h-auto flex items-center justify-center p-8 md:p-12 bg-white/[0.02]">
+                <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
                     {mockupType === "mobile" ? (
-                        <div className="relative w-[280px] aspect-[9/19.5] rounded-[3rem] border-[8px] border-zinc-800 shadow-2xl overflow-hidden bg-black">
+                        <div className="relative w-[260px] aspect-[9/19.5] rounded-[3rem] border-[8px] border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden bg-black ring-1 ring-white/10">
                             {/* Speaker/Camera Notch */}
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-zinc-800 rounded-b-2xl z-20"></div>
-                            <Image
-                                src={image}
-                                alt={title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    ) : (
-                        <div className="relative w-full aspect-video rounded-xl border-[4px] border-zinc-800 shadow-2xl overflow-hidden bg-zinc-900 mt-12">
-                            <div className="absolute top-0 left-0 w-full h-6 bg-zinc-800 flex items-center gap-1.5 px-3">
-                                <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
-                                <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                                <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
-                            </div>
-                            <div className="w-full h-full pt-6">
+                            {image && image !== "#" ? (
                                 <Image
                                     src={image}
                                     alt={title}
                                     fill
                                     className="object-cover"
                                 />
+                            ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+                                    <span className="text-white/10 font-bold italic">Preview</span>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="relative w-full aspect-video rounded-xl border-[4px] border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden bg-zinc-900 ring-1 ring-white/10">
+                            <div className="absolute top-0 left-0 w-full h-6 bg-zinc-800 flex items-center gap-1.5 px-3">
+                                <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                                <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                                <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                            </div>
+                            <div className="w-full h-full pt-6">
+                                {image && image !== "#" ? (
+                                    <Image
+                                        src={image}
+                                        alt={title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+                                        <span className="text-white/10 font-bold italic">Preview</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}

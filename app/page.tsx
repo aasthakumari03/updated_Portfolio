@@ -2,6 +2,7 @@
 import NavHeader from "@/components/NavHeader";
 import Image from "next/image";
 import Marquee from "@/components/Marquee";
+import ProjectCard from "@/components/ProjectCard";
 
 
 import {
@@ -207,45 +208,39 @@ export default function Home() {
       <section id="projects" className="py-64 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Technical Arsenal</h2>
-          <p className="text-xl text-white/40 leading-relaxed">
+          <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
             A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {projects.map((project, i) => (
-            <div key={i} className="group glass-card p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-500/20 transition-all duration-1000 space-y-8 cursor-default translate-y-0 hover:-translate-y-4 shadow-2xl hover:shadow-teal-500/5">
-              <div className="space-y-6">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-4xl font-serif tracking-tight group-hover:text-teal-400 transition-colors duration-700">
-                    {project.title}
-                  </h3>
-                  <div className="flex gap-6">
-                    <FaGithub className="text-white/20 hover:text-white cursor-pointer transition-colors duration-500" size={24} />
-                    <FaExternalLinkAlt className="text-white/20 hover:text-white cursor-pointer transition-colors duration-500" size={20} />
-                  </div>
-                </div>
-                <p className="text-white/40 text-lg leading-relaxed font-medium line-clamp-3 group-hover:text-white/60 transition-colors duration-700">
-                  {project.desc}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {project.tech.map((t, idx) => (
-                  <span key={idx} className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/30 uppercase tracking-[0.2em] group-hover:border-teal-500/20 group-hover:text-teal-400/60 transition-all duration-700">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="pt-8 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs font-bold text-teal-500/30 uppercase tracking-[0.3em] group-hover:text-teal-400 transition-colors duration-700">Featured Project</span>
-                <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-700 group-hover:scale-110">
-                  <FaArrowRight className="-rotate-45" size={20} />
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col gap-12">
+          <ProjectCard
+            title="Fitlife Tracker"
+            category="Health & Fitness"
+            year="2025"
+            tags={["React", "Firebase", "Chart.js"]}
+            features={[
+              "AI-driven workout recommendations",
+              "Real-time nutritional tracking",
+              "Interactive progress analytics"
+            ]}
+            image="#"
+            mockupType="mobile"
+          />
+          <ProjectCard
+            title="Celestial Portfolio"
+            category="Creative Dev"
+            year="2024"
+            tags={["Next.js", "Framer Motion", "Three.js"]}
+            features={[
+              "Immersive 3D galaxy environment",
+              "Smooth page transitions",
+              "Dynamic atmospheric lighting"
+            ]}
+            image="#"
+            mockupType="desktop"
+            reversed
+          />
         </div>
       </section>
 
