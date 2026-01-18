@@ -34,7 +34,7 @@ const NavHeader = () => {
                         AK
                     </div>
                     <div className="logo-typing-text overflow-hidden whitespace-nowrap">
-                        <span className="text-white font-bold text-lg tracking-tighter pl-3">
+                        <span className="text-white font-bold text-lg tracking-tighter pl-3 uppercase">
                             Aastha Kumari
                         </span>
                     </div>
