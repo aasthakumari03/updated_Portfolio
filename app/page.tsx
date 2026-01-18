@@ -207,7 +207,7 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section id="projects" className="py-64 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Technical Arsenal</h2>
+          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">My Work</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
             A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
