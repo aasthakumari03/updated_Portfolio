@@ -651,6 +651,32 @@ body {
   box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
 }
 
+.spotlight-border {
+  position: relative;
+}
+
+.spotlight-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(45, 212, 191, 0.4),
+      transparent 80%);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.spotlight-border:hover::after {
+  opacity: 1;
+}
+
 /* Global Transition Refinement */
 * {
   transition-duration: 0.5s;
