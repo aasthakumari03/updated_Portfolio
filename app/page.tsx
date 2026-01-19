@@ -100,7 +100,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="animate-fade-in flex flex-col">
+    <div className="animate-fade-in flex flex-col sm:pl-20">
       <NavHeader />
 
       {/* Section 1: Hero */}
@@ -168,10 +168,10 @@ export default function Home() {
       </section>
 
       {/* Section 2: About Me */}
-      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
+      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center">
         <div className="space-y-10">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">About Me</h2>
-          <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-l-4 border-teal-500/50 pl-12">
+          <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-teal-500/50">
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
         </div>
@@ -273,10 +273,10 @@ export default function Home() {
 
       {/* Section 4: Skills */}
       <section id="skills" className="py-64 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-          <div className="space-y-8 max-w-2xl">
+        <div className="flex flex-col items-center text-center gap-12">
+          <div className="space-y-8 max-w-3xl">
             <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
-            <p className="text-xl text-white/40 leading-relaxed border-l-4 border-teal-500/50 pl-12">
+            <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
               Building at the intersection of <span className="text-white">Intelligent Systems</span> and <span className="text-white">Human-Centric Design</span>. My toolkit is constantly evolving.
             </p>
           </div>

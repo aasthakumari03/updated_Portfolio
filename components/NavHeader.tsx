@@ -22,7 +22,7 @@ const NavHeader = () => {
     };
 
     return (
-        <nav className="fixed top-12 left-[calc(50%+160px)] -translate-x-1/2 z-[100] w-full max-w-xl px-8">
+        <nav className="fixed top-12 left-1/2 -translate-x-1/2 z-[100] w-full max-w-xl px-8">
             <div className="flex items-center justify-between px-8 py-4 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[1.5rem] shadow-2xl shadow-black/50">
                 {/* Logo */}
                 <div className="flex items-center group cursor-pointer" onClick={(e) => {
