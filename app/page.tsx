@@ -218,7 +218,7 @@ export default function Home() {
             title="Celestial Portfolio"
             category=""
             year=""
-            tags={["Next.js", "Framer Motion", "Tailwind CSS"]}
+            tags={[]}
             features={[
               "Modern universe-themed aesthetic",
               "Smooth GSAP & Lenis scrolling",
@@ -231,7 +231,7 @@ export default function Home() {
             title="Fitlife Tracker"
             category="Health & Fitness"
             year="2025"
-            tags={["React", "Firebase", "Chart.js"]}
+            tags={[]}
             features={[
               "AI-driven workout recommendations",
               "Real-time nutritional tracking",
@@ -245,7 +245,7 @@ export default function Home() {
             title="Next Big Idea"
             category="Coming Soon"
             year="2026"
-            tags={["Innovation", "AI", "Design"]}
+            tags={[]}
             features={[
               "Exploring new frontiers in AI",
               "Minimalist design philosophy",
@@ -258,7 +258,7 @@ export default function Home() {
             title="Future Vision"
             category="Coming Soon"
             year="2026"
-            tags={["Web3", "Spatial", "UI"]}
+            tags={[]}
             features={[
               "Pioneering spatial experiences",
               "Seamless web integration",

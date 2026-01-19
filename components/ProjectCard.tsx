@@ -57,13 +57,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         {title}
                     </h2>
                     {/* Tags */}
-                    <div className="flex flex-wrap justify-center gap-2 pt-2">
-                        {tags.map((tag, index) => (
-                            <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-widest group-hover:border-teal-400/20 transition-all">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
+                    {tags.length > 0 && (
+                        <div className="flex flex-wrap justify-center gap-2 pt-2">
+                            {tags.map((tag, index) => (
+                                <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-widest group-hover:border-teal-400/20 transition-all">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <ul className="space-y-4 flex flex-col items-center">
