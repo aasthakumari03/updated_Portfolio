@@ -321,17 +321,17 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
           <div className="space-y-12">
             <div className="space-y-8">
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Full Name</label>
-                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
+              <div className="space-y-3 flex flex-col items-center">
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] text-center">Full Name</label>
+                <input type="text" placeholder="Jan Doe" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10 text-center" />
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Email Address</label>
-                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10" />
+              <div className="space-y-3 flex flex-col items-center">
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] text-center">Email Address</label>
+                <input type="email" placeholder="jan@example.com" className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium placeholder:text-white/10 text-center" />
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] pl-6">Message</label>
-                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium resize-none placeholder:text-white/10" />
+              <div className="space-y-3 flex flex-col items-center">
+                <label className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] text-center">Message</label>
+                <textarea rows={6} placeholder="Tell me about your project..." className="w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] outline-none focus:border-teal-400/30 focus:bg-white/[0.04] transition-all duration-700 text-lg font-medium resize-none placeholder:text-white/10 text-center" />
               </div>
             </div>
             <button className="w-full py-6 bg-white text-black rounded-full font-bold text-xl flex items-center justify-center gap-4 hover:bg-teal-400 transition-all duration-500 active:scale-[0.98] shadow-2xl shadow-teal-500/10">
@@ -351,14 +351,11 @@ export default function Home() {
                   { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
                 ].map((social, i) => (
                   <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.01] border border-white/5 rounded-[2rem] transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 w-full justify-center">
                       <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
                         <social.icon size={22} />
                       </div>
                       <span className="text-xl font-bold tracking-tighter text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
-                    </div>
-                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110">
-                      <FaArrowRight className="-rotate-45" size={20} />
                     </div>
                   </a>
                 ))}

@@ -44,9 +44,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-zinc-900/50 border border-white/5 spotlight-card mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} hover:border-teal-400/20 transition-all duration-700`}
         >
             {/* Content Section */}
-            <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center space-y-8 z-10">
-                <div className="space-y-4">
-                    <div className="flex items-center justify-between">
+            <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10">
+                <div className="space-y-4 flex flex-col items-center">
+                    <div className="flex items-center justify-center">
                         <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">
                             {category} • {year}
                         </span>
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         {title}
                     </h2>
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 pt-2">
+                    <div className="flex flex-wrap justify-center gap-2 pt-2">
                         {tags.map((tag, index) => (
                             <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-widest group-hover:border-teal-400/20 transition-all">
                                 {tag}
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     </div>
                 </div>
 
-                <ul className="space-y-4">
+                <ul className="space-y-4 flex flex-col items-center">
                     {features.map((feature, index) => (
                         <li key={index} className="flex items-center gap-3 text-white/50 text-base md:text-lg group-hover:text-white/70 transition-colors">
                             <FaCheckCircle className="text-teal-500/30 shrink-0" size={18} />
