@@ -216,8 +216,8 @@ export default function Home() {
         <div className="flex flex-col gap-12">
           <ProjectCard
             title="Celestial Portfolio"
-            category="Creative Dev"
-            year="2024"
+            category=""
+            year=""
             tags={["Next.js", "Framer Motion", "Tailwind CSS"]}
             features={[
               "Modern universe-themed aesthetic",

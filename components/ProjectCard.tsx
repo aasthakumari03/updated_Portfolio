@@ -46,11 +46,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {/* Content Section */}
             <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10">
                 <div className="space-y-4 flex flex-col items-center">
-                    <div className="flex items-center justify-center">
-                        <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">
-                            {category} • {year}
-                        </span>
-                    </div>
+                    {(category || year) && (
+                        <div className="flex items-center justify-center">
+                            <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">
+                                {category}{category && year && " • "}{year}
+                            </span>
+                        </div>
+                    )}
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight group-hover:text-teal-400 transition-colors duration-700">
                         {title}
                     </h2>
