@@ -489,27 +489,26 @@ body {
     padding: 2px;
     background: conic-gradient(from 0deg,
         transparent,
-        var(--teal-glow) 10%,
-        var(--teal-shine) 20%,
-        white 25%,
-        var(--teal-shine) 30%,
-        var(--teal-glow) 40%,
-        transparent 50%);
+        var(--teal-glow) 5%,
+        var(--teal-shine) 15%,
+        white 20%,
+        var(--teal-shine) 25%,
+        var(--teal-glow) 35%,
+        transparent 45%);
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: destination-out;
-    animation: shimmer 6s linear infinite;
-    filter: blur(1.5px);
+    animation: shimmer 3s linear infinite;
+    filter: blur(1px) drop-shadow(0 0 8px var(--teal-glow));
     pointer-events: none;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .shimmer-border:hover::before {
-    opacity: 0.8;
-    animation-duration: 3s;
+    opacity: 1;
   }
 
   @keyframes shimmer-sweep {
