@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-zinc-900/50 spotlight-card spotlight-border mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} transition-all duration-700`}
+            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-transparent spotlight-card spotlight-border mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} transition-all duration-700`}
         >
             {/* Content Section */}
             <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10">
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
 
             {/* Image Section */}
-            <div className="flex-1 relative min-h-[400px] md:min-h-auto flex items-center justify-center p-8 md:p-12 bg-white/[0.02]">
+            <div className="flex-1 relative min-h-[400px] md:min-h-auto flex items-center justify-center p-8 md:p-12 bg-transparent">
                 <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
                     {mockupType === "mobile" ? (
                         <div className="relative w-[260px] aspect-[9/19.5] rounded-[3rem] border-[8px] border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden bg-black ring-1 ring-white/10">
