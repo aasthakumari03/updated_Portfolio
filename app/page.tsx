@@ -176,8 +176,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="prose prose-invert prose-2xl max-w-none space-y-20">
-          <div className="space-y-8">
+        <div className="prose prose-invert prose-2xl max-w-none space-y-20 text-center">
+          <div className="space-y-8 max-w-4xl mx-auto">
             <h3 className="text-3xl font-serif text-teal-400 tracking-tight">My Journey</h3>
             <p className="text-white/50 leading-relaxed text-xl font-medium">
               As a first-year Computer Science student specializing in <span className="text-white">Artificial Intelligence</span> and <span className="text-white">Machine Learning</span>, I find myself at the exciting intersection of logic and creativity.
@@ -187,16 +187,16 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 border-y border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 border-y border-white/5 text-center">
             <div className="space-y-6">
               <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Philosophy</h4>
-              <p className="text-white/40 text-lg leading-relaxed">
+              <p className="text-white/40 text-lg leading-relaxed max-w-md mx-auto">
                 I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose and evoke a sense of calm.
               </p>
             </div>
             <div className="space-y-6">
               <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Ambition</h4>
-              <p className="text-white/40 text-lg leading-relaxed">
+              <p className="text-white/40 text-lg leading-relaxed max-w-md mx-auto">
                 I aim to leverage AI to create adaptive interfaces that learn from users, creating more personal and intuitive digital worlds.
               </p>
             </div>
@@ -341,8 +341,8 @@ export default function Home() {
 
           <div className="space-y-16">
             <div className="space-y-8">
-              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic pl-2">Social Channels</h3>
-              <div className="grid grid-cols-1 gap-6 text-left">
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
+              <div className="grid grid-cols-1 gap-6">
                 {[
                   { name: "LinkedIn", icon: FaLinkedin, link: "#" },
                   { name: "GitHub", icon: FaGithub, link: "#" },
