@@ -100,7 +100,6 @@ const Sidebar = () => {
             </div>
         </aside>
     );
-    );
 };
 
 export default Sidebar;
