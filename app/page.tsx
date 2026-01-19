@@ -100,7 +100,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="animate-fade-in flex flex-col sm:pl-20">
+    <div className="animate-fade-in flex flex-col">
       <NavHeader />
 
       {/* Section 1: Hero */}
