@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-transparent spotlight-card spotlight-border mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} transition-all duration-700`}
+            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-transparent spotlight-card spotlight-border shimmer-border mb-12 flex flex-col md:flex-row ${reversed ? 'md:flex-row-reverse' : ''} transition-all duration-700`}
         >
             {/* Content Section */}
             <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10">

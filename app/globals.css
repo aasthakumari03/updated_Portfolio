@@ -485,31 +485,31 @@ body {
   .shimmer-border::before {
     content: "";
     position: absolute;
-    inset: -1px;
-    padding: 1px;
+    inset: -2px;
+    padding: 2px;
     background: conic-gradient(from 0deg,
         transparent,
-        rgba(96, 165, 250, 0.2),
-        rgba(255, 255, 255, 0.9),
-        white,
-        rgba(255, 255, 255, 0.9),
-        rgba(139, 92, 246, 0.2),
-        transparent 80%);
+        var(--teal-glow) 10%,
+        var(--teal-shine) 20%,
+        white 25%,
+        var(--teal-shine) 30%,
+        var(--teal-glow) 40%,
+        transparent 50%);
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: destination-out;
-    animation: shimmer 4s linear infinite;
-    filter: blur(1px);
+    animation: shimmer 6s linear infinite;
+    filter: blur(1.5px);
     pointer-events: none;
     z-index: -1;
-    opacity: 0.6;
-    transition: opacity 0.5s ease;
+    opacity: 0;
+    transition: opacity 0.8s ease;
   }
 
   .shimmer-border:hover::before {
-    opacity: 1;
-    animation-duration: 2s;
+    opacity: 0.8;
+    animation-duration: 3s;
   }
 
   @keyframes shimmer-sweep {
