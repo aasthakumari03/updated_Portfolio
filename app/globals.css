@@ -7,6 +7,8 @@
   --text-muted: rgba(255, 255, 255, 0.5);
   --card-bg: rgba(255, 255, 255, 0.02);
   --card-border: rgba(255, 255, 255, 0.05);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --teal-shine: rgba(255, 255, 255, 0.9);
   scroll-behavior: smooth;
 }
 
@@ -658,10 +660,11 @@ body {
 .spotlight-border::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
   padding: 1.5px;
   background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(45, 212, 191, 0.4),
+      var(--teal-shine) 0%,
+      var(--teal-glow) 20%,
       transparent 80%);
   border-radius: inherit;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -671,6 +674,7 @@ body {
   z-index: 2;
   opacity: 0;
   transition: opacity 0.5s ease;
+  filter: blur(0.5px) brightness(1.2);
 }
 
 .spotlight-border:hover::after {
