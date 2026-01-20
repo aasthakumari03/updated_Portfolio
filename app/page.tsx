@@ -313,7 +313,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto w-full space-y-16">
+        <div className="max-w-4xl mx-auto w-full space-y-24">
           <div className="space-y-8">
             <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
             <div className="flex flex-wrap justify-center gap-4">
@@ -332,6 +332,13 @@ export default function Home() {
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Footer Line */}
+          <div className="pt-20 text-center">
+            <p className="text-[10px] font-bold text-white/10 uppercase tracking-[0.5em]">
+              ALL RIGHTS RESERVED | AASTHA KUMARI
+            </p>
           </div>
         </div>
       </section>
