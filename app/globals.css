@@ -9,6 +9,11 @@
   --card-border: rgba(255, 255, 255, 0.05);
   --teal-glow: rgba(45, 212, 191, 0.6);
   --teal-shine: rgba(255, 255, 255, 0.9);
+  /* Whitish Grey-Yellow Shine */
+  --shine-warm-white: rgba(255, 255, 255, 0.9);
+  --shine-gold: rgba(255, 245, 200, 0.45);
+  --shine-warm-grey: rgba(180, 180, 170, 0.2);
+  --shine-glow-depth: rgba(255, 250, 220, 0.15);
 }
 
 html {
@@ -645,9 +650,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(255, 255, 255, 0.08),
-      transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 245, 200, 0.06),
+      transparent 50%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;
@@ -676,11 +682,12 @@ body {
   content: "";
   position: absolute;
   inset: -1px;
-  padding: 1.5px;
+  padding: 2px;
   background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      var(--teal-shine) 0%,
-      var(--teal-glow) 20%,
-      transparent 80%);
+      var(--shine-warm-white) 0%,
+      var(--shine-gold) 30%,
+      var(--shine-warm-grey) 60%,
+      transparent 100%);
   border-radius: inherit;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
@@ -707,7 +714,10 @@ body {
   transform: translateY(-16px);
   background-color: rgba(5, 10, 10, 1);
   /* Deep solid theme-aligned dark color to block stars */
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px -10px var(--teal-glow);
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 40px -10px var(--shine-glow-depth),
+    0 0 20px -5px var(--shine-gold);
 }
 
 /* Global Transition Refinement */
