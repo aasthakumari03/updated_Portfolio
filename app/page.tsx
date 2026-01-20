@@ -98,7 +98,8 @@ export default function Home() {
 
       {/* Section 1: Hero */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden snap-start snap-always">
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="max-w-4xl mx-auto space-y-8">
+
 
 
           {/* Main Heading */}
@@ -112,7 +113,8 @@ export default function Home() {
           </div>
 
           {/* Professional Title Shining Card */}
-          <div className="animate-fade-in [animation-delay:300ms] flex justify-center pt-4">
+          <div className="animate-fade-in [animation-delay:300ms] flex justify-center">
+
             <div className="shimmer-border shimmer-surface px-8 py-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md group cursor-default shadow-2xl shadow-teal-500/10">
               <span className="text-xs md:text-sm font-bold text-teal-400 uppercase tracking-[0.5em] drop-shadow-[0_0_10px_rgba(45,212,191,0.3)] group-hover:text-white transition-colors duration-500">
                 Aspiring Software Developer
