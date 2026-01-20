@@ -316,7 +316,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto w-full space-y-16">
           <div className="space-y-8">
             <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
-            <div className="grid grid-cols-1 gap-6">
+            <div className="flex flex-wrap justify-center gap-4">
               {[
                 { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/" },
                 { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03" },
@@ -324,13 +324,11 @@ export default function Home() {
                 { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/" },
                 { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
               ].map((social, i) => (
-                <a key={i} href={social.link} className="flex items-center justify-between p-6 bg-white/[0.01] border border-white/5 rounded-[2rem] transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
-                  <div className="flex items-center gap-6 w-full justify-center">
-                    <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
-                      <social.icon size={22} />
-                    </div>
-                    <span className="text-xl font-bold tracking-tighter text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
+                <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
+                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
+                    <social.icon size={18} />
                   </div>
+                  <span className="text-sm font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
                 </a>
               ))}
             </div>
