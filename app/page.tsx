@@ -171,7 +171,7 @@ export default function Home() {
       <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center snap-start snap-always">
         <div className="space-y-10">
           <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">About Me</h2>
-          <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-teal-500/50">
+          <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic">
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
         </div>
