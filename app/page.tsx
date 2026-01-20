@@ -1,8 +1,8 @@
 "use client";
 import NavHeader from "@/components/NavHeader";
 import Image from "next/image";
-import Marquee from "@/components/Marquee";
 import ProjectCard from "@/components/ProjectCard";
+
 
 
 import {
@@ -31,14 +31,7 @@ import {
 
 
 export default function Home() {
-  const companies = [
-    { name: "ENGINEERS BUILT", icon: SiNextdotjs },
-    { name: "MASTERS' UNION", icon: SiReact },
-    { name: "whatfix", icon: SiJavascript },
-    { name: "ENGINEERS BUILT", icon: SiPython },
-    { name: "MASTERS' UNION", icon: SiTailwindcss },
-    { name: "whatfix", icon: SiTypescript },
-  ];
+
 
   const projects = [
     {
@@ -154,17 +147,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Social Proof Marquee */}
-        <div className="mt-48 w-full max-w-6xl animate-fade-in [animation-delay:800ms] opacity-60 hover:opacity-100 transition-opacity duration-1000">
-          <Marquee speed={40}>
-            {companies.map((company, i) => (
-              <div key={i} className="flex items-center gap-3 mx-6 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
-                <company.icon size={24} className="text-white/30 group-hover:text-teal-400 transition-colors" />
-                <span className="text-xl font-bold tracking-tighter whitespace-nowrap text-white/20 group-hover:text-white transition-colors">{company.name}</span>
-              </div>
-            ))}
-          </Marquee>
-        </div>
+
       </section>
 
       {/* Section 2: About Me */}
