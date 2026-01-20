@@ -306,7 +306,7 @@ export default function Home() {
 
       {/* Section 5: Connect */}
       <section id="connect" className="py-24 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
-        <div className="space-y-10 text-center max-w-3xl mx-auto">
+        <div className="space-y-10 text-center max-w-3xl mx-auto pt-20">
           <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
           <p className="text-2xl text-white/40 font-medium leading-tight">
             Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
