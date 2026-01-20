@@ -304,15 +304,15 @@ export default function Home() {
               <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/" },
-                  { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03" },
-                  { name: "Twitter", icon: FaTwitter, link: "#" },
-                  { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/" },
-                  { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
+                  { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/", color: "#0077b5" },
+                  { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
+                  { name: "Twitter", icon: FaTwitter, link: "#", color: "#1DA1F2" },
+                  { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/", color: "#E4405F" },
+                  { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
                 ].map((social, i) => (
-                  <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
-                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
-                      <social.icon size={18} />
+                  <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-white/20">
+                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110" style={{ color: social.color }}>
+                      <social.icon size={18} className="opacity-60 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <span className="text-sm font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
                   </a>
