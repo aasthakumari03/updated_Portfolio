@@ -109,13 +109,13 @@ export default function Home() {
 
 
           {/* Main Heading */}
-          <div className="relative inline-block">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:100ms] text-white whitespace-nowrap relative z-10">
+          <div className="relative w-full flex justify-center">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-gothic leading-none tracking-tight animate-fade-in [animation-delay:100ms] text-white whitespace-nowrap relative z-10 w-full text-center">
               <span className="bg-gradient-to-b from-white via-white/80 to-white/20 bg-clip-text text-transparent hover:brightness-125 transition-all duration-700">
                 Aastha Kumari
               </span>
             </h1>
-            <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full -z-10 animate-pulse-slow"></div>
+            <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full -z-10 animate-pulse-slow max-w-4xl mx-auto"></div>
           </div>
 
           {/* Professional Title Shining Card */}
