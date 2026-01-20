@@ -305,41 +305,43 @@ export default function Home() {
       </section>
 
       {/* Section 5: Connect */}
-      <section id="connect" className="py-24 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
-        <div className="space-y-10 text-center max-w-3xl mx-auto pt-20">
-          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
-          <p className="text-2xl text-white/40 font-medium leading-tight">
-            Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto w-full space-y-24">
-          <div className="space-y-8">
-            <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/" },
-                { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03" },
-                { name: "Twitter", icon: FaTwitter, link: "#" },
-                { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/" },
-                { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
-              ].map((social, i) => (
-                <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
-                  <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
-                    <social.icon size={18} />
-                  </div>
-                  <span className="text-sm font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer Line */}
-          <div className="mt-auto pt-32 pb-12 text-center">
-            <p className="text-sm font-bold text-white/15 uppercase tracking-[0.4em]">
-              ALL RIGHTS RESERVED | AASTHA KUMARI
+      <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col snap-start snap-always">
+        <div className="flex-1 flex flex-col justify-center space-y-32 w-full">
+          <div className="space-y-10 text-center max-w-3xl mx-auto pt-20">
+            <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
+            <p className="text-2xl text-white/40 font-medium leading-tight">
+              Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
             </p>
           </div>
+
+          <div className="max-w-4xl mx-auto w-full space-y-24">
+            <div className="space-y-8">
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/" },
+                  { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03" },
+                  { name: "Twitter", icon: FaTwitter, link: "#" },
+                  { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/" },
+                  { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com" },
+                ].map((social, i) => (
+                  <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-teal-500/20">
+                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover:text-teal-400 transition-colors duration-500 group-hover:scale-110">
+                      <social.icon size={18} />
+                    </div>
+                    <span className="text-sm font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Line */}
+        <div className="pt-20 pb-4 text-center">
+          <p className="text-sm font-bold text-white/15 uppercase tracking-[0.4em]">
+            ALL RIGHTS RESERVED | AASTHA KUMARI
+          </p>
         </div>
       </section>
 
