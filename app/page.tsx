@@ -335,8 +335,8 @@ export default function Home() {
           </div>
 
           {/* Footer Line */}
-          <div className="pt-20 text-center">
-            <p className="text-[10px] font-bold text-white/10 uppercase tracking-[0.5em]">
+          <div className="pt-32 pb-8 text-center">
+            <p className="text-xs font-bold text-white/20 uppercase tracking-[0.3em]">
               ALL RIGHTS RESERVED | AASTHA KUMARI
             </p>
           </div>
