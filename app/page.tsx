@@ -187,7 +187,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 border-y border-white/5 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 text-center">
             <div className="space-y-6">
               <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Philosophy</h4>
               <p className="text-white/40 text-lg leading-relaxed max-w-md mx-auto">
