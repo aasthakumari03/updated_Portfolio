@@ -104,7 +104,7 @@ export default function Home() {
       <NavHeader />
 
       {/* Section 1: Hero */}
-      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden snap-start snap-always">
         <div className="max-w-4xl mx-auto space-y-12">
 
 
@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: About Me */}
-      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center">
+      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center snap-start snap-always">
         <div className="space-y-10">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">About Me</h2>
           <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-teal-500/50">
@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: Projects */}
-      <section id="projects" className="py-64 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
+      <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">My Work</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
@@ -272,7 +272,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Skills */}
-      <section id="skills" className="py-64 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
+      <section id="skills" className="py-24 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="flex flex-col items-center text-center gap-12">
           <div className="space-y-8 max-w-3xl">
             <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
@@ -310,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* Section 5: Connect */}
-      <section id="connect" className="py-64 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center">
+      <section id="connect" className="py-24 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-10 text-center max-w-3xl mx-auto">
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Let's Connect</h2>
           <p className="text-2xl text-white/40 font-medium leading-tight">

@@ -9,6 +9,10 @@
   --card-border: rgba(255, 255, 255, 0.05);
   --teal-glow: rgba(45, 212, 191, 0.6);
   --teal-shine: rgba(255, 255, 255, 0.9);
+}
+
+html {
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
@@ -16,6 +20,7 @@ html.lenis,
 html.lenis body {
   height: auto;
 }
+
 
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;

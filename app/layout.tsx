@@ -13,8 +13,8 @@ const pirata = Pirata_One({
 });
 import React from "react";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,9 +48,7 @@ export default function RootLayout({
         <Background />
 
         <main className="flex-grow relative z-10 min-h-screen">
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
+          {children}
         </main>
       </body>
     </html>
