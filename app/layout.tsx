@@ -32,7 +32,6 @@ export const metadata: Metadata = {
   description: "AI & ML Student & Developer",
 };
 
-import Sidebar from "@/components/Sidebar";
 import Background from "@/components/Background";
 
 export default function RootLayout({
@@ -47,9 +46,8 @@ export default function RootLayout({
       >
         <CustomCursor />
         <Background />
-        <Sidebar />
 
-        <main className="flex-grow ml-80 relative z-10 min-h-screen">
+        <main className="flex-grow relative z-10 min-h-screen">
           <SmoothScroll>
             {children}
           </SmoothScroll>
