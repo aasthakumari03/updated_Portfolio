@@ -170,7 +170,7 @@ export default function Home() {
       {/* Section 2: About Me */}
       <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center snap-start snap-always">
         <div className="space-y-10">
-          <h2 className="text-5xl md:text-7xl font-gothic tracking-tighter text-white">About Me</h2>
+          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">About Me</h2>
           <p className="text-2xl md:text-4xl text-white/70 leading-tight font-serif italic border-teal-500/50">
             "Design is not just what it looks like and feels like. Design is how it works."
           </p>
@@ -207,7 +207,7 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">My Work</h2>
+          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">My Work</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
             A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
@@ -275,7 +275,7 @@ export default function Home() {
       <section id="skills" className="py-24 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="flex flex-col items-center text-center gap-12">
           <div className="space-y-8 max-w-3xl">
-            <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Skills & Tools</h2>
+            <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Skills & Tools</h2>
             <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
               Building at the intersection of <span className="text-white">Intelligent Systems</span> and <span className="text-white">Human-Centric Design</span>. My toolkit is constantly evolving.
             </p>
@@ -312,7 +312,7 @@ export default function Home() {
       {/* Section 5: Connect */}
       <section id="connect" className="py-24 px-12 max-w-6xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-white">Let's Connect</h2>
+          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
           <p className="text-2xl text-white/40 font-medium leading-tight">
             Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
           </p>
