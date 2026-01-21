@@ -8,24 +8,15 @@ const CustomCursor = () => {
 
     useEffect(() => {
         const onMouseMove = (e: MouseEvent) => {
-            mousePos.current = { x: e.clientX, y: e.clientY };
+            if (cursorRef.current) {
+                cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            }
         };
 
         window.addEventListener("mousemove", onMouseMove);
 
-        const animate = () => {
-            if (cursorRef.current) {
-                // Direct follow for the single dot
-                cursorRef.current.style.transform = `translate3d(${mousePos.current.x}px, ${mousePos.current.y}px, 0)`;
-            }
-            requestAnimationFrame(animate);
-        };
-
-        const rafId = requestAnimationFrame(animate);
-
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
-            cancelAnimationFrame(rafId);
         };
     }, []);
 
@@ -34,7 +25,8 @@ const CustomCursor = () => {
             {/* Single Greyish-White Circle */}
             <div
                 ref={cursorRef}
-                className="fixed top-0 left-0 w-6 h-6 bg-[#D1D5DB] rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_rgba(255,255,255,0.4)] border border-white/20"
+                className="fixed top-0 left-0 w-6 h-6 bg-[#D1D5DB] rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_rgba(255,255,255,0.4)] border border-white/20 transition-none duration-0"
+                style={{ transition: 'none' }}
             />
         </div>
     );
