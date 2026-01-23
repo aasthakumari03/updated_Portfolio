@@ -58,8 +58,8 @@ const NavHeader = () => {
                     window.history.pushState(null, '', '#home');
                 }}
             >
-                <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 z-10 shrink-0 shadow-lg shadow-teal-500/20">
-                    AK
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center transition-all group-hover:rotate-12 duration-500 z-10 shrink-0">
+                    <img src="/ak-logo.png" alt="AK Logo" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(45,212,191,0.5)]" />
                 </div>
                 <div
                     className="logo-typing-text overflow-hidden whitespace-nowrap transition-all duration-300"
