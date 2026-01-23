@@ -111,7 +111,7 @@ const NavHeader = () => {
                             <a
                                 href={item.href}
                                 onClick={(e) => handleLinkClick(e, item.href)}
-                                className="text-sm font-[family-name:var(--font-plus-jakarta-sans)] text-teal-100/70 hover:text-teal-300 transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
+                                className="text-sm font-bold font-[family-name:var(--font-plus-jakarta-sans)] text-teal-50/90 hover:text-white transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
                             >
                                 {item.label}
                             </a>
