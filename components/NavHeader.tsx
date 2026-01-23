@@ -1,14 +1,15 @@
 "use client";
 
 import React from "react";
+import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Magnetic from "./Magnetic";
 
 const NavHeader = () => {
     const items = [
-        { label: "About", href: "#about" },
-        { label: "Works", href: "#projects" },
-        { label: "Connect", href: "#connect" },
-        { label: "Resume", href: "/resume.pdf" },
+        { label: "About", href: "#about", icon: FaUser },
+        { label: "Works", href: "#projects", icon: FaBriefcase },
+        { label: "Connect", href: "#connect", icon: FaEnvelope },
+        { label: "Resume", href: "/resume.pdf", icon: FaFileAlt },
     ];
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -111,8 +112,9 @@ const NavHeader = () => {
                             <a
                                 href={item.href}
                                 onClick={(e) => handleLinkClick(e, item.href)}
-                                className="text-sm font-bold font-[family-name:var(--font-plus-jakarta-sans)] text-teal-50/90 hover:text-white transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
+                                className="group flex items-center gap-2 text-sm font-bold font-[family-name:var(--font-plus-jakarta-sans)] text-teal-50/90 hover:text-white transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
                             >
+                                <item.icon className="text-teal-400/70 group-hover:text-teal-300 transition-colors duration-300" size={16} />
                                 {item.label}
                             </a>
                         </Magnetic>
