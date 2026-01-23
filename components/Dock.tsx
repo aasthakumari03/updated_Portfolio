@@ -9,7 +9,6 @@ const Dock = () => {
         { icon: FaHome, label: "Home", href: "#home" },
         { icon: FaUser, label: "About", href: "#about" },
         { icon: FaFolderOpen, label: "Portfolio", href: "#projects" },
-        { icon: FaListUl, label: "Checklist", href: "#arsenal" },
         { icon: FaEnvelope, label: "Contact", href: "#contact" },
     ];
 

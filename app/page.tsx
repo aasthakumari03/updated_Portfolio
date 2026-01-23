@@ -60,37 +60,7 @@ export default function Home() {
     }
   ];
 
-  const skills = [
-    {
-      name: "Frontend", tools: [
-        { name: "React", icon: SiReact },
-        { name: "Next.js", icon: SiNextdotjs },
-        { name: "Typescript", icon: SiTypescript },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
-      ]
-    },
-    {
-      name: "AI & ML", tools: [
-        { name: "Python", icon: SiPython },
-        { name: "TensorFlow", icon: SiTensorflow },
-        { name: "Prompt Engineering", icon: SiNextdotjs },
-      ]
-    },
-    {
-      name: "Design", tools: [
-        { name: "Figma", icon: SiFigma },
-        { name: "Brand Design", icon: SiFigma },
-        { name: "UX Research", icon: SiFigma },
-      ]
-    },
-    {
-      name: "Development", tools: [
-        { name: "Node.js", icon: SiJavascript },
-        { name: "GitHub", icon: SiGithub },
-        { name: "Agile Development", icon: SiGithub },
-      ]
-    }
-  ];
+
 
   return (
     <div className="animate-fade-in flex flex-col">
@@ -251,43 +221,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 4: Skills */}
-      <section id="skills" className="py-24 px-12 max-w-7xl mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-start snap-always">
-        <div className="flex flex-col items-center text-center gap-12">
-          <div className="space-y-8 max-w-3xl">
-            <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Skills & Tools</h2>
-            <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
-              Building at the intersection of <span className="text-white">Intelligent Systems</span> and <span className="text-white">Human-Centric Design</span>. My toolkit is constantly evolving.
-            </p>
-          </div>
-          <div className="animate-pulse-slow">
-            <div className="w-24 h-24 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center backdrop-blur-3xl">
-              <SiTensorflow size={40} className="text-teal-400/50" />
-            </div>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((category, i) => (
-            <div key={i} className="group p-8 bg-zinc-900/40 border border-white/5 rounded-[2rem] hover:border-teal-400/20 transition-all duration-700 hover:-translate-y-2">
-              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] mb-10 flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-teal-400/30"></span>
-                {category.name}
-              </h3>
-              <div className="space-y-4">
-                {category.tools.map((tool, idx) => (
-                  <div key={idx} className="flex items-center gap-4 group/item">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/20 group-hover/item:text-teal-400 group-hover/item:bg-teal-400/10 transition-all duration-500">
-                      <tool.icon size={20} />
-                    </div>
-                    <span className="text-sm font-bold text-white/40 group-hover/item:text-white transition-colors duration-500 uppercase tracking-wider">{tool.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Section 5: Connect */}
       <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col snap-start snap-always">
