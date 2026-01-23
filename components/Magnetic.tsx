@@ -60,7 +60,7 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
 
         let rafId: number;
         const animate = () => {
-            const lerpFactor = 0.15;
+            const lerpFactor = 0.1;
 
             currentPos.current.x += (targetPos.current.x - currentPos.current.x) * lerpFactor;
             currentPos.current.y += (targetPos.current.y - currentPos.current.y) * lerpFactor;

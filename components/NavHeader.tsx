@@ -46,11 +46,10 @@ const NavHeader = () => {
             <div
                 className="fixed top-12 left-8 z-[100] flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear"
                 style={{
-                    // Interpolate left position from 2rem (32px) to roughly calc(50% - 15rem)
-                    // We use CSS calc with the progress variable for smooth updates
-                    left: `calc(2rem * (1 - ${scrollProgress}) + (50% - 15rem) * ${scrollProgress})`,
-                    // Optional: Fade out text slightly or scale down if needed? 
-                    // Keeping it simple as requested: "come closer to combine"
+                    // Interpolate left position
+                    // Start: 2rem (32px)
+                    // End: Center - Offset. (50% - ~18rem) to fit with larger pill
+                    left: `calc(2rem * (1 - ${scrollProgress}) + (50% - 18rem) * ${scrollProgress})`,
                 }}
                 onClick={(e) => {
                     e.preventDefault();
@@ -64,12 +63,8 @@ const NavHeader = () => {
                 <div
                     className="logo-typing-text overflow-hidden whitespace-nowrap transition-all duration-300"
                     style={{
-                        opacity: 1 - scrollProgress * 0.5, // Fade text slightly when merged? Or keep visible? User said "combine", implies full visibility.
-                        maxWidth: scrollProgress > 0.8 ? '0px' : '200px', // Hiding text at full merge to simulate "Logo Icon + Nav"? 
-                        // Actually user said "Aastha Kumari, AK logo... should be in the left side... alone it".
-                        // Then "combine". 
-                        // If I hide the text, it becomes just "AK" combining with Nav. This might be cleaner.
-                        // Let's try hiding text as it merges.
+                        opacity: 1 - scrollProgress * 0.5,
+                        maxWidth: scrollProgress > 0.8 ? '0px' : '200px',
                     }}
                 >
                     <span className="text-white font-bold text-lg tracking-tighter uppercase drop-shadow-md ml-3">
@@ -78,22 +73,45 @@ const NavHeader = () => {
                 </div>
             </div>
 
-            {/* Navigation Links - Centered floating pill */}
+            {/* Navigation Links - Top-Right initially, moves to Center-Right on scroll */}
             <nav
-                className="fixed top-12 left-1/2 -translate-x-1/2 z-[100] transition-all duration-75 ease-linear"
+                className="fixed top-12 z-[100] transition-all duration-75 ease-linear"
                 style={{
-                    // Shift slightly right to make room for the incoming logo icon?
-                    // target shift: maybe 2rem to right?
-                    transform: `translateX(calc(-50% + (2rem * ${scrollProgress})))`,
+                    // Position logic:
+                    // Start (p=0): Right aligned (right: 2rem), Centered vertically (top-12)
+                    // End (p=1): Centered horizontally.
+                    // Implementation:
+                    // We use `left: 50%` as the base for the centered state.
+                    // We use `transform` to shift it.
+                    // But transitioning from `right` to `left` is hard.
+                    // Let's stick to `right`.
+                    // Start: right: 2rem.
+                    // End: right: 50% (minus half width).
+                    // Actually, easiest way to Center from Right using only `right`:
+                    // right: 50%, transform: translateX(50%).
+                    // So:
+                    // right: calc(2rem * (1 - p) + 50% * p)
+                    // transform: translateX(calc(50% * p))
+                    right: `calc(2rem * (1 - ${scrollProgress}) + 50% * ${scrollProgress})`,
+                    transform: `translateX(calc(50% * ${scrollProgress}))`,
                 }}
             >
-                <div className="flex items-center gap-10 px-10 py-4 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-full shadow-2xl shadow-black/50 transition-all duration-300">
+                <div
+                    className="flex items-center gap-10 px-12 py-5 rounded-full transition-all duration-300 backdrop-blur-xl"
+                    style={{
+                        // Theme Styling: Teal/Dark Glow
+                        backgroundColor: 'rgba(5, 10, 10, 0.6)',
+                        borderColor: 'rgba(45, 212, 191, 0.2)',
+                        borderWidth: '1px',
+                        boxShadow: '0 0 30px -10px rgba(45, 212, 191, 0.15), 0 10px 30px -10px rgba(0,0,0,0.5)',
+                    }}
+                >
                     {items.map((item, idx) => (
                         <Magnetic key={idx} strength={0.1}>
                             <a
                                 href={item.href}
                                 onClick={(e) => handleLinkClick(e, item.href)}
-                                className="text-xs font-bold text-white/60 hover:text-white transition-all duration-300 uppercase tracking-widest hover:scale-105"
+                                className="text-sm font-medium text-teal-100/70 hover:text-teal-300 transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
                             >
                                 {item.label}
                             </a>

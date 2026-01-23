@@ -20,7 +20,7 @@ const Dock = () => {
                     <Magnetic key={idx} strength={0.2}>
                         <a
                             href={item.href}
-                            className="group relative p-4 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                            className="group relative p-4 flex items-center justify-center transition-all duration-500 ease-out hover:scale-125"
                             title={item.label}
                         >
                             <item.icon size={24} className="text-white/70 group-hover:text-white transition-colors" />
