@@ -221,6 +221,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section 4: What I've Been Up To */}
+      <section id="updates" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
+        <div className="space-y-8 text-center max-w-3xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">What I've Been Up To</h2>
+          <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
+            Constantly learning, building, and exploring. Here’s a snapshot of my current <span className="text-teal-400">focus</span>.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1: Learning */}
+          <div className="group p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 hover:border-teal-400/30 hover:bg-zinc-900/60 transition-all duration-500 hover:-translate-y-2">
+            <div className="mb-6 w-12 h-12 rounded-full bg-teal-400/10 flex items-center justify-center text-teal-400">
+              <SiPython size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-4">Deep Learning</h3>
+            <p className="text-white/40 leading-relaxed">
+              Currently diving deep into Neural Networks and Computer Vision. Experimenting with <span className="text-white">TensorFlow</span> to build more robust image recognition models.
+            </p>
+          </div>
+
+          {/* Card 2: Building */}
+          <div className="group p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 hover:border-teal-400/30 hover:bg-zinc-900/60 transition-all duration-500 hover:-translate-y-2">
+            <div className="mb-6 w-12 h-12 rounded-full bg-purple-400/10 flex items-center justify-center text-purple-400">
+              <SiNextdotjs size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-4">Building FitLife</h3>
+            <p className="text-white/40 leading-relaxed">
+              Refining the <span className="text-white">FitLife Tracker</span> app. Focusing on optimizing the backend data flow with Firebase and enhancing the dashboard UI.
+            </p>
+          </div>
+
+          {/* Card 3: Reading */}
+          <div className="group p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 hover:border-teal-400/30 hover:bg-zinc-900/60 transition-all duration-500 hover:-translate-y-2">
+            <div className="mb-6 w-12 h-12 rounded-full bg-blue-400/10 flex items-center justify-center text-blue-400">
+              <FaExternalLinkAlt size={20} />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-4">Reading & Research</h3>
+            <p className="text-white/40 leading-relaxed">
+              Exploring research papers on <span className="text-white">Agentic AI</span> workflows and their application in modern software development.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
 
       {/* Section 5: Connect */}
