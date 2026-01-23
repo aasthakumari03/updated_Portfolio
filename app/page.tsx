@@ -306,10 +306,10 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
                 <div className="flex flex-wrap justify-center gap-4">
                   {[
-                    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/", color: "#0077b5" },
+                    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5" },
                     { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
                     { name: "Twitter", icon: FaTwitter, link: "#", color: "#1DA1F2" },
-                    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/", color: "#E4405F" },
+                    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F" },
                     { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
                   ].map((social, i) => (
                     <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20">
