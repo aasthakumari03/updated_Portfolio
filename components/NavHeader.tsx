@@ -49,8 +49,8 @@ const NavHeader = () => {
                 style={{
                     // Interpolate left position
                     // Start: 2rem (32px)
-                    // End: Center - Offset. (50% - ~18rem) to fit with larger pill
-                    left: `calc(2rem * (1 - ${scrollProgress}) + (50% - 18rem) * ${scrollProgress})`,
+                    // End: Center - Offset. (50% - ~12rem) to fit with larger pill
+                    left: `calc(2rem * (1 - ${scrollProgress}) + (50% - 12rem) * ${scrollProgress})`,
                 }}
                 onClick={(e) => {
                     e.preventDefault();
