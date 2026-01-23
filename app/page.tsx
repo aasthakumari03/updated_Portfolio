@@ -298,7 +298,7 @@ export default function Home() {
               <div className="space-y-10 text-center max-w-3xl mx-auto mb-20">
                 <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
                 <p className="text-2xl text-white/40 font-medium leading-tight">
-                  Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
+                  Have a project in mind? Or just want to say hi? Shoot me an email at <a href="mailto:aastha0328kumari@gmail.com" className="text-teal-400 italic hover:underline hover:text-teal-300 transition-colors">aastha0328kumari@gmail.com</a>
                 </p>
               </div>
 
