@@ -292,31 +292,34 @@ export default function Home() {
       {/* Section 5: Connect */}
       <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col snap-start snap-always">
         <div className="flex-1 flex flex-col justify-center space-y-32 w-full">
-          <div className="space-y-10 text-center max-w-3xl mx-auto pt-20">
-            <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
-            <p className="text-2xl text-white/40 font-medium leading-tight">
-              Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
-            </p>
-          </div>
+          <div className="max-w-4xl mx-auto w-full group relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-teal-500/20 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+            <div className="relative border border-white/5 rounded-[2rem] p-12 bg-black/40 backdrop-blur-sm hover:border-teal-500/30 hover:shadow-[0_0_50px_-10px_rgba(45,212,191,0.2)] transition-all duration-700">
+              <div className="space-y-10 text-center max-w-3xl mx-auto mb-20">
+                <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
+                <p className="text-2xl text-white/40 font-medium leading-tight">
+                  Have a project in mind? Or just want to say hi? My inbox is <span className="text-teal-400 italic">always open.</span>
+                </p>
+              </div>
 
-          <div className="max-w-4xl mx-auto w-full space-y-24">
-            <div className="space-y-8">
-              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/", color: "#0077b5" },
-                  { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
-                  { name: "Twitter", icon: FaTwitter, link: "#", color: "#1DA1F2" },
-                  { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/", color: "#E4405F" },
-                  { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
-                ].map((social, i) => (
-                  <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group hover:border-white/20">
-                    <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110" style={{ color: social.color }}>
-                      <social.icon size={18} className="opacity-60 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <span className="text-sm font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-500">{social.name}</span>
-                  </a>
-                ))}
+              <div className="space-y-8">
+                <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {[
+                    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-03b2b8227/", color: "#0077b5" },
+                    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
+                    { name: "Twitter", icon: FaTwitter, link: "#", color: "#1DA1F2" },
+                    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/aastha_kumari38/", color: "#E4405F" },
+                    { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
+                  ].map((social, i) => (
+                    <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20">
+                      <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover/item:scale-110" style={{ color: social.color }}>
+                        <social.icon size={18} className="opacity-60 group-hover/item:opacity-100 transition-opacity" />
+                      </div>
+                      <span className="text-sm font-bold tracking-tight text-white/40 group-hover/item:text-white transition-colors duration-500">{social.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
