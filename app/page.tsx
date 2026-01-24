@@ -128,12 +128,11 @@ export default function Home() {
 
         <div className="prose prose-invert prose-2xl max-w-none space-y-20 text-center">
           <div className="space-y-8 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-serif text-teal-400 tracking-tight">My Journey</h3>
             <p className="text-white/50 leading-relaxed text-xl font-medium">
-              As a first-year Computer Science student specializing in <span className="text-white">Artificial Intelligence</span> and <span className="text-white">Machine Learning</span>, I find myself at the exciting intersection of logic and creativity.
+              In code and in life, I break things before I understand them.
             </p>
             <p className="text-white/50 leading-relaxed text-xl font-medium">
-              I am dedicated to mastering the art of building intelligent systems while ensuring they remain deeply human-centric.
+              As a CSE (AI & ML) student, debugging taught me that progress comes from fixing, not quitting.
             </p>
           </div>
 
