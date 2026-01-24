@@ -15,6 +15,7 @@ import {
   FaPaperPlane,
   FaEnvelope,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 import {
@@ -273,7 +274,7 @@ export default function Home() {
                   {[
                     { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5" },
                     { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
-                    { name: "Twitter", icon: FaTwitter, link: "#", color: "#1DA1F2" },
+                    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff" },
                     { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F" },
                     { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
                   ].map((social, i) => (
