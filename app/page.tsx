@@ -123,16 +123,16 @@ export default function Home() {
       </section>
 
       {/* Section 2: About Me */}
-      <section id="about" className="py-64 px-12 max-w-5xl mx-auto space-y-24 min-h-screen flex flex-col justify-center text-center snap-start snap-always">
+      <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center snap-start snap-always">
         <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">About Me</h2>
 
-        <div className="prose prose-invert prose-2xl max-w-none space-y-20 text-center">
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <p className="text-white/50 leading-relaxed text-xl font-medium">
-              In code and in life, I break things before I understand them.
+        <div className="prose prose-invert prose-2xl max-w-none text-center">
+          <div className="space-y-4 max-w-4xl mx-auto">
+            <p className="text-white/60 leading-tight text-2xl font-serif italic">
+              "In code and in life, I break things before I understand them."
             </p>
-            <p className="text-white/50 leading-relaxed text-xl font-medium">
-              As a CSE (AI & ML) student, debugging taught me that progress comes from fixing, not quitting.
+            <p className="text-white/60 leading-tight text-2xl font-serif italic">
+              "As a CSE (AI & ML) student, debugging taught me that progress comes from fixing, not quitting."
             </p>
           </div>
 
