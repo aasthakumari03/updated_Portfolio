@@ -6,7 +6,7 @@ import Magnetic from "./Magnetic";
 
 const NavHeader = () => {
     const items = [
-        { label: "About", href: "#about", icon: FaUser },
+        { label: "About", href: "/about", icon: FaUser },
         { label: "Works", href: "#projects", icon: FaBriefcase },
         { label: "Connect", href: "#connect", icon: FaEnvelope },
         { label: "Resume", href: "/resume.pdf", icon: FaFileAlt },

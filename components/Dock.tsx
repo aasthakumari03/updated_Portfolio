@@ -7,7 +7,7 @@ import Magnetic from "./Magnetic";
 const Dock = () => {
     const items = [
         { icon: FaHome, label: "Home", href: "#home" },
-        { icon: FaUser, label: "About", href: "#about" },
+        { icon: FaUser, label: "About", href: "/about" },
         { icon: FaFolderOpen, label: "Portfolio", href: "#projects" },
         { icon: FaEnvelope, label: "Contact", href: "#contact" },
     ];
