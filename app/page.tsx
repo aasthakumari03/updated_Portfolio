@@ -137,20 +137,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 text-center">
-            <div className="space-y-6">
-              <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Philosophy</h4>
-              <p className="text-white/40 text-lg leading-relaxed max-w-md mx-auto">
-                I believe in the power of simplicity. Every element in a digital experience should serve a clear purpose and evoke a sense of calm.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <h4 className="text-teal-400 font-bold uppercase tracking-[0.3em] text-xs">Ambition</h4>
-              <p className="text-white/40 text-lg leading-relaxed max-w-md mx-auto">
-                I aim to leverage AI to create adaptive interfaces that learn from users, creating more personal and intuitive digital worlds.
-              </p>
-            </div>
-          </div>
+
         </div>
       </section>
 
