@@ -2,7 +2,9 @@
 
 import React from "react";
 import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
+import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Magnetic from "./Magnetic";
+import { usePathname } from "next/navigation";
 
 const NavHeader = () => {
     const items = [
@@ -23,9 +25,15 @@ const NavHeader = () => {
     };
 
     const [scrollProgress, setScrollProgress] = React.useState(0);
+    const pathname = usePathname();
 
     React.useEffect(() => {
         const handleScroll = () => {
+            if (pathname !== '/') {
+                setScrollProgress(1);
+                return;
+            }
+
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
             // Animate over the first 100vh of scroll. 
@@ -39,7 +47,7 @@ const NavHeader = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [pathname]);
 
     return (
         <>
