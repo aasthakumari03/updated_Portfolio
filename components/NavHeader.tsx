@@ -2,7 +2,6 @@
 
 import React from "react";
 import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
-import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Magnetic from "./Magnetic";
 import { usePathname } from "next/navigation";
 
