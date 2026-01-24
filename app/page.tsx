@@ -124,7 +124,7 @@ export default function Home() {
 
       {/* Section 2: About Me */}
       <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center snap-start snap-always">
-        <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">About Me</h2>
+        <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white">About Me</h2>
 
         <div className="prose prose-invert prose-2xl max-w-none text-center">
           <div className="space-y-4 max-w-4xl mx-auto">
@@ -143,7 +143,7 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">My Work</h2>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white">My Work</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
             A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
           </p>
@@ -210,7 +210,7 @@ export default function Home() {
       {/* Section 4: What I've Been Up To */}
       <section id="updates" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">What I've Been Up To</h2>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white">What I've Been Up To</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
             Constantly learning, building, and exploring. Here’s a snapshot of my current <span className="text-teal-400">focus</span>.
           </p>
@@ -261,7 +261,7 @@ export default function Home() {
             <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 via-purple-500/30 to-teal-500/30 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
             <div className="relative border border-white/10 rounded-[2rem] p-12 bg-gradient-to-b from-zinc-900/90 to-black/90 backdrop-blur-md hover:border-teal-400 hover:shadow-[0_0_80px_rgba(45,212,191,0.4)] transition-all duration-700">
               <div className="space-y-10 text-center max-w-3xl mx-auto mb-20">
-                <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter text-white">Let's Connect</h2>
+                <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white">Let's Connect</h2>
                 <p className="text-2xl text-white/40 font-medium leading-tight">
                   Have a project in mind? Or just want to say hi? Shoot me an email at <a href="mailto:aastha0328kumari@gmail.com" className="text-teal-400 italic hover:underline hover:text-teal-300 transition-colors">aastha0328kumari@gmail.com</a>
                 </p>
