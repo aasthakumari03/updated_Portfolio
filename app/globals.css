@@ -166,6 +166,24 @@ body {
   animation: pulse-slow 15s ease-in-out infinite;
 }
 
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
 /* Grainy Blob Animations */
 @keyframes blob-float {
 

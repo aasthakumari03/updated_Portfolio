@@ -12,7 +12,7 @@ const Background = () => {
             id: i,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            size: `${Math.random() * 2 + 1}px`,
+            size: `${Math.random() * 3 + 2}px`,
             delay: `${Math.random() * 10}s`,
             duration: `${Math.random() * 10 + 5}s`,
         }));
@@ -35,7 +35,7 @@ const Background = () => {
             {stars.map((star) => (
                 <div
                     key={star.id}
-                    className="absolute bg-white rounded-full opacity-0 animate-pulse-slow"
+                    className="absolute bg-white rounded-full opacity-40 animate-twinkle"
                     style={{
                         top: star.top,
                         left: star.left,
