@@ -49,30 +49,25 @@ const NavHeader = () => {
     }, [pathname]);
 
     return (
-        <>
-            {/* Logo - Positioned independently at top-left, moves to center on scroll */}
+        <div className="fixed top-0 left-0 w-full z-[100] flex items-center justify-center pt-8 pointer-events-none">
+            {/* Logo */}
             <div
-                className="fixed top-12 left-8 z-[100] flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear"
-                style={{
-                    // Interpolate left position
-                    // Start: 2rem (32px)
-                    // End: Center - Offset. (50% - ~6rem) to fit with larger pill
-                    left: `calc(2rem * (1 - ${scrollProgress}) + (50% - 6rem) * ${scrollProgress})`,
-                }}
+                className="flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto"
                 onClick={(e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     window.history.pushState(null, '', '#home');
                 }}
             >
-                <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 z-10 shrink-0 shadow-lg shadow-teal-500/20">
+                <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 shrink-0 shadow-lg shadow-teal-500/20">
                     AK
                 </div>
                 <div
-                    className="logo-typing-text overflow-hidden whitespace-nowrap transition-all duration-300"
+                    className="overflow-hidden whitespace-nowrap transition-all duration-300"
                     style={{
-                        opacity: 1 - scrollProgress * 0.5,
-                        maxWidth: scrollProgress > 0.8 ? '0px' : '200px',
+                        width: scrollProgress > 0.5 ? '0px' : 'auto',
+                        opacity: 1 - scrollProgress * 1.5,
+                        transform: `translateX(${scrollProgress * -20}px)`
                     }}
                 >
                     <span className="text-white font-bold text-lg tracking-tighter uppercase drop-shadow-md ml-3">
@@ -81,33 +76,21 @@ const NavHeader = () => {
                 </div>
             </div>
 
-            {/* Navigation Links - Top-Right initially, moves to Center-Right on scroll */}
-            <nav
-                className="fixed top-12 z-[100] transition-all duration-75 ease-linear"
+            {/* Dynamic Spacer */}
+            <div
                 style={{
-                    // Position logic:
-                    // Start (p=0): Right aligned (right: 2rem), Centered vertically (top-12)
-                    // End (p=1): Centered horizontally.
-                    // Implementation:
-                    // We use `left: 50%` as the base for the centered state.
-                    // We use `transform` to shift it.
-                    // But transitioning from `right` to `left` is hard.
-                    // Let's stick to `right`.
-                    // Start: right: 2rem.
-                    // End: right: 50% (minus half width).
-                    // Actually, easiest way to Center from Right using only `right`:
-                    // right: 50%, transform: translateX(50%).
-                    // So:
-                    // right: calc(2rem * (1 - p) + 50% * p)
-                    // transform: translateX(calc(50% * p))
-                    right: `calc(2rem * (1 - ${scrollProgress}) + 50% * ${scrollProgress})`,
-                    transform: `translateX(calc(50% * ${scrollProgress}))`,
+                    // When scroll is 0, we want a large gap (e.g. 60vw or bounded max)
+                    // When scroll is 1, we want a small gap (e.g. 1rem / 16px)
+                    width: `calc(max(20px, 80vw * (1 - ${scrollProgress})))`,
+                    transition: 'width 0.1s linear'
                 }}
-            >
+            />
+
+            {/* Navigation Links */}
+            <nav className="transition-all duration-75 ease-linear pointer-events-auto">
                 <div
-                    className="flex items-center gap-10 px-12 py-5 rounded-full transition-all duration-300 backdrop-blur-xl"
+                    className="flex items-center gap-8 px-8 py-3 rounded-full transition-all duration-300 backdrop-blur-xl"
                     style={{
-                        // Theme Styling: Teal/Dark Glow
                         backgroundColor: 'rgba(5, 10, 10, 0.6)',
                         borderColor: 'rgba(45, 212, 191, 0.2)',
                         borderWidth: '1px',
@@ -121,14 +104,14 @@ const NavHeader = () => {
                                 onClick={(e) => handleLinkClick(e, item.href)}
                                 className="group flex items-center gap-2 text-sm font-bold font-[family-name:var(--font-plus-jakarta-sans)] text-teal-50/90 hover:text-white transition-all duration-500 ease-out uppercase tracking-widest hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
                             >
-                                <item.icon className="text-teal-400/70 group-hover:text-teal-300 transition-colors duration-300" size={16} />
+                                <item.icon className="text-teal-400/70 group-hover:text-teal-300 transition-colors duration-300" size={14} />
                                 {item.label}
                             </a>
                         </Magnetic>
                     ))}
                 </div>
             </nav>
-        </>
+        </div>
     );
 };
 
