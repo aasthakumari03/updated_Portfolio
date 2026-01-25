@@ -62,14 +62,7 @@ const NavHeader = () => {
                 <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm transition-all group-hover:rotate-12 duration-500 shrink-0 shadow-lg shadow-teal-500/20">
                     AK
                 </div>
-                <div
-                    className="overflow-hidden whitespace-nowrap transition-all duration-300"
-                    style={{
-                        width: scrollProgress > 0.5 ? '0px' : 'auto',
-                        opacity: 1 - scrollProgress * 1.5,
-                        transform: `translateX(${scrollProgress * -20}px)`
-                    }}
-                >
+                <div className="logo-typing-text overflow-hidden whitespace-nowrap">
                     <span className="text-white font-bold text-lg tracking-tighter uppercase drop-shadow-md ml-3">
                         Aastha Kumari
                     </span>
