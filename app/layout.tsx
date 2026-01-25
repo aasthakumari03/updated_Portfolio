@@ -33,6 +33,7 @@ export const metadata: Metadata = {
 };
 
 import Background from "@/components/Background";
+import NavHeader from "@/components/NavHeader";
 
 export default function RootLayout({
   children,
@@ -46,6 +47,7 @@ export default function RootLayout({
       >
         <CustomCursor />
         <Background />
+        <NavHeader />
 
         <main className="flex-grow relative z-10 min-h-screen">
           {children}

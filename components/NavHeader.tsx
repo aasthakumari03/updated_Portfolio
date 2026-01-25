@@ -49,7 +49,10 @@ const NavHeader = () => {
     }, [pathname]);
 
     return (
-        <div className="fixed top-0 left-0 w-full z-[100] flex items-center justify-center pt-8 pointer-events-none">
+        <div
+            className="fixed top-0 left-0 w-full z-[100] flex items-center justify-center transition-all duration-300 pointer-events-none"
+            style={{ paddingTop: scrollProgress > 0.1 ? '1rem' : '2rem' }}
+        >
             {/* Logo */}
             <div
                 className="flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto"
@@ -74,7 +77,7 @@ const NavHeader = () => {
                 style={{
                     // When scroll is 0, we want a large gap (e.g. 60vw or bounded max)
                     // When scroll is 1, we want a small gap (e.g. 1rem / 16px)
-                    width: `calc(max(20px, 80vw * (1 - ${scrollProgress})))`,
+                    width: `calc(max(12px, 80vw * (1 - ${scrollProgress})))`,
                     transition: 'width 0.1s linear'
                 }}
             />

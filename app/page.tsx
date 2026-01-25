@@ -1,6 +1,6 @@
 "use client";
-import NavHeader from "@/components/NavHeader";
 import Image from "next/image";
+
 import ProjectCard from "@/components/ProjectCard";
 
 
@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="animate-fade-in flex flex-col">
-      <NavHeader />
+
 
       {/* Section 1: Hero */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden snap-start snap-always">
