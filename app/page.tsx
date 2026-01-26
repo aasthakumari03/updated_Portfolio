@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-10 w-full items-center mt-12">
+        <div className="flex flex-col md:flex-row justify-center gap-12 md:gap-24 w-full items-center mt-16 max-w-4xl">
           <ScrollReveal delay={0.2} className="relative group w-64">
             <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-900/30 backdrop-blur-md shadow-2xl shadow-teal-500/5 group-hover:shadow-teal-500/30 group-hover:-translate-y-2 transition-all duration-700">
               <Image
