@@ -201,8 +201,6 @@ export default function Home() {
                 "Smooth GSAP & Lenis scrolling",
                 "Interactive spotlight components"
               ]}
-              image="#"
-              mockupType="desktop"
             />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -216,9 +214,6 @@ export default function Home() {
                 "Real-time nutritional tracking",
                 "Interactive progress analytics"
               ]}
-              image="#"
-              mockupType="mobile"
-              reversed
             />
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
@@ -251,9 +246,6 @@ export default function Home() {
                 "Seamless web integration",
                 "Stay tuned for updates"
               ]}
-              image="#"
-              mockupType="mobile"
-              reversed
             />
           </ScrollReveal>
         </div>

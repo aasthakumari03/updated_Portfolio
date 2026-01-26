@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from "react";
 import Image from "next/image";
@@ -11,8 +11,7 @@ interface ProjectCardProps {
     description?: string;
     features: string[];
     tags: string[];
-    image: string;
-    mockupType?: "mobile" | "desktop";
+    // Removed image and mockupType as requested
     reversed?: boolean;
     backgroundImage?: string;
 }
@@ -23,8 +22,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     title,
     features,
     tags = [],
-    image,
-    mockupType = "mobile",
     reversed = false,
     backgroundImage,
 }) => {
@@ -40,8 +37,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     };
 
     return (
-        {/* Content Section */ }
-        < div className = "flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative" >
+        <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-black/90 backdrop-blur-xl border border-white/5 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col items-center hover:border-teal-300 hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700`}
+        >
+            {/* Background Image (Optional) */}
+            {backgroundImage && (
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={backgroundImage}
+                        alt="Background"
+                        fill
+                        className="object-cover opacity-30 blur-[3px] group-hover:scale-105 transition-transform duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
+                </div>
+            )}
+
+            {/* Content Section */}
+            <div className="w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative">
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">
@@ -79,8 +94,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
                     </button>
                 </div>
-            </div >
-        </div >
+            </div>
+        </div>
     );
 };
 
