@@ -157,7 +157,7 @@ export default function Home() {
             <p className="mt-4 text-teal-400 font-bold tracking-[0.2em] uppercase text-xs text-center opacity-60 group-hover:opacity-100 transition-opacity duration-500">
               Spiritual Root • Mahadev Bhakt
             </p>
-            <p className="mt-2 text-white/40 text-[10px] uppercase tracking-widest text-center opacity-40 group-hover:opacity-80 transition-opacity duration-500">
+            <p className="mt-2 text-teal-200/80 text-[10px] uppercase tracking-widest text-center font-medium opacity-90 transition-opacity duration-500">
               Grounded in faith, driven by purpose.
             </p>
           </ScrollReveal>
@@ -174,7 +174,7 @@ export default function Home() {
             <p className="mt-4 text-teal-400 font-bold tracking-[0.2em] uppercase text-xs text-center opacity-60 group-hover:opacity-100 transition-opacity duration-500">
               Passion • Code & Debug
             </p>
-            <p className="mt-2 text-white/40 text-[10px] uppercase tracking-widest text-center opacity-40 group-hover:opacity-80 transition-opacity duration-500">
+            <p className="mt-2 text-teal-200/80 text-[10px] uppercase tracking-widest text-center font-medium opacity-90 transition-opacity duration-500">
               Crafting logic into digital art.
             </p>
           </ScrollReveal>
