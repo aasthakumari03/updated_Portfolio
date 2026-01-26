@@ -70,7 +70,7 @@ export default function Home() {
 
 
       {/* Section 1: Hero */}
-      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden snap-start snap-always">
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-8">
 
 
@@ -128,7 +128,7 @@ export default function Home() {
       <FogSeparator />
 
       {/* Section 2: About Me */}
-      <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center snap-start snap-always">
+      <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center">
         <ScrollReveal>
           <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">About Me</h2>
         </ScrollReveal>
@@ -148,7 +148,7 @@ export default function Home() {
       <FogSeparator />
 
       {/* Section 3: Projects */}
-      <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
+      <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <ScrollReveal>
           <div className="space-y-8 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">My Work</h2>
@@ -226,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: What I've Been Up To */}
-      <section id="updates" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
+      <section id="updates" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center">
         <div className="space-y-8 text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">What I've Been Up To</h2>
           <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
@@ -273,7 +273,7 @@ export default function Home() {
       <FogSeparator />
 
       {/* Section 5: Connect */}
-      <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col snap-start snap-always">
+      <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col">
         <div className="flex-1 flex flex-col justify-center space-y-32 w-full">
           <div className="max-w-4xl mx-auto w-full group relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 via-purple-500/30 to-teal-500/30 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
