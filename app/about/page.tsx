@@ -10,8 +10,8 @@ export default function AboutPage() {
                 <p>"As a CSE (AI & ML) student, debugging taught me that progress comes from fixing, not quitting."</p>
             </div>
 
-            <div className="flex flex-col gap-10 w-full max-w-sm px-4 mx-auto">
-                <ScrollReveal delay={0.2} className="relative group">
+            <div className="flex flex-col gap-10 w-full items-center">
+                <ScrollReveal delay={0.2} className="relative group w-64">
                     <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-900/30 backdrop-blur-md shadow-2xl shadow-teal-500/5 group-hover:shadow-teal-500/30 group-hover:-translate-y-2 transition-all duration-700">
                         <Image
                             src="/images/mahadev.png"
@@ -25,7 +25,7 @@ export default function AboutPage() {
                     </div>
                 </ScrollReveal>
 
-                <ScrollReveal delay={0.4} className="relative group">
+                <ScrollReveal delay={0.4} className="relative group w-64">
                     <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-900/30 backdrop-blur-md shadow-2xl shadow-teal-500/5 group-hover:shadow-teal-500/30 group-hover:-translate-y-2 transition-all duration-700">
                         <Image
                             src="/images/coding.png"
