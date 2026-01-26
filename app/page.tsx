@@ -143,6 +143,36 @@ export default function Home() {
             </p>
           </div>
         </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl px-4 mt-16">
+          <ScrollReveal delay={0.2} className="relative group">
+            <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50">
+              <Image
+                src="/images/mahadev.png"
+                alt="Mahadev Trishul - Symbol of Core Beliefs"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-teal-400 font-bold tracking-widest uppercase text-sm">Spiritual Root • Mahadev Bhakt</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.4} className="relative group">
+            <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50">
+              <Image
+                src="/images/coding.png"
+                alt="Futuristic Coding Interface"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-teal-400 font-bold tracking-widest uppercase text-sm">Passion • Code & Debug</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
       <FogSeparator />
