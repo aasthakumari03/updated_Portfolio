@@ -29,9 +29,10 @@ import {
   SiFigma,
   SiGithub,
 } from "react-icons/si";
-
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
+
 
 
   const projects = [
@@ -125,86 +126,97 @@ export default function Home() {
 
       {/* Section 2: About Me */}
       <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center snap-start snap-always">
-        <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">About Me</h2>
+        <ScrollReveal>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">About Me</h2>
+        </ScrollReveal>
 
-        <div className="prose prose-invert prose-2xl max-w-none text-center">
+        <ScrollReveal delay={0.2} className="prose prose-invert prose-2xl max-w-none text-center">
           <div className="space-y-4 max-w-4xl mx-auto">
-            <p className="text-white/60 leading-tight text-2xl font-serif italic">
+            <p className="text-white/60 leading-tight text-2xl font-serif italic hover:text-white/90 transition-colors duration-500 cursor-default">
               "In code and in life, I break things before I understand them."
             </p>
-            <p className="text-white/60 leading-tight text-2xl font-serif italic">
+            <p className="text-white/60 leading-tight text-2xl font-serif italic hover:text-white/90 transition-colors duration-500 cursor-default">
               "As a CSE (AI & ML) student, debugging taught me that progress comes from fixing, not quitting."
             </p>
           </div>
-
-
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Section 3: Projects */}
       <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
-        <div className="space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">My Work</h2>
-          <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
-            A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="space-y-8 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">My Work</h2>
+            <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
+              A showcase of my projects where I merge my technical skills in <span className="text-teal-400">AI & ML</span> with refined UI/UX design.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="flex flex-col gap-12">
-          <ProjectCard
-            title="Celestial Portfolio"
-            category=""
-            year=""
-            tags={[]}
-            features={[
-              "Modern universe-themed aesthetic",
-              "Smooth GSAP & Lenis scrolling",
-              "Interactive spotlight components"
-            ]}
-            image="#"
-            mockupType="desktop"
-          />
-          <ProjectCard
-            title="Fitlife Tracker"
-            category="Health & Fitness"
-            year="2025"
-            tags={[]}
-            features={[
-              "AI-driven workout recommendations",
-              "Real-time nutritional tracking",
-              "Interactive progress analytics"
-            ]}
-            image="#"
-            mockupType="mobile"
-            reversed
-          />
-          <ProjectCard
-            title="Next Big Idea"
-            category="Coming Soon"
-            year="2026"
-            tags={[]}
-            features={[
-              "Exploring new frontiers in AI",
-              "Minimalist design philosophy",
-              "Launching very soon"
-            ]}
-            image="#"
-            mockupType="desktop"
-          />
-          <ProjectCard
-            title="Future Vision"
-            category="Coming Soon"
-            year="2026"
-            tags={[]}
-            features={[
-              "Pioneering spatial experiences",
-              "Seamless web integration",
-              "Stay tuned for updates"
-            ]}
-            image="#"
-            mockupType="mobile"
-            reversed
-          />
+          {/* We can animate cards in stagger if we map them or just individually */}
+          <ScrollReveal delay={0.1}>
+            <ProjectCard
+              title="Celestial Portfolio"
+              category=""
+              year=""
+              tags={[]}
+              features={[
+                "Modern universe-themed aesthetic",
+                "Smooth GSAP & Lenis scrolling",
+                "Interactive spotlight components"
+              ]}
+              image="#"
+              mockupType="desktop"
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <ProjectCard
+              title="Fitlife Tracker"
+              category="Health & Fitness"
+              year="2025"
+              tags={[]}
+              features={[
+                "AI-driven workout recommendations",
+                "Real-time nutritional tracking",
+                "Interactive progress analytics"
+              ]}
+              image="#"
+              mockupType="mobile"
+              reversed
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.3}>
+            <ProjectCard
+              title="Next Big Idea"
+              category="Coming Soon"
+              year="2026"
+              tags={[]}
+              features={[
+                "Exploring new frontiers in AI",
+                "Minimalist design philosophy",
+                "Launching very soon"
+              ]}
+              image="#"
+              mockupType="desktop"
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.4}>
+            <ProjectCard
+              title="Future Vision"
+              category="Coming Soon"
+              year="2026"
+              tags={[]}
+              features={[
+                "Pioneering spatial experiences",
+                "Seamless web integration",
+                "Stay tuned for updates"
+              ]}
+              image="#"
+              mockupType="mobile"
+              reversed
+            />
+          </ScrollReveal>
         </div>
       </section>
 
