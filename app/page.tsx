@@ -30,6 +30,7 @@ import {
   SiGithub,
 } from "react-icons/si";
 import ScrollReveal from "@/components/ScrollReveal";
+import FogSeparator from "@/components/FogSeparator";
 
 export default function Home() {
 
@@ -124,6 +125,8 @@ export default function Home() {
 
       </section>
 
+      <FogSeparator />
+
       {/* Section 2: About Me */}
       <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center snap-start snap-always">
         <ScrollReveal>
@@ -141,6 +144,8 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
+
+      <FogSeparator />
 
       {/* Section 3: Projects */}
       <section id="projects" className="py-24 px-12 max-w-7xl mx-auto space-y-24 min-h-screen flex flex-col justify-center snap-start snap-always">
@@ -265,7 +270,7 @@ export default function Home() {
         </div>
       </section>
 
-
+      <FogSeparator />
 
       {/* Section 5: Connect */}
       <section id="connect" className="py-24 px-12 max-w-6xl mx-auto min-h-screen flex flex-col snap-start snap-always">
