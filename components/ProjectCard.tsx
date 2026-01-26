@@ -14,6 +14,7 @@ interface ProjectCardProps {
     image: string;
     mockupType?: "mobile" | "desktop";
     reversed?: boolean;
+    backgroundImage?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -25,6 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     image,
     mockupType = "mobile",
     reversed = false,
+    backgroundImage,
 }) => {
     const cardRef = React.useRef<HTMLDivElement>(null);
 
@@ -43,8 +45,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             onMouseMove={handleMouseMove}
             className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-black/90 backdrop-blur-xl border border-white/5 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col md:flex-row hover:border-teal-300 hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700 ${reversed ? 'md:flex-row-reverse' : ''}`}
         >
+            {/* Background Image (Optional) */}
+            {backgroundImage && (
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={backgroundImage}
+                        alt="Background"
+                        fill
+                        className="object-cover opacity-20 blur-[2px] group-hover:scale-110 transition-transform duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
+                </div>
+            )}
+
             {/* Content Section */}
-            <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10">
+            <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative">
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">

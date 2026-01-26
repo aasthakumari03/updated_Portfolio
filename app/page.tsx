@@ -223,16 +223,17 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
             <ProjectCard
-              title="Next Big Idea"
-              category="Coming Soon"
+              title="Paceforge"
+              category="Productivity & Automation"
               year="2026"
-              tags={[]}
+              tags={["Next.js", "MongoDB", "Tailwind"]}
               features={[
-                "Exploring new frontiers in AI",
-                "Minimalist design philosophy",
-                "Launching very soon"
+                "Artificial Urgency Logic Engine",
+                "Cinematic Golden Hour Aesthetic",
+                "Full-stack Task Management System"
               ]}
-              image="#"
+              image="/images/paceforge.png"
+              backgroundImage="/images/paceforge.png"
               mockupType="desktop"
             />
           </ScrollReveal>
