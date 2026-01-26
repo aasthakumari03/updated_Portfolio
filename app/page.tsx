@@ -232,9 +232,12 @@ export default function Home() {
                 "Cinematic Golden Hour Aesthetic",
                 "Full-stack Task Management System"
               ]}
-              image="/images/paceforge.png"
+              features={[
+                "Artificial Urgency Logic Engine",
+                "Cinematic Golden Hour Aesthetic",
+                "Full-stack Task Management System"
+              ]}
               backgroundImage="/images/paceforge.png"
-              mockupType="desktop"
             />
           </ScrollReveal>
           <ScrollReveal delay={0.4}>

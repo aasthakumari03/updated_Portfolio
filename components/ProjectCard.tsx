@@ -40,26 +40,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     };
 
     return (
-        <div
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-black/90 backdrop-blur-xl border border-white/5 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col md:flex-row hover:border-teal-300 hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700 ${reversed ? 'md:flex-row-reverse' : ''}`}
-        >
-            {/* Background Image (Optional) */}
-            {backgroundImage && (
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={backgroundImage}
-                        alt="Background"
-                        fill
-                        className="object-cover opacity-20 blur-[2px] group-hover:scale-110 transition-transform duration-1000"
-                    />
-                    <div className="absolute inset-0 bg-black/60 z-10" />
-                </div>
-            )}
-
-            {/* Content Section */}
-            <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative">
+        {/* Content Section */ }
+        < div className = "flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative" >
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">
@@ -97,54 +79,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
                     </button>
                 </div>
-            </div>
-
-            {/* Image Section */}
-            <div className="flex-1 relative min-h-[400px] md:min-h-auto flex items-center justify-center p-8 md:p-12 bg-transparent">
-                <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
-                    {mockupType === "mobile" ? (
-                        <div className="relative w-[260px] aspect-[9/19.5] rounded-[3rem] border-[8px] border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden bg-black ring-1 ring-white/10">
-                            {/* Speaker/Camera Notch */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-zinc-800 rounded-b-2xl z-20"></div>
-                            {image && image !== "#" ? (
-                                <Image
-                                    src={image}
-                                    alt={title}
-                                    fill
-                                    className="object-cover"
-                                />
-                            ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-                                    <span className="text-white/10 font-bold italic">Preview</span>
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <div className="relative w-full aspect-video rounded-xl border-[4px] border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden bg-zinc-900 ring-1 ring-white/10">
-                            <div className="absolute top-0 left-0 w-full h-6 bg-zinc-800 flex items-center gap-1.5 px-3">
-                                <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
-                                <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                                <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
-                            </div>
-                            <div className="w-full h-full pt-6">
-                                {image && image !== "#" ? (
-                                    <Image
-                                        src={image}
-                                        alt={title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                ) : (
-                                    <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-                                        <span className="text-white/10 font-bold italic">Preview</span>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
