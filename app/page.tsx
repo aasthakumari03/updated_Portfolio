@@ -153,10 +153,10 @@ export default function Home() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <p className="text-teal-400 font-bold tracking-[0.2em] uppercase text-xs">Spiritual Root • Mahadev Bhakt</p>
-              </div>
             </div>
+            <p className="mt-4 text-teal-400 font-bold tracking-[0.2em] uppercase text-xs text-center opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+              Spiritual Root • Mahadev Bhakt
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.4} className="relative group w-64">
@@ -167,10 +167,10 @@ export default function Home() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <p className="text-teal-400 font-bold tracking-[0.2em] uppercase text-xs">Passion • Code & Debug</p>
-              </div>
             </div>
+            <p className="mt-4 text-teal-400 font-bold tracking-[0.2em] uppercase text-xs text-center opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+              Passion • Code & Debug
+            </p>
           </ScrollReveal>
         </div>
       </section>
