@@ -58,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
 
             {/* Content Section */}
-            <div className={`w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative ${hasContentBorder ? 'm-4 border border-white/30 rounded-2xl bg-[#020617]/80 backdrop-blur-md shadow-inner shadow-white/5' : ''}`}>
+            <div className={`w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative ${hasContentBorder ? 'm-4 border border-white/60 rounded-2xl bg-[#050a1f]/90 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.6)]' : ''}`}>
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">
