@@ -228,17 +228,14 @@ export default function Home() {
               category="Productivity & Automation"
               year="2026"
               tags={["Next.js", "MongoDB", "Tailwind"]}
-              features={[
-                "Artificial Urgency Logic Engine",
-                "Cinematic Golden Hour Aesthetic",
-                "Full-stack Task Management System"
-              ]}
+
               features={[
                 "Artificial Urgency Logic Engine",
                 "Cinematic Golden Hour Aesthetic",
                 "Full-stack Task Management System"
               ]}
               backgroundImage="/images/paceforge.png"
+              hasContentBorder={true}
             />
           </ScrollReveal>
           <ScrollReveal delay={0.4}>

@@ -14,6 +14,7 @@ interface ProjectCardProps {
     // Removed image and mockupType as requested
     reversed?: boolean;
     backgroundImage?: string;
+    hasContentBorder?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -24,6 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     tags = [],
     reversed = false,
     backgroundImage,
+    hasContentBorder = false,
 }) => {
     const cardRef = React.useRef<HTMLDivElement>(null);
 
@@ -56,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
 
             {/* Content Section */}
-            <div className="w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative">
+            <div className={`w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative ${hasContentBorder ? 'm-4 border border-white/20 rounded-2xl bg-white/5 backdrop-blur-sm shadow-inner shadow-white/5' : ''}`}>
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">
