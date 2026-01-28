@@ -55,7 +55,7 @@ const NavHeader = () => {
         >
             {/* Logo */}
             <div
-                className="flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto"
+                className="flex items-center gap-3 cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto ml-8"
                 onClick={(e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
