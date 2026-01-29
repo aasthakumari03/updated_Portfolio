@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+import Magnetic from "./Magnetic";
 
 interface ProjectCardProps {
     category: string;
@@ -92,9 +93,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </ul>
 
                 <div className="pt-4">
-                    <button className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-teal-400 transition-all duration-500 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
-                        Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
-                    </button>
+                    <Magnetic strength={0.3}>
+                        <button className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-teal-400 transition-all duration-500 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
+                            Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
+                        </button>
+                    </Magnetic>
                 </div>
             </div>
         </div>

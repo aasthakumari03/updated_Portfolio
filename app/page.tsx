@@ -31,6 +31,7 @@ import {
 } from "react-icons/si";
 import ScrollReveal from "@/components/ScrollReveal";
 import FogSeparator from "@/components/FogSeparator";
+import Magnetic from "@/components/Magnetic";
 
 export default function Home() {
 
@@ -103,23 +104,29 @@ export default function Home() {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in [animation-delay:600ms]">
-            <a href="#projects" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-3 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
-              📂 My work
-            </a>
-            <button className="group px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm hover:border-teal-400/30">
-              My resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
+            <Magnetic strength={0.2}>
+              <a href="#projects" className="group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-teal-400 hover:text-black transition-all duration-500 flex items-center gap-3 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
+                📂 My work
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.2}>
+              <button className="group px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-500 flex items-center gap-2 backdrop-blur-sm hover:border-teal-400/30">
+                My resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </Magnetic>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-in [animation-delay:1.2s]">
-          <a href="#about" className="flex flex-col items-center gap-4 group">
-            <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] group-hover:text-teal-400 transition-colors">Scroll</span>
-            <div className="w-6 h-10 rounded-full border border-white/10 flex justify-center p-1.5 group-hover:border-teal-400/50 transition-colors">
-              <div className="w-1 h-2 bg-white/20 rounded-full animate-bounce group-hover:bg-teal-400"></div>
-            </div>
-          </a>
+          <Magnetic strength={0.2}>
+            <a href="#about" className="flex flex-col items-center gap-4 group">
+              <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] group-hover:text-teal-400 transition-colors">Scroll</span>
+              <div className="w-6 h-10 rounded-full border border-white/10 flex justify-center p-1.5 group-hover:border-teal-400/50 transition-colors">
+                <div className="w-1 h-2 bg-white/20 rounded-full animate-bounce group-hover:bg-teal-400"></div>
+              </div>
+            </a>
+          </Magnetic>
         </div>
 
 
@@ -324,12 +331,14 @@ export default function Home() {
                     { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F" },
                     { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
                   ].map((social, i) => (
-                    <a key={i} href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20">
-                      <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover/item:scale-110" style={{ color: social.color }}>
-                        <social.icon size={18} className="opacity-60 group-hover/item:opacity-100 transition-opacity" />
-                      </div>
-                      <span className="text-sm font-bold tracking-tight text-white/40 group-hover/item:text-white transition-colors duration-500">{social.name}</span>
-                    </a>
+                    <Magnetic key={i} strength={0.2}>
+                      <a href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20">
+                        <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover/item:scale-110" style={{ color: social.color }}>
+                          <social.icon size={18} className="opacity-60 group-hover/item:opacity-100 transition-opacity" />
+                        </div>
+                        <span className="text-sm font-bold tracking-tight text-white/40 group-hover/item:text-white transition-colors duration-500">{social.name}</span>
+                      </a>
+                    </Magnetic>
                   ))}
                 </div>
               </div>
