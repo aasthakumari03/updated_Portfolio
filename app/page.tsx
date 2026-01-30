@@ -32,6 +32,8 @@ import {
 import ScrollReveal from "@/components/ScrollReveal";
 import FogSeparator from "@/components/FogSeparator";
 import Magnetic from "@/components/Magnetic";
+import Marquee from "@/components/Marquee";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
 
 export default function Home() {
 
@@ -134,6 +136,25 @@ export default function Home() {
 
       <FogSeparator />
 
+      {/* Skills Marquee */}
+      <section className="py-12 w-full overflow-hidden border-y border-white/5 bg-white/[0.02]">
+        <Marquee speed={30}>
+          {[SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiPython, SiTensorflow, SiFigma, SiGithub].map((Icon, i) => (
+            <div key={i} className="text-white/20 hover:text-teal-400 transition-colors duration-500">
+              <Icon size={50} />
+            </div>
+          ))}
+          {/* Duplicate set for seamless loop handled by component, but let's add one more set to be safe if screen is wide */}
+          {[SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiPython, SiTensorflow, SiFigma, SiGithub].map((Icon, i) => (
+            <div key={`dup-${i}`} className="text-white/20 hover:text-teal-400 transition-colors duration-500">
+              <Icon size={50} />
+            </div>
+          ))}
+        </Marquee>
+      </section>
+
+      <FogSeparator />
+
       {/* Section 2: About Me */}
       <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center">
         <ScrollReveal>
@@ -186,6 +207,24 @@ export default function Home() {
             </p>
           </ScrollReveal>
         </div>
+      </section>
+
+      <FogSeparator />
+
+      {/* Section: Experience */}
+      <section id="experience" className="py-24 px-6 md:px-12 max-w-5xl mx-auto space-y-16 min-h-[50vh] flex flex-col justify-center">
+        <ScrollReveal>
+          <div className="space-y-4 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">Experience</h2>
+            <p className="text-xl text-white/40 leading-relaxed max-w-2xl mx-auto">
+              My professional journey and <span className="text-teal-400">milestones</span> so far.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.2}>
+          <ExperienceTimeline />
+        </ScrollReveal>
       </section>
 
       <FogSeparator />
