@@ -55,7 +55,7 @@ const Sidebar = () => {
             {/* Header Info */}
             <div className="space-y-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 whitespace-nowrap overflow-hidden">
                 <div className="space-y-1 text-center">
-                    <h1 className="text-xl font-bold text-white tracking-tight">AASTHA KUMARI</h1>
+                    <h1 className="text-2xl font-[family-name:var(--font-gothic)] text-white tracking-normal">AASTHA KUMARI</h1>
                     <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em] pb-1">Aspiring Developer</p>
                     <div className="flex items-center justify-center gap-2 text-white/50 text-[10px] font-medium">
                         <span>@aastha</span>
