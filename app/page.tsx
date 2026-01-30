@@ -214,6 +214,8 @@ export default function Home() {
                 "Smooth GSAP & Lenis scrolling",
                 "Interactive spotlight components"
               ]}
+              backgroundImage="/images/coding.png"
+              hasContentBorder={true}
             />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -227,6 +229,7 @@ export default function Home() {
                 "Real-time nutritional tracking",
                 "Interactive progress analytics"
               ]}
+              hasContentBorder={true}
             />
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
@@ -256,6 +259,8 @@ export default function Home() {
                 "Seamless web integration",
                 "Stay tuned for updates"
               ]}
+              backgroundImage="/images/coding.png"
+              hasContentBorder={true}
             />
           </ScrollReveal>
         </div>

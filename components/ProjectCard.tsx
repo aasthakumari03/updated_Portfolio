@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-[2.5rem] bg-black/90 backdrop-blur-xl border border-white/5 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col items-center hover:border-teal-300 hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700`}
+            className={`group relative w-full overflow-hidden rounded-xl bg-black/90 backdrop-blur-xl border border-white/5 border-l-4 border-l-teal-400 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col items-center hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700`}
         >
             {/* Background Image (Optional) */}
             {backgroundImage && (
