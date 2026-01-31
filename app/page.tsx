@@ -214,7 +214,7 @@ export default function Home() {
                 "Smooth GSAP & Lenis scrolling",
                 "Interactive spotlight components"
               ]}
-              backgroundImage="/images/coding.png"
+              backgroundImage="/celestial-portfolio.png"
               hasContentBorder={true}
             />
           </ScrollReveal>
