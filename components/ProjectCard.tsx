@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-xl bg-black/90 backdrop-blur-xl border border-white/5 border-l-4 border-l-teal-400 spotlight-card spotlight-border hover-lift-up mb-12 flex flex-col items-center hover:shadow-[0_0_80px_rgba(45,212,191,0.5),inset_0_0_30px_rgba(45,212,191,0.2)] transition-all duration-700`}
+            className={`group relative w-full overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 border-l-4 border-l-teal-400 mb-8 flex flex-col items-center hover:shadow-lg transition-all duration-300`}
         >
             {/* Background Image (Optional) */}
             {backgroundImage && (
@@ -52,14 +52,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         src={backgroundImage}
                         alt="Background"
                         fill
-                        className="object-cover opacity-30 blur-[3px] group-hover:scale-105 transition-transform duration-1000"
+                        className="object-cover opacity-20 blur-[2px] group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-black/60 z-10" />
                 </div>
             )}
 
             {/* Content Section */}
-            <div className={`w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-8 z-10 relative ${hasContentBorder ? 'm-4 border border-white/50 rounded-2xl bg-[#020617]/40 backdrop-blur-xl shadow-[0_0_30px_rgba(255,255,255,0.15),inset_0_0_20px_rgba(255,255,255,0.05)]' : ''}`}>
+            <div className={`w-full p-8 md:p-10 flex flex-col justify-center items-center text-center space-y-6 z-10 relative`}>
                 <div className="space-y-4 flex flex-col items-center">
                     {(category || year) && (
                         <div className="flex items-center justify-center">
