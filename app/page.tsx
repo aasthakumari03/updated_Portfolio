@@ -336,8 +336,8 @@ export default function Home() {
                     { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F" },
                     { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
                   ].map((social, i) => (
-                    <Magnetic key={i} strength={0.2}>
-                      <a href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20">
+                    <Magnetic key={i} strength={0.2} range={3}>
+                      <a href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20 hover:-translate-y-2">
                         <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover/item:scale-110" style={{ color: social.color }}>
                           <social.icon size={18} className="opacity-60 group-hover/item:opacity-100 transition-opacity" />
                         </div>

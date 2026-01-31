@@ -5,9 +5,10 @@ import React, { useRef, useState, useEffect } from 'react';
 interface MagneticProps {
     children: React.ReactElement;
     strength?: number;
+    range?: number;
 }
 
-const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
+const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5, range = 5 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const mousePos = useRef({ x: 0, y: 0 });
     const currentPos = useRef({ x: 0, y: 0 });
@@ -28,7 +29,7 @@ const Magnetic: React.FC<MagneticProps> = ({ children, strength = 0.5 }) => {
             const y = clientY - centerY;
 
             const distance = Math.sqrt(x * x + y * y);
-            const triggerRange = width * 5.0; // Significantly increased area
+            const triggerRange = width * range; // Use configurable range
 
             if (distance < triggerRange) {
                 // Adjust dampening to be softer over a larger area
