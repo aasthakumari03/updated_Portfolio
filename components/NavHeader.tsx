@@ -66,7 +66,7 @@ const NavHeader = () => {
                     AK
                 </div>
                 <div className="logo-typing-text overflow-hidden whitespace-nowrap">
-                    <span className="text-white font-[family-name:var(--font-gothic)] text-xl tracking-normal uppercase drop-shadow-md ml-3">
+                    <span className="text-white font-[family-name:var(--font-gothic)] font-bold text-xl tracking-normal uppercase drop-shadow-md ml-3">
                         Aastha Kumari
                     </span>
                 </div>
