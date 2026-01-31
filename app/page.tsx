@@ -320,7 +320,7 @@ export default function Home() {
         {/* Footer Line */}
         <div className="pt-20 pb-4 text-center">
           <p className="text-sm font-bold text-white/15 uppercase tracking-[0.4em]">
-            ALL RIGHTS RESERVED | <span className="font-[family-name:var(--font-gothic)] text-lg tracking-normal">AASTHA KUMARI 2025</span>
+            ALL RIGHTS RESERVED | <span className="font-[family-name:var(--font-gothic)] font-bold text-white text-lg tracking-normal">AASTHA KUMARI | 2025</span>
           </p>
         </div>
       </section>
