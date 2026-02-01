@@ -62,7 +62,7 @@ const NavHeader = () => {
                     window.history.pushState(null, '', '#home');
                 }}
             >
-                <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-[family-name:var(--font-gothic)] text-xl transition-all group-hover:rotate-12 duration-500 shrink-0 shadow-lg shadow-teal-500/20">
+                <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-[family-name:var(--font-gothic)] font-bold text-xl transition-all group-hover:rotate-12 duration-500 shrink-0 shadow-lg shadow-teal-500/20">
                     AK
                 </div>
                 <div className="logo-typing-text overflow-hidden whitespace-nowrap">
