@@ -54,6 +54,7 @@ const NavHeader = () => {
             style={{ paddingTop: scrollProgress > 0.1 ? '1rem' : '2rem' }}
         >
             {/* Logo */}
+            {/* Logo */}
             <div
                 className="flex items-center cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto ml-8"
                 onClick={(e) => {
@@ -65,10 +66,8 @@ const NavHeader = () => {
                 <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-[family-name:var(--font-gothic)] font-bold text-xl transition-all group-hover:w-0 group-hover:opacity-0 group-hover:overflow-hidden duration-500 shrink-0 shadow-lg shadow-teal-500/20">
                     AK
                 </div>
-                <div className="logo-typing-text overflow-hidden whitespace-nowrap">
-                    <span className="text-white font-[family-name:var(--font-gothic)] font-bold text-xl tracking-normal uppercase drop-shadow-md ml-3">
-                        Aastha Kumari
-                    </span>
+                <div className="max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-700 ease-out whitespace-nowrap">
+                    <span className="text-white font-[family-name:var(--font-gothic)] font-bold text-xl tracking-normal uppercase drop-shadow-md ml-3">Aastha Kumari</span>
                 </div>
             </div>
 
