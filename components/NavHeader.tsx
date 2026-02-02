@@ -53,23 +53,7 @@ const NavHeader = () => {
             className="fixed top-0 left-0 w-full z-[100] flex items-center justify-center transition-all duration-300 pointer-events-none"
             style={{ paddingTop: scrollProgress > 0.1 ? '1rem' : '2rem' }}
         >
-            {/* Logo */}
-            {/* Logo */}
-            <div
-                className="flex items-center cursor-pointer group transition-all duration-75 ease-linear pointer-events-auto ml-8"
-                onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    window.history.pushState(null, '', '#home');
-                }}
-            >
-                <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center text-white font-[family-name:var(--font-gothic)] font-bold text-xl transition-all group-hover:w-0 group-hover:opacity-0 group-hover:overflow-hidden duration-500 shrink-0 shadow-lg shadow-teal-500/20">
-                    AK
-                </div>
-                <div className="max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-700 ease-out whitespace-nowrap">
-                    <span className="text-white font-[family-name:var(--font-gothic)] font-bold text-xl tracking-normal uppercase drop-shadow-md ml-3">Aastha Kumari</span>
-                </div>
-            </div>
+
 
             {/* Dynamic Spacer */}
             <div
