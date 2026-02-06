@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 border-l-4 border-l-teal-400 mb-8 flex flex-col items-center hover:border-teal-500/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.3)] transition-all duration-500`}
+            className={`group relative w-full overflow-hidden rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/10 border-l-4 border-l-teal-400 mb-8 flex flex-col items-center hover:border-teal-500/50 hover:shadow-[0_0_40px_rgba(45,212,191,0.2)] transition-all duration-500`}
         >
             {/* Background Image (Optional) */}
             {backgroundImage && (
@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                             </span>
                         </div>
                     )}
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight group-hover:text-teal-400 transition-colors duration-700">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight group-hover:text-teal-400 transition-colors duration-500 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                         {title}
                     </h2>
                     {/* Tags */}

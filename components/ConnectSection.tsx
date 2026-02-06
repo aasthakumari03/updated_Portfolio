@@ -30,18 +30,10 @@ const ConnectSection = () => {
             </div>
 
             {/* Main Card */}
-            <div className="relative z-10 w-full max-w-5xl rounded-[40px] overflow-hidden group">
-                {/* Distressed Background Container */}
-                <div className="absolute inset-0 bg-[#050505] transition-transform duration-700 group-hover:scale-105">
-                    {/* Dark texture overlay (representing the scratched metal look) */}
-                    <div className="absolute inset-0 opacity-40 mix-blend-overlay"
-                        style={{
-                            backgroundImage: 'url("https://www.transparenttextures.com/patterns/dark-matter.png")',
-                            filter: 'contrast(150%) brightness(50%)'
-                        }}>
-                    </div>
-                    {/* Radial glow */}
-                    <div className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-white/5 to-transparent"></div>
+            <div className="relative z-10 w-full max-w-5xl rounded-[40px] overflow-hidden group border border-white/10 hover:border-teal-500/30 transition-colors duration-500">
+                {/* Glass Background */}
+                <div className="absolute inset-0 bg-zinc-900/60 backdrop-blur-3xl transition-transform duration-700 group-hover:scale-105">
+                    <div className="absolute inset-0 bg-gradient-to-b from-teal-500/5 to-transparent opacity-40"></div>
                 </div>
 
                 {/* Content Area */}
@@ -57,10 +49,10 @@ const ConnectSection = () => {
                     <div className="mb-16 relative">
                         <button
                             onClick={copyEmail}
-                            className="px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-all group/btn"
+                            className="px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white font-bold flex items-center gap-3 hover:bg-teal-500/10 hover:border-teal-500/50 transition-all group/btn"
                         >
-                            <span>aastha0328kumari@gmail.com</span>
-                            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center group-hover/btn:scale-110 transition-transform text-[10px]">
+                            <span className="group-hover/btn:text-teal-400 transition-colors">aastha0328kumari@gmail.com</span>
+                            <div className="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center group-hover/btn:scale-110 transition-transform text-[10px] text-black">
                                 COPY
                             </div>
                         </button>
