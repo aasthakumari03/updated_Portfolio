@@ -33,6 +33,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FogSeparator from "@/components/FogSeparator";
 import Magnetic from "@/components/Magnetic";
 
+import GridBackground from "@/components/GridBackground";
+
 export default function Home() {
 
 
@@ -61,13 +63,15 @@ export default function Home() {
       desc: "A sustainability-focused app that helps users track their carbon footprint and discover eco-friendly lifestyle changes.",
       tech: ["React Native", "Node.js", "MongoDB"],
       link: "#",
-    }
+    },
+    // ... possibly more projects
   ];
 
 
 
   return (
     <div className="animate-fade-in flex flex-col">
+      <GridBackground />
 
 
       {/* Section 1: Hero */}
