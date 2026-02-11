@@ -29,7 +29,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Aastha Kumari | Portfolio",
-  description: "AI & ML Student & Developer",
+  description: "Aspiring Software Developer & AI/ML Student. Explore my portfolio showcasing projects in Web Development, Artificial Intelligence, and Machine Learning.",
+  keywords: ["Aastha Kumari", "Portfolio", "Software Developer", "AI", "ML", "Web Development", "React", "Next.js", "Python"],
+  authors: [{ name: "Aastha Kumari" }],
+  openGraph: {
+    title: "Aastha Kumari | Portfolio",
+    description: "Aspiring Software Developer & AI/ML Student.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Aastha Kumari Portfolio",
+  },
 };
 
 import Background from "@/components/Background";
@@ -44,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} antialiased bg-black text-white relative flex selection:bg-teal-500/30`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} antialiased bg-black text-white relative flex flex-col min-h-screen selection:bg-teal-500/30`}
       >
         <CustomCursor />
         <Background />
