@@ -573,9 +573,9 @@ body {
     height: 100%;
     background: linear-gradient(to right,
         transparent,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.15),
-        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.02),
         transparent);
     transform: translateX(-150%) skewX(-25deg);
     pointer-events: none;
@@ -596,10 +596,10 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.03;
+    opacity: 0.015;
     pointer-events: none;
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    filter: contrast(150%) brightness(100%);
+    filter: contrast(120%) brightness(100%);
     z-index: 1;
   }
 
@@ -610,51 +610,49 @@ body {
 
 /* Project Card Animations */
 @keyframes jitter {
-
   0%,
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
 
   25% {
-    transform: translate(2px, -2px) rotate(1deg);
+    transform: translate(1px, -1px) rotate(0.5deg);
   }
 
   50% {
-    transform: translate(-2px, 2px) rotate(-1deg);
+    transform: translate(-1px, 1px) rotate(-0.5deg);
   }
 
   75% {
-    transform: translate(2px, 2px) rotate(1deg);
+    transform: translate(1px, 1px) rotate(0.5deg);
   }
 }
 
 @keyframes wavy-dance {
-
   0%,
   100% {
     transform: scale(1) skew(0deg, 0deg);
   }
 
   25% {
-    transform: scale(1.02) skew(2deg, 2deg);
+    transform: scale(1.01) skew(1deg, 1deg);
   }
 
   50% {
-    transform: scale(0.98) skew(-2deg, -2deg);
+    transform: scale(0.99) skew(-1deg, -1deg);
   }
 
   75% {
-    transform: scale(1.01) skew(1deg, 1deg);
+    transform: scale(1.005) skew(0.5deg, 0.5deg);
   }
 }
 
 .animate-jitter {
-  animation: jitter 0.2s ease-in-out infinite;
+  animation: jitter 0.5s ease-in-out infinite;
 }
 
 .animate-wavy-entry {
-  animation: wavy-dance 2s ease-in-out infinite, fadeIn 1s ease-out forwards;
+  animation: wavy-dance 3s ease-in-out infinite, fadeIn 1s ease-out forwards;
 }
 
 /* Spotlight Card Effect */

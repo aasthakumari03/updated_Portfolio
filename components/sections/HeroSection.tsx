@@ -18,11 +18,11 @@ const HeroSection = () => {
                     <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full -z-10 animate-pulse-slow max-w-4xl mx-auto"></div>
                 </div>
 
-                {/* Professional Title Shining Card */}
+                {/* Professional Title Card */}
                 <div className="animate-fade-in [animation-delay:300ms] flex justify-center">
-                    <div className="shimmer-border shimmer-surface px-8 py-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md group cursor-default shadow-2xl shadow-teal-500/10">
-                        <span className="text-xs md:text-sm font-bold text-teal-400 uppercase tracking-[0.5em] drop-shadow-[0_0_10px_rgba(45,212,191,0.3)] group-hover:text-white transition-colors duration-500">
-                            Aspiring Software Developer
+                    <div className="px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md cursor-default transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+                        <span className="text-xs md:text-sm font-medium text-white/80 tracking-[0.2em] transition-colors duration-300">
+                            SOFTWARE DEVELOPER
                         </span>
                     </div>
                 </div>
@@ -49,15 +49,13 @@ const HeroSection = () => {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-in [animation-delay:1.2s]">
-                <Magnetic strength={0.2}>
-                    <a href="#about" className="flex flex-col items-center gap-4 group">
-                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] group-hover:text-teal-400 transition-colors">Scroll</span>
-                        <div className="w-6 h-10 rounded-full border border-white/10 flex justify-center p-1.5 group-hover:border-teal-400/50 transition-colors">
-                            <div className="w-1 h-2 bg-white/20 rounded-full animate-bounce group-hover:bg-teal-400"></div>
-                        </div>
-                    </a>
-                </Magnetic>
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-in [animation-delay:1s] opacity-50 hover:opacity-100 transition-opacity duration-300">
+                <a href="#about" className="flex flex-col items-center gap-3">
+                    <span className="text-[10px] font-medium text-white/40 uppercase tracking-[0.2em]">Scroll</span>
+                    <div className="w-5 h-8 rounded-full border border-white/20 flex justify-center p-1">
+                        <div className="w-1 h-1.5 bg-white/40 rounded-full animate-bounce"></div>
+                    </div>
+                </a>
             </div>
         </section>
     );
