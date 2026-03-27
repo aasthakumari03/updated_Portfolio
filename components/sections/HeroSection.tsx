@@ -67,7 +67,7 @@ const HeroSection = () => {
 
                 {/* Main Heading with Letter Reveal */}
                 <div className="relative w-full flex justify-center overflow-hidden py-4">
-                    <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-serif leading-none tracking-tighter text-white whitespace-nowrap relative z-10 w-full text-center flex justify-center">
+                    <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-sans leading-none tracking-tighter text-white whitespace-nowrap relative z-10 w-full text-center flex justify-center">
                         {name.split("").map((char, index) => (
                             <motion.span
                                 key={index}
@@ -95,15 +95,7 @@ const HeroSection = () => {
                 </motion.div>
 
                 {/* Actions */}
-                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-4">
-                    <Magnetic strength={0.1}>
-                        <a href="#projects" className="group relative px-10 py-5 bg-white text-black rounded-full font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl shadow-white/10">
-                            <div className="absolute inset-0 bg-teal-400 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                            <span className="relative z-10 flex items-center gap-3">
-                                View My Work <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </a>
-                    </Magnetic>
+                <motion.div variants={itemVariants} className="flex items-center justify-center pt-4">
                     <Magnetic strength={0.1}>
                         <button className="group px-10 py-5 bg-transparent border border-white/10 rounded-full font-bold text-lg hover:border-white/30 transition-all duration-500 backdrop-blur-sm flex items-center gap-3">
                             Read Resume <FaArrowRight className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
