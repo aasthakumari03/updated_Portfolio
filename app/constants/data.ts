@@ -71,16 +71,16 @@ export const PROJECTS = [
         link: "#"
     },
     {
-        title: "Future Vision",
-        category: "Coming Soon",
+        title: "Shadowchat",
+        category: "Secure Dynamic Messaging",
         year: "2026",
-        tags: [],
+        tags: ["Next.js", "Firebase", "Framer Motion"],
         features: [
-            "Pioneering spatial experiences",
-            "Seamless web integration",
-            "Stay tuned for updates"
+            "Glassmorphism UI Design",
+            "Dynamic Session-based Identity",
+            "Encrypted Real-time Communication"
         ],
-        backgroundImage: "/images/coding.png",
+        backgroundImage: "/images/shadowchat.png",
         hasContentBorder: true,
         link: "#"
     }
