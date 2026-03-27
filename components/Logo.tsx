@@ -13,7 +13,7 @@ const Logo = () => {
     // but the user said "it should type the letter of my name 'AASTHA KUMARI'".
     // Let's make the logo show "AK" and then "ASTHA KUMARI" following it.
     // Or replace AK? No, "AK" is the logo. "ASTHA KUMARI" should appear after it.
-    const nameToType = "ASTHA KUMARI"; 
+    const nameToType = "AASTHA KUMARI"; 
 
     useEffect(() => {
         let timer: NodeJS.Timeout;
@@ -27,7 +27,7 @@ const Logo = () => {
                 } else {
                     clearInterval(timer);
                 }
-            }, 60);
+            }, 50); // Slightly faster
         } else {
             setDisplayText("");
         }
@@ -41,20 +41,24 @@ const Logo = () => {
                     href="/" 
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="group flex items-center gap-0 font-[family-name:var(--font-handwritten)] text-3xl text-white/90 hover:text-white transition-all duration-500"
+                    className="group flex items-center gap-0 font-[family-name:var(--font-handwritten)] text-white/90 hover:text-white transition-all duration-500"
                 >
-                    <div className="flex items-center relative">
-                        <span className="text-4xl font-bold tracking-tighter">A</span>
-                        <span className="text-4xl font-bold tracking-tighter">K</span>
-                        
-                        <div className="ml-3 overflow-hidden whitespace-nowrap flex items-center min-w-[200px]">
-                            <span className="text-2xl font-medium tracking-normal text-white">
-                                {displayText}
-                                {isHovered && displayText.length < nameToType.length && (
-                                    <span className="animate-pulse ml-0.5 opacity-50">|</span>
-                                )}
-                            </span>
-                        </div>
+                    <div className="flex items-center relative min-h-[48px]">
+                        {!isHovered ? (
+                            <div className="flex items-center">
+                                <span className="text-4xl font-bold tracking-tighter">A</span>
+                                <span className="text-4xl font-bold tracking-tighter">K</span>
+                            </div>
+                        ) : (
+                            <div className="flex items-center">
+                                <span className="text-3xl font-medium tracking-normal text-white whitespace-nowrap">
+                                    {displayText}
+                                    {displayText.length < nameToType.length && (
+                                        <span className="animate-pulse ml-0.5 opacity-50">|</span>
+                                    )}
+                                </span>
+                            </div>
+                        )}
                     </div>
                 </Link>
             </Magnetic>
