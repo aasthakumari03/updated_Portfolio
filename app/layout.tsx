@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One, Architects_Daughter } from "next/font/google";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -8,6 +8,12 @@ const playfair = Playfair_Display({
 
 const pirata = Pirata_One({
   variable: "--font-gothic",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const architectsDaughter = Architects_Daughter({
+  variable: "--font-handwritten",
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -43,6 +49,7 @@ export const metadata: Metadata = {
 
 import Background from "@/components/Background";
 import NavHeader from "@/components/NavHeader";
+import Logo from "@/components/Logo";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
@@ -53,11 +60,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} antialiased bg-black text-white relative flex flex-col min-h-screen selection:bg-teal-500/30`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} antialiased bg-black text-white relative flex flex-col min-h-screen selection:bg-teal-500/30`}
       >
         <CustomCursor />
         <Background />
         <SmoothScroll>
+          <Logo />
           <NavHeader />
 
           <main className="flex-grow relative z-10 min-h-screen">

@@ -47,6 +47,7 @@ html.lenis body {
   --color-foreground: var(--foreground);
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-gothic: var(--font-gothic);
+  --font-handwritten: var(--font-handwritten);
 }
 
 @keyframes ring-pulse {
@@ -294,18 +295,20 @@ body {
   }
 
   .group:hover .logo-typing-text {
-    animation: typing 1.5s steps(13, end) forwards, blink 0.75s step-end infinite;
-    width: 200px;
-    margin-left: 12px;
+    animation: typing 1.5s steps(13, end) forwards;
+    width: auto;
+    max-width: 300px;
+    margin-left: 8px;
   }
 
   @keyframes typing {
     from {
       width: 0;
+      opacity: 0;
     }
-
     to {
-      width: 200px;
+      width: 100%;
+      opacity: 1;
     }
   }
 
