@@ -76,7 +76,6 @@ export const PROJECTS = [
         year: "2026",
         tags: ["Next.js", "Firebase", "Framer Motion"],
         features: [
-            "Glassmorphism UI Design",
             "Dynamic Session-based Identity",
             "Encrypted Real-time Communication"
         ],
