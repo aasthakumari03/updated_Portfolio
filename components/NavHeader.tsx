@@ -34,7 +34,7 @@ const NavHeader = () => {
             e.preventDefault();
             const targetId = href.replace('#', '');
             const elem = document.getElementById(targetId);
-            elem?.scrollIntoView({ behavior: 'smooth' });
+            elem?.scrollIntoView();
             window.history.pushState(null, '', href);
         }
     };
