@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import Magnetic from "./Magnetic";
 
@@ -12,10 +13,9 @@ interface ProjectCardProps {
     description?: string;
     features: string[];
     tags: string[];
-    // Removed image and mockupType as requested
-    reversed?: boolean;
     backgroundImage?: string;
     hasContentBorder?: boolean;
+    className?: string; // Add className for bento spanning
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -24,83 +24,111 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     title,
     features,
     tags = [],
-    reversed = false,
     backgroundImage,
-    hasContentBorder = false,
+    className = "",
 }) => {
-    const cardRef = React.useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    const yMove = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!cardRef.current) return;
-        const rect = cardRef.current.getBoundingClientRect();
+        if (!containerRef.current) return;
+        const rect = containerRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        cardRef.current.style.setProperty("--mouse-x", `${x}px`);
-        cardRef.current.style.setProperty("--mouse-y", `${y}px`);
+        containerRef.current.style.setProperty("--mouse-x", `${x}px`);
+        containerRef.current.style.setProperty("--mouse-y", `${y}px`);
     };
 
     return (
-        <div
-            ref={cardRef}
+        <motion.div
+            ref={containerRef}
             onMouseMove={handleMouseMove}
-            className={`group relative w-full overflow-hidden rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/10 border-l-4 border-l-teal-400 mb-8 flex flex-col items-center hover:border-teal-500/50 hover:shadow-[0_0_40px_rgba(45,212,191,0.2)] transition-all duration-500`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className={`group relative overflow-hidden glass-card rounded-3xl spotlight-border ${className}`}
         >
-            {/* Background Image (Optional) */}
-            {backgroundImage && (
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={backgroundImage}
-                        alt="Background"
-                        fill
-                        className="object-cover opacity-20 blur-[2px] group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-black/60 z-10" />
-                </div>
-            )}
+            {/* Background Image with Parallax & Overlay */}
+            <div className="absolute inset-0 z-0">
+                {backgroundImage ? (
+                    <motion.div style={{ y: yMove }} className="relative h-[120%] w-full">
+                        <Image
+                            src={backgroundImage}
+                            alt={title}
+                            fill
+                            className="object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 ease-out"
+                        />
+                    </motion.div>
+                ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-indigo-500/5 opacity-50" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/80 to-transparent z-10" />
+            </div>
 
             {/* Content Section */}
-            <div className={`w-full p-8 md:p-10 flex flex-col justify-center items-center text-center space-y-6 z-10 relative`}>
-                <div className="space-y-4 flex flex-col items-center">
-                    {(category || year) && (
-                        <div className="flex items-center justify-center">
+            <div className="relative h-full p-8 md:p-10 flex flex-col justify-end z-20">
+                <div className="space-y-6">
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-2">
                             <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">
-                                {category}{category && year && " • "}{year}
+                                {category}
                             </span>
+                            {year && (
+                                <>
+                                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                                    <span className="text-white/40 font-medium text-[10px] uppercase tracking-widest">{year}</span>
+                                </>
+                            )}
                         </div>
-                    )}
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight group-hover:text-teal-400 transition-colors duration-500 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-                        {title}
-                    </h2>
-                    {/* Tags */}
-                    {tags.length > 0 && (
-                        <div className="flex flex-wrap justify-center gap-2 pt-2">
+                        
+                        <h3 className="text-3xl md:text-5xl font-serif text-white tracking-tight leading-[1.1] group-hover:translate-x-2 transition-transform duration-500">
+                            {title}
+                        </h3>
+                    </div>
+
+                    {/* Features & Tags Container */}
+                    <div className="space-y-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                        <ul className="space-y-3">
+                            {features.slice(0, 2).map((feature, index) => (
+                                <li key={index} className="flex items-center gap-3 text-white/50 text-sm md:text-base">
+                                    <FaCheckCircle className="text-teal-400/40 shrink-0" size={14} />
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className="flex flex-wrap gap-2">
                             {tags.map((tag, index) => (
-                                <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/30 uppercase tracking-widest group-hover:border-teal-400/20 transition-all">
+                                <span 
+                                    key={index} 
+                                    className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/40 uppercase tracking-widest group-hover:border-teal-400/20 transition-all"
+                                >
                                     {tag}
                                 </span>
                             ))}
                         </div>
-                    )}
-                </div>
+                    </div>
 
-                <ul className="space-y-4 flex flex-col items-center">
-                    {features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-3 text-white/50 text-base md:text-lg group-hover:text-white/70 transition-colors">
-                            <FaCheckCircle className="text-teal-500/30 shrink-0" size={18} />
-                            <span>{feature}</span>
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="pt-4">
-                    <Magnetic strength={0.3}>
-                        <button className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-teal-400 transition-all duration-500 shadow-xl shadow-white/5 hover:scale-105 active:scale-95">
-                            Explore Project <FaArrowRight className="-rotate-45 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" size={14} />
-                        </button>
-                    </Magnetic>
+                    <div className="pt-4 flex items-center justify-between">
+                        <Magnetic strength={0.2}>
+                            <button className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 rounded-full font-bold text-xs transition-all duration-500 group/btn shadow-xl hover:shadow-teal-500/20">
+                                Explore <FaArrowRight className="-rotate-45 group-hover/btn:rotate-0 transition-transform" />
+                            </button>
+                        </Magnetic>
+                        
+                        <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-teal-400/30 transition-colors">
+                            <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

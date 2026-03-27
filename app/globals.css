@@ -3,17 +3,15 @@
 :root {
   --background: #020202;
   --foreground: #ffffff;
-  --glow-blue: rgba(37, 99, 235, 0.15);
+  --primary: #2dd4bf; /* Teal 400 */
+  --primary-glow: rgba(45, 212, 191, 0.4);
+  --secondary: #6366f1; /* Indigo 500 */
+  --secondary-glow: rgba(99, 102, 241, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(255, 255, 255, 0.12);
   --text-muted: rgba(255, 255, 255, 0.5);
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --card-border: rgba(255, 255, 255, 0.05);
-  --teal-glow: rgba(45, 212, 191, 0.6);
-  --teal-shine: rgba(255, 255, 255, 0.9);
-  /* Whitish Grey-Yellow Shine */
-  --shine-warm-white: rgba(255, 255, 255, 0.9);
-  --shine-gold: rgba(255, 245, 200, 0.45);
-  --shine-warm-grey: rgba(180, 180, 170, 0.2);
-  --shine-glow-depth: rgba(255, 250, 220, 0.15);
+  --noise-opacity: 0.015;
 }
 
 html {
@@ -468,12 +466,57 @@ body {
   }
 
   .glass-card {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 4px 24px -1px rgba(0, 0, 0, 0.2),
-      0 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 4px 32px -1px rgba(0, 0, 0, 0.4),
+      0 1px 2px 0 rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--glass-border-hover);
+    box-shadow: 
+      0 8px 48px -1px rgba(0, 0, 0, 0.5),
+      0 2px 4px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+
+  .noise-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: var(--noise-opacity);
+    pointer-events: none;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(120%);
+    z-index: 50;
+  }
+
+  /* Optimized Bento Utilities */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(200px, auto);
+    }
+  }
+
+  .bento-item {
+    @apply glass-card rounded-3xl p-8 relative overflow-hidden;
   }
 
   .glow-blue {
