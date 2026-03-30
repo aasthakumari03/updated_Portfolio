@@ -55,7 +55,7 @@ const CustomCursor = () => {
                     translateX: "-50%",
                     translateY: "-50%",
                 }}
-                className="w-1.5 h-1.5 bg-white rounded-full z-50 fixed top-0 left-0"
+                className="w-2.5 h-2.5 bg-white rounded-full z-50 fixed top-0 left-0 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
             />
 
             {/* Trailing Outer Ring */}
@@ -68,10 +68,10 @@ const CustomCursor = () => {
                 }}
                 animate={{
                     scale: isHovered ? 2.5 : 1,
-                    backgroundColor: isHovered ? "rgba(45, 212, 191, 0.15)" : "transparent",
-                    borderColor: isHovered ? "rgba(45, 212, 191, 0.4)" : "rgba(255, 255, 255, 0.2)",
-                    width: isHovered ? 40 : 28,
-                    height: isHovered ? 40 : 28,
+                    backgroundColor: isHovered ? "rgba(45, 212, 191, 0.2)" : "transparent",
+                    borderColor: isHovered ? "rgba(45, 212, 191, 0.5)" : "rgba(255, 255, 255, 0.3)",
+                    width: isHovered ? 60 : 40,
+                    height: isHovered ? 60 : 40,
                 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="fixed top-0 left-0 border rounded-full z-40 backdrop-blur-[2px]"
@@ -86,10 +86,10 @@ const CustomCursor = () => {
                     translateY: "-50%",
                 }}
                 animate={{
-                    opacity: isHovered ? 0.3 : 0,
+                    opacity: isHovered ? 0.4 : 0.1,
                     scale: isHovered ? 2 : 1
                 }}
-                className="fixed top-0 left-0 w-20 h-20 bg-teal-400/20 rounded-full blur-2xl z-30"
+                className="fixed top-0 left-0 w-32 h-32 bg-teal-400/20 rounded-full blur-3xl z-30"
             />
         </div>
     );
