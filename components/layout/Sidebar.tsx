@@ -12,7 +12,6 @@ const Sidebar = () => {
         { label: "Profile", href: "#home", id: "home", icon: FaUser },
         { label: "About", href: "/about", id: "about", icon: FaCheckCircle },
         { label: "Projects", href: "#projects", id: "projects", icon: FaProjectDiagram },
-        { label: "Skills", href: "#skills", id: "skills", icon: FaCode },
         { label: "Connect", href: "#connect", id: "connect", icon: FaHeadset },
     ];
 
