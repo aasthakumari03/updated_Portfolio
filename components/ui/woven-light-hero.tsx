@@ -44,7 +44,6 @@ export const WovenLightHero = () => {
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white text-center">
       <WovenCanvas />
-      <HeroNav />
       <div className="relative z-10 px-4 max-w-7xl mx-auto">
         <h1 className="text-5xl md:text-[8rem] font-black text-white dark:text-slate-900 leading-[0.8] tracking-tighter" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 100px rgba(255, 255, 255, 0.5)' }}>
             {headline.split(" ").map((word, i) => (
@@ -90,22 +89,6 @@ export const WovenLightHero = () => {
   );
 };
 
-// --- Navigation Component ---
-const HeroNav = () => {
-    return (
-        <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 1, duration: 1 } }}
-            className="absolute top-0 left-0 right-0 z-20 p-6"
-        >
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-white dark:text-slate-800">⎎</span>
-                </div>
-            </div>
-        </motion.nav>
-    );
-};
 
 // --- Three.js Canvas Component ---
 const WovenCanvas = () => {
