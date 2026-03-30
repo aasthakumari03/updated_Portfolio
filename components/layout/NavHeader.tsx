@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaUser, FaBriefcase, FaEnvelope, FaFileAlt } from "react-icons/fa";
-import Magnetic from "./Magnetic";
+import Magnetic from "@/components/ui/Magnetic";
 import { usePathname } from "next/navigation";
 
 const NavHeader = () => {

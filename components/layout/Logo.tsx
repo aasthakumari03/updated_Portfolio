@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Magnetic from "./Magnetic";
+import Magnetic from "@/components/ui/Magnetic";
 import Link from "next/link";
 
 const Logo = () => {

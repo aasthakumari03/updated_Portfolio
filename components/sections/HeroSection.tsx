@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from "react-icons/fa";
-import Magnetic from "@/components/Magnetic";
+import Magnetic from "@/components/ui/Magnetic";
 
 const HeroSection = () => {
     const name = "Aastha Kumari";

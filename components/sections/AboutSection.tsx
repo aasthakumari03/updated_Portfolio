@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const AboutSection = () => {
     return (

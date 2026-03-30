@@ -1,7 +1,6 @@
-
 "use client";
 import React, { useState } from 'react';
-import Magnetic from "@/components/Magnetic";
+import Magnetic from "@/components/ui/Magnetic";
 import { SOCIAL_LINKS } from "@/app/constants/data";
 import { FaCheck, FaCopy } from 'react-icons/fa';
 

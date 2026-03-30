@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaHome, FaUser, FaFolderOpen, FaListUl, FaEnvelope } from "react-icons/fa";
-import Magnetic from "./Magnetic";
+import Magnetic from "@/components/ui/Magnetic";
 
 const Dock = () => {
     const items = [

@@ -19,8 +19,7 @@ const architectsDaughter = Architects_Daughter({
 });
 import React from "react";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
-
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,10 +46,11 @@ export const metadata: Metadata = {
   },
 };
 
-import Background from "@/components/Background";
-import NavHeader from "@/components/NavHeader";
-import Logo from "@/components/Logo";
-import SmoothScroll from "@/components/SmoothScroll";
+import SpiralAnimation from "@/components/ui/SpiralAnimation";
+import Background from "@/components/ui/Background";
+import Logo from "@/components/layout/Logo";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import Navbar from "@/components/layout/Navbar";
 
 export default function RootLayout({
   children,
@@ -58,15 +58,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} antialiased bg-black text-white relative flex flex-col min-h-screen selection:bg-teal-500/30`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
       >
-        <CustomCursor />
+        {/* Background Layers */}
+        <SpiralAnimation />
+        <div className="fixed inset-0 bg-black/50 z-[-1] pointer-events-none" />
         <Background />
+        
+        <CustomCursor />
+        
         <SmoothScroll>
           <Logo />
-          <NavHeader />
+          <Navbar />
 
           <main className="flex-grow relative z-10 min-h-screen">
             {children}
