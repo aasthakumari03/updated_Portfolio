@@ -38,20 +38,30 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="fixed top-8 left-0 right-0 z-[100] flex justify-center px-6 pointer-events-none">
+        <nav className="fixed top-8 left-0 right-0 z-[100] px-8 pointer-events-none flex justify-end">
             <motion.div 
+                layout
                 initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                animate={{ 
+                    y: 0, 
+                    opacity: 1,
+                    x: scrolled ? "-50vw" : "0px",
+                    translateX: scrolled ? "50%" : "0%"
+                }}
+                transition={{ 
+                    layout: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                    duration: 0.8, 
+                    ease: [0.22, 1, 0.36, 1] 
+                }}
                 className={`
                     pointer-events-auto
                     px-2 py-2 rounded-full 
-                    bg-white/5 backdrop-blur-xl 
+                    bg-black/40 backdrop-blur-xl 
                     border border-white/10
                     flex items-center gap-1
-                    shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                    shadow-[0_8px_32px_rgba(0,0,0,0.5)]
                     transition-all duration-500
-                    ${scrolled ? "scale-100" : "scale-105"}
+                    ${scrolled ? "bg-black/60 border-white/20" : ""}
                 `}
             >
                 {NAV_ITEMS.map((item) => (
