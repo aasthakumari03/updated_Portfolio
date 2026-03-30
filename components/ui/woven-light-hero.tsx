@@ -19,6 +19,7 @@ export const WovenLightHero = () => {
     textControls.start(i => ({
       opacity: 1,
       y: 0,
+      rotateX: 0,
       transition: {
         delay: i * 0.1 + 1.5,
         duration: 1.2,
@@ -38,37 +39,50 @@ export const WovenLightHero = () => {
     }
   }, [textControls, buttonControls]);
 
-  const headline = "By Light";
+  const headline = "AASTHA KUMARI";
   
   return (
-    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white text-center">
       <WovenCanvas />
       <HeroNav />
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-6xl md:text-8xl text-white dark:text-slate-900" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 50px rgba(255, 255, 255, 0.3)' }}>
+      <div className="relative z-10 px-4 max-w-7xl mx-auto">
+        <h1 className="text-6xl md:text-[12rem] font-black text-white dark:text-slate-900 leading-[0.8] tracking-tighter" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 100px rgba(255, 255, 255, 0.5)' }}>
             {headline.split(" ").map((word, i) => (
-                <span key={i} className="inline-block">
+                <span key={i} className="block md:inline-block mx-4">
                     {word.split("").map((char, j) => (
-                        <motion.span key={j} custom={i * 5 + j} initial={{ opacity: 0, y: 50 }} animate={textControls} style={{ display: 'inline-block' }}>
+                        <motion.span key={j} custom={i * 7 + j} initial={{ opacity: 0, y: 100, rotateX: -90 }} animate={textControls} style={{ display: 'inline-block' }}>
                             {char}
                         </motion.span>
                     ))}
-                    {i < headline.split(" ").length - 1 && <span>&nbsp;</span>}
                 </span>
             ))}
         </h1>
-        <motion.p
-          custom={headline.length}
-          initial={{ opacity: 0, y: 30 }}
-          animate={textControls}
-          className="mx-auto mt-6 max-w-xl text-lg text-slate-300 dark:text-slate-600"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
-          An interactive tapestry of light and motion, crafted with code and creativity.
-        </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-10">
-          <button className="rounded-full border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Explore Works
+        
+        <div className="mt-12 space-y-4">
+            <motion.p
+              custom={headline.length + 5}
+              initial={{ opacity: 0, y: 30 }}
+              animate={textControls}
+              className="text-xl md:text-4xl font-medium text-white/90 dark:text-slate-700 uppercase tracking-widest bg-white/5 backdrop-blur-sm px-8 py-3 rounded-full border border-white/10 inline-block"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Aspiring Software Developer
+            </motion.p>
+            <motion.p
+              custom={headline.length + 10}
+              initial={{ opacity: 0, y: 30 }}
+              animate={textControls}
+              className="text-lg md:text-xl text-teal-400 dark:text-teal-600 font-bold tracking-widest uppercase"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              First year AI & ML student
+            </motion.p>
+        </div>
+
+        <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-16">
+          <button className="group relative rounded-full border border-white/20 bg-white/5 px-10 py-4 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <span className="relative z-10">Explore Works</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-md" />
           </button>
         </motion.div>
       </div>
