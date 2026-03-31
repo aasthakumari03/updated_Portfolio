@@ -43,11 +43,20 @@ const SocialsSection = () => {
                                     href={social.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative block p-8 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-md hover:border-teal-400/50 transition-all duration-500 overflow-hidden"
+                                    className="group relative block p-8 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-500 overflow-hidden"
+                                    style={{ 
+                                        boxShadow: `0 0 0px transparent`,
+                                    }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    {/* Hover Highlight Border */}
+                                    <div 
+                                        className="absolute inset-0 rounded-[2rem] border-2 border-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"
+                                        style={{ borderColor: social.color, filter: `drop-shadow(0 0 10px ${social.color})` }}
+                                    />
                                     
-                                    <div className="relative z-10 flex flex-col items-center text-center space-y-6">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    
+                                    <div className="relative z-20 flex flex-col items-center text-center space-y-6">
                                         <div 
                                             className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-xl"
                                             style={{ color: social.color }}
@@ -55,18 +64,26 @@ const SocialsSection = () => {
                                             <social.icon size={32} />
                                         </div>
                                         
-                                        <div className="space-y-2">
-                                            <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors">
+                                        <div className="space-y-4">
+                                            <h3 className="text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-royal)" }}>
                                                 {social.name}
                                             </h3>
-                                            <p className="text-sm font-medium tracking-[0.2em] uppercase text-white/30 group-hover:text-white/60 transition-colors">
-                                                {social.stats}
-                                            </p>
+                                            
+                                            <div className="flex flex-col space-y-2">
+                                                <div className="flex items-center justify-center gap-2">
+                                                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Followers:</span>
+                                                    <span className="text-sm font-bold text-teal-400">{social.followers}</span>
+                                                </div>
+                                                <div className="flex items-center justify-center gap-2">
+                                                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Footprint:</span>
+                                                    <span className="text-[11px] font-medium text-white/60 italic">{social.footprint}</span>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div className="pt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                                            <span className="text-xs font-bold uppercase tracking-widest text-teal-400">
-                                                Follow & Connect →
+                                        <div className="pt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                                            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80 border-b border-white/20 pb-1">
+                                                View Profile
                                             </span>
                                         </div>
                                     </div>
