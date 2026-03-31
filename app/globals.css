@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --background: #020202;
   --foreground: #ffffff;
   --primary: #2dd4bf; /* Teal 400 */
