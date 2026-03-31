@@ -40,10 +40,56 @@ const ConnectSection = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                        <div className="flex flex-wrap items-center justify-center gap-6">
+                            <a 
+                                href="https://topmate.io/aastha_kumari" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="group/btn relative px-8 py-4 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-md transition-all duration-500 hover:border-teal-400/50 hover:bg-teal-400/5 overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                                <div className="relative flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-teal-400/10 flex items-center justify-center text-teal-400">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm4 11h-3v3c0 .55-.45 1-1 1s-1-.45-1-1v-3H8c-.55 0-1-.45-1-1s.45-1 1-1h3V8c0-.55.45-1 1-1s1 .45 1 1v3h3c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                                        </svg>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">Mentorship</p>
+                                        <p className="text-sm font-bold text-white tracking-widest">TOPMATE</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a 
+                                href="/resume.pdf" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="group/btn relative px-8 py-4 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-md transition-all duration-500 hover:border-purple-400/50 hover:bg-purple-400/5 overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                                <div className="relative flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-purple-400/10 flex items-center justify-center text-purple-400">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            <polyline points="10 9 9 9 8 9"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">Curriculum Vitae</p>
+                                        <p className="text-sm font-bold text-white tracking-widest">RESUME</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 
