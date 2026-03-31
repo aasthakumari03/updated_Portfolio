@@ -54,22 +54,18 @@ export const WovenLightHero = () => {
             >
               Aspiring Software Developer
             </motion.p>
-            <motion.p
-              custom={headline.length + 10}
-              initial={{ opacity: 0, y: 30 }}
-              animate={textControls}
-              className="text-lg md:text-xl text-teal-400 dark:text-teal-600 font-bold tracking-widest uppercase"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              First year AI & ML student
-            </motion.p>
         </div>
 
-        <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-16">
-          <button className="group relative rounded-full border border-white/20 bg-white/5 px-10 py-4 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <span className="relative z-10">Explore Works</span>
+        <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-16 flex flex-wrap items-center justify-center gap-6">
+          <a href="#projects" className="group relative rounded-full border border-white/20 bg-white/5 px-10 py-4 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <span className="relative z-10">My Work</span>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-md" />
-          </button>
+          </a>
+          
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="group relative rounded-full border border-white/10 bg-transparent px-10 py-4 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/5 hover:border-white/30 dark:border-slate-800/10 dark:text-slate-800 dark:hover:bg-slate-800/5" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <span className="relative z-10">Resume</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-md" />
+          </a>
         </motion.div>
       </div>
     </div>
