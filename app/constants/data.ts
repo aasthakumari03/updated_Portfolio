@@ -22,8 +22,8 @@ import {
 export const SOCIAL_LINKS = [
     { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "1800+ Connections", followers: "1800+", footprint: "Connecting with 2K+ Professionals" },
     { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "400+ Commits", followers: "400+", footprint: "Active on 4 Core Repositories" },
-    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "188 Followers", followers: "188", footprint: "Sharing AI & ML Insights" },
-    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "297 Followers", followers: "297", footprint: "Personal Branding & Visuals" },
+    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "0 Followers", followers: "0", footprint: "Growing AI & ML Influence" },
+    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "29 Followers", followers: "29", footprint: "0 Posts • Building Visual Identity" },
 ];
 
 export const PROJECTS = [
