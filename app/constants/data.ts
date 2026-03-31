@@ -20,8 +20,8 @@ import {
 } from "react-icons/si";
 
 export const SOCIAL_LINKS = [
-    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "387 Connections", followers: "387", footprint: "Connecting with 400+ Professionals" },
-    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "57 Repositories", followers: "4", footprint: "Active Contributions to 50+ Projects" },
+    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "1800+ Connections", followers: "1800+", footprint: "Connecting with 2K+ Professionals" },
+    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "400+ Commits", followers: "400+", footprint: "Active on 4 Core Repositories" },
     { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "188 Followers", followers: "188", footprint: "Sharing AI & ML Insights" },
     { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "297 Followers", followers: "297", footprint: "Personal Branding & Visuals" },
 ];
