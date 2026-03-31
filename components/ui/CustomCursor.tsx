@@ -10,8 +10,8 @@ const CustomCursor = () => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Spring configuration for trailing effect
-    const springConfig = { damping: 25, stiffness: 200, restDelta: 0.001 };
+    // Spring configuration for trailing effect (Snappier, more professional)
+    const springConfig = { damping: 28, stiffness: 450, restDelta: 0.001 };
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 
@@ -65,7 +65,7 @@ const CustomCursor = () => {
                         : "0 0 10px rgba(255, 255, 255, 0.1)",
                 }}
                 transition={{ 
-                    duration: 0.3, 
+                    duration: 0.2, 
                     ease: "circOut"
                 }}
                 className="fixed top-0 left-0 rounded-full z-50 border border-white/20"
