@@ -20,11 +20,10 @@ import {
 } from "react-icons/si";
 
 export const SOCIAL_LINKS = [
-    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "500+ Connections", followers: "500+", footprint: "Tech Community Reach" },
-    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "50+ Repositories", followers: "4", footprint: "57 repositories" },
-    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "100+ Followers", followers: "100+", footprint: "AI Research Advocacy" },
-    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "300+ Followers", followers: "300+", footprint: "Lifestyle & Tech Visuals" },
-    { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335", stats: "Available for Hire", followers: "Direct", footprint: "24/7 Response Time" },
+    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "387 Connections", followers: "387", footprint: "Connecting with 400+ Professionals" },
+    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "57 Repositories", followers: "4", footprint: "Active Contributions to 50+ Projects" },
+    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "188 Followers", followers: "188", footprint: "Sharing AI & ML Insights" },
+    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "297 Followers", followers: "297", footprint: "Personal Branding & Visuals" },
 ];
 
 export const PROJECTS = [
