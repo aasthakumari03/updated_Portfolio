@@ -41,19 +41,28 @@ const SocialsSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                    {SOCIAL_LINKS.map((social, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ 
-                                delay: i * 0.15 + 0.5, 
-                                duration: 1,
-                                ease: [0.2, 0.65, 0.3, 0.9]
-                            }}
-                        >
-                            <Magnetic strength={0.05}>
+                    {SOCIAL_LINKS.map((social, i) => {
+                        // Calculate opposite corner offsets for the 4 cards:
+                        // 0: TL -> from BR (500, 500)
+                        // 1: TR -> from BL (-500, 500)
+                        // 2: BL -> from TR (500, -500)
+                        // 3: BR -> from TL (-500, -500)
+                        const initialX = i === 0 || i === 2 ? 400 : -400;
+                        const initialY = i === 0 || i === 1 ? 400 : -400;
+
+                        return (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: initialX, y: initialY, scale: 0.5 }}
+                                whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ 
+                                    duration: 0.8,
+                                    ease: [0.2, 0.65, 0.3, 0.9],
+                                    delay: 0.3 // Slight delay before gathering starts
+                                }}
+                            >
+                                <Magnetic strength={0.05}>
                                 <a 
                                     href={social.link}
                                     target="_blank"
@@ -113,8 +122,9 @@ const SocialsSection = () => {
                                     </div>
                                 </a>
                             </Magnetic>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
