@@ -42,7 +42,14 @@ const ConnectSection = () => {
                         </div>
 
 
-                    </div>
+                </div>
+            </div>
+
+            {/* Footer Line */}
+                <div className="mt-32 pt-8 border-t border-white/5 text-center">
+                    <p className="text-[10px] uppercase tracking-[0.5em] text-white/20 font-medium">
+                        ALL RIGHTS RESERVED | 2025 | AASTHA KUMARI
+                    </p>
                 </div>
             </div>
         </section>
