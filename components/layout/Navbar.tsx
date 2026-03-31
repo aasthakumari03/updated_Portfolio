@@ -38,15 +38,13 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="fixed top-8 left-0 right-0 z-[100] px-8 pointer-events-none flex justify-end">
+        <nav className="fixed top-8 left-0 right-0 z-[100] px-8 pointer-events-none flex justify-center">
             <motion.div 
                 layout
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ 
                     y: 0, 
                     opacity: 1,
-                    x: scrolled ? "-50vw" : "0px",
-                    translateX: scrolled ? "50%" : "0%"
                 }}
                 transition={{ 
                     layout: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
