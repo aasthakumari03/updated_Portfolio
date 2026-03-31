@@ -10,12 +10,6 @@ export const WovenLightHero = () => {
   const buttonControls = useAnimation();
 
   useEffect(() => {
-    // Add a more elegant font
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
     textControls.start(i => ({
       opacity: 1,
       y: 0,
@@ -30,13 +24,6 @@ export const WovenLightHero = () => {
         opacity: 1,
         transition: { delay: 2.5, duration: 1 }
     });
-
-    return () => {
-        // Safe check to only remove if it's still attached to the document
-        if (document.head.contains(link)) {
-            document.head.removeChild(link);
-        }
-    }
   }, [textControls, buttonControls]);
 
   const headline = "AASTHA KUMARI";
@@ -45,7 +32,7 @@ export const WovenLightHero = () => {
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white text-center">
       <WovenCanvas />
       <div className="relative z-10 px-4 max-w-7xl mx-auto">
-        <h1 className="text-5xl md:text-[8rem] font-black text-white dark:text-slate-900 leading-[0.8] tracking-tighter" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 100px rgba(255, 255, 255, 0.5)' }}>
+        <h1 className="text-5xl md:text-[8rem] font-black text-white dark:text-slate-900 leading-[0.8] tracking-widest" style={{ fontFamily: "var(--font-royal)", textShadow: '0 0 100px rgba(255, 255, 255, 0.5)' }}>
             {headline.split(" ").map((word, i) => (
                 <span key={i} className="block md:inline-block mx-4">
                     {word.split("").map((char, j) => (
