@@ -14,6 +14,13 @@ export default function Home() {
       <ProjectsSection />
       <SocialsSection />
       <ConnectSection />
+      
+      {/* Footer Line */}
+      <footer className="py-12 border-t border-white/5 mx-auto w-full max-w-6xl">
+          <p className="text-[10px] uppercase tracking-[0.5em] text-white/20 font-medium text-center">
+              ALL RIGHTS RESERVED | 2025 | AASTHA KUMARI
+          </p>
+      </footer>
     </div>
   );
 }
