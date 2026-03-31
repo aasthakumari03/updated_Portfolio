@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import Magnetic from "@/components/ui/Magnetic";
-import { SOCIAL_LINKS } from "@/app/constants/data";
 import { FaCheck, FaCopy } from 'react-icons/fa';
 
 const ConnectSection = () => {
@@ -43,21 +41,7 @@ const ConnectSection = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-8">
-                            <h3 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] italic text-center">Social Channels</h3>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {SOCIAL_LINKS.map((social, i) => (
-                                    <Magnetic key={i} strength={0.2} range={3}>
-                                        <a href={social.link} className="flex items-center gap-4 px-6 py-3 bg-white/[0.01] border border-white/5 rounded-full transition-all duration-700 hover:bg-white/[0.04] group/item hover:border-white/20 hover:-translate-y-2">
-                                            <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-500 group-hover/item:scale-110" style={{ color: social.color }}>
-                                                <social.icon size={18} className="opacity-60 group-hover/item:opacity-100 transition-opacity" />
-                                            </div>
-                                            <span className="text-sm font-bold tracking-tight text-white/40 group-hover/item:text-white transition-colors duration-500">{social.name}</span>
-                                        </a>
-                                    </Magnetic>
-                                ))}
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
