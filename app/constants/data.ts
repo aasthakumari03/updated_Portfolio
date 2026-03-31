@@ -20,11 +20,11 @@ import {
 } from "react-icons/si";
 
 export const SOCIAL_LINKS = [
-    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5" },
-    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff" },
-    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff" },
-    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F" },
-    { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335" },
+    { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/aastha-kumari-2116a837a", color: "#0077b5", stats: "500+ Connections" },
+    { name: "GitHub", icon: FaGithub, link: "https://github.com/aasthakumari03", color: "#ffffff", stats: "50+ Repositories" },
+    { name: "X", icon: FaXTwitter, link: "https://x.com/Nytheris0329", color: "#ffffff", stats: "100+ Followers" },
+    { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/the_nytheris/", color: "#E4405F", stats: "300+ Followers" },
+    { name: "Email", icon: FaEnvelope, link: "mailto:aastha0328kumari@gmail.com", color: "#EA4335", stats: "Available for Hire" },
 ];
 
 export const PROJECTS = [
