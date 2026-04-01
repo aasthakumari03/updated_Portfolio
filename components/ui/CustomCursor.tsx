@@ -56,13 +56,13 @@ const CustomCursor = () => {
                     translateY: "-50%",
                 }}
                 animate={{
-                    width: isHovered ? 48 : 12,
-                    height: isHovered ? 48 : 12,
+                    width: isHovered ? 72 : 16,
+                    height: isHovered ? 72 : 16,
                     backgroundColor: isHovered ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.9)",
-                    backdropFilter: isHovered ? "blur(4px)" : "blur(0px)",
+                    backdropFilter: isHovered ? "blur(6px)" : "blur(0px)",
                     boxShadow: isHovered 
-                        ? "0 0 30px rgba(255, 255, 255, 0.3)" 
-                        : "0 0 10px rgba(255, 255, 255, 0.1)",
+                        ? "0 0 50px rgba(255, 255, 255, 0.4)" 
+                        : "0 0 15px rgba(255, 255, 255, 0.15)",
                 }}
                 transition={{ 
                     duration: 0.2, 
