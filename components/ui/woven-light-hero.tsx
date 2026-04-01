@@ -94,7 +94,7 @@ const WovenCanvas = () => {
     const isDarkMode = true; // Forcing dark mode based on portfolio theme
 
     // --- Woven Silk ---
-    const particleCount = 50000;
+    const particleCount = 8000; // Optimized from 50000
     const positions = new Float32Array(particleCount * 3);
     const originalPositions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -117,7 +117,7 @@ const WovenCanvas = () => {
         originalPositions[i * 3 + 2] = z;
 
         const color = new THREE.Color();
-        color.setHSL(Math.random(), 0.8, isDarkMode ? 0.5 : 0.7);
+        color.setHSL(Math.random() * 0.1 + 0.5, 0.8, isDarkMode ? 0.5 : 0.7); // Focused on teal/indigo range
         colors[i * 3] = color.r;
         colors[i * 3 + 1] = color.g;
         colors[i * 3 + 2] = color.b;
@@ -132,11 +132,11 @@ const WovenCanvas = () => {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 0.02,
+        size: 0.025, // Slightly larger particles to compensate for lower count
         vertexColors: true,
-        blending: isDarkMode ? THREE.NormalBlending : THREE.AdditiveBlending,
+        blending: isDarkMode ? THREE.AdditiveBlending : THREE.NormalBlending,
         transparent: true,
-        opacity: isDarkMode ? 1.0 : 0.8,
+        opacity: isDarkMode ? 0.6 : 0.8,
     });
 
     const points = new THREE.Points(geometry, material);
@@ -150,11 +150,18 @@ const WovenCanvas = () => {
 
     let animationFrameId: number;
 
+    // Reuse these vectors to avoid GC pressure
+    const mouseWorld = new THREE.Vector3();
+    const currentPos = new THREE.Vector3();
+    const originalPos = new THREE.Vector3();
+    const velocity = new THREE.Vector3();
+    const tempVec = new THREE.Vector3();
+
     const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
         const elapsedTime = clock.getElapsedTime();
         
-        const mouseWorld = new THREE.Vector3(mouse.x * 3, mouse.y * 3, 0);
+        mouseWorld.set(mouse.x * 3, mouse.y * 3, 0);
         const currentPositions = geometry.attributes.position.array as Float32Array;
 
         for (let i = 0; i < particleCount; i++) {
@@ -162,23 +169,25 @@ const WovenCanvas = () => {
             const iy = i * 3 + 1;
             const iz = i * 3 + 2;
 
-            const currentPos = new THREE.Vector3(currentPositions[ix], currentPositions[iy], currentPositions[iz]);
-            const originalPos = new THREE.Vector3(originalPositions[ix], originalPositions[iy], originalPositions[iz]);
-            const velocity = new THREE.Vector3(velocities[ix], velocities[iy], velocities[iz]);
+            currentPos.set(currentPositions[ix], currentPositions[iy], currentPositions[iz]);
+            originalPos.set(originalPositions[ix], originalPositions[iy], originalPositions[iz]);
+            velocity.set(velocities[ix], velocities[iy], velocities[iz]);
 
-            const dist = currentPos.distanceTo(mouseWorld);
-            if (dist < 1.5) {
+            // use squared distance for performance
+            const distSq = currentPos.distanceToSquared(mouseWorld);
+            if (distSq < 2.25) { // 1.5 * 1.5
+                const dist = Math.sqrt(distSq);
                 const force = (1.5 - dist) * 0.01;
-                const direction = new THREE.Vector3().subVectors(currentPos, mouseWorld).normalize();
-                velocity.add(direction.multiplyScalar(force));
+                tempVec.subVectors(currentPos, mouseWorld).normalize();
+                velocity.add(tempVec.multiplyScalar(force));
             }
 
-            // Return to original position
-            const returnForce = new THREE.Vector3().subVectors(originalPos, currentPos).multiplyScalar(0.001);
-            velocity.add(returnForce);
+            // Return to original position (smooth spring effect)
+            tempVec.subVectors(originalPos, currentPos).multiplyScalar(0.005);
+            velocity.add(tempVec);
             
-            // Damping
-            velocity.multiplyScalar(0.95);
+            // Damping (snappier physics)
+            velocity.multiplyScalar(0.92);
 
             currentPositions[ix] += velocity.x;
             currentPositions[iy] += velocity.y;
@@ -206,7 +215,9 @@ const WovenCanvas = () => {
         window.removeEventListener('resize', handleResize);
         window.removeEventListener('mousemove', handleMouseMove);
         cancelAnimationFrame(animationFrameId);
-        mountRef.current?.removeChild(renderer.domElement);
+        if (mountRef.current?.contains(renderer.domElement)) {
+            mountRef.current.removeChild(renderer.domElement);
+        }
         torusKnot.dispose();
         geometry.dispose();
         material.dispose();

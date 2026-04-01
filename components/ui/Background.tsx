@@ -8,7 +8,7 @@ const Background = () => {
     const [comets, setComets] = useState<{ id: number; top: string; left: string; delay: string; duration: string }[]>([]);
 
     useEffect(() => {
-        const starCount = 50;
+        const starCount = 40; // Reduced from 50
         const newStars = Array.from({ length: starCount }).map((_, i) => ({
             id: i,
             top: `${Math.random() * 100}%`,
@@ -19,7 +19,7 @@ const Background = () => {
         }));
         setStars(newStars);
 
-        const cometCount = 8;
+        const cometCount = 5; // Reduced from 8
         const newComets = Array.from({ length: cometCount }).map((_, i) => ({
             id: i,
             top: `${Math.random() * -20}%`,
@@ -45,7 +45,7 @@ const Background = () => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-teal-500/20 blur-[120px]"
+                    className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-teal-500/20 blur-[80px] will-change-transform"
                 />
                 <motion.div
                     animate={{
@@ -58,7 +58,7 @@ const Background = () => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-500/10 blur-[140px]"
+                    className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-500/10 blur-[100px] will-change-transform"
                 />
                 <motion.div
                     animate={{
@@ -71,7 +71,7 @@ const Background = () => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute top-[20%] right-[10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[100px]"
+                    className="absolute top-[20%] right-[10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[80px] will-change-transform"
                 />
             </div>
 
