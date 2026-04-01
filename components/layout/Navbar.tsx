@@ -1,8 +1,7 @@
-"use client";
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Magnetic from '@/components/ui/Magnetic';
 
 const NAV_ITEMS = [
     { name: "Home", href: "#home" },
@@ -48,9 +47,9 @@ const Navbar = () => {
                     opacity: 1,
                 }}
                 transition={{ 
-                    layout: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                    layout: { duration: 0.8, ease: [0.23, 1, 0.32, 1] },
                     duration: 0.8, 
-                    ease: [0.22, 1, 0.36, 1] 
+                    ease: [0.23, 1, 0.32, 1] 
                 }}
                 className={`
                     pointer-events-auto
@@ -59,37 +58,38 @@ const Navbar = () => {
                     border border-white/10
                     flex items-center gap-1
                     shadow-[0_8px_32px_rgba(0,0,0,0.5)]
-                    transition-all duration-500
+                    transition-all duration-700 ease-[var(--ease-expo)]
                     ${scrolled ? "bg-black/60 border-white/20" : ""}
                 `}
             >
                 {NAV_ITEMS.map((item) => (
-                    <Link 
-                        key={item.name} 
-                        href={item.href}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById(item.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="relative px-4 py-2 text-sm font-medium transition-colors group"
-                    >
-                        <span className={`relative z-10 ${activeSection === item.href.substring(1) ? "text-white" : "text-white/50 group-hover:text-white/80 transition-colors"}`}>
-                            {item.name}
-                        </span>
-                        
-                        {activeSection === item.href.substring(1) && (
+                    <Magnetic key={item.name} strength={0.1} range={0.15}>
+                        <Link 
+                            href={item.href}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById(item.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="relative px-4 py-2 text-sm font-medium transition-colors group block"
+                        >
+                            <span className={`relative z-10 ${activeSection === item.href.substring(1) ? "text-white" : "text-white/50 group-hover:text-white/80 transition-colors duration-500 ease-[var(--ease-expo)]"}`}>
+                                {item.name}
+                            </span>
+                            
+                            {activeSection === item.href.substring(1) && (
+                                <motion.div 
+                                    layoutId="nav-active"
+                                    className="absolute inset-0 bg-white/10 rounded-full z-0"
+                                    transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                                />
+                            )}
+                            
                             <motion.div 
-                                layoutId="nav-active"
-                                className="absolute inset-0 bg-white/10 rounded-full z-0"
-                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                className="absolute inset-0 bg-white/5 rounded-full z-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                             />
-                        )}
-                        
-                        <motion.div 
-                            className="absolute inset-0 bg-white/5 rounded-full z-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                            transition={{ duration: 0.3 }}
-                        />
-                    </Link>
+                        </Link>
+                    </Magnetic>
                 ))}
             </motion.div>
         </nav>

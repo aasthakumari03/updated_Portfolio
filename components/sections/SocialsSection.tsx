@@ -62,12 +62,12 @@ const SocialsSection = () => {
                                     delay: 0.3 // Slight delay before gathering starts
                                 }}
                             >
-                                <Magnetic strength={0.05}>
+                                <Magnetic strength={0.15}>
                                 <a 
                                     href={social.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative block p-10 rounded-[2.5rem] border border-white/5 bg-zinc-900/40 backdrop-blur-xl transition-all duration-700 overflow-hidden hover:bg-zinc-900/60"
+                                    className="group relative block p-10 rounded-[2.5rem] border border-white/5 bg-zinc-900/40 backdrop-blur-xl transition-all duration-700 ease-[var(--ease-expo)] overflow-hidden hover:bg-zinc-900/60"
                                 >
                                     {/* Brand Color Aura */}
                                     <div 
