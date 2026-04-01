@@ -66,6 +66,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth" style={{ colorScheme: 'dark' }}>
+      <head>
+        <meta name="color-scheme" content="dark" />
+        <style dangerouslySetInnerHTML={{ __html: `
+          html, body { background: #020202 !important; color: white !important; color-scheme: dark !important; }
+          .dark { color-scheme: dark !important; }
+        ` }} />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              document.documentElement.classList.add('dark');
+              document.documentElement.style.colorScheme = 'dark';
+            } catch (e) {}
+          })();
+        ` }} />
+      </head>
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} ${cormorant.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
       >

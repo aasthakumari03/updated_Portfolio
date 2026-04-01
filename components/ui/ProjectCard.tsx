@@ -149,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
                     <div className="pt-4 flex items-center justify-between">
                         <Magnetic strength={0.15}>
-                            <button className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 rounded-full font-bold text-xs transition-all duration-700 ease-[var(--ease-expo)] group/btn shadow-xl hover:shadow-teal-500/20">
+                            <button className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-teal-500 text-white hover:text-white border border-white/10 hover:border-teal-400 rounded-full font-bold text-xs transition-all duration-700 ease-[var(--ease-expo)] group/btn shadow-xl hover:shadow-teal-500/40">
                                 Explore <FaArrowRight className="-rotate-45 group-hover/btn:rotate-0 transition-transform duration-500 ease-[var(--ease-expo)]" />
                             </button>
                         </Magnetic>

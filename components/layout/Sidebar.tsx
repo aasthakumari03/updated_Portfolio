@@ -81,9 +81,9 @@ const Sidebar = () => {
                             key={item.href}
                             href={item.href}
                             onClick={(e) => handleLinkClick(e, item.href)}
-                            className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl font-bold transition-all ${isActive ? 'bg-white text-black shadow-2xl shadow-white/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
+                            className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl font-bold transition-all duration-500 ease-[var(--ease-expo)] ${isActive ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20 shadow-lg shadow-teal-500/10' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
                         >
-                            <item.icon className={`shrink-0 ${isActive ? 'text-black/60' : 'text-white/20'}`} size={20} />
+                            <item.icon className={`shrink-0 ${isActive ? 'text-teal-400' : 'text-white/20'}`} size={20} />
                             <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap">{item.label}</span>
                         </a>
                     );

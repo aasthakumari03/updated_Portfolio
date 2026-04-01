@@ -113,8 +113,8 @@ const SocialsSection = () => {
                                         </div>
 
                                         <div className="self-center md:self-stretch flex items-center">
-                                            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:border-white">
-                                                <svg className="w-4 h-4 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-teal-500 group-hover:border-teal-400 shadow-lg group-hover:shadow-teal-500/20">
+                                                <svg className="w-4 h-4 text-white group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                                 </svg>
                                             </div>
