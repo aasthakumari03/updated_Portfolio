@@ -32,7 +32,7 @@ export const WovenLightHero = () => {
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-center">
       <WovenCanvas />
       <div className="relative z-10 px-4 max-w-7xl mx-auto">
-        <h1 className="text-5xl md:text-[8rem] font-semibold text-white leading-[0.8] tracking-wider" style={{ fontFamily: "var(--font-royal)", textShadow: '0 0 100px rgba(255, 255, 255, 0.5)' }}>
+        <h1 className="text-5xl md:text-[8rem] font-medium text-white leading-[0.8] tracking-[0.15em]" style={{ fontFamily: "var(--font-premium)", textShadow: '0 0 100px rgba(255, 255, 255, 0.4)' }}>
             {headline.split(" ").map((word, i) => (
                 <span key={i} className="block md:inline-block mx-4">
                     {word.split("").map((char, j) => (

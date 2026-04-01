@@ -41,7 +41,7 @@ const Logo = () => {
                     href="/" 
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="group flex items-center gap-0 font-[family-name:var(--font-handwritten)] text-white/90 hover:text-white transition-all duration-500"
+                    className="group flex items-center gap-0 font-[family-name:var(--font-premium)] text-white/90 hover:text-white transition-all duration-500"
                 >
                     <div className="flex items-center relative min-h-[48px]">
                         {!isHovered ? (

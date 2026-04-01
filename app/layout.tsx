@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One, Architects_Daughter, Cormorant_Garamond } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One, Architects_Daughter, Cormorant_Garamond, Cinzel } from "next/font/google";
+
+const cinzel = Cinzel({
+  variable: "--font-premium",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-royal",
@@ -82,7 +88,7 @@ export default function RootLayout({
         ` }} />
       </head>
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} ${cormorant.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} ${cormorant.variable} ${cinzel.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
       >
         {/* Background Layers */}
         <SpiralAnimation />
