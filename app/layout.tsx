@@ -43,6 +43,7 @@ export const metadata: Metadata = {
   description: "Aspiring Software Developer & AI/ML Student. Explore my portfolio showcasing projects in Web Development, Artificial Intelligence, and Machine Learning.",
   keywords: ["Aastha Kumari", "Portfolio", "Software Developer", "AI", "ML", "Web Development", "React", "Next.js", "Python"],
   authors: [{ name: "Aastha Kumari" }],
+  colorScheme: "dark",
   openGraph: {
     title: "Aastha Kumari | Portfolio",
     description: "Aspiring Software Developer & AI/ML Student.",
