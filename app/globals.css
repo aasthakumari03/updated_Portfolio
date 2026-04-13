@@ -38,8 +38,8 @@ html.lenis body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-gothic: var(--font-gothic);
-  --font-handwritten: var(--font-handwritten);
+  --font-premium: var(--font-premium);
+  --font-serif: var(--font-serif);
 }
 
 @keyframes ring-pulse {

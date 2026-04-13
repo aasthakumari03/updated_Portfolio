@@ -1,14 +1,25 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+ 
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Background = () => {
     const [stars, setStars] = useState<{ id: number; top: string; left: string; size: string; delay: string; duration: string }[]>([]);
     const [comets, setComets] = useState<{ id: number; top: string; left: string; delay: string; duration: string }[]>([]);
+    const [isInView, setIsInView] = useState(true);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const starCount = 40; // Reduced from 50
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const starCount = 30; // Further reduced from 40
         const newStars = Array.from({ length: starCount }).map((_, i) => ({
             id: i,
             top: `${Math.random() * 100}%`,
@@ -19,7 +30,7 @@ const Background = () => {
         }));
         setStars(newStars);
 
-        const cometCount = 5; // Reduced from 8
+        const cometCount = 3; // Reduced from 5
         const newComets = Array.from({ length: cometCount }).map((_, i) => ({
             id: i,
             top: `${Math.random() * -20}%`,
@@ -30,8 +41,10 @@ const Background = () => {
         setComets(newComets);
     }, []);
 
+    if (!isInView) return null;
+
     return (
-        <div className="fixed inset-0 z-0 bg-[#020202] overflow-hidden pointer-events-none noise-overlay">
+        <div ref={containerRef} className="fixed inset-0 z-0 bg-[#020202] overflow-hidden pointer-events-none noise-overlay">
             {/* Animated Blobs */}
             <div className="absolute inset-0 z-0 opacity-30">
                 <motion.div

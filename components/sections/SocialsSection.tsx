@@ -18,7 +18,7 @@ const SocialsSection = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }}
                         className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4"
-                        style={{ fontFamily: "var(--font-royal)" }}
+                        style={{ fontFamily: "var(--font-serif)" }}
                     >
                         Social Presence
                     </motion.h2>
@@ -92,7 +92,7 @@ const SocialsSection = () => {
                                         
                                         <div className="flex-1 space-y-6">
                                             <div className="space-y-1">
-                                                <h3 className="text-3xl font-bold text-white tracking-tight leading-none" style={{ fontFamily: "var(--font-royal)" }}>
+                                                <h3 className="text-3xl font-bold text-white tracking-tight leading-none" style={{ fontFamily: "var(--font-serif)" }}>
                                                     {social.name}
                                                 </h3>
                                                 <p className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-bold">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Playfair_Display, Pirata_One, Architects_Daughter, Cormorant_Garamond, Cinzel } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Playfair_Display, Cinzel } from "next/font/google";
 
 const cinzel = Cinzel({
   variable: "--font-premium",
@@ -7,31 +7,13 @@ const cinzel = Cinzel({
   weight: ["400", "500", "600", "700"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-royal",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
 });
 
-const pirata = Pirata_One({
-  variable: "--font-gothic",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const architectsDaughter = Architects_Daughter({
-  variable: "--font-handwritten",
-  subsets: ["latin"],
-  weight: ["400"],
-});
 import React from "react";
 import "./globals.css";
-import CustomCursor from "@/components/ui/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -59,8 +41,7 @@ export const metadata: Metadata = {
   },
 };
 
-import SpiralAnimation from "@/components/ui/SpiralAnimation";
-import Background from "@/components/ui/Background";
+import { ClientProviders } from "@/components/ClientProviders";
 import Logo from "@/components/layout/Logo";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
@@ -88,23 +69,21 @@ export default function RootLayout({
         ` }} />
       </head>
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${pirata.variable} ${architectsDaughter.variable} ${cormorant.variable} ${cinzel.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${playfair.variable} ${cinzel.variable} antialiased bg-[#020202] text-white relative flex flex-col min-h-screen selection:bg-teal-500/30 overflow-x-hidden`}
       >
         {/* Background Layers */}
-        <SpiralAnimation />
-        <div className="fixed inset-0 bg-black/50 z-[-1] pointer-events-none" />
-        <Background />
-        
-        <CustomCursor />
-        
-        <SmoothScroll>
-          <Logo />
-          <Navbar />
+        <ClientProviders>
+          <div className="fixed inset-0 bg-black/50 z-[-1] pointer-events-none" />
+          
+          <SmoothScroll>
+            <Logo />
+            <Navbar />
 
-          <main className="flex-grow relative z-10 min-h-screen">
-            {children}
-          </main>
-        </SmoothScroll>
+            <main className="flex-grow relative z-10 min-h-screen">
+              {children}
+            </main>
+          </SmoothScroll>
+        </ClientProviders>
       </body>
     </html>
   );

@@ -87,20 +87,28 @@ const WovenCanvas = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
+    
+    const isInView = { current: true };
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            isInView.current = entry.isIntersecting;
+        },
+        { threshold: 0.1 }
+    );
+    observer.observe(mountRef.current);
 
     const mouse = new THREE.Vector2(0, 0);
     const clock = new THREE.Clock();
-
     const isDarkMode = true; // Forcing dark mode based on portfolio theme
 
     // --- Woven Silk ---
-    const particleCount = 8000; // Optimized from 50000
+    const particleCount = 6000; // Further reduced from 8000
     const positions = new Float32Array(particleCount * 3);
     const originalPositions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount * 3);
 
-    const torusKnot = new THREE.TorusKnotGeometry(1.5, 0.5, 200, 32);
+    const torusKnot = new THREE.TorusKnotGeometry(1.5, 0.5, 120, 24); // Lowered geometry resolution
     const torusKnotPositions = torusKnot.attributes.position;
 
     for (let i = 0; i < particleCount; i++) {
@@ -132,11 +140,11 @@ const WovenCanvas = () => {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 0.025, // Slightly larger particles to compensate for lower count
+        size: 0.035, // Increased size slightly for lower count
         vertexColors: true,
         blending: isDarkMode ? THREE.AdditiveBlending : THREE.NormalBlending,
         transparent: true,
-        opacity: isDarkMode ? 0.6 : 0.8,
+        opacity: isDarkMode ? 0.5 : 0.7,
     });
 
     const points = new THREE.Points(geometry, material);
@@ -159,6 +167,8 @@ const WovenCanvas = () => {
 
     const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
+        if (!isInView.current) return;
+
         const elapsedTime = clock.getElapsedTime();
         
         mouseWorld.set(mouse.x * 3, mouse.y * 3, 0);
@@ -175,9 +185,9 @@ const WovenCanvas = () => {
 
             // use squared distance for performance
             const distSq = currentPos.distanceToSquared(mouseWorld);
-            if (distSq < 2.25) { // 1.5 * 1.5
+            if (distSq < 2) { // Slightly tighter radius
                 const dist = Math.sqrt(distSq);
-                const force = (1.5 - dist) * 0.01;
+                const force = (1.41 - dist) * 0.01;
                 tempVec.subVectors(currentPos, mouseWorld).normalize();
                 velocity.add(tempVec.multiplyScalar(force));
             }
@@ -215,6 +225,7 @@ const WovenCanvas = () => {
         window.removeEventListener('resize', handleResize);
         window.removeEventListener('mousemove', handleMouseMove);
         cancelAnimationFrame(animationFrameId);
+        observer.disconnect();
         if (mountRef.current?.contains(renderer.domElement)) {
             mountRef.current.removeChild(renderer.domElement);
         }

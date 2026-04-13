@@ -4,8 +4,17 @@ import React, { useEffect, useRef } from 'react';
 
 const SpiralAnimation = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const isInView = useRef(true);
 
     useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isInView.current = entry.isIntersecting;
+            },
+            { threshold: 0.1 }
+        );
+        if (canvasRef.current) observer.observe(canvasRef.current);
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -72,6 +81,9 @@ const SpiralAnimation = () => {
         };
 
         const render = () => {
+            animationFrameId = requestAnimationFrame(render);
+            if (!isInView.current) return;
+
             ctx.fillStyle = 'rgba(2, 2, 2, 0.1)'; // Slight trail effect
             ctx.fillRect(0, 0, w, h);
 
@@ -79,8 +91,6 @@ const SpiralAnimation = () => {
                 p.update();
                 p.draw();
             });
-
-            animationFrameId = requestAnimationFrame(render);
         };
 
         window.addEventListener('resize', setup);
@@ -90,6 +100,7 @@ const SpiralAnimation = () => {
         return () => {
             window.removeEventListener('resize', setup);
             cancelAnimationFrame(animationFrameId);
+            observer.disconnect();
         };
     }, []);
 

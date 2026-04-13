@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="w-full">
             <div className="pt-20 pb-4 text-center">
                 <p className="text-sm font-bold text-white/15 uppercase tracking-[0.4em]">
-                    ALL RIGHTS RESERVED | <span className="font-[family-name:var(--font-gothic)] font-bold text-lg tracking-normal">AASTHA KUMARI | {currentYear}</span>
+                    ALL RIGHTS RESERVED | <span className="font-[family-name:var(--font-premium)] font-bold text-lg tracking-normal">AASTHA KUMARI | {currentYear}</span>
                 </p>
             </div>
 
