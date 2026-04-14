@@ -1,10 +1,12 @@
 
 import React from 'react';
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PerformanceBackground from "@/components/ui/PerformanceBackground";
 
 const AboutSection = () => {
     return (
-        <section id="about" className="py-32 px-12 max-w-5xl mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center">
+        <section id="about" className="relative py-32 px-12 w-full mx-auto space-y-12 min-h-screen flex flex-col justify-start items-center text-center">
+            <PerformanceBackground density={20} color="rgba(99, 102, 241, 0.1)" />
             <ScrollReveal>
                 <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-zinc-300">About Me</h2>
             </ScrollReveal>
