@@ -29,35 +29,39 @@ export const SOCIAL_LINKS = [
 export const PROJECTS = [
     {
         title: "Celestial Portfolio",
-        category: "",
-        year: "",
-        tags: [],
+        category: "Creative Development",
+        year: "2025",
+        tags: ["GSAP", "Three.js", "Lenis"],
         features: [
             "Modern universe-themed aesthetic",
             "Smooth GSAP & Lenis scrolling",
             "Interactive spotlight components"
         ],
         backgroundImage: "/celestial-portfolio.png",
+        accentColor: "#2dd4bf", // Teal
+        secondaryColor: "#6366f1", // Indigo
         hasContentBorder: true,
         link: "#"
     },
     {
-        title: "Fitlife Tracker",
-        category: "Health & Fitness",
+        title: "FitLife Tracker",
+        category: "Health & AI",
         year: "2025",
-        tags: [],
+        tags: ["Next.js", "Firebase", "TensorFlow"],
         features: [
             "AI-driven workout recommendations",
             "Real-time nutritional tracking",
             "Interactive progress analytics"
         ],
-        backgroundImage: "",
+        backgroundImage: "/images/fitlife.png",
+        accentColor: "#f43f5e", // Rose
+        secondaryColor: "#fb923c", // Orange
         hasContentBorder: true,
         link: "#"
     },
     {
         title: "Paceforge",
-        category: "Productivity & Automation",
+        category: "Productivity",
         year: "2026",
         tags: ["Next.js", "MongoDB", "Tailwind"],
         features: [
@@ -66,19 +70,24 @@ export const PROJECTS = [
             "Full-stack Task Management System"
         ],
         backgroundImage: "/images/paceforge.png",
+        accentColor: "#eab308", // Yellow/Gold
+        secondaryColor: "#f97316", // Orange
         hasContentBorder: true,
         link: "#"
     },
     {
         title: "Shadowchat",
-        category: "Secure Dynamic Messaging",
+        category: "Cybersecurity",
         year: "2026",
-        tags: ["Next.js", "Firebase", "Framer Motion"],
+        tags: ["WebRTC", "AES-256", "Next.js"],
         features: [
             "Dynamic Session-based Identity",
-            "Encrypted Real-time Communication"
+            "Encrypted Real-time Communication",
+            "Biometric Access Simulation"
         ],
         backgroundImage: "/images/shadowchat.png",
+        accentColor: "#a855f7", // Purple
+        secondaryColor: "#3b82f6", // Blue
         hasContentBorder: true,
         link: "#"
     }
